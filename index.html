@@ -9,8 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root{--pink:#ff4d6d;--orange:#f26535;--sand:#fff0d9;--teal:#1f8ea1;--ink:#222831;}
-  *{box-sizing:border-box} html,body{margin:0;background:var(--sand);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-  img{max-width:100%;display:block;height:auto} a{color:var(--teal);text-decoration:none}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--sand);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  img{max-width:100%;display:block;height:auto}
+  a{color:var(--teal);text-decoration:none}
+
   header.hero{background:linear-gradient(120deg,#fff 0 60%,var(--sand) 60%),radial-gradient(1200px 420px at 100% 0,rgba(0,0,0,.04),transparent 55%);
     min-height:62vh;display:grid;place-items:center;text-align:center;padding:6rem 1rem 3rem;position:relative}
   .brand{position:absolute;top:1rem;left:1rem;display:flex;gap:.6rem;align-items:center}
@@ -18,57 +21,102 @@
   .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem}
   .btn{padding:.9rem 1.2rem;border-radius:18px;font-weight:800;border:2px solid transparent;box-shadow:0 8px 24px rgba(0,0,0,.08)}
   .btn.primary{background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff}
+
   nav.top{position:sticky;top:0;background:#ffffffdb;backdrop-filter:blur(6px);z-index:10;border-bottom:1px solid #eee}
   nav.top ul{margin:0;padding:.3rem 1rem;display:flex;gap:.4rem;list-style:none;justify-content:center;flex-wrap:wrap}
-  nav.top a{color:#123;padding:.6rem 1rem;border-radius:12px} nav.top a:hover{background:#f6f9fa}
-  section{padding:3rem 1rem;max-width:1100px;margin:0 auto} .headline{margin-bottom:.6rem}
+  nav.top a{color:#123;padding:.6rem 1rem;border-radius:12px}
+  nav.top a:hover{background:#f6f9fa}
+
+  section{padding:3rem 1rem;max-width:1100px;margin:0 auto}
+  .headline{margin-bottom:.6rem}
   .underline{width:120px;height:7px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--orange));}
+
   .card{background:#fff;border:1px solid #edf1f3;border-radius:18px;padding:1.2rem;box-shadow:0 12px 26px rgba(2,16,24,.06)}
   .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-  .banner img.logo-inline{width:66px;height:66px;object-fit:cover;border-radius:12px}
+
   .badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
   .badge{background:#fff;border:2px solid rgba(0,0,0,.06);padding:.35rem .7rem;border-radius:999px;font-weight:800;font-size:.9rem;color:#6d214f;
-          box-shadow:0 6px 14px rgba(233,76,110,.12)}
+        box-shadow:0 6px 14px rgba(233,76,110,.12)}
   .badge span{background:linear-gradient(90deg,var(--pink),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
+
+  /* Logo-Leiste im Bereich "Über mich" */
+  .logo-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:.6rem;margin:1rem 0}
+  .logo-tile{background:#fff;border:1px solid #edf1f3;border-radius:14px;display:grid;place-items:center;padding:.6rem}
+  .logo-tile img{width:100%;height:64px;object-fit:cover;border-radius:10px}
+
   .mantra{background:#fff;border:1px solid #f7e0c7;border-radius:18px;padding:2rem;text-align:center}
+
   .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
   .gallery figure{margin:0;border-radius:18px;overflow:hidden;border:1px solid #edf1f3;background:#fff;box-shadow:0 6px 16px rgba(2,16,24,.06)}
+  .gallery figcaption{padding:.6rem .8rem;font-size:.9rem;color:#334;background:#f8fbfc}
+
   .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
   .price-card{background:#fff;border:1px solid #e9eff2;border-radius:18px;padding:1.2rem;box-shadow:0 6px 18px rgba(2,16,24,.05)}
   .price{font-size:1.9rem;font-weight:900;background:linear-gradient(90deg,var(--pink),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
-  footer{background:#fff;color:#334;padding:2rem 1rem;border-top:1px solid #eee} footer .cols{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+
+  footer{background:#fff;color:#334;padding:2rem 1rem;border-top:1px solid #eee}
+  footer .cols{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
 </style>
 </head>
 <body>
+
 <header class="hero" id="home">
-  <div class="brand"><img src="assets/logo-1.jpg" alt="Logo 1"/><strong>Mara's Move</strong></div>
+  <div class="brand">
+    <img src="assets/logo-1.jpg" alt="Logo 1" />
+    <strong>Mara's Move</strong>
+  </div>
   <div class="hero-inner">
     <p class="kicker">Personal · Mentales Coaching · Ernährung · EMS & Online</p>
     <h1>Stark im Körper. Klar im Kopf. Modern, freundlich & mit Pink/Orange.</h1>
-    <div class="cta-row"><a class="btn primary" href="#preise">Zu den Preisen</a></div>
+    <div class="cta-row">
+      <a class="btn primary" href="#preise">Zu den Preisen</a>
+    </div>
   </div>
 </header>
 
-<nav class="top"><ul>
-  <li><a href="#ueber">Über mich</a></li><li><a href="#leistungen">Leistungen</a></li>
-  <li><a href="#mantra">Studiomantra</a></li><li><a href="#galerie">Bilder</a></li>
-  <li><a href="#zertifikate">Zertifikate</a></li><li><a href="#preise">Preise</a></li>
-  <li><a href="#kontakt">Kontakt</a></li><li><a href="#impressum">Impressum</a></li><li><a href="#datenschutz">Datenschutz</a></li>
-</ul></nav>
+<nav class="top">
+  <ul>
+    <li><a href="#ueber">Über mich</a></li>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#mantra">Studiomantra</a></li>
+    <li><a href="#galerie">Bilder</a></li>
+    <li><a href="#zertifikate">Zertifikate</a></li>
+    <li><a href="#preise">Preise</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#impressum">Impressum</a></li>
+    <li><a href="#datenschutz">Datenschutz</a></li>
+  </ul>
+</nav>
 
 <section id="ueber">
-  <div class="headline"><h2>Über mich</h2><div class="underline"></div></div>
-  <div class="card banner">
-    <img class="logo-inline" src="assets/logo-2.jpg" alt="Logo 2">
-    <div><p>Hi, ich bin Mara – Personal Trainerin, mentale Coachin und Ernährungsberaterin. Ich kombiniere Training,
+  <div class="headline">
+    <h2>Über mich</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="card">
+    <p>Hi, ich bin Mara – Personal Trainerin, mentale Coachin und Ernährungsberaterin. Ich kombiniere Training,
     Mindset und pragmatische Ernährung, damit du nachhaltig mehr Energie & Leichtigkeit spürst – vor Ort & online.</p>
+
+    <!-- Qualifikationen -->
     <div class="badges">
       <div class="badge"><span>B‑Fitnesstrainer Lizenz</span></div>
       <div class="badge"><span>Yoga‑Instructor</span></div>
       <div class="badge"><span>Vitalstoff‑Trainerin</span></div>
       <div class="badge"><span>Ernährungsberaterin</span></div>
       <div class="badge"><span>EMS‑Trainerin</span></div>
-    </div></div>
+    </div>
+
+    <!-- Logo‑Leiste (alle 7 Logos) -->
+    <div class="logo-strip">
+      <div class="logo-tile"><img src="assets/logo-1.jpg" alt="Logo 1"></div>
+      <div class="logo-tile"><img src="assets/logo-2.jpg" alt="Logo 2"></div>
+      <div class="logo-tile"><img src="assets/logo-3.jpg" alt="Logo 3"></div>
+      <div class="logo-tile"><img src="assets/logo-4.jpg" alt="Logo 4"></div>
+      <div class="logo-tile"><img src="assets/logo-5.jpg" alt="Logo 5"></div>
+      <div class="logo-tile"><img src="assets/logo-6.jpg" alt="Logo 6"></div>
+      <div class="logo-tile"><img src="assets/logo-7.jpg" alt="Logo 7"></div>
+    </div>
   </div>
 </section>
 
@@ -86,15 +134,19 @@
   </div>
 </section>
 
-<section id="mantra"><div class="mantra">
-  <blockquote>„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt.“</blockquote>
-  <img src="assets/logo-3.jpg" alt="Logo 3" />
-</div></section>
+<section id="mantra">
+  <div class="mantra">
+    <blockquote>„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt.“</blockquote>
+    <img src="assets/logo-3.jpg" alt="Logo 3" style="width:72px;margin:1rem auto 0;border-radius:12px;border:1px solid #eee" />
+  </div>
+</section>
 
 <section id="galerie">
   <div class="headline"><h2>Bilder</h2><div class="underline"></div></div>
   <div class="gallery">
-    <figure><img src="assets/gallery-1.jpg" alt="Galerie 1"><figcaption>Moment 1</figcaption></figure><figure><img src="assets/gallery-2.jpg" alt="Galerie 2"><figcaption>Moment 2</figcaption></figure><figure><img src="assets/gallery-3.jpg" alt="Galerie 3"><figcaption>Moment 3</figcaption></figure>
+    <figure><img src="assets/gallery-1.jpg" alt="Galerie 1"><figcaption>Moment 1</figcaption></figure>
+    <figure><img src="assets/gallery-2.jpg" alt="Galerie 2"><figcaption>Moment 2</figcaption></figure>
+    <figure><img src="assets/gallery-3.jpg" alt="Galerie 3"><figcaption>Moment 3</figcaption></figure>
   </div>
 </section>
 
@@ -142,9 +194,14 @@
   <a href="mailto:info@marasmove.de">info@marasmove.de</a>.</p>
 </section>
 
-<footer><div class="cols">
-  <div><h3>Mara's Move</h3><p>Ganzheitliches Coaching für Körper, Kopf & Ernährung – vor Ort & online.</p></div>
-  <div><h4>Navi</h4><p><a href="#leistungen">Leistungen</a> · <a href="#preise">Preise</a> · <a href="#galerie">Bilder</a> · <a href="#zertifikate">Zertifikate</a></p></div>
-  <div><h4>Brand</h4><img src="assets/logo-1.jpg" alt="Logo" style="width:80px;border-radius:12px;border:2px solid #eee"></div>
-</div><p style="margin-top:1rem;">© 2025 Mara's Move</p></footer>
-</body></html>
+<footer>
+  <div class="cols">
+    <div><h3>Mara's Move</h3><p>Ganzheitliches Coaching für Körper, Kopf & Ernährung – vor Ort & online.</p></div>
+    <div><h4>Navi</h4><p><a href="#leistungen">Leistungen</a> · <a href="#preise">Preise</a> · <a href="#galerie">Bilder</a> · <a href="#zertifikate">Zertifikate</a></p></div>
+    <div><h4>Brand</h4><img src="assets/logo-1.jpg" alt="Logo" style="width:80px;border-radius:12px;border:2px solid #eee"></div>
+  </div>
+  <p style="margin-top:1rem;">© 2025 Mara's Move</p>
+</footer>
+
+</body>
+</html>
