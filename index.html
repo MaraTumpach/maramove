@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mara's Move – stark im körper, klar im kopf.</title>
-<meta name="description" content="Mara's Move: Personal Training, mentales Coaching, Ernährungsberatung & EMS – vor Ort & online.">
-<!-- Wichtig: sorgt dafür, dass assets/... auf GitHub Pages sicher gefunden wird -->
-<base href="https://maratumpach.github.io/maramove/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mara's Move – stark im körper, klar im kopf</title>
+  <meta name="description" content="Mara's Move: Personal Training, mentales Coaching, Ernährung. Stark im Körper, klar im Kopf.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<header>
+  <h1 style="font-weight: bold; text-transform: lowercase;">mara's move</h1>
+  <p>stark im körper, klar im kopf</p>
+ 
+  <!-- Logos -->
+  <div class="logos">
+    <img src="assets/logo-1.jpg" alt="Mara's Move Logo 1">
+    <img src="assets/logo-2.jpg" alt="Mara's Move Logo 2">
+    <img src="assets/logo-3.jpg" alt="Mara's Move Logo 3">
+    <img src="assets/logo-4.jpg" alt="Mara's Move Logo 4">
+    <img src="assets/logo-5.jpg" alt="Mara's Move Logo 5">
+    <img src="assets/logo-6.jpg" alt="Mara's Move Logo 6">
+  </div>
+</header>
 
-<style>
-  :root{--pink:#ff4d6d;--orange:#f26535;--sand:#fff0d9;--teal:#1f8ea1;--ink:#222831;}
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--sand);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-  img{max-width:100%;display:block;height:auto}
-  a{color:var(--teal);text-decoration:none}
+<main>
+  <!-- Galerie -->
+  <section id="gallery">
+    <h2>Galerie</h2>
+    <img src="assets/gallery-1.jpg" alt="Galerie Bild 1">
+    <img src="assets/gallery-2.jpg" alt="Galerie Bild 2">
+  </section>
 
-  header.hero{
-    background:linear-gradient(120deg,#fff 0 60%,var(--sand) 60%),
-              radial-gradient(1200px 420px at 100% 0,rgba(0,0,0,.04),transparent 55%);
-    min-height:62vh;display:grid;place-items:center;text-align:center;
-    padding:6rem 1rem 3rem;position:relative
-  }
-  .brand{position:absolute;top:1rem;left:1rem;display:flex;gap:.6rem;align-items:center}
-  .brand img{width:58px;height:58px;border-radius:14px;border:2px solid rgba(0,0,0,.06);object-fit:cover}
-  .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem}
-  .btn{padding:.9rem 1.2rem;border-radius:18px;font-weight:800;border:2px solid transparent;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-  .btn.primary{background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff}
+  <!-- Über mich -->
+  <section id="about">
+    <h2>Über mich</h2>
+    <p>Hi, ich bin Mara – Personal Trainerin, mentale Coachin und Ernährungsberaterin.
+      Ich kombiniere Training, Mindset und Ernährung, um dich stark im Körper und klar im Kopf zu machen.</p>
+  </section>
+</main>
 
-  .hero-title{font-weight:900;font-size:clamp(2.2rem,5vw,3.5rem);margin:0}
-  .hero-tagline{margin:.4rem 0 0;opacity:.85;font-weight:600;text-transform:none}
+<footer>
+  <p>&copy; 2025 Mara's Move</p>
+</footer>
 
-  nav.top{position:sticky;top:0;background:#ffffffdb;backdrop-filter:blur(6px);z-index:10;border-bottom:1px solid #eee}
-  nav.top ul{margin:0;padding:.3rem 1rem;display:flex;gap:.4rem;list-style:none;justify-content:center;flex-wrap:wrap}
-  nav.top a{color:#123;padding:.6rem 1rem;border-radius:12px}
-  nav.top a:hover{background:#f6f9fa}
-
-  section{padding:3rem 1rem;max-width:1100px;margin:0 auto}
-  .headline{margin-bottom:.6rem}
-  .underline{width:120px;height:7px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--orange));}
-
-  .card{background:#fff;border:1px solid #edf1f3;border-radius:18px;padding:1.2rem;box-shadow:0 12px 26px rgba(2,16,24,.06)}
-  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-
-  .badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
-  .badge{background:#fff;border:2
+</body>
+</html>
