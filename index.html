@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mara's Move – Personal Training, Mentales Coaching & Ernährung</title>
+<meta name="description" content="Helle, moderne Website im Logo-Look: Personal Training, mentales Coaching, Ernährungsberatung, EMS & Online-Coaching.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink: #ff4d6d;
+    --orange: #f26535;
+    --sand: #fff0d9;
+    --teal: #1f8ea1;
+    --ink: #222831;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--sand);color:var(--ink);font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif}
+  img{max-width:100%;display:block;height:auto}
+  a{color:var(--teal);text-decoration:none}
+
+  /* HEADER */
+  header.hero{
+    background: linear-gradient(120deg, #ffffff 0 60%, var(--sand) 60%),
+                radial-gradient(1200px 420px at 100% 0, rgba(0,0,0,.04), transparent 55%);
+    color: var(--ink);
+    min-height:62vh; display:grid; place-items:center; text-align:center; padding:6rem 1rem 3rem; position:relative
+  }
+  .brand{position:absolute; top:1rem; left:1rem; display:flex; gap:.6rem; align-items:center}
+  .brand img{width:58px;height:58px;border-radius:14px;border:2px solid rgba(0,0,0,.06);object-fit:cover}
+  .brand strong{letter-spacing:.02em}
+  .hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem); line-height:1.08; margin:.4rem 0}
+  .hero p.kicker{letter-spacing:.12em; text-transform:uppercase; color:#385; font-weight:700}
+  .cta-row{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.2rem}
+  .btn{padding:.9rem 1.2rem; border-radius:18px; font-weight:800; border:2px solid transparent; box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .btn.primary{background:linear-gradient(135deg,var(--pink),var(--orange)); color:#fff}
+  .btn.alt{background:#fff; color:var(--ink); border-color:#e9eef2}
+  .btn.ghost{background:transparent; border-color:#d9e6ea; color:#234}
+
+  /* NAV */
+  nav.top{position:sticky; top:0; background:#ffffffdb; backdrop-filter: blur(6px); z-index:10; border-bottom:1px solid #eee}
+  nav.top ul{margin:0; padding:.3rem 1rem; display:flex; gap:.4rem; list-style:none; justify-content:center; flex-wrap:wrap}
+  nav.top a{color:#123; padding:.6rem 1rem; border-radius:12px}
+  nav.top a:hover{background:#f6f9fa}
+
+  /* SECTIONS */
+  section{padding:3rem 1rem; max-width:1100px; margin:0 auto}
+  .headline{margin-bottom:.6rem}
+  .underline{width:120px; height:7px; border-radius:999px; background:linear-gradient(90deg,var(--pink),var(--orange));}
+
+  .card{background:#fff; border:1px solid #edf1f3; border-radius:18px; padding:1.2rem; box-shadow:0 12px 26px rgba(2,16,24,.06)}
+  .card h3{margin-top:0; color:#0d3a44}
+  .grid-3{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem}
+
+  .banner{display:flex; gap:1rem; align-items:flex-start; background:#fff; border:1px solid #eef2f4; padding:1rem; border-radius:18px; box-shadow:0 6px 18px rgba(2,16,24,.05)}
+  .banner img.logo-inline{width:66px; height:66px; object-fit:cover; border-radius:12px}
+
+  .badges{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.6rem}
+  .badge{background:#fff; border:2px solid rgba(0,0,0,.06); padding:.35rem .7rem; border-radius:999px; font-weight:800; font-size:.9rem; color:#6d214f; box-shadow:0 6px 14px rgba(233,76,110,.12)}
+  .badge span{background:linear-gradient(90deg,var(--pink),var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:900}
+
+  .mantra{background:#fff; border:1px solid #f7e0c7; border-radius:18px; padding:2rem; text-align:center}
+  .mantra blockquote{font-size:clamp(1.2rem,2.2vw,1.8rem); font-weight:800; color:#8a2a2a; margin:0}
+  .mantra img{width:72px; margin:1rem auto 0; border-radius:12px}
+
+  .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem}
+  .gallery figure{margin:0; border-radius:18px; overflow:hidden; border:1px solid #edf1f3; background:#fff; box-shadow:0 6px 16px rgba(2,16,24,.06)}
+  .gallery figcaption{padding:.6rem .8rem; font-size:.9rem; color:#334; background:#f8fbfc}
+
+  .pricing{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem}
+  .price-card{background:#fff; border:1px solid #e9eff2; border-radius:18px; padding:1.2rem; box-shadow:0 6px 18px rgba(2,16,24,.05)}
+  .price-card h3{color:#0d3a44}
+  .price{font-size:1.9rem; font-weight:900; background:linear-gradient(90deg,var(--pink),var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .note{font-size:.92rem; color:#4b6770}
+
+  footer{background:#fff; color:#334; padding:2rem 1rem; border-top:1px solid #eee}
+  footer .cols{max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem}
+  footer img{width:80px; border-radius:12px; border:2px solid #eee}
+</style>
+</head>
+<body>
+
+<header class="hero" id="home">
+  <div class="brand">
+    <img src="assets/logo-1.jpg" alt="Logo 1" />
+    <strong>Mara's Move</strong>
+  </div>
+  <div class="hero-inner">
+    <p class="kicker">Personal · Mentales Coaching · Ernährung · EMS & Online</p>
+    <h1>Stark im Körper. Klar im Kopf.<br/> Modern, freundlich & mit Funken Pink/Orange.</h1>
+    <div class="cta-row">
+      <a class="btn primary" href="#preise">Zu den Preisen</a>
+      <a class="btn alt" href="#kontakt">Kostenloses Kennenlernen</a>
+    </div>
+  </div>
+</header>
+
+<nav class="top">
+  <ul>
+    <li><a href="#ueber">Über mich</a></li>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#mantra">Studiomantra</a></li>
+    <li><a href="#galerie">Bilder</a></li>
+    <li><a href="#zertifikate">Zertifikate</a></li>
+    <li><a href="#preise">Preise</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#impressum">Impressum</a></li>
+    <li><a href="#datenschutz">Datenschutz</a></li>
+  </ul>
+</nav>
+
+<section id="ueber">
+  <div class="headline">
+    <h2>Über mich</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="card banner">
+    <img class="logo-inline" src="assets/logo-2.jpg" alt="Logo 2">
+    <div>
+      <p>Hi, ich bin Mara – Personal Trainerin, mentale Coachin und Ernährungsberaterin. Ich kombiniere Training,
+      Mindset und pragmatische Ernährung, damit du nachhaltig mehr Energie & Leichtigkeit spürst – vor Ort & online.</p>
+      <div class="badges">
+        <div class="badge"><span>B‑Fitnesstrainer Lizenz</span></div>
+        <div class="badge"><span>Yoga‑Instructor</span></div>
+        <div class="badge"><span>Vitalstoff‑Trainerin</span></div>
+        <div class="badge"><span>Ernährungsberaterin</span></div>
+        <div class="badge"><span>EMS‑Trainerin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leistungen">
+  <div class="headline">
+    <h2>Leistungen</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Personal Training</h3>
+      <p>Kraft, Mobilität & Ausdauer – maßgeschneidert. Auch als Home‑Workout mit <em>Körpergewicht & Matte</em>.</p>
+    </div>
+    <div class="card">
+      <h3>Mentales Coaching</h3>
+      <p>Routinen, Motivation & Fokus. Tools: Habit‑Design, Stress‑Tools, Schlafhygiene, Reflexion.</p>
+    </div>
+    <div class="card">
+      <h3>Ernährungsberatung</h3>
+      <p>Individuelle Pläne inkl. Einkaufsliste, einfache Rezepte & wöchentliche Anpassungen.</p>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:1rem;">
+    <div class="card">
+      <h3>EMS / Strom‑Training</h3>
+      <p>Optionales Kraft‑Upgrade mit EMS. Einsatz des <strong>Breuer‑Gürtels</strong> für gezielte Core‑Aktivierung.</p>
+    </div>
+    <div class="card">
+      <h3>Mehrwöchige Begleitung</h3>
+      <p>4–8 Wochen mit rotem Faden: Ziele definieren, Pläne umsetzen, Fortschritte messen – ich bleibe an deiner Seite.</p>
+    </div>
+    <div class="card">
+      <h3>Online‑Coaching</h3>
+      <p>Flexibel von überall: Video‑Sessions, Heimtrainingspläne & Ernährungs‑Feedback.</p>
+    </div>
+  </div>
+</section>
+
+<section id="mantra">
+  <div class="mantra">
+    <blockquote>„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt.“</blockquote>
+    <img src="assets/logo-3.jpg" alt="Logo 3" />
+  </div>
+</section>
+
+<section id="galerie">
+  <div class="headline">
+    <h2>Bilder</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="gallery">
+    <figure><img src="assets/gallery-1.jpg" alt="Galerie 1"><figcaption>Moment 1</figcaption></figure>
+    <figure><img src="assets/gallery-2.jpg" alt="Galerie 2"><figcaption>Moment 2</figcaption></figure>
+    <figure><img src="assets/gallery-3.jpg" alt="Galerie 3"><figcaption>Moment 3</figcaption></figure>
+  </div>
+</section>
+
+<section id="zertifikate">
+  <div class="headline">
+    <h2>Zertifikate</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="gallery">
+    <figure><img src="assets/logo-4.jpg" alt="Zertifikat 1"><figcaption>B‑Fitnesstrainer Lizenz</figcaption></figure>
+    <figure><img src="assets/logo-5.jpg" alt="Zertifikat 2"><figcaption>Yoga‑Instructor</figcaption></figure>
+    <figure><img src="assets/logo-6.jpg" alt="Zertifikat 3"><figcaption>Vitalstoff‑Trainerin</figcaption></figure>
+    <figure><img src="assets/logo-7.jpg" alt="Zertifikat 4"><figcaption>Ernährungsberaterin / EMS‑Trainerin</figcaption></figure>
+  </div>
+</section>
+
+<section id="preise">
+  <div class="headline">
+    <h2>Preise</h2>
+  </div>
+  <div class="underline"></div>
+  <div class="pricing">
+    <div class="price-card"><h3>Personal Mentales Training (60 Min)</h3><div class="price">39 €</div><p class="note">1:1 Session – Technik, Mindset & Umsetzung.</p></div>
+    <div class="price-card"><h3>Ernährungsberatung & Planerstellung</h3><div class="price">59 €</div><p class="note">Individueller Plan inkl. Einkaufsliste & Rezepte.</p></div>
+    <div class="price-card"><h3>Wochenbegleitung</h3><div class="price">25 € / Woche</div><p class="note">Check‑ins, Anpassungen & Motivation.</p></div>
+    <div class="price-card"><h3>Online‑Coaching Paket (4 Wochen)</h3><div class="price">99 €</div><p class="note">Video‑Sessions + Ernährungs‑Feedback + Heimtrainingsplan.</p></div>
+    <div class="price-card"><h3>EMS / Strom‑Training (inkl. Breuer‑Gürtel)</h3><div class="price">69 € / Einheit</div><p class="note">Kompakt & effektiv – als Session oder Add‑on.</p></div>
+    <div class="price-card"><h3>EMS 4er‑Karte</h3><div class="price">249 €</div><p class="note">Spare gegenüber Einzelsessions – ideal für 4–6 Wochen Fokus.</p></div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="headline">
+    <h2>Kontakt & Buchung</h2>
+    <div class="underline"></div>
+  </div>
+  <p><strong>E‑Mail:</strong> <a href="mailto:info@marasmove.de">info@marasmove.de</a> · <strong>Telefon:</strong> +49 123 456789</p>
+  <form action="mailto:info@marasmove.de" method="post" enctype="text/plain" style="background:#fff;border:1px solid #e9eff2;border-radius:16px;padding:1rem;box-shadow:0 6px 18px rgba(2,16,24,.05)">
+    <label>Name*</label><br><input required style="width:100%;padding:.8rem;border:1px solid #dfe7ea;border-radius:10px;margin:.3rem 0 1rem"><br>
+    <label>E‑Mail*</label><br><input type="email" required style="width:100%;padding:.8rem;border:1px solid #dfe7ea;border-radius:10px;margin:.3rem 0 1rem"><br>
+    <label>Nachricht*</label><br><textarea rows="5" required style="width:100%;padding:.8rem;border:1px solid #dfe7ea;border-radius:10px;margin:.3rem 0 1rem"></textarea><br>
+    <label style="display:flex;align-items:center;gap:.5rem;margin:.4rem 0 1rem"><input type="checkbox" required> <span>Ich stimme der Verarbeitung meiner Angaben gemäß <a href="#datenschutz">Datenschutzerklärung</a> zu.</span></label>
+    <button class="btn primary" type="submit" style="border:none;cursor:pointer">Senden</button>
+  </form>
+</section>
+
+<section id="impressum">
+  <div class="headline"><h2>Impressum</h2><div class="underline"></div></div>
+  <p><strong>Angaben gemäß § 5 TMG</strong><br>Mara's Move · Musterstraße 1 · 12345 Musterstadt · Deutschland<br>Telefon: +49 123 456789 · E‑Mail: info@marasmove.de<br>Vertretungsberechtigt: Mara Musterfrau</p>
+</section>
+
+<section id="datenschutz">
+  <div class="headline"><h2>Datenschutzerklärung</h2><div class="underline"></div></div>
+  <p>Wir verarbeiten personenbezogene Daten ausschließlich im Rahmen der gesetzlichen Vorgaben. Details zu Zweck,
+  Rechtsgrundlagen, Speicherdauer sowie Ihre Rechte (Auskunft, Berichtigung, Löschung, Widerspruch) auf Anfrage an
+  <a href="mailto:info@marasmove.de">info@marasmove.de</a>.</p>
+</section>
+
+<footer>
+  <div class="cols">
+    <div><h3>Mara's Move</h3><p>Ganzheitliches Coaching für Körper, Kopf & Ernährung – vor Ort & online.</p></div>
+    <div><h4>Navi</h4><p><a href="#leistungen">Leistungen</a> · <a href="#preise">Preise</a> · <a href="#galerie">Bilder</a> · <a href="#zertifikate">Zertifikate</a></p></div>
+    <div><h4>Brand</h4><img src="assets/logo-1.jpg" alt="Logo"></div>
+  </div>
+  <p style="margin-top:1rem;">© 2025 Mara's Move</p>
+</footer>
+
+</body>
+</html>
