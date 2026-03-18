@@ -18,20 +18,12 @@
     background:linear-gradient(135deg,var(--pink),var(--orange));
     color:#fff;text-align:center;padding:2.6rem 1rem 2rem
   }
-  header.hero .hero-title{
-    display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:nowrap
-  }
   header.hero h1{
     text-transform:uppercase;font-weight:800;font-size:2.6rem;line-height:1
-  }
-  .hero-logo{
-    height:110px;width:110px;object-fit:cover;border-radius:12px;
-    border:2px solid #ffffff66;background:#fff;padding:4px;flex:0 0 auto
   }
   header.hero .tagline{font-size:1.2rem;margin-top:.8rem}
 
   @media (max-width:560px){
-    .hero-logo{height:84px;width:84px}
     header.hero h1{font-size:2.1rem}
   }
 
@@ -66,21 +58,13 @@
   input,textarea{width:100%;padding:.6rem;margin:.3rem 0 1rem;border:1px solid #ccc;border-radius:6px}
   button{background:linear-gradient(90deg,var(--pink),var(--orange));color:#fff;padding:.8rem 1.2rem;border:none;border-radius:6px;cursor:pointer;font-weight:600}
 
-  /* Brand-Galerie unten */
-  .brand-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1rem}
-  .brand-tile{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden}
-
   footer{background:#fff;padding:2rem 1rem;border-top:1px solid #eee;font-size:.85rem;text-align:center}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <div class="hero-title">
-    <img class="hero-logo" src="assets/logo-1.jpg" alt="Logo links">
-    <h1>MARA'S MOVE</h1>
-    <img class="hero-logo" src="assets/logo-2.jpg" alt="Logo rechts">
-  </div>
+  <h1>MARA'S MOVE</h1>
   <p class="tagline">Stark im Körper. Klar im Kopf.</p>
   <p class="tagline">Healing Humans Therapeutin</p>
 </header>
@@ -182,13 +166,6 @@
     <label>Nachricht*</label><textarea rows="4" required></textarea>
     <button type="submit">Senden</button>
   </form>
-
-  <div class="brand-strip">
-    <div class="brand-tile"><img src="assets/logo-3.jpg" alt="Logo 3"></div>
-    <div class="brand-tile"><img src="assets/logo-4.jpg" alt="Logo 4"></div>
-    <div class="brand-tile"><img src="assets/logo-5.jpg" alt="Logo 5"></div>
-    <div class="brand-tile"><img src="assets/logo-6.jpg" alt="Logo 6"></div>
-  </div>
 </section>
 
 <section id="impressum">
