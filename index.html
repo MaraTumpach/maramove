@@ -12,7 +12,7 @@
 --pink:#ff4d6d;
 --orange:#f26535;
 --sand:#fff6ec;
---ink:#1a1a1a;
+--ink:#1f1f1f;
 --card:#ffffff;
 }
 
@@ -21,60 +21,23 @@ margin:0;
 font-family:Inter;
 background:var(--sand);
 color:var(--ink);
+line-height:1.6;
 }
 
-/* HERO */
-.hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
+/* HEADER */
+header{
 background:linear-gradient(135deg,var(--pink),var(--orange));
 color:#fff;
-padding:2rem;
+text-align:center;
+padding:3rem 1rem;
 }
-
-.hero h1{
-font-size:3.5rem;
+header h1{
+font-size:3rem;
 font-weight:800;
-margin-bottom:1rem;
+letter-spacing:1px;
 }
 
-.hero p{
-font-size:1.2rem;
-max-width:600px;
-margin-bottom:2rem;
-}
-
-.cta{
-display:flex;
-gap:1rem;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.btn{
-padding:1rem 1.5rem;
-border-radius:10px;
-border:none;
-cursor:pointer;
-font-weight:600;
-}
-
-.btn-primary{
-background:#fff;
-color:var(--pink);
-}
-
-.btn-secondary{
-background:transparent;
-border:2px solid #fff;
-color:#fff;
-}
-
-/* GALLERY */
+/* IMAGE SECTION */
 .gallery{
 display:flex;
 gap:10px;
@@ -91,10 +54,50 @@ border-radius:12px;
 flex:1;
 }
 
-/* MOBILE */
-.mobile-slider{display:none}
+/* MOBILE SLIDER */
+.mobile-slider{
+display:none;
+position:relative;
+}
 
-/* SECTION */
+.mobile-slider img{
+width:100%;
+height:60vh;
+object-fit:cover;
+border-radius:12px;
+}
+
+.nav-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+color:#fff;
+border:none;
+font-size:1.5rem;
+padding:.5rem 1rem;
+cursor:pointer;
+border-radius:8px;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+/* INTRO */
+.intro{
+text-align:center;
+padding:3rem 1.5rem;
+max-width:800px;
+margin:auto;
+}
+.intro strong{
+display:block;
+font-size:1.8rem;
+margin-top:1.5rem;
+color:var(--pink);
+}
+
+/* SECTIONS */
 section{
 max-width:1100px;
 margin:3rem auto;
@@ -102,8 +105,10 @@ padding:1rem;
 }
 
 h2{
-text-align:center;
 color:var(--pink);
+text-align:center;
+margin-bottom:1.5rem;
+font-size:2rem;
 }
 
 /* CARDS */
@@ -114,34 +119,45 @@ gap:1.5rem;
 }
 
 .card{
-background:#fff;
+background:var(--card);
 padding:2rem;
 border-radius:16px;
+text-align:center;
 box-shadow:0 10px 25px rgba(0,0,0,0.08);
-text-align:center;
+transition:.3s;
 }
 
-/* WHATSAPP BUTTON */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:15px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+.card:hover{
+transform:translateY(-5px);
 }
 
-/* BOOKING */
-.booking{
-text-align:center;
+.icon{
+font-size:2rem;
+margin-bottom:.5rem;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
 background:#fff;
-padding:2rem;
-border-radius:16px;
+border-radius:10px;
+overflow:hidden;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+th,td{
+padding:.8rem;
+text-align:left;
+}
+
+th{
+background:#f7f7f7;
+}
+
+.price{
+color:var(--pink);
+font-weight:800;
 }
 
 /* FORM */
@@ -149,6 +165,7 @@ form{
 background:#fff;
 padding:1.5rem;
 border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 input,textarea{
@@ -166,6 +183,7 @@ border:none;
 padding:.8rem;
 border-radius:8px;
 cursor:pointer;
+font-weight:600;
 }
 
 /* FOOTER */
@@ -173,64 +191,125 @@ footer{
 text-align:center;
 padding:2rem;
 background:#fff;
+margin-top:3rem;
+font-size:.9rem;
+color:#666;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 @media(max-width:768px){
 .gallery{display:none;}
-.mobile-slider{display:block}
+.mobile-slider{display:block;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
+<header>
 <h1>MARA MOVE</h1>
-<p>Weniger Stress. Mehr Energie. Ein Körper, in dem du dich endlich wieder wohlfühlst.</p>
+</header>
 
-<div class="cta">
-<button class="btn btn-primary" onclick="scrollToBooking()">Termin buchen</button>
-<a href="https://wa.me/491629453781" class="btn btn-secondary">WhatsApp</a>
-</div>
-</div>
-
-<!-- GALLERY -->
+<!-- DESKTOP GALLERY -->
 <div class="gallery">
 <img src="assets/gallery-1.jpg">
 <img src="assets/gallery-2.jpg">
 <img src="assets/gallery-3.jpg">
 </div>
 
+<!-- MOBILE SLIDER -->
+<div class="mobile-slider">
+<img id="sliderImage" src="assets/gallery-1.jpg">
+<button class="nav-btn prev" onclick="prevSlide()">‹</button>
+<button class="nav-btn next" onclick="nextSlide()">›</button>
+</div>
+
+<script>
+let images = [
+"assets/gallery-1.jpg",
+"assets/gallery-2.jpg",
+"assets/gallery-3.jpg"
+];
+let index = 0;
+
+function showImage(){
+document.getElementById("sliderImage").src = images[index];
+}
+
+function nextSlide(){
+index = (index + 1) % images.length;
+showImage();
+}
+
+function prevSlide(){
+index = (index - 1 + images.length) % images.length;
+showImage();
+}
+</script>
+
+<!-- INTRO -->
+<div class="intro">
+<p>Du schläfst genug – und bist trotzdem ständig müde.</p>
+<p>Schon kleine Belastungen bringen dich außer Atem.</p>
+<p>Dein Körper verlangt ständig nach Zucker.</p>
+<p>Du bist gestresst, schlapp und ohne Balance.</p>
+
+<strong>ENTSCHEIDE DICH JETZT, DEINEM KÖRPER UND DEINER SEELE GEHÖR ZU SCHENKEN</strong>
+</div>
+
 <!-- LEISTUNGEN -->
 <section>
 <h2>Leistungen</h2>
 <div class="grid">
-<div class="card">🏋️‍♀️ Personal Training</div>
-<div class="card">🧘‍♀️ Yoga & Meditation</div>
-<div class="card">🥗 Ernährung</div>
-<div class="card">⚡ EMS Training</div>
-<div class="card">📅 Begleitung</div>
-<div class="card">💻 Online Coaching</div>
+
+<div class="card"><div class="icon">🏋️‍♀️</div><h3>Personal Training</h3><p>Individuell & effektiv</p></div>
+<div class="card"><div class="icon">🧘‍♀️</div><h3>Yoga & Meditation</h3><p>Mentale Stärke & Balance</p></div>
+<div class="card"><div class="icon">🥗</div><h3>Ernährung</h3><p>Einfach & nachhaltig</p></div>
+<div class="card"><div class="icon">⚡</div><h3>EMS Training</h3><p>Schnell & intensiv</p></div>
+<div class="card"><div class="icon">📅</div><h3>Begleitung</h3><p>Langfristige Veränderung</p></div>
+<div class="card"><div class="icon">💻</div><h3>Online Coaching</h3><p>Flexibel von überall</p></div>
+
 </div>
 </section>
 
-<!-- BOOKING -->
-<section id="booking">
-<div class="booking">
-<h2>Starte jetzt</h2>
-<p>Buche dein kostenloses Erstgespräch</p>
+<!-- ÜBER MICH -->
+<section>
+<h2>Über mich</h2>
+<p style="text-align:center;max-width:700px;margin:auto">
+Hi, ich bin Mara – Personal Trainerin, Yoga Instructor und Ernährungsberaterin.  
+Ich helfe dir, deinen Körper zu stärken und wieder in deine Energie zu kommen.  
+Ganzheitlich. Nachhaltig. Ohne Druck.
+</p>
+</section>
 
-<a href="https://calendly.com/" target="_blank">
-<button class="btn btn-primary">Termin auswählen</button>
-</a>
-</div>
+<!-- MANTRA -->
+<section>
+<blockquote style="background:#fff;padding:1rem;border-left:5px solid var(--orange)">
+„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt.“
+</blockquote>
+</section>
+
+<!-- PREISE -->
+<section>
+<h2>Preise</h2>
+<table>
+<tr><th>Leistung</th><th>Preis</th></tr>
+<tr><td>Personaltraining</td><td class="price">39 €</td></tr>
+<tr><td>Ernährungsplan</td><td class="price">59 €</td></tr>
+<tr><td>Wochenbegleitung</td><td class="price">25 €</td></tr>
+<tr><td>Online Coaching</td><td class="price">99 €</td></tr>
+<tr><td>EMS Training</td><td class="price">69 €</td></tr>
+</table>
 </section>
 
 <!-- KONTAKT -->
 <section>
 <h2>Kontakt</h2>
+<p style="text-align:center">
+E-Mail: maratumpach@gmail.com<br>
+Telefon: +49 162 9453781
+</p>
+
 <form>
 <input placeholder="Name">
 <input placeholder="E-Mail">
@@ -243,31 +322,39 @@ background:#fff;
 <section>
 <h2>Impressum</h2>
 <p>
+Angaben gemäß § 5 TMG:<br><br>
+
 Mara Tumpach<br>
-Deutschland<br>
+MARA MOVE<br>
+Deutschland<br><br>
+
+Kontakt:<br>
 E-Mail: maratumpach@gmail.com<br>
-Telefon: +49 162 9453781
+Telefon: +49 162 9453781<br><br>
+
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+Mara Tumpach
 </p>
 </section>
 
 <!-- DATENSCHUTZ -->
 <section>
 <h2>Datenschutz</h2>
-<p>Deine Daten werden vertraulich behandelt.</p>
+<p>
+Der Schutz deiner persönlichen Daten ist mir wichtig.  
+Deine Daten werden vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften behandelt.<br><br>
+
+Wenn du mich per Formular kontaktierst, werden deine Angaben inklusive der von dir angegebenen Kontaktdaten gespeichert, um deine Anfrage zu bearbeiten. Diese Daten gebe ich nicht ohne deine Einwilligung weiter.<br><br>
+
+Du hast jederzeit das Recht auf Auskunft, Löschung oder Berichtigung deiner gespeicherten Daten.<br><br>
+
+Bei Fragen zum Datenschutz kannst du dich jederzeit per E-Mail an mich wenden.
+</p>
 </section>
 
 <footer>
 <p>© 2026 MARA MOVE</p>
 </footer>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/491629453781" class="whatsapp">💬</a>
-
-<script>
-function scrollToBooking(){
-document.getElementById("booking").scrollIntoView({behavior:"smooth"});
-}
-</script>
 
 </body>
 </html>
