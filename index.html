@@ -1,15 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MARA MOVE</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ff4d6d;
+  --orange:#f26535;
+  --sand:#fff6ec;
+  --ink:#1f1f1f;
+  --card:#ffffff;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--sand);
+  color:var(--ink);
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--pink),var(--orange));
+  color:#fff;
+  text-align:center;
+  padding:2rem 1rem;
+}
+
+header h1{
+  font-size:3rem;
+  font-weight:800;
+  letter-spacing:1px;
+  margin:1rem 0;
+}
+
+/* NAV LINKS ABOVE HEADER */
+.nav-top{
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+  font-weight:600;
+  padding:1rem 0;
+}
+.nav-top a{
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:.3rem;
+}
+
+/* IMAGE SECTION */
+.gallery{
+  display:flex;
+  gap:10px;
+  padding:10px;
+  max-width:1100px;
+  margin:auto;
+}
+.gallery img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  border-radius:12px;
+  flex:1;
+}
+
+/* MOBILE SLIDER */
+.mobile-slider{
+  display:none;
+  position:relative;
+}
+.mobile-slider img{
+  width:100%;
+  height:60vh;
+  object-fit:cover;
+  border-radius:12px;
+}
+.nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  border:none;
+  font-size:1.5rem;
+  padding:.5rem 1rem;
+  cursor:pointer;
+  border-radius:8px;
+}
+.prev{left:10px}
+.next{right:10px}
+
+/* INTRO */
+.intro{
+  text-align:center;
+  padding:3rem 1.5rem;
+  max-width:800px;
+  margin:auto;
+}
+.intro strong{
+  display:block;
+  font-size:1.8rem;
+  margin-top:1.5rem;
+  color:var(--pink);
+}
+
+/* SECTIONS */
+section{
+  max-width:1100px;
+  margin:3rem auto;
+  padding:1rem;
+}
+
+h2{
+  color:var(--pink);
+  text-align:center;
+  margin-bottom:1.5rem;
+  font-size:2rem;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+}
+.card{
+  background:var(--card);
+  padding:2rem;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+}
+.icon{
+  font-size:2rem;
+  margin-bottom:.5rem;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+th,td{
+  padding:.8rem;
+  text-align:left;
+}
+th{
+  background:#f7f7f7;
+}
+.price{
+  color:var(--pink);
+  font-weight:800;
+}
+
+/* FORM */
+form{
+  background:#fff;
+  padding:1.5rem;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+input,textarea{
+  width:100%;
+  padding:.7rem;
+  margin:.5rem 0;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+button{
+  background:linear-gradient(135deg,var(--pink),var(--orange));
+  color:#fff;
+  border:none;
+  padding:.8rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:2rem;
+  background:#fff;
+  margin-top:3rem;
+  font-size:.9rem;
+  color:#666;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .gallery{display:none;}
+  .mobile-slider{display:block;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV LINKS ABOVE HEADER -->
+<div class="nav-top">
+  <a href="#preise">💶 Preise</a>
+  <a href="#mantra">🧘‍♀️ Mantra</a>
+  <a href="#kontakt">📅 Kontakt</a>
+  <a href="#shop">🛒 Shop</a>
+</div>
+
 <header>
-  <div style="display:flex;justify-content:center;align-items:center;gap:2rem;padding:1rem 0;">
-    <a href="#shop" style="color:#fff;text-decoration:none;display:flex;align-items:center;gap:.3rem;font-weight:600;">
-      🛒 Shop
-    </a>
-    <a href="#kontakt" style="color:#fff;text-decoration:none;display:flex;align-items:center;gap:.3rem;font-weight:600;">
-      📅 Buchen
-    </a>
-    <a href="#preise" style="color:#fff;text-decoration:none;display:flex;align-items:center;gap:.3rem;font-weight:600;">
-      💶 Preise
-    </a>
-  </div>
   <h1>MARA MOVE</h1>
 </header>
 
@@ -19,7 +227,6 @@
   <img src="assets/gallery-2.jpg">
   <img src="assets/gallery-3.jpg">
   <img src="assets/gallery-4.jpg">
-  <!-- Weitere Bilder vorbereitet, aber standardmäßig ausgeblendet -->
   <img src="assets/gallery-5.jpg" style="display:none;">
   <img src="assets/gallery-6.jpg" style="display:none;">
   <img src="assets/gallery-7.jpg" style="display:none;">
@@ -47,20 +254,9 @@ let images = [
   "assets/gallery-9.jpg"
 ];
 let index = 0;
-
-function showImage(){
-  document.getElementById("sliderImage").src = images[index];
-}
-
-function nextSlide(){
-  index = (index + 1) % images.length;
-  showImage();
-}
-
-function prevSlide(){
-  index = (index - 1 + images.length) % images.length;
-  showImage();
-}
+function showImage(){ document.getElementById("sliderImage").src = images[index]; }
+function nextSlide(){ index = (index + 1) % images.length; showImage(); }
+function prevSlide(){ index = (index - 1 + images.length) % images.length; showImage(); }
 </script>
 
 <!-- INTRO -->
@@ -69,7 +265,6 @@ function prevSlide(){
   <p>Schon kleine Belastungen bringen dich außer Atem.</p>
   <p>Dein Körper verlangt ständig nach Zucker.</p>
   <p>Du bist gestresst, schlapp und ohne Balance.</p>
-
   <strong>ENTSCHEIDE DICH JETZT, DEINEM KÖRPER UND DEINER SEELE GEHÖR ZU SCHENKEN</strong>
 </div>
 
@@ -97,14 +292,14 @@ Ganzheitlich. Nachhaltig. Ohne Druck.
 </section>
 
 <!-- MANTRA -->
-<section>
+<section id="mantra">
 <blockquote style="background:#fff;padding:1rem;border-left:5px solid var(--orange)">
 „Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt.“
 </blockquote>
 </section>
-  
+
 <!-- PREISE -->
-<section>
+<section id="preise">
 <h2>Preise</h2>
 <table>
 <tr><th>Leistung</th><th>Preis</th></tr>
@@ -117,7 +312,7 @@ Ganzheitlich. Nachhaltig. Ohne Druck.
 </section>
 
 <!-- KONTAKT -->
-<section>
+<section id="kontakt">
 <h2>Kontakt</h2>
 <p style="text-align:center">
 E-Mail: maratumpach@gmail.com<br>
@@ -130,6 +325,14 @@ Telefon: +49 162 9453781
 <textarea placeholder="Nachricht"></textarea>
 <button>Senden</button>
 </form>
+
+<!-- SHOP PASSAGE -->
+<section id="shop">
+<h2>Shop</h2>
+<p style="text-align:center">
+Besuche unseren Shop für individuelle Trainingspläne, Yoga-Accessoires und Ernährungsprodukte.
+</p>
+</section>
 </section>
 
 <!-- IMPRESSUM -->
@@ -137,15 +340,12 @@ Telefon: +49 162 9453781
 <h2>Impressum</h2>
 <p>
 Angaben gemäß § 5 TMG:<br><br>
-
 Mara Tumpach<br>
 MARA MOVE<br>
 Deutschland<br><br>
-
 Kontakt:<br>
 E-Mail: maratumpach@gmail.com<br>
 Telefon: +49 162 9453781<br><br>
-
 Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
 Mara Tumpach
 </p>
@@ -157,11 +357,8 @@ Mara Tumpach
 <p>
 Der Schutz deiner persönlichen Daten ist mir wichtig.  
 Deine Daten werden vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften behandelt.<br><br>
-
 Wenn du mich per Formular kontaktierst, werden deine Angaben inklusive der von dir angegebenen Kontaktdaten gespeichert, um deine Anfrage zu bearbeiten. Diese Daten gebe ich nicht ohne deine Einwilligung weiter.<br><br>
-
 Du hast jederzeit das Recht auf Auskunft, Löschung oder Berichtigung deiner gespeicherten Daten.<br><br>
-
 Bei Fragen zum Datenschutz kannst du dich jederzeit per E-Mail an mich wenden.
 </p>
 </section>
