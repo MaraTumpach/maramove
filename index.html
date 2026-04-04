@@ -27,30 +27,12 @@ header{
   background:linear-gradient(135deg,var(--pink),var(--orange));
   color:#fff;
   text-align:center;
-  padding:2rem 1rem;
+  padding:3rem 1rem;
 }
-
 header h1{
   font-size:3rem;
   font-weight:800;
   letter-spacing:1px;
-  margin:1rem 0;
-}
-
-/* NAV LINKS ABOVE HEADER */
-.nav-top{
-  display:flex;
-  justify-content:center;
-  gap:2rem;
-  font-weight:600;
-  padding:1rem 0;
-}
-.nav-top a{
-  color:#fff;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:.3rem;
 }
 
 /* IMAGE SECTION */
@@ -115,7 +97,6 @@ section{
   margin:3rem auto;
   padding:1rem;
 }
-
 h2{
   color:var(--pink);
   text-align:center;
@@ -209,12 +190,11 @@ footer{
 </head>
 <body>
 
-<!-- NAV LINKS ABOVE HEADER -->
-<div class="nav-top">
-  <a href="#preise">💶 Preise</a>
-  <a href="#mantra">🧘‍♀️ Mantra</a>
-  <a href="#kontakt">📅 Kontakt</a>
-  <a href="#shop">🛒 Shop</a>
+<!-- NAV LINKS -->
+<div style="text-align:center; padding:1rem;">
+  <a href="#preise" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">💶 Preise</a>
+  <a href="#mantra" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">🧘‍♀️ Mantra</a>
+  <a href="#kontakt" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">📅 Kontakt</a>
 </div>
 
 <header>
@@ -227,11 +207,6 @@ footer{
   <img src="assets/gallery-2.jpg">
   <img src="assets/gallery-3.jpg">
   <img src="assets/gallery-4.jpg">
-  <img src="assets/gallery-5.jpg" style="display:none;">
-  <img src="assets/gallery-6.jpg" style="display:none;">
-  <img src="assets/gallery-7.jpg" style="display:none;">
-  <img src="assets/gallery-8.jpg" style="display:none;">
-  <img src="assets/gallery-9.jpg" style="display:none;">
 </div>
 
 <!-- MOBILE SLIDER -->
@@ -246,12 +221,7 @@ let images = [
   "assets/gallery-1.jpg",
   "assets/gallery-2.jpg",
   "assets/gallery-3.jpg",
-  "assets/gallery-4.jpg",
-  "assets/gallery-5.jpg",
-  "assets/gallery-6.jpg",
-  "assets/gallery-7.jpg",
-  "assets/gallery-8.jpg",
-  "assets/gallery-9.jpg"
+  "assets/gallery-4.jpg"
 ];
 let index = 0;
 function showImage(){ document.getElementById("sliderImage").src = images[index]; }
@@ -325,14 +295,6 @@ Telefon: +49 162 9453781
 <textarea placeholder="Nachricht"></textarea>
 <button>Senden</button>
 </form>
-
-<!-- SHOP PASSAGE -->
-<section id="shop">
-<h2>Shop</h2>
-<p style="text-align:center">
-Besuche unseren Shop für individuelle Trainingspläne, Yoga-Accessoires und Ernährungsprodukte.
-</p>
-</section>
 </section>
 
 <!-- IMPRESSUM -->
