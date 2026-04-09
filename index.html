@@ -186,42 +186,57 @@ footer{
   .gallery{display:none;}
   .mobile-slider{display:block;}
 }
+
+/* SVG Zeitleiste */
+.timeline-container{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  position:relative;
+}
+.timeline-svg{
+  width:100%;
+  height:180px;
+}
+.timeline-character{
+  transition: transform 0.1s linear;
+}
 </style>
 </head>
 <body>
 
 <!-- NAV LINKS -->
 <div style="text-align:center; padding:1rem;">
-  <a href="#preise" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Preise</a>
-  <a href="#mantra" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Mantra</a>
-  <a href="#kontakt" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Kontakt</a>
+<a href="#preise" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Preise</a>
+<a href="#mantra" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Mantra</a>
+<a href="#kontakt" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Kontakt</a>
 </div>
 
 <header>
-  <h1>MARA MOVE</h1>
+<h1>MARA MOVE</h1>
 </header>
 
 <!-- DESKTOP GALLERY -->
 <div class="gallery">
-  <img src="assets/gallery-1.jpg">
-  <img src="assets/gallery-2.jpg">
-  <img src="assets/gallery-3.jpg">
-  <img src="assets/gallery-4.jpg">
+<img src="assets/gallery-1.jpg">
+<img src="assets/gallery-2.jpg">
+<img src="assets/gallery-3.jpg">
+<img src="assets/gallery-4.jpg">
 </div>
 
 <!-- MOBILE SLIDER -->
 <div class="mobile-slider">
-  <img id="sliderImage" src="assets/gallery-1.jpg">
-  <button class="nav-btn prev" onclick="prevSlide()">‹</button>
-  <button class="nav-btn next" onclick="nextSlide()">›</button>
+<img id="sliderImage" src="assets/gallery-1.jpg">
+<button class="nav-btn prev" onclick="prevSlide()">‹</button>
+<button class="nav-btn next" onclick="nextSlide()">›</button>
 </div>
 
 <script>
 let images = [
-  "assets/gallery-1.jpg",
-  "assets/gallery-2.jpg",
-  "assets/gallery-3.jpg",
-  "assets/gallery-4.jpg"
+"assets/gallery-1.jpg",
+"assets/gallery-2.jpg",
+"assets/gallery-3.jpg",
+"assets/gallery-4.jpg"
 ];
 let index = 0;
 function showImage(){ document.getElementById("sliderImage").src = images[index]; }
@@ -231,12 +246,18 @@ function prevSlide(){ index = (index - 1 + images.length) % images.length; showI
 
 <!-- INTRO -->
 <div class="intro">
-  <p>Du schläfst genug – und bist trotzdem ständig müde.</p>
-  <p>Schon kleine Belastungen bringen dich außer Atem.</p>
-  <p>Dein Körper verlangt ständig nach Zucker.</p>
-  <p>Du bist gestresst, schlapp und ohne Balance.</p>
-  <strong>ENTSCHEIDE DICH JETZT, DEINEM KÖRPER UND DEINER SEELE GEHÖR ZU SCHENKEN</strong>
+<p>Du schläfst genug – und bist trotzdem ständig müde.</p>
+<p>Schon kleine Belastungen bringen dich außer Atem.</p>
+<p>Dein Körper verlangt ständig nach Zucker.</p>
+<p>Du bist gestresst, schlapp und ohne Balance.</p>
+<strong>ENTSCHEIDE DICH JETZT, DEINEM KÖRPER UND DEINER SEELE GEHÖR ZU SCHENKEN</strong>
 </div>
+
+<!-- MARA MOVE TITEL -->
+<section>
+<h2 style="text-align:center; color:var(--pink); font-size:2.5rem;">MARA MOVE</h2>
+<p style="text-align:center; font-size:1.5rem; font-weight:600;">Fühle dich wohl in deiner Haut</p>
+</section>
 
 <!-- LEISTUNGEN -->
 <section>
@@ -281,6 +302,91 @@ Ganzheitlich. Nachhaltig. Ohne Druck.
 </table>
 </section>
 
+<!-- TABELLE: WARUM ZUHAUSE NICHT -->
+<section>
+<h2>Warum alleine oft nicht klappt</h2>
+<table>
+<tr><th>Herausforderung</th><th>Lösung mit Mara Move</th></tr>
+<tr><td>Motivation fehlt 🛋️</td><td>Personal Training & feste Termine</td></tr>
+<tr><td>Falsche Ernährung 🍫</td><td>Individueller Ernährungsplan</td></tr>
+<tr><td>Unsicherheit bei Übungen ❓</td><td>Begleitung & Korrektur bei jedem Training</td></tr>
+<tr><td>Keine Erfolge sichtbar 📉</td><td>Messbare Fortschritte & Zieltracking</td></tr>
+</table>
+</section>
+
+<!-- KUNDENBEWERTUNGEN -->
+<section>
+<h2>Kunden sagen</h2>
+<div class="grid">
+<div class="card">⭐️⭐️⭐️⭐️⭐️<p>"Ich passe endlich in mein Lieblingskleid!"</p></div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<p>"Ich habe keinen Heißhunger mehr nach Süßem."</p></div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<p>"Ich fühle mich stark, schön und wohl."</p></div>
+</div>
+</section>
+
+<!-- ZEITSTRAHL MIT ANIMIERTER FIGUR MIT BEINEN -->
+<section>
+<h2>So sieht dein langfristiges Training aus</h2>
+<div class="timeline-container">
+<svg class="timeline-svg" viewBox="0 0 900 180">
+<!-- Zeitleistenlinie -->
+<line x1="50" y1="90" x2="850" y2="90" stroke="#ff4d6d" stroke-width="8" stroke-linecap="round"/>
+<!-- Stationen -->
+<circle cx="50" cy="90" r="12" fill="#ff4d6d"/>
+<circle cx="450" cy="90" r="12" fill="#ff4d6d"/>
+<circle cx="850" cy="90" r="12" fill="#ff4d6d"/>
+<!-- Beschriftungen -->
+<text x="50" y="130" font-size="14" text-anchor="middle">Start: Kennenlerntraining</text>
+<text x="450" y="130" font-size="14" text-anchor="middle">Teilerfolge feiern</text>
+<text x="850" y="130" font-size="14" text-anchor="middle">Ziel erreicht</text>
+<!-- Animierte Figur -->
+<g id="character" class="timeline-character">
+<!-- Körper -->
+<rect x="-15" y="-30" width="30" height="40" fill="#ff4d6d"/>
+<!-- Kopf -->
+<circle cx="0" cy="-40" r="12" fill="#ff4d6d"/>
+<!-- Beine -->
+<line x1="-10" y1="10" x2="-10" y2="30" stroke="#ff4d6d" stroke-width="5"/>
+<line x1="10" y1="10" x2="10" y2="30" stroke="#ff4d6d" stroke-width="5"/>
+</g>
+</svg>
+<p style="text-align:center; margin-top:10px;">Fortschritt von links nach rechts: Dicker Start → schlanker Zielpunkt</p>
+</div>
+</section>
+
+<script>
+// Animation der Figur beim Scrollen mit Beine-Bewegung
+const character = document.getElementById('character');
+const svgStart = 50;
+const svgEnd = 850;
+
+window.addEventListener('scroll', () => {
+const scrollTop = window.scrollY;
+const docHeight = document.body.scrollHeight - window.innerHeight;
+const scrollFraction = Math.min(scrollTop / docHeight, 1);
+const newX = svgStart + (svgEnd - svgStart) * scrollFraction;
+
+// Figur skalieren (schlanker)
+const scale = 1 - 0.5*scrollFraction;
+
+// Beine animieren wie Schritte
+const legAngle = Math.sin(scrollFraction * Math.PI * 4) * 20;
+
+character.setAttribute('transform', `translate(${newX},90) scale(${scale},${scale}) rotate(${legAngle})`);
+});
+</script>
+
+<!-- FAQ -->
+<section>
+<h2>Fragen & Antworten</h2>
+<div class="grid">
+<div class="card"><strong>Wie oft sollte ich trainieren?</strong><p>Mindestens 2–3x pro Woche für spürbare Erfolge.</p></div>
+<div class="card"><strong>Gibt es individuelle Ernährungspläne?</strong><p>Ja, jeder Plan wird speziell auf dich abgestimmt.</p></div>
+<div class="card"><strong>Kann ich online teilnehmen?</strong><p>Ja, Training & Coaching sind auch digital möglich.</p></div>
+<div class="card"><strong>Wie lange dauert es, bis ich Erfolge sehe?</strong><p>Das hängt von deinem Startpunkt ab, meist 4–8 Wochen sichtbare Ergebnisse.</p></div>
+</div>
+</section>
+
 <!-- KONTAKT -->
 <section id="kontakt">
 <h2>Kontakt</h2>
@@ -323,3 +429,6 @@ Du hast jederzeit das Recht auf Auskunft, Löschung oder Berichtigung deiner ges
 Bei Fragen zum Datenschutz kannst du dich jederzeit per E-Mail an mich wenden.
 </p>
 </section>
+
+</body>
+</html>
