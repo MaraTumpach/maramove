@@ -383,17 +383,31 @@ character.setAttribute('transform', `translate(${newX},90) scale(${scale},${scal
 
 <!-- KONTAKT -->
 <section id="kontakt">
-<h2>Kontakt</h2>
-<p style="text-align:center">
-E-Mail: maratumpach@gmail.com<br>
-Telefon: +49 162 9453781
-</p>
-<form>
-<input placeholder="Name">
-<input placeholder="E-Mail">
-<textarea placeholder="Nachricht"></textarea>
-<button>Senden</button>
-</form>
+  <h2>Kontakt</h2>
+  
+  <p style="text-align:center">
+    E-Mail: maratumpach@gmail.com<br>
+    Telefon: +49 162 9453781
+  </p>
+
+  <form action="https://formspree.io/f/xnjldvwe" method="POST">
+    
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="E-Mail" required>
+    <input type="tel" name="telefon" placeholder="Telefonnummer" required>
+
+    <label>Wähle dein Anliegen:</label>
+    <select name="anliegen" required>
+      <option value="">Bitte auswählen</option>
+      <option>Telefonisches kostenloses Beratungsgespräch</option>
+      <option>Personaltraining</option>
+      <option>Ernährungsumstellung Ersttermin</option>
+    </select>
+
+    <input type="text" name="termin" placeholder="Wunschtermin (Datum & Uhrzeit)" required>
+
+    <button type="submit">Senden</button>
+  </form>
 </section>
 
 <!-- IMPRESSUM -->
