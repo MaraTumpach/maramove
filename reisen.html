@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MARA MOVE – Reisen</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff4d6d;
+  --orange:#f26535;
+  --sand:#fff6ec;
+  --ink:#1f1f1f;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--sand);
+  color:var(--ink);
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--pink),var(--orange));
+  color:#fff;
+  text-align:center;
+  padding:3rem 1rem;
+}
+
+/* SECTION */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:2rem 1rem;
+}
+
+h2{
+  text-align:center;
+  color:var(--pink);
+}
+
+/* IMAGES */
+.hero-img{
+  display:flex;
+  gap:10px;
+  max-width:1000px;
+  margin:2rem auto;
+}
+.hero-img img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:12px;
+  flex:1;
+}
+
+/* FORM */
+form{
+  background:#fff;
+  padding:1.5rem;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  max-width:700px;
+  margin:auto;
+}
+
+input,select{
+  width:100%;
+  padding:.7rem;
+  margin:.5rem 0;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+button{
+  background:linear-gradient(135deg,var(--pink),var(--orange));
+  color:#fff;
+  border:none;
+  padding:.8rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MARA MOVE REISEN</h1>
+<p>Aktuell für 2026 & 2027 geplante Fit Reisen</p>
+</header>
+
+<!-- BILDER (Bild 1 + Bild 4 aus deiner Hauptseite) -->
+<div class="hero-img">
+<img src="assets/gallery-1.jpg">
+<img src="assets/gallery-4.jpg">
+</div>
+
+<section>
+<h2>Fit Reisen & Retreats</h2>
+<p style="text-align:center; max-width:700px; margin:auto;">
+Hier findest du geplante Gesundheits-, Fitness- und Mindset-Reisen für 2026 & 2027.  
+Mehr Energie, Detox, Training & Erholung an besonderen Orten.
+</p>
+</section>
+
+<!-- FORMULAR -->
+<section>
+<h2>Buchungsanfrage</h2>
+
+<form action="https://formspree.io/f/xnjldvwe" method="POST">
+
+<input type="hidden" name="_redirect" value="https://deinewebsite.de/danke.html">
+
+<input type="text" name="name" placeholder="Name" required>
+<input type="email" name="email" placeholder="E-Mail" required>
+<input type="tel" name="telefon" placeholder="Telefonnummer" required>
+
+<label>Welche Reise?</label>
+<select name="reise" required>
+  <option value="">Bitte auswählen</option>
+  <option>Fit Retreat Mallorca 2026</option>
+  <option>Detox Woche Österreich 2026</option>
+  <option>Body & Mind Camp 2027</option>
+</select>
+
+<label>Anzahl Personen (1–6)</label>
+<select name="personen" required>
+  <option value="">Bitte auswählen</option>
+  <option>1 Person</option>
+  <option>2 Personen</option>
+  <option>3 Personen</option>
+  <option>4 Personen</option>
+  <option>5 Personen</option>
+  <option>6 Personen</option>
+</select>
+
+<button type="submit">Reise anfragen</button>
+</form>
+</section>
+
+</body>
+</html>
