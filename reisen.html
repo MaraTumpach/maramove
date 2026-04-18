@@ -30,6 +30,18 @@ header{
   padding:3rem 1rem;
 }
 
+/* NAV */
+nav{
+  text-align:center;
+  padding:1rem;
+}
+nav a{
+  margin:0 1rem;
+  color:#ff4d6d;
+  font-weight:600;
+  text-decoration:none;
+}
+
 /* SECTION */
 section{
   max-width:1000px;
@@ -42,7 +54,24 @@ h2{
   color:var(--pink);
 }
 
-/* IMAGES */
+/* COUNTDOWN */
+.countdown-box{
+  text-align:center;
+  padding:2rem;
+}
+
+#countdown{
+  font-size:2rem;
+  font-weight:800;
+  color:#ff4d6d;
+  background:#fff;
+  display:inline-block;
+  padding:1rem 2rem;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* IMAGES DESKTOP */
 .hero-img{
   display:flex;
   gap:10px;
@@ -51,10 +80,46 @@ h2{
 }
 .hero-img img{
   width:100%;
-  height:350px;
+  height:400px;
   object-fit:cover;
   border-radius:12px;
   flex:1;
+}
+
+/* MOBILE SLIDER */
+.mobile-slider{
+  display:none;
+  position:relative;
+}
+.mobile-slider img{
+  width:100%;
+  height:60vh;
+  object-fit:cover;
+  border-radius:12px;
+}
+.nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  border:none;
+  font-size:1.5rem;
+  padding:.5rem 1rem;
+  cursor:pointer;
+  border-radius:8px;
+}
+.prev{left:10px}
+.next{right:10px}
+
+/* CARDS REISEN */
+.trip-card{
+  max-width:850px;
+  margin:1.5rem auto;
+  background:#fff;
+  padding:1.5rem;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
 }
 
 /* FORM */
@@ -85,64 +150,210 @@ button{
   font-weight:600;
   width:100%;
 }
+
+/* DISCLAIMER */
+.disclaimer{
+  font-size:12px;
+  color:#777;
+  max-width:800px;
+  margin:3rem auto 1rem auto;
+  text-align:center;
+  line-height:1.5;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero-img{display:none;}
+  .mobile-slider{display:block;}
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
 <h1>MARA MOVE REISEN</h1>
-<p>Aktuell für 2026 & 2027 geplante Fit Reisen</p>
+<p>aktuell für 2026 & 2027 geplante fit reisen</p>
 </header>
 
-<!-- BILDER (Bild 1 + Bild 4 aus deiner Hauptseite) -->
+<!-- NAV -->
+<nav>
+<a href="#reisen">Reisen</a>
+<a href="#formular">Buchung</a>
+</nav>
+
+<!-- COUNTDOWN -->
+<section class="countdown-box">
+<h2>nächste reise startet in</h2>
+<div id="countdown"></div>
+</section>
+
+<script>
+const targetDate = new Date("2026-09-14T00:00:00").getTime();
+
+function updateCountdown(){
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  if(diff <= 0){
+    document.getElementById("countdown").innerHTML = "reise läuft bereits 🚀";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((diff % (1000*60*60))/(1000*60));
+
+  document.getElementById("countdown").innerHTML =
+    days+" tage "+hours+" std "+minutes+" min";
+}
+
+updateCountdown();
+setInterval(updateCountdown,60000);
+</script>
+
+<!-- BILDER DESKTOP -->
 <div class="hero-img">
 <img src="assets/gallery-1.jpg">
 <img src="assets/gallery-4.jpg">
 </div>
 
+<!-- MOBILE SLIDER -->
+<div class="mobile-slider">
+<img id="sliderImage" src="assets/gallery-1.jpg">
+<button class="nav-btn prev" onclick="prevSlide()">‹</button>
+<button class="nav-btn next" onclick="nextSlide()">›</button>
+</div>
+
+<script>
+let images = ["assets/gallery-1.jpg","assets/gallery-4.jpg"];
+let index = 0;
+
+function showImage(){
+document.getElementById("sliderImage").src = images[index];
+}
+
+function nextSlide(){
+index = (index+1)%images.length;
+showImage();
+}
+
+function prevSlide(){
+index = (index-1+images.length)%images.length;
+showImage();
+}
+</script>
+
+<!-- INTRO -->
 <section>
-<h2>Fit Reisen & Retreats</h2>
+<h2>fit reisen & retreats</h2>
 <p style="text-align:center; max-width:700px; margin:auto;">
-Hier findest du geplante Gesundheits-, Fitness- und Mindset-Reisen für 2026 & 2027.  
-Mehr Energie, Detox, Training & Erholung an besonderen Orten.
+gesundheit • regeneration • neue energie
 </p>
 </section>
 
+<!-- REISEN -->
+<section id="reisen">
+
+<h2>geplante reisen</h2>
+
+<div class="trip-card">
+<h3>🇮🇳 03.11.2026 – 02.12.2026</h3>
+<strong>ayurveda panchakarma kur – nadiad, indien</strong>
+
+<p>
+ayurvedisches krankenhaus nach indischen standards (kein luxusurlaub)<br><br>
+
+panchakarma = körperreinigung, entgiftung, neue energie<br><br>
+
+✔ 2x täglich yoga<br>
+✔ yoga mit indischen ärzten<br>
+✔ yoga mit mir<br>
+✔ organisation (visum, anreise etc.)
+</p>
+
+<p><strong>preise:</strong><br>
+4990 € – komplett organisiert<br>
+2990 € – nur aufenthalt & behandlung
+</p>
+</div>
+
+<div class="trip-card">
+<h3>🇮🇹 14.09.2026 – 20.09.2026</h3>
+<strong>fit & erholungs camping – mare e pineta, italien</strong>
+
+<p>
+yoga, wassergymnastik, kochkurs, e-bike touren
+</p>
+
+<p><strong>preise:</strong><br>
+760 € – bungalow (all inclusive)<br>
+530 € – eigenes zelt<br>
+230 € – selbstanreise + teilnahme
+</p>
+</div>
+
+</section>
+
 <!-- FORMULAR -->
-<section>
-<h2>Buchungsanfrage</h2>
+<section id="formular">
+
+<h2>buchungsanfrage</h2>
 
 <form action="https://formspree.io/f/xnjldvwe" method="POST">
 
-<input type="hidden" name="_redirect" value="https://deinewebsite.de/danke.html">
+<input type="text" name="name" placeholder="name" required>
+<input type="email" name="email" placeholder="e-mail" required>
+<input type="tel" name="telefon" placeholder="telefonnummer" required>
 
-<input type="text" name="name" placeholder="Name" required>
-<input type="email" name="email" placeholder="E-Mail" required>
-<input type="tel" name="telefon" placeholder="Telefonnummer" required>
-
-<label>Welche Reise?</label>
-<select name="reise" required>
-  <option value="">Bitte auswählen</option>
-  <option>Fit Retreat Mallorca 2026</option>
-  <option>Detox Woche Österreich 2026</option>
-  <option>Body & Mind Camp 2027</option>
+<label>reise auswählen</label>
+<select name="reise" id="reise" onchange="toggleEBike()" required>
+<option value="">bitte auswählen</option>
+<option>ayurveda indien 2026</option>
+<option>italien camping 2026</option>
 </select>
 
-<label>Anzahl Personen (1–6)</label>
+<label>anzahl personen (1–6)</label>
 <select name="personen" required>
-  <option value="">Bitte auswählen</option>
-  <option>1 Person</option>
-  <option>2 Personen</option>
-  <option>3 Personen</option>
-  <option>4 Personen</option>
-  <option>5 Personen</option>
-  <option>6 Personen</option>
+<option>1</option><option>2</option><option>3</option>
+<option>4</option><option>5</option><option>6</option>
 </select>
 
-<button type="submit">Reise anfragen</button>
+<div id="ebike" style="display:none;">
+<label>e-bike gewünscht?</label>
+<select name="ebike">
+<option>nein</option>
+<option>ja (+15€)</option>
+</select>
+</div>
+
+<button type="submit">reise anfragen</button>
+
+<!-- THANK YOU REDIRECT -->
+<input type="hidden" name="_redirect" value="danke.html">
+
 </form>
+
 </section>
+
+<script>
+function toggleEBike(){
+let r=document.getElementById("reise").value;
+document.getElementById("ebike").style.display =
+r.includes("italien") ? "block":"none";
+}
+</script>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+preise können sich aufgrund von änderungen bei hotels, kliniken und campingplätzen ändern.<br>
+stornierung bis 3 monate vor beginn kostenlos möglich.<br>
+danach 90% des reisepreises.
+</div>
+
+</body>
+</html>
 
 </body>
 </html>
