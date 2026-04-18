@@ -30,6 +30,15 @@ header{
   padding:3rem 1rem;
 }
 
+header a{
+  text-decoration:none;
+  color:#fff;
+}
+
+header h1{
+  margin-bottom:0;
+}
+
 /* NAV */
 nav{
   text-align:center;
@@ -122,6 +131,16 @@ h2{
   box-shadow:0 10px 25px rgba(0,0,0,0.06);
 }
 
+.trip-card h3{
+  margin-bottom:0.5rem;
+}
+
+.trip-card strong{
+  display:block;
+  margin-bottom:0.8rem;
+  color:#ff4d6d;
+}
+
 /* FORM */
 form{
   background:#fff;
@@ -165,6 +184,7 @@ button{
 @media(max-width:768px){
   .hero-img{display:none;}
   .mobile-slider{display:block;}
+  header h1{font-size:2.2rem;}
 }
 </style>
 </head>
@@ -173,8 +193,22 @@ button{
 
 <!-- HEADER -->
 <header>
-<h1>MARA MOVE REISEN</h1>
-<p>aktuell für 2026 & 2027 geplante fit reisen</p>
+<a href="index.html">
+  <h1>MARA MOVE</h1>
+</a>
+
+<p>Aktuell für 2026 & 2027 geplante Reisen</p>
+
+<div style="
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  font-size:1.5rem;
+  margin-top:10px;
+">
+  <span title="Indien">🇮🇳</span>
+  <span title="Italien">🇮🇹</span>
+</div>
 </header>
 
 <!-- NAV -->
@@ -185,7 +219,7 @@ button{
 
 <!-- COUNTDOWN -->
 <section class="countdown-box">
-<h2>nächste reise startet in</h2>
+<h2>Nächste Reise startet in</h2>
 <div id="countdown"></div>
 </section>
 
@@ -197,13 +231,13 @@ function updateCountdown(){
   const diff = targetDate - now;
 
   if(diff <= 0){
-    document.getElementById("countdown").innerHTML = "reise läuft bereits 🚀";
+    document.getElementById("countdown").innerHTML = "Reise läuft bereits 🚀";
     return;
   }
 
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
-  const minutes = Math.floor((diff % (1000*60*60))/(1000*60));
+  const days = Math.floor(diff/(1000*60*60*24));
+  const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
 
   document.getElementById("countdown").innerHTML =
     days+" tage "+hours+" std "+minutes+" min";
@@ -247,50 +281,50 @@ showImage();
 
 <!-- INTRO -->
 <section>
-<h2>fit reisen & retreats</h2>
+<h2>Fit Reisen & Retreats</h2>
 <p style="text-align:center; max-width:700px; margin:auto;">
-gesundheit • regeneration • neue energie
+Gesundheit • Regeneration • neue Energie
 </p>
 </section>
 
 <!-- REISEN -->
 <section id="reisen">
 
-<h2>geplante reisen</h2>
+<h2>geplante Reisen</h2>
 
 <div class="trip-card">
 <h3>🇮🇳 03.11.2026 – 02.12.2026</h3>
-<strong>ayurveda panchakarma kur – nadiad, indien</strong>
+<strong>Ayurveda Panchakarma Kur – Nadiad, Indien</strong>
 
 <p>
-ayurvedisches krankenhaus nach indischen standards (kein luxusurlaub)<br><br>
+Ayurvedisches Krankenhaus nach indischen Standards (kein Luxusurlaub)<br><br>
 
-panchakarma = körperreinigung, entgiftung, neue energie<br><br>
+Panchakarma = Körperreinigung, Entgiftung, neue Energie<br><br>
 
-✔ 2x täglich yoga<br>
-✔ yoga mit indischen ärzten<br>
-✔ yoga mit mir<br>
-✔ organisation (visum, anreise etc.)
+✔ 2x täglich Yoga<br>
+✔ Yoga mit indischen Ärzten<br>
+✔ Yoga mit mir<br>
+✔ Organisation (Visum, Anreise etc.)
 </p>
 
-<p><strong>preise:</strong><br>
-4990 € – komplett organisiert<br>
-2990 € – nur aufenthalt & behandlung
+<p><strong>Preise:</strong><br>
+4990 € – komplett organisiert (all inclusive)<br>
+2990 € – nur Aufenthalt & Behandlung
 </p>
 </div>
 
 <div class="trip-card">
 <h3>🇮🇹 14.09.2026 – 20.09.2026</h3>
-<strong>fit & erholungs camping – mare e pineta, italien</strong>
+<strong>Fit & erholungs Camping – mare e pineta, Italien</strong>
 
 <p>
-yoga, wassergymnastik, kochkurs, e-bike touren
+Yoga, Wassergymnastik, Kochkurs, E-bike Touren
 </p>
 
-<p><strong>preise:</strong><br>
-760 € – bungalow (all inclusive)<br>
-530 € – eigenes zelt<br>
-230 € – selbstanreise + teilnahme
+<p><strong>Preise:</strong><br>
+760 € – Bungalow (all inclusive)<br>
+530 € – eigenes Zelt (all inclusive)<br>
+230 € – Reise und Aufenthalt selbst organisiert
 </p>
 </div>
 
@@ -299,7 +333,7 @@ yoga, wassergymnastik, kochkurs, e-bike touren
 <!-- FORMULAR -->
 <section id="formular">
 
-<h2>buchungsanfrage</h2>
+<h2>Buchungsanfrage</h2>
 
 <form action="https://formspree.io/f/xnjldvwe" method="POST">
 
@@ -307,30 +341,29 @@ yoga, wassergymnastik, kochkurs, e-bike touren
 <input type="email" name="email" placeholder="e-mail" required>
 <input type="tel" name="telefon" placeholder="telefonnummer" required>
 
-<label>reise auswählen</label>
+<label>Reise auswählen</label>
 <select name="reise" id="reise" onchange="toggleEBike()" required>
-<option value="">bitte auswählen</option>
-<option>ayurveda indien 2026</option>
-<option>italien camping 2026</option>
+<option value="">Bitte auswählen</option>
+<option>Ayurveda Panchakarma Indien 2026</option>
+<option>Fit & Camping Italien 2026</option>
 </select>
 
-<label>anzahl personen (1–6)</label>
+<label>Anzahl Personen (1–6)</label>
 <select name="personen" required>
 <option>1</option><option>2</option><option>3</option>
 <option>4</option><option>5</option><option>6</option>
 </select>
 
 <div id="ebike" style="display:none;">
-<label>e-bike gewünscht?</label>
+<label>E-bike gewünscht?</label>
 <select name="ebike">
-<option>nein</option>
-<option>ja (+15€)</option>
+<option>Nein</option>
+<option>Ja (+15€)</option>
 </select>
 </div>
 
-<button type="submit">reise anfragen</button>
+<button type="submit">Reise anfragen</button>
 
-<!-- THANK YOU REDIRECT -->
 <input type="hidden" name="_redirect" value="danke.html">
 
 </form>
@@ -339,7 +372,7 @@ yoga, wassergymnastik, kochkurs, e-bike touren
 
 <script>
 function toggleEBike(){
-let r=document.getElementById("reise").value;
+let r=document.getElementById("reise").value.toLowerCase();
 document.getElementById("ebike").style.display =
 r.includes("italien") ? "block":"none";
 }
@@ -347,13 +380,15 @@ r.includes("italien") ? "block":"none";
 
 <!-- DISCLAIMER -->
 <div class="disclaimer">
-preise können sich aufgrund von änderungen bei hotels, kliniken und campingplätzen ändern.<br>
-stornierung bis 3 monate vor beginn kostenlos möglich.<br>
-danach 90% des reisepreises.
-</div>
+Preise können sich aufgrund von Änderungen bei Hotels, Kliniken, Transport- und Campinganbietern kurzfristig anpassen. Du wirst in diesem Fall per E-Mail informiert und kannst dann entscheiden, ob du kostenfrei stornierst.<br><br>
 
-</body>
-</html>
+Die angebotenen Reisen werden sorgfältig geplant, jedoch können organisatorische oder externe Faktoren zu Anpassungen im Ablauf oder Preis führen.<br><br>
+
+Eine kostenlose Stornierung ist bis 3 Monate vor Reisebeginn möglich.<br>
+Bei Stornierungen innerhalb der letzten 3 Monate vor Reisebeginn werden 90 % des Reisepreises berechnet.<br><br>
+
+Mit deiner Buchung erklärst du dich mit diesen Bedingungen einverstanden.
+</div>
 
 </body>
 </html>
