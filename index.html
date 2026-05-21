@@ -3,490 +3,1682 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MARA MOVE</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<title>Mara Move – Fühle dich wohl in deiner Haut</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+ 
 <style>
-:root{
-  --pink:#ff4d6d;
-  --orange:#f26535;
-  --sand:#fff6ec;
-  --ink:#1f1f1f;
-  --card:#ffffff;
+/* ═══════════════════════════════════════
+   TOKENS – Logo-Palette
+═══════════════════════════════════════ */
+:root {
+  --sand:      #f0d5b8;
+  --sand-deep: #e8c9a4;
+  --sand-light:#faf3ea;
+  --terra:     #c4612a;
+  --terra-deep:#a84e20;
+  --terra-soft:#d9845a;
+  --teal:      #6aafb4;
+  --teal-deep: #4a8f94;
+  --brown:     #3d2515;
+  --brown-mid: #5a3a22;
+  --cream:     #fdf8f2;
+  --white:     #ffffff;
+  --ink:       #2a1a0e;
+ 
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', sans-serif;
+ 
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-body{
-  margin:0;
-  font-family:Inter;
-  background:var(--sand);
-  color:var(--ink);
-  line-height:1.6;
+ 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+html { scroll-behavior: smooth; }
+ 
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
 }
-
-/* HEADER */
-header{
-  background:linear-gradient(135deg,var(--pink),var(--orange));
-  color:#fff;
-  text-align:center;
-  padding:3rem 1rem;
+ 
+/* ═══════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--sand); }
+::-webkit-scrollbar-thumb { background: var(--terra); border-radius: 2px; }
+ 
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-header h1{
-  font-size:3rem;
-  font-weight:800;
-  letter-spacing:1px;
+nav.scrolled {
+  background: rgba(253, 248, 242, 0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(61,37,21,0.08);
 }
-
-/* IMAGE SECTION */
-.gallery{
-  display:flex;
-  gap:10px;
-  padding:10px;
-  max-width:1100px;
-  margin:auto;
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--brown);
+  letter-spacing: 0.02em;
+  text-decoration: none;
 }
-.gallery img{
-  width:100%;
-  height:400px;
-  object-fit:cover;
-  border-radius:12px;
-  flex:1;
+.nav-logo span {
+  color: var(--terra);
 }
-
-/* MOBILE SLIDER */
-.mobile-slider{
-  display:none;
-  position:relative;
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
 }
-.mobile-slider img{
-  width:100%;
-  height:60vh;
-  object-fit:cover;
-  border-radius:12px;
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
 }
-.nav-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.5);
-  color:#fff;
-  border:none;
-  font-size:1.5rem;
-  padding:.5rem 1rem;
-  cursor:pointer;
-  border-radius:8px;
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--terra);
+  transition: width 0.3s var(--ease);
 }
-.prev{left:10px}
-.next{right:10px}
-
-/* INTRO */
-.intro{
-  text-align:center;
-  padding:3rem 1.5rem;
-  max-width:800px;
-  margin:auto;
+.nav-links a:hover { color: var(--terra); }
+.nav-links a:hover::after { width: 100%; }
+ 
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none; border: none;
 }
-.intro strong{
-  display:block;
-  font-size:1.8rem;
-  margin-top:1.5rem;
-  color:var(--pink);
+.hamburger span {
+  display: block; width: 24px; height: 1.5px;
+  background: var(--brown);
+  transition: 0.3s;
 }
-
-/* SECTIONS */
-section{
-  max-width:1100px;
-  margin:3rem auto;
-  padding:1rem;
+ 
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--sand);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
 }
-h2{
-  color:var(--pink);
-  text-align:center;
-  margin-bottom:1.5rem;
-  font-size:2rem;
+ 
+/* Subtle grain texture */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }
-
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1.5rem;
+ 
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 5rem 5rem;
+  position: relative;
+  z-index: 2;
 }
-.card{
-  background:var(--card);
-  padding:2rem;
-  border-radius:16px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:.3s;
+ 
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s var(--ease) forwards;
 }
-.card:hover{
-  transform:translateY(-5px);
+ 
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.08;
+  color: var(--brown);
+  letter-spacing: -0.01em;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s var(--ease) forwards;
 }
-.icon{
-  font-size:2rem;
-  margin-bottom:.5rem;
+ 
+.hero h1 em {
+  font-style: italic;
+  color: var(--terra);
 }
-
-/* TABLE */
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:#fff;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+ 
+.hero-sub {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--brown-mid);
+  margin-top: 1.5rem;
+  max-width: 380px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.6s var(--ease) forwards;
 }
-th,td{
-  padding:.8rem;
-  text-align:left;
+ 
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.8s var(--ease) forwards;
 }
-th{
-  background:#f7f7f7;
+ 
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--terra);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.3s;
+  border: none; cursor: pointer;
 }
-.price{
-  color:var(--pink);
-  font-weight:800;
+.btn-primary:hover {
+  background: var(--terra-deep);
+  transform: translateY(-2px);
 }
-
-/* FORM */
-form{
-  background:#fff;
-  padding:1.5rem;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+ 
+.btn-outline {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--brown-mid);
+  color: var(--brown-mid);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s;
 }
-input,textarea{
-  width:100%;
-  padding:.7rem;
-  margin:.5rem 0;
-  border-radius:8px;
-  border:1px solid #ddd;
+.btn-outline:hover {
+  border-color: var(--terra);
+  color: var(--terra);
+  transform: translateY(-2px);
 }
-button{
-  background:linear-gradient(135deg,var(--pink),var(--orange));
-  color:#fff;
-  border:none;
-  padding:.8rem;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
+ 
+/* Hero ornament */
+.hero-ornament {
+  position: absolute;
+  bottom: 3rem; left: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 1s var(--ease) forwards;
 }
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:2rem;
-  background:#fff;
-  margin-top:3rem;
-  font-size:.9rem;
-  color:#666;
+.hero-ornament::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--teal);
 }
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .gallery{display:none;}
-  .mobile-slider{display:block;}
+.hero-ornament span {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
 }
-
-/* SVG Zeitleiste */
-.timeline-container{
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  position:relative;
+ 
+/* Hero right – photo collage */
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 1.2s 0.5s var(--ease) forwards;
 }
-.timeline-svg{
-  width:100%;
-  height:180px;
+ 
+.hero-img-main {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
-.timeline-character{
-  transition: transform 0.1s linear;
+ 
+.hero-img-overlay {
+  position: absolute;
+  bottom: 3rem; left: -3rem;
+  width: 200px; height: 260px;
+  object-fit: cover;
+  border: 6px solid var(--cream);
+  box-shadow: 0 20px 60px rgba(61,37,21,0.2);
+  border-radius: 2px;
+}
+ 
+/* Sun decoration from logo */
+.hero-sun {
+  position: absolute;
+  top: 4rem; right: 4rem;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--terra);
+  opacity: 0.15;
+}
+ 
+/* ═══════════════════════════════════════
+   WAVE DIVIDER
+═══════════════════════════════════════ */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: var(--sand);
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+}
+ 
+/* ═══════════════════════════════════════
+   PAIN SECTION
+═══════════════════════════════════════ */
+.pain {
+  background: var(--cream);
+  padding: 8rem 2rem;
+  text-align: center;
+}
+ 
+.section-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  display: block;
+  margin-bottom: 1rem;
+}
+ 
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--brown);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+ 
+.pain-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  max-width: 960px;
+  margin: 4rem auto 0;
+  border: 1px solid rgba(61,37,21,0.1);
+}
+ 
+.pain-card {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid rgba(61,37,21,0.1);
+  position: relative;
+  transition: background 0.3s;
+}
+.pain-card:last-child { border-right: none; }
+.pain-card:hover { background: var(--sand-light); }
+ 
+.pain-card .number {
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--terra);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+ 
+.pain-card p {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--brown-mid);
+  line-height: 1.8;
+}
+ 
+.pain-cta {
+  margin-top: 4rem;
+  padding: 2.5rem 3rem;
+  background: linear-gradient(135deg, var(--terra) 0%, var(--terra-soft) 100%);
+  display: inline-block;
+  border-radius: 2px;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 300;
+  max-width: 600px;
+  line-height: 1.5;
+}
+ 
+/* ═══════════════════════════════════════
+   GALLERY SECTION
+═══════════════════════════════════════ */
+.gallery-section {
+  padding: 6rem 0;
+  background: var(--sand-light);
+}
+ 
+.gallery-section .section-header {
+  text-align: center;
+  padding: 0 2rem 4rem;
+}
+ 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 320px 320px;
+  gap: 8px;
+  padding: 0 8px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+ 
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.gallery-item:nth-child(1) {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+.gallery-item:nth-child(2) {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+.gallery-item:nth-child(3) {
+  grid-column: 4 / 5;
+  grid-row: 1 / 3;
+}
+.gallery-item:nth-child(4) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+/* If more images needed */
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+.gallery-item:hover img { transform: scale(1.05); }
+ 
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(61,37,21,0.4) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+ 
+/* Mobile slider */
+.mobile-gallery {
+  display: none;
+  position: relative;
+  height: 75vw;
+  max-height: 500px;
+  overflow: hidden;
+}
+.mobile-gallery img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.mobile-gallery img.active { opacity: 1; }
+.gallery-nav {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+}
+.gallery-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  border: none;
+}
+.gallery-dot.active {
+  background: var(--white);
+  transform: scale(1.4);
+}
+ 
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+.about {
+  background: var(--cream);
+  padding: 8rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+ 
+.about-image {
+  position: relative;
+}
+.about-image img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.about-image-badge {
+  position: absolute;
+  bottom: -2rem; right: -2rem;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: var(--terra);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--white);
+  font-family: var(--serif);
+}
+.about-image-badge .num {
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+.about-image-badge .label {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+ 
+.about-content p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--brown-mid);
+  margin-bottom: 1.2rem;
+  line-height: 1.9;
+}
+ 
+.about-quote {
+  margin: 2.5rem 0;
+  padding: 2rem 0 2rem 2rem;
+  border-left: 3px solid var(--teal);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--brown);
+  line-height: 1.5;
+}
+ 
+/* ═══════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════ */
+.services {
+  background: var(--sand);
+  padding: 8rem 2rem;
+}
+ 
+.services .section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+ 
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(61,37,21,0.08);
+}
+ 
+.service-card {
+  background: var(--sand-light);
+  padding: 3rem 2.5rem;
+  transition: background 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--terra);
+  transition: width 0.4s var(--ease);
+}
+.service-card:hover::before { width: 100%; }
+.service-card:hover { background: var(--cream); transform: translateY(-4px); }
+ 
+.service-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+ 
+.service-card h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--brown);
+  margin-bottom: 0.7rem;
+}
+ 
+.service-card p {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--brown-mid);
+  line-height: 1.8;
+}
+ 
+/* ═══════════════════════════════════════
+   WHY
+═══════════════════════════════════════ */
+.why {
+  background: var(--cream);
+  padding: 8rem 2rem;
+}
+.why .section-header { text-align: center; margin-bottom: 4rem; }
+ 
+.why-table {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid rgba(61,37,21,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+ 
+.why-table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--brown);
+  color: var(--white);
+}
+.why-table-header div {
+  padding: 1.2rem 2rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+ 
+.why-table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(61,37,21,0.07);
+  transition: background 0.2s;
+}
+.why-table-row:hover { background: var(--sand-light); }
+ 
+.why-table-row .challenge {
+  padding: 1.4rem 2rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--brown-mid);
+  border-right: 1px solid rgba(61,37,21,0.07);
+}
+.why-table-row .solution {
+  padding: 1.4rem 2rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--terra-deep);
+  font-weight: 500;
+}
+ 
+/* ═══════════════════════════════════════
+   PRICING
+═══════════════════════════════════════ */
+.pricing {
+  background: var(--sand);
+  padding: 8rem 2rem;
+}
+.pricing .section-header { text-align: center; margin-bottom: 5rem; }
+ 
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+ 
+.pricing-card {
+  background: var(--cream);
+  padding: 3rem 2.5rem;
+  border-radius: 2px;
+  position: relative;
+  border: 1px solid rgba(61,37,21,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(61,37,21,0.12);
+}
+.pricing-card.featured {
+  background: var(--brown);
+  color: var(--cream);
+  border-color: transparent;
+}
+ 
+.pricing-card .service-name {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+  display: block;
+}
+.pricing-card.featured .service-name { color: var(--terra-soft); }
+ 
+.pricing-card .price-val {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--brown);
+  line-height: 1;
+}
+.pricing-card.featured .price-val { color: var(--white); }
+ 
+.pricing-card .price-val sup {
+  font-size: 1.2rem;
+  vertical-align: super;
+  font-weight: 400;
+}
+ 
+.pricing-card .price-desc {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--brown-mid);
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+.pricing-card.featured .price-desc { color: rgba(240,213,184,0.7); }
+ 
+.pricing-card hr {
+  border: none;
+  border-top: 1px solid rgba(61,37,21,0.1);
+  margin: 1.5rem 0;
+}
+.pricing-card.featured hr { border-color: rgba(240,213,184,0.2); }
+ 
+.pricing-card ul {
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--brown-mid);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.pricing-card.featured ul { color: rgba(240,213,184,0.8); }
+.pricing-card ul li::before {
+  content: '–';
+  margin-right: 0.5rem;
+  color: var(--terra);
+}
+.pricing-card.featured ul li::before { color: var(--terra-soft); }
+ 
+/* ═══════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════ */
+.timeline {
+  background: var(--cream);
+  padding: 8rem 2rem;
+}
+.timeline .section-header { text-align: center; margin-bottom: 5rem; }
+ 
+.timeline-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+.timeline-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(1/6 * 100%);
+  right: calc(1/6 * 100%);
+  height: 1px;
+  background: var(--terra);
+}
+ 
+.timeline-step {
+  text-align: center;
+  padding: 0 2rem;
+}
+.timeline-step .dot {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--terra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--terra);
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s, color 0.3s;
+}
+.timeline-step:hover .dot {
+  background: var(--terra);
+  color: var(--white);
+}
+.timeline-step h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--brown);
+  margin-bottom: 0.5rem;
+}
+.timeline-step p {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--brown-mid);
+  line-height: 1.7;
+}
+ 
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials {
+  background: var(--sand);
+  padding: 8rem 2rem;
+}
+.testimonials .section-header { text-align: center; margin-bottom: 5rem; }
+ 
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(61,37,21,0.06);
+}
+ 
+.testimonial {
+  background: var(--sand-light);
+  padding: 3rem 2.5rem;
+  transition: background 0.3s;
+}
+.testimonial:hover { background: var(--cream); }
+ 
+.testimonial-stars {
+  color: var(--terra);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2rem;
+}
+ 
+.testimonial p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--brown);
+  line-height: 1.7;
+}
+ 
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq {
+  background: var(--cream);
+  padding: 8rem 2rem;
+}
+.faq .section-header { text-align: center; margin-bottom: 4rem; }
+ 
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+ 
+.faq-item {
+  border-top: 1px solid rgba(61,37,21,0.1);
+}
+.faq-item:last-child { border-bottom: 1px solid rgba(61,37,21,0.1); }
+ 
+.faq-question {
+  width: 100%;
+  padding: 1.6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none; border: none; cursor: pointer;
+  text-align: left;
+  gap: 1rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--brown);
+  transition: color 0.3s;
+}
+.faq-question:hover { color: var(--terra); }
+ 
+.faq-icon {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.3s var(--ease);
+}
+.faq-icon::before, .faq-icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+}
+.faq-icon::before { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.faq-icon::after  { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform 0.3s; }
+ 
+.faq-item.open .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); }
+.faq-item.open .faq-question { color: var(--terra); }
+ 
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease);
+}
+.faq-answer-inner {
+  padding-bottom: 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--brown-mid);
+  line-height: 1.9;
+}
+ 
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+.contact {
+  background: var(--brown);
+  padding: 8rem 2rem;
+  color: var(--sand-light);
+}
+ 
+.contact .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.contact .section-label { color: var(--teal); }
+.contact .section-title { color: var(--sand-light); }
+ 
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 6rem;
+  align-items: start;
+}
+ 
+.contact-info h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--sand-light);
+  margin-bottom: 1rem;
+}
+ 
+.contact-info p, .contact-info a {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(240,213,184,0.7);
+  text-decoration: none;
+  line-height: 2;
+  display: block;
+}
+.contact-info a:hover { color: var(--terra-soft); }
+ 
+.contact-info .info-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(240,213,184,0.1);
+}
+ 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+ 
+.form-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+ 
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(240,213,184,0.15);
+  border-radius: 2px;
+  color: var(--sand-light);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  transition: border-color 0.3s, background 0.3s;
+  outline: none;
+  -webkit-appearance: none;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: rgba(240,213,184,0.35); }
+.contact-form select { color: rgba(240,213,184,0.5); }
+.contact-form select option { background: var(--brown); color: var(--sand-light); }
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--terra-soft);
+  background: rgba(196,97,42,0.06);
+}
+.contact-form textarea { height: 120px; resize: none; }
+ 
+.contact-form .btn-primary {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+ 
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: var(--ink);
+  padding: 4rem 2rem 3rem;
+  color: rgba(240,213,184,0.5);
+}
+ 
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(240,213,184,0.1);
+}
+ 
+.footer-brand .logo {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--sand-light);
+  display: block;
+  margin-bottom: 1rem;
+}
+.footer-brand .logo span { color: var(--terra-soft); }
+.footer-brand p {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+ 
+.footer-col h4 {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sand-light);
+  margin-bottom: 1.2rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col a {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(240,213,184,0.5);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--terra-soft); }
+ 
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+}
+ 
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+ 
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+ 
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 2px; }
+}
+ 
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 1.5rem; gap: 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+ 
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 7rem 1.5rem 4rem; }
+  .hero-right { height: 70vw; }
+  .hero-img-overlay { display: none; }
+  .hero-ornament { display: none; }
+ 
+  .gallery-grid { display: none; }
+  .mobile-gallery { display: block; }
+ 
+  .about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+  .about-image-badge { bottom: -1rem; right: -0.5rem; width: 110px; height: 110px; }
+ 
+  .services-grid { grid-template-columns: 1fr; }
+  .timeline-steps { grid-template-columns: 1fr; }
+  .timeline-steps::before { display: none; }
+  .timeline-step { padding: 0 1rem 3rem; }
+ 
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .form-group { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+ 
+  .pain-cards { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+ 
+  .why-table-header, .why-table-row { grid-template-columns: 1fr; }
+  .why-table-row .challenge { border-right: none; border-bottom: 1px solid rgba(61,37,21,0.07); }
+}
+ 
+@media (max-width: 480px) {
+  .pain-cards { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.8rem; }
 }
 </style>
 </head>
 <body>
-
-<!-- NAV LINKS -->
-<div style="text-align:center; padding:1rem;">
-<a href="#preise" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Preise</a>
-<a href="#mantra" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Mantra</a>
-<a href="#kontakt" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Kontakt</a>
-<a href="reisen.html" style="margin:0 1rem; color:#ff4d6d; font-weight:600;">Reisen</a>
-</div>
-
-<header>
-<h1>MARA MOVE</h1>
-<p>Fühle dich wohl in deiner Haut</p>
-</header>
-
-<!-- DESKTOP GALLERY -->
-<div class="gallery">
-<img src="assets/gallery-1.jpg">
-<img src="assets/gallery-2.jpg">
-<img src="assets/gallery-3.jpg">
-<img src="assets/gallery-4.jpg">
-</div>
-
-<!-- MOBILE SLIDER -->
-<div class="mobile-slider">
-<img id="sliderImage" src="assets/gallery-1.jpg">
-<button class="nav-btn prev" onclick="prevSlide()">‹</button>
-<button class="nav-btn next" onclick="nextSlide()">›</button>
-</div>
-
-<script>
-let images = [
-"assets/gallery-1.jpg",
-"assets/gallery-2.jpg",
-"assets/gallery-3.jpg",
-"assets/gallery-4.jpg"
-];
-let index = 0;
-function showImage(){ document.getElementById("sliderImage").src = images[index]; }
-function nextSlide(){ index = (index + 1) % images.length; showImage(); }
-function prevSlide(){ index = (index - 1 + images.length) % images.length; showImage(); }
-</script>
-
-<!-- INTRO -->
-<section class="intro" style="padding:80px 20px; background:var(--sand); font-family:Arial, sans-serif;">
-
-  <div style="
-    max-width:700px;
-    margin:0 auto;
-    background:white;
-    padding:40px 30px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    text-align:center;
-  ">
-
-    <p style="font-size:18px; color:#444; margin-bottom:15px;">
-      Du schläfst genug – und bist trotzdem ständig müde.
-    </p>
-
-    <p style="font-size:18px; color:#444; margin-bottom:15px;">
-      Schon kleine Belastungen bringen dich außer Atem.
-    </p>
-
-    <p style="font-size:18px; color:#444; margin-bottom:15px;">
-      Dein Körper verlangt ständig nach Zucker.
-    </p>
-
-    <p style="font-size:18px; color:#444; margin-bottom:30px;">
-      Du bist gestresst, schlapp und ohne Balance.
-    </p>
-
-    <div style="
-      width:50px;
-      height:3px;
-      background:#ff7a18;
-      margin:25px auto;
-      border-radius:2px;
-    "></div>
-
-    <div style="
-      margin-top:20px;
-      padding:20px;
-      background:linear-gradient(135deg, #ff7a18, #ffb347);
-      color:white;
-      border-radius:15px;
-      font-size:20px;
-      font-weight:700;
-      line-height:1.4;
-      box-shadow:0 10px 25px rgba(255,122,24,0.3);
-    ">
-      ENTSCHEIDE DICH JETZT, DEINEM KÖRPER UND DEINER SEELE GEHÖR ZU SCHENKEN
+ 
+<!-- ════════════════════ NAV ════════════════════ -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Mara <span>Move</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Leistungen</a></li>
+    <li><a href="#about">Über mich</a></li>
+    <li><a href="#preise">Preise</a></li>
+    <li><a href="#reisen">Reisen</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+ 
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Personal Training · Yoga · Ernährung</span>
+    <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
+    <p class="hero-sub">Ganzheitliches Coaching für mehr Energie, Balance und Selbstliebe. Nachhaltig. Individuell. Ohne Druck.</p>
+    <div class="hero-cta">
+      <a href="#kontakt" class="btn-primary">Erstgespräch vereinbaren</a>
+      <a href="#services" class="btn-outline">Leistungen entdecken</a>
     </div>
-
+    <div class="hero-ornament">
+      <span>Mara Tumpach · Minden</span>
+    </div>
   </div>
-
+  <div class="hero-right">
+    <img class="hero-img-main" src="assets/gallery-1.jpg" alt="Mara Move Training">
+    <img class="hero-img-overlay" src="assets/gallery-2.jpg" alt="Mara Move">
+    <div class="hero-sun"></div>
+  </div>
 </section>
-
-<!-- LEISTUNGEN -->
-<section>
-<h2>Leistungen</h2>
-<div class="grid">
-  <div class="card"><div class="icon">🏋️‍♀️</div><h3>Personal Training</h3><p>Individuell & effektiv</p></div>
-  <div class="card"><div class="icon">🧘‍♀️</div><h3>Yoga & Meditation</h3><p>Mentale Stärke & Balance</p></div>
-  <div class="card"><div class="icon">🥗</div><h3>Ernährung</h3><p>Einfach & nachhaltig</p></div>
-  <div class="card"><div class="icon">⚡</div><h3>EMS Training</h3><p>Schnell & intensiv</p></div>
-  <div class="card"><div class="icon">📅</div><h3>Begleitung</h3><p>Langfristige Veränderung</p></div>
-  <div class="card"><div class="icon">💻</div><h3>Online Coaching</h3><p>Flexibel von überall</p></div>
+ 
+<!-- Wave -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z" fill="#fdf8f2"/>
+  </svg>
 </div>
+ 
+<!-- ════════════════════ PAIN ════════════════════ -->
+<section class="pain">
+  <span class="section-label reveal">Erkennst du dich wieder?</span>
+  <h2 class="section-title reveal">Du verdienst mehr<br>als ständige Erschöpfung</h2>
+  <div class="pain-cards reveal">
+    <div class="pain-card">
+      <div class="number">01</div>
+      <p>Du schläfst genug – und bist trotzdem ständig müde und energielos.</p>
+    </div>
+    <div class="pain-card">
+      <div class="number">02</div>
+      <p>Schon kleine Belastungen bringen dich außer Atem.</p>
+    </div>
+    <div class="pain-card">
+      <div class="number">03</div>
+      <p>Dein Körper verlangt ständig nach Zucker und schnellen Kalorien.</p>
+    </div>
+    <div class="pain-card">
+      <div class="number">04</div>
+      <p>Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.</p>
+    </div>
+  </div>
+  <div class="pain-cta reveal">
+    Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken
+  </div>
 </section>
-
-<!-- ÜBER MICH -->
-<section>
-<h2>Über mich</h2>
-<p style="text-align:center;max-width:700px;margin:auto">
-Hi, ich bin Mara – Personal Trainerin, Yoga Instructor, Vitalstofftrainerin und Ernährungsberaterin.  
-Ich helfe dir, deinen Körper zu stärken und wieder in deine Energie zu kommen.  
-Ganzheitlich. Nachhaltig. Ohne Druck.
-</p>
+ 
+<!-- ════════════════════ GALLERY ════════════════════ -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header reveal">
+    <span class="section-label">Einblicke</span>
+    <h2 class="section-title">Dein Weg beginnt hier</h2>
+  </div>
+ 
+  <!-- Desktop -->
+  <div class="gallery-grid reveal">
+    <div class="gallery-item">
+      <img src="assets/gallery-1.jpg" alt="Mara Move Training 1">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="assets/gallery-2.jpg" alt="Mara Move Training 2">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="assets/gallery-3.jpg" alt="Mara Move Training 3">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="assets/gallery-4.jpg" alt="Mara Move Training 4">
+      <div class="gallery-item-overlay"></div>
+    </div>
+  </div>
+ 
+  <!-- Mobile -->
+  <div class="mobile-gallery">
+    <img src="assets/gallery-1.jpg" alt="Gallery 1" class="active">
+    <img src="assets/gallery-2.jpg" alt="Gallery 2">
+    <img src="assets/gallery-3.jpg" alt="Gallery 3">
+    <img src="assets/gallery-4.jpg" alt="Gallery 4">
+    <div class="gallery-nav" id="galleryDots"></div>
+  </div>
 </section>
-
-<!-- MANTRA -->
-<section id="mantra">
-<blockquote style="background:#fff;padding:1rem;border-left:5px solid var(--orange)">
-„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt.“
-</blockquote>
+ 
+<!-- ════════════════════ ABOUT ════════════════════ -->
+<section class="about" id="about">
+  <div class="about-image reveal">
+    <img src="assets/gallery-2.jpg" alt="Mara Tumpach">
+    <div class="about-image-badge">
+      <span class="num">5+</span>
+      <span class="label">Jahre Erfahrung</span>
+    </div>
+  </div>
+  <div class="about-content reveal">
+    <span class="section-label">Über mich</span>
+    <h2 class="section-title">Hi, ich bin <em style="font-style:italic;color:var(--terra);">Mara</em></h2>
+    <p>Personal Trainerin, Yoga Instructor, Vitalstofftrainerin und Ernährungsberaterin – ich begleite dich auf dem Weg zu mehr Kraft, Energie und Selbstliebe.</p>
+    <p>Mein Ansatz ist ganzheitlich: Ich betrachte nicht nur deinen Körper, sondern auch deine Ernährung, deinen Schlaf und deinen mentalen Zustand. Weil nachhaltiger Wandel von innen kommt.</p>
+    <blockquote class="about-quote">
+      „Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt."
+    </blockquote>
+    <a href="#kontakt" class="btn-primary">Kostenlos kennenlernen</a>
+  </div>
 </section>
-
-<!-- PREISE -->
-<section id="preise">
-<h2>Preise</h2>
-<table>
-<tr><th>Leistung</th><th>Preis</th></tr>
-<tr><td>Personaltraining</td><td class="price">39 €</td></tr>
-<tr><td>Ernährungsumstellung</td><td class="price">59 €</td></tr>
-<tr><td>Wochenbegleitung</td><td class="price">25 €</td></tr>
-<tr><td>EMS Training</td><td class="price">79 €</td></tr>
-</table>
+ 
+<!-- ════════════════════ SERVICES ════════════════════ -->
+<section class="services" id="services">
+  <div class="section-header">
+    <span class="section-label reveal">Angebote</span>
+    <h2 class="section-title reveal">Was ich für dich tue</h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">🏋️‍♀️</span>
+      <h3>Personal Training</h3>
+      <p>Individuell auf dich abgestimmte Workouts – effektiv, sicher und mit persönlicher Begleitung bei jedem Schritt.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🧘‍♀️</span>
+      <h3>Yoga &amp; Meditation</h3>
+      <p>Mentale Stärke und körperliche Balance. Yoga als Werkzeug für mehr Ruhe, Klarheit und innere Mitte.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🥗</span>
+      <h3>Ernährungsberatung</h3>
+      <p>Einfach, nachhaltig und lecker. Kein Diätwahnsinn – sondern ein Ernährungsplan, der zu deinem Leben passt.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⚡</span>
+      <h3>EMS Training</h3>
+      <p>Intensiv und zeitsparend. Das EMS-Gerät ist im Trainigspreis enthalten – du musst nichts kaufen.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📅</span>
+      <h3>Langfristige Begleitung</h3>
+      <p>Wochenweise Unterstützung, messbare Fortschritte und ein Mensch der mitdenkt – für echten Wandel.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💻</span>
+      <h3>Online Coaching</h3>
+      <p>Flexibel von überall. Training und Ernährungsberatung digital – für Menschen mit vollem Terminkalender.</p>
+    </div>
+  </div>
 </section>
-
-<!-- TABELLE: WARUM ZUHAUSE NICHT -->
-<section>
-<h2>Warum es alleine oft nicht klappt</h2>
-<table>
-<tr><th>Herausforderung</th><th>Lösung mit Mara Move</th></tr>
-<tr><td>Motivation fehlt 🛋️</td><td>Personal Training & feste Termine</td></tr>
-<tr><td>Falsche Ernährung 🍫</td><td>Individueller Ernährungsplan</td></tr>
-<tr><td>Unsicherheit bei Übungen ❓</td><td>Begleitung & Korrektur bei jedem Training</td></tr>
-<tr><td>Keine Erfolge sichtbar 📉</td><td>Messbare Fortschritte & Zieltracking</td></tr>
-</table>
+ 
+<!-- ════════════════════ WHY ════════════════════ -->
+<section class="why">
+  <div class="section-header">
+    <span class="section-label reveal">Kein Geheimnis</span>
+    <h2 class="section-title reveal">Warum es alleine oft nicht klappt</h2>
+  </div>
+  <div class="why-table reveal">
+    <div class="why-table-header">
+      <div>Herausforderung</div>
+      <div>Lösung mit Mara Move</div>
+    </div>
+    <div class="why-table-row">
+      <div class="challenge">🛋️ Motivation fehlt, Termine werden verschoben</div>
+      <div class="solution">Personal Training mit festen, verbindlichen Terminen</div>
+    </div>
+    <div class="why-table-row">
+      <div class="challenge">🍫 Falsche Ernährung und unkontrolliertes Verlangen</div>
+      <div class="solution">Individueller Ernährungsplan nach Darmreinigung</div>
+    </div>
+    <div class="why-table-row">
+      <div class="challenge">❓ Unsicherheit bei Übungen und Technik</div>
+      <div class="solution">Persönliche Begleitung und Korrektur bei jedem Training</div>
+    </div>
+    <div class="why-table-row">
+      <div class="challenge">📉 Keine sichtbaren Erfolge trotz Aufwand</div>
+      <div class="solution">Messbare Fortschritte durch konsequentes Zieltracking</div>
+    </div>
+  </div>
 </section>
-
-<!-- KUNDENBEWERTUNGEN -->
-<section>
-<h2>Kunden sagen</h2>
-<div class="grid">
-<div class="card">⭐️⭐️⭐️⭐️⭐️<p>"Ich passe seit Jahren wieder in mein altes Lieblingskleid!"</p></div>
-<div class="card">⭐️⭐️⭐️⭐️⭐️<p>"Meine Food Noise ist endlich still."</p></div>
-<div class="card">⭐️⭐️⭐️⭐️⭐️<p>"Ich fühle mich stark, schön und wohl."</p></div>
-</div>
+ 
+<!-- ════════════════════ TIMELINE ════════════════════ -->
+<section class="timeline">
+  <div class="section-header">
+    <span class="section-label reveal">Dein Weg</span>
+    <h2 class="section-title reveal">So sieht dein langfristiges Training aus</h2>
+  </div>
+  <div class="timeline-steps reveal">
+    <div class="timeline-step">
+      <div class="dot">1</div>
+      <h3>Erstes Training</h3>
+      <p>Wir starten mit einem kostenlosen Kennenlerngespräch und einem Probetraining – ganz ohne Druck.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="dot">2</div>
+      <h3>Teilerfolge feiern</h3>
+      <p>Nach einigen Wochen merkst du die ersten Veränderungen: mehr Energie, besserer Schlaf, spürbare Kraft.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="dot">3</div>
+      <h3>Ziel erreicht</h3>
+      <p>Mehr Lebensfreude, Balance und Selbstliebe. Ein neues, starkes Körpergefühl – nachhaltig und dauerhaft.</p>
+    </div>
+  </div>
 </section>
-
-<!-- ZEITSTRAHL MIT ANIMIERTER FIGUR MIT BEINEN -->
-<section>
-<h2>So sieht dein langfristiges Training aus</h2>
-<div class="timeline-container">
-<svg class="timeline-svg" viewBox="0 0 900 180">
-<!-- Zeitleistenlinie -->
-<line x1="50" y1="90" x2="850" y2="90" stroke="#ff4d6d" stroke-width="8" stroke-linecap="round"/>
-<!-- Stationen -->
-<circle cx="50" cy="90" r="12" fill="#ff4d6d"/>
-<circle cx="450" cy="90" r="12" fill="#ff4d6d"/>
-<circle cx="850" cy="90" r="12" fill="#ff4d6d"/>
-<!-- Beschriftungen -->
-<text x="50" y="130" font-size="14" text-anchor="middle">Erstes Training</text>
-<text x="450" y="130" font-size="14" text-anchor="middle">Teilerfolge feiern</text>
-<text x="850" y="130" font-size="14" text-anchor="middle">Ziel erreicht</text>
-<!-- Animierte Figur -->
-<g id="character" class="timeline-character">
-<!-- Körper -->
-<rect x="-15" y="-30" width="30" height="40" fill="#ff4d6d"/>
-<!-- Kopf -->
-<circle cx="0" cy="-40" r="12" fill="#ff4d6d"/>
-<!-- Beine -->
-<line x1="-10" y1="10" x2="-10" y2="30" stroke="#ff4d6d" stroke-width="5"/>
-<line x1="10" y1="10" x2="10" y2="30" stroke="#ff4d6d" stroke-width="5"/>
-</g>
-</svg>
-<p style="text-align:center; margin-top:10px;">Für mehr Lebensfreude, Balance und Selbstliebe</p>
-</div>
+ 
+<!-- ════════════════════ PRICING ════════════════════ -->
+<section class="pricing" id="preise">
+  <div class="section-header">
+    <span class="section-label reveal">Transparenz</span>
+    <h2 class="section-title reveal">Investiere in dich</h2>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card reveal">
+      <span class="service-name">Personal Training</span>
+      <div class="price-val"><sup>€</sup>39</div>
+      <p class="price-desc">pro Einheit</p>
+      <hr>
+      <ul>
+        <li>Individueller Trainingsplan</li>
+        <li>Persönliche Begleitung</li>
+        <li>Übungskorrektur</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured reveal">
+      <span class="service-name">Ernährungsumstellung</span>
+      <div class="price-val"><sup>€</sup>59</div>
+      <p class="price-desc">Ersttermin inkl. Analyse</p>
+      <hr>
+      <ul>
+        <li>Vitalstoffanalyse</li>
+        <li>Individueller Ernährungsplan</li>
+        <li>Darmreinigung inkl.</li>
+      </ul>
+    </div>
+    <div class="pricing-card reveal">
+      <span class="service-name">Wochenbegleitung</span>
+      <div class="price-val"><sup>€</sup>25</div>
+      <p class="price-desc">pro Woche</p>
+      <hr>
+      <ul>
+        <li>Täglicher Check-in</li>
+        <li>FortschrittsTracking</li>
+        <li>Motivation &amp; Support</li>
+      </ul>
+    </div>
+    <div class="pricing-card reveal">
+      <span class="service-name">EMS Training</span>
+      <div class="price-val"><sup>€</sup>79</div>
+      <p class="price-desc">Gerät inklusive</p>
+      <hr>
+      <ul>
+        <li>Kein eigenes Gerät nötig</li>
+        <li>Intensiv &amp; zeitsparend</li>
+        <li>Professionelle Anleitung</li>
+      </ul>
+    </div>
+  </div>
 </section>
-
+ 
+<!-- ════════════════════ TESTIMONIALS ════════════════════ -->
+<section class="testimonials">
+  <div class="section-header">
+    <span class="section-label reveal">Stimmen</span>
+    <h2 class="section-title reveal">Was Frauen sagen</h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>„Ich passe seit Jahren wieder in mein altes Lieblingskleid. Mara hat mein Leben verändert."</p>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>„Meine Food Noise ist endlich still. Ich esse bewusst und genieße es wirklich."</p>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>„Ich fühle mich stark, schön und wohl – in meinem Körper und in meinem Leben."</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════════════════════ FAQ ════════════════════ -->
+<section class="faq">
+  <div class="section-header">
+    <span class="section-label reveal">FAQ</span>
+    <h2 class="section-title reveal">Fragen &amp; Antworten</h2>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-question">Wie viel Zeit sollte ich freihalten?<span class="faq-icon"></span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Mindestens 2–3 Stunden pro Woche reichen für spürbare Erfolge. Das Wichtigste ist die Regelmäßigkeit – nicht die Intensität.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Gibt es individuelle Ernährungspläne?<span class="faq-icon"></span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Ja, nach einer Darmreinigung und Vitalstoffanalyse wird ein Plan erstellt, der exakt auf dich, deinen Alltag und deine Ziele abgestimmt ist.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Kann ich online teilnehmen?<span class="faq-icon"></span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Ja, Training und Coaching sind auch vollständig digital möglich. Du brauchst nur eine Internetverbindung und Motivation.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Muss ich den EMS-Gürtel selbst kaufen?<span class="faq-icon"></span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Für wen ist Mara Move geeignet?<span class="faq-icon"></span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Für alle Frauen, die endlich nachhaltig etwas verändern möchten – egal ob Anfängerin oder schon aktiv. Kein Vorkenntnisse nötig.</div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════════════════════ CONTACT ════════════════════ -->
+<section class="contact" id="kontakt">
+  <div class="section-header">
+    <span class="section-label">Starte jetzt</span>
+    <h2 class="section-title">Dein erster Schritt</h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="info-item">
+        <h3>Schreib mir</h3>
+        <a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a>
+      </div>
+      <div class="info-item">
+        <h3>Ruf an</h3>
+        <a href="tel:+491629453781">+49 162 9453781</a>
+      </div>
+      <div class="info-item">
+        <h3>Standort</h3>
+        <p>Minden, Deutschland</p>
+        <p>Online Coaching weltweit möglich</p>
+      </div>
+      <p style="font-size:0.8rem;opacity:0.5;margin-top:1rem;">Das erste Gespräch ist kostenlos und unverbindlich.</p>
+    </div>
+ 
+    <form class="contact-form" action="https://formspree.io/f/xnjldvwe" method="POST">
+      <input type="hidden" name="_redirect" value="https://deinewebsite.de/danke.html">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Dein Name" required>
+        <input type="email" name="email" placeholder="E-Mail-Adresse" required>
+      </div>
+      <input type="tel" name="telefon" placeholder="Telefonnummer" required>
+      <select name="anliegen" required>
+        <option value="">Wähle dein Anliegen</option>
+        <option>Kostenloses Beratungsgespräch</option>
+        <option>Personaltraining</option>
+        <option>Ernährungsumstellung Ersttermin</option>
+        <option>EMS Training</option>
+        <option>Online Coaching</option>
+      </select>
+      <input type="text" name="termin" placeholder="Wunschtermin (Datum &amp; Uhrzeit)">
+      <textarea name="nachricht" placeholder="Kurze Nachricht (optional)"></textarea>
+      <button type="submit" class="btn-primary">Termin anfragen →</button>
+    </form>
+  </div>
+</section>
+ 
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">Mara <span>Move</span></span>
+      <p>Ganzheitliches Personal Training, Yoga, Ernährungsberatung und EMS in Minden und online. Für Frauen, die sich wohl fühlen wollen – in ihrer Haut.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#preise">Preise</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="#impressum">Impressum</a></li>
+        <li><a href="#datenschutz">Datenschutz</a></li>
+      </ul>
+      <h4 style="margin-top:1.5rem;">Kontakt</h4>
+      <ul>
+        <li><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></li>
+        <li><a href="tel:+491629453781">+49 162 9453781</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mara Tumpach · MARA MOVE</span>
+    <span>Angaben gem. § 5 TMG: Mara Tumpach, Deutschland</span>
+  </div>
+</footer>
+ 
+<!-- Hidden legal sections (anchor targets) -->
+<div id="impressum" style="display:none"></div>
+<div id="datenschutz" style="display:none"></div>
+ 
+<!-- ════════════════════ JS ════════════════════ -->
 <script>
-// Animation der Figur beim Scrollen mit Beine-Bewegung
-const character = document.getElementById('character');
-const svgStart = 50;
-const svgEnd = 850;
-
+// ── Nav scroll
+const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
-const scrollTop = window.scrollY;
-const docHeight = document.body.scrollHeight - window.innerHeight;
-const scrollFraction = Math.min(scrollTop / docHeight, 1);
-const newX = svgStart + (svgEnd - svgStart) * scrollFraction;
-
-// Figur skalieren (schlanker)
-const scale = 1 - 0.5*scrollFraction;
-
-// Beine animieren wie Schritte
-const legAngle = Math.sin(scrollFraction * Math.PI * 4) * 20;
-
-character.setAttribute('transform', `translate(${newX},90) scale(${scale},${scale}) rotate(${legAngle})`);
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+ 
+// ── Hamburger
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+ 
+// ── Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+ 
+// ── Mobile gallery slider
+(function() {
+  const imgs  = document.querySelectorAll('.mobile-gallery img');
+  const dotsC = document.getElementById('galleryDots');
+  if (!dotsC) return;
+  let cur = 0;
+ 
+  imgs.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => go(i));
+    dotsC.appendChild(d);
+  });
+ 
+  function go(n) {
+    imgs[cur].classList.remove('active');
+    dotsC.children[cur].classList.remove('active');
+    cur = (n + imgs.length) % imgs.length;
+    imgs[cur].classList.add('active');
+    dotsC.children[cur].classList.add('active');
+  }
+ 
+  let x0 = null;
+  const mg = document.querySelector('.mobile-gallery');
+  mg.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; });
+  mg.addEventListener('touchend',   e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+ 
+  setInterval(() => go(cur + 1), 4000);
+})();
+ 
+// ── FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-answer').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      const ans = item.querySelector('.faq-answer');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
 });
 </script>
-
-<!-- FAQ -->
-<section>
-<h2>Fragen & Antworten</h2>
-<div class="grid">
-<div class="card"><strong>Wie viel Zeit sollte ich freihalten?</strong><p>Mindestens 2-3 Stunden pro Woche für spürbare Erfolge.</p></div>
-<div class="card"><strong>Gibt es individuelle Ernährungspläne?</strong><p>Ja, nach der Darmreinigung wird der Plan auf dich abgestimmt.</p></div>
-<div class="card"><strong>Kann ich online teilnehmen?</strong><p>Ja, Training & Coaching sind auch digital möglich.</p></div>
-<div class="card"><strong>Muss ich den EMS Gürtel selbst kaufen?</strong><p>Nein, EMS Gerät ist im Trainigspreis enthalten.</p></div>
-</div>
-</section>
-
-<!-- KONTAKT -->
-<section id="kontakt">
-  <h2>Kontakt</h2>
-  
-  <p style="text-align:center">
-    E-Mail: maratumpach@gmail.com<br>
-    Telefon: +49 162 9453781
-  </p>
-
-  <form action="https://formspree.io/f/xnjldvwe" method="POST">
-    
-    <!-- Weiterleitung nach Absenden -->
-    <input type="hidden" name="_redirect" value="https://deinewebsite.de/danke.html">
-
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="E-Mail" required>
-    <input type="tel" name="telefon" placeholder="Telefonnummer" required>
-
-    <label>Wähle dein Anliegen:</label>
-    <select name="anliegen" required>
-      <option value="">Bitte auswählen</option>
-      <option>Telefonisches kostenloses Beratungsgespräch</option>
-      <option>Personaltraining</option>
-      <option>Ernährungsumstellung Ersttermin</option>
-    </select>
-
-    <input type="text" name="termin" placeholder="Wunschtermin (Datum & Uhrzeit)" required>
-
-    <button type="submit">Jetzt Termin anfragen</button>
-  </form>
-</section>
-
-<!-- IMPRESSUM -->
-<section>
-<h2>Impressum</h2>
-<p>
-Angaben gemäß § 5 TMG:<br><br>
-Mara Tumpach<br>
-MARA MOVE<br>
-Deutschland<br><br>
-Kontakt:<br>
-E-Mail: maratumpach@gmail.com<br>
-Telefon: +49 162 9453781<br><br>
-Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
-Mara Tumpach
-</p>
-</section>
-
-<!-- DATENSCHUTZ -->
-<section>
-<h2>Datenschutz</h2>
-<p>
-Der Schutz deiner persönlichen Daten ist mir wichtig.  
-Deine Daten werden vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften behandelt.<br><br>
-Wenn du mich per Formular kontaktierst, werden deine Angaben inklusive der von dir angegebenen Kontaktdaten gespeichert, um deine Anfrage zu bearbeiten. Diese Daten gebe ich nicht ohne deine Einwilligung weiter.<br><br>
-Du hast jederzeit das Recht auf Auskunft, Löschung oder Berichtigung deiner gespeicherten Daten.<br><br>
-Bei Fragen zum Datenschutz kannst du dich jederzeit per E-Mail an mich wenden.
-</p>
-</section>
-
+ 
 </body>
 </html>
