@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zertifikate & Lizenzen</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f9f7f4;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 80px 20px 50px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    color: #777;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #d6bfa7;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #b89e85;
+}
+
+.about {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Meine Zertifikate</h1>
+    <p>Yoga • Sport • Ernährung</p>
+</header>
+
+<section class="about">
+    <p>
+    Ich arbeite im Bereich Yoga, Sport und Ernährung und verbinde Bewegung, Gesundheit und Wohlbefinden zu einem ganzheitlichen Konzept.
+    </p>
+
+    <p>
+    Auf der AIDA habe ich über <strong>430 Sportstunden sowie Ernährungsberatungen</strong> durchgeführt und wertvolle praktische Erfahrung gesammelt.
+    </p>
+
+    <p>
+    Zusätzlich war ich in Italien als Animateurin tätig – am Meer sowie in Clubanlagen – und habe dort Fitness-, Yoga- und Sportprogramme geleitet.
+    </p>
+
+    <p>
+    Mein Fokus liegt auf <strong>Yoga, Pilates und modernen Trainingskonzepten</strong>, die Körper und Geist in Einklang bringen.
+    </p>
+</section>
+
+<div class="container">
+    <div class="grid">
+
+        <!-- Zertifikat 1 -->
+        <div class="card">
+            <img src="zertifikat1.jpg" alt="Yoga Zertifikat">
+            <div class="card-content">
+                <h3>Yoga Zertifikat</h3>
+                <p>Ausbildung im Bereich Yoga & Bewegung.</p>
+                <a href="zertifikat1.pdf" target="_blank" class="button">PDF ansehen</a>
+            </div>
+        </div>
+
+        <!-- Zertifikat 2 -->
+        <div class="card">
+            <img src="zertifikat2.jpg" alt="Ernährungsberater Lizenz">
+            <div class="card-content">
+                <h3>Ernährungsberaterin</h3>
+                <p>Lizenz im Bereich Ernährung & Gesundheitsberatung.</p>
+                <a href="zertifikat2.pdf" target="_blank" class="button">PDF ansehen</a>
+            </div>
+        </div>
+
+        <!-- Zertifikat 3 -->
+        <div class="card">
+            <img src="zertifikat3.jpg" alt="Fitness Lizenz">
+            <div class="card-content">
+                <h3>Fitness & Sport</h3>
+                <p>Ausbildung im Bereich Fitness & Training.</p>
+                <a href="zertifikat3.pdf" target="_blank" class="button">PDF ansehen</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 Yoga • Sport • Ernährung
+</footer>
+
+</body>
+</html>
