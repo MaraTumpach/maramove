@@ -3,166 +3,417 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Zertifikate & Lizenzen</title>
-
+<title>Zertifikate & Lizenzen – Mara Move</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f7f4;
-    color: #333;
-}
-
-header {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --cream:   #F5EDE3;
+    --warm:    #EDE0D0;
+    --orange:  #C9622A;
+    --brown:   #3D1F0F;
+    --blue:    #5B9EB5;
+    --muted:   #7A5040;
+    --text:    #2A1408;
+    --white:   #FFFDF8;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--brown);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: #C9622A; letter-spacing: 3px;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 13px; font-weight: 300; letter-spacing: 1px; text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: #C9622A; }
+ 
+  /* ── HERO ── */
+  .hero {
+    min-height: 52vh;
+    background: var(--brown);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     text-align: center;
-    padding: 80px 20px 50px;
-}
-
-header h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 18px;
-    color: #777;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-.grid {
+    padding: 100px 40px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--orange); opacity: 0.12;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -40px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--blue); opacity: 0.08;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    border: 1px solid rgba(201,98,42,0.4);
+    background: rgba(201,98,42,0.12);
+    color: var(--orange);
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 20px; border-radius: 40px; margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 80px);
+    color: var(--white); line-height: 1.0;
+    margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .hero h1 em { color: var(--orange); font-style: italic; }
+  .hero-sub {
+    font-size: 16px; color: rgba(255,255,255,0.55);
+    font-weight: 300; letter-spacing: 2px; text-transform: uppercase;
+    position: relative; z-index: 1;
+  }
+  /* Wave divider */
+  .wave-sep {
+    display: block; width: 100%;
+    background: var(--brown); line-height: 0;
+  }
+  .wave-sep svg { display: block; width: 100%; }
+ 
+  /* ── ABOUT ── */
+  .about-section {
+    background: var(--white);
+    padding: 80px 40px;
+  }
+  .about-inner {
+    max-width: 760px; margin: 0 auto; text-align: center;
+  }
+  .about-inner .section-label {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 16px; display: block;
+  }
+  .about-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 42px); margin-bottom: 28px; color: var(--text);
+    line-height: 1.2;
+  }
+  .about-inner p {
+    font-size: 16px; color: var(--muted); line-height: 1.85;
+    font-weight: 300; margin-bottom: 18px;
+  }
+  .about-inner p:last-child { margin-bottom: 0; }
+  .about-inner strong { color: var(--brown); font-weight: 500; }
+ 
+  .stats-row {
+    display: flex; justify-content: center; gap: 48px;
+    margin-top: 48px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; color: var(--orange); line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px; color: var(--muted); letter-spacing: 1.5px;
+    text-transform: uppercase; margin-top: 6px;
+  }
+ 
+  /* ── ZERTIFIKATE GRID ── */
+  .certs-section {
+    background: var(--cream);
+    padding: 80px 40px;
+  }
+  .certs-inner { max-width: 1100px; margin: 0 auto; }
+ 
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-header .section-label {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 12px; display: block;
+  }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); color: var(--text);
+  }
+ 
+  .certs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: white;
-    border-radius: 18px;
+    gap: 28px;
+  }
+ 
+  .cert-card {
+    background: var(--white);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-.card img {
-    width: 100%;
-    height: auto;
+    border: 1px solid var(--warm);
+    transition: transform .25s, box-shadow .25s;
+    display: flex; flex-direction: column;
+  }
+  .cert-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(61,31,15,0.12);
+  }
+ 
+  .cert-img-wrap {
+    position: relative; overflow: hidden;
+    background: var(--warm);
+    height: 240px;
+  }
+  .cert-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
     display: block;
-}
-
-.card-content {
-    padding: 20px;
-}
-
-.card h3 {
-    margin-top: 0;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 18px;
-    background: #d6bfa7;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-}
-
-.button:hover {
-    background: #b89e85;
-}
-
-.about {
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-    padding: 40px 20px;
-    line-height: 1.6;
-}
-
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 60px;
-    color: #777;
-}
+    transition: transform .4s ease;
+  }
+  .cert-card:hover .cert-img-wrap img { transform: scale(1.04); }
+ 
+  /* Overlay tag */
+  .cert-tag {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--brown); color: var(--cream);
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 40px;
+  }
+ 
+  .cert-body {
+    padding: 26px 26px 28px; flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .cert-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; margin-bottom: 8px; color: var(--text);
+  }
+  .cert-body p {
+    font-size: 14px; color: var(--muted);
+    font-weight: 300; line-height: 1.7; flex: 1;
+  }
+ 
+  /* Fotos section */
+  .photos-section {
+    background: var(--brown);
+    padding: 80px 40px;
+  }
+  .photos-inner { max-width: 1100px; margin: 0 auto; }
+  .photos-section .section-header .section-label { color: rgba(201,98,42,0.8); }
+  .photos-section .section-header h2 { color: var(--white); }
+ 
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .photo-card {
+    border-radius: 20px; overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/3;
+  }
+  .photo-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+    display: block;
+  }
+  .photo-card:hover img { transform: scale(1.05); }
+  .photo-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(61,31,15,0.6) 0%, transparent 50%);
+  }
+  .photo-card-label {
+    position: absolute; bottom: 20px; left: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: white; font-style: italic;
+  }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.45);
+    text-align: center; padding: 40px;
+    font-size: 14px; font-weight: 300;
+  }
+  footer strong { color: var(--orange); }
+  footer a { color: rgba(201,98,42,0.8); text-decoration: none; }
+ 
+  /* Animations */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+ 
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 11px; }
+    .stats-row { gap: 28px; }
+  }
 </style>
 </head>
-
 <body>
-
-<header>
-    <h1>Meine Zertifikate</h1>
-    <p>Yoga • Sport • Ernährung</p>
-</header>
-
-<section class="about">
-    <p>
-    Ich arbeite im Bereich Yoga, Sport und Ernährung und verbinde Bewegung, Gesundheit und Wohlbefinden zu einem ganzheitlichen Konzept.
-    </p>
-
-    <p>
-    Auf der AIDA habe ich über <strong>430 Sportstunden sowie Ernährungsberatungen</strong> durchgeführt und wertvolle praktische Erfahrung gesammelt.
-    </p>
-
-    <p>
-    Zusätzlich war ich in Italien als Animateurin tätig – am Meer sowie in Clubanlagen – und habe dort Fitness-, Yoga- und Sportprogramme geleitet.
-    </p>
-
-    <p>
-    Mein Fokus liegt auf <strong>Yoga, Pilates und modernen Trainingskonzepten</strong>, die Körper und Geist in Einklang bringen.
-    </p>
+ 
+<nav>
+  <a class="nav-logo" href="index.html">Mara Move</a>
+  <div class="nav-links">
+    <a href="index.html">Start</a>
+    <a href="zertifikate.html">Zertifikate</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Für dich &amp; deinen Körper</div>
+  <h1>Endlich bewegen —<br><em>ohne Schmerzen.</em></h1>
+  <p class="hero-sub">Sanft &nbsp;·&nbsp; Individuell &nbsp;·&nbsp; Nachhaltig</p>
 </section>
-
-<div class="container">
-    <div class="grid">
-
-        <!-- Zertifikat 1 -->
-        <div class="card">
-            <img src="zertifikat1.jpg" alt="Yoga Zertifikat">
-            <div class="card-content">
-                <h3>Yoga Zertifikat</h3>
-                <p>Ausbildung im Bereich Yoga & Bewegung.</p>
-                <a href="zertifikat1.pdf" target="_blank" class="button">PDF ansehen</a>
-            </div>
-        </div>
-
-        <!-- Zertifikat 2 -->
-        <div class="card">
-            <img src="zertifikat2.jpg" alt="Ernährungsberater Lizenz">
-            <div class="card-content">
-                <h3>Ernährungsberaterin</h3>
-                <p>Lizenz im Bereich Ernährung & Gesundheitsberatung.</p>
-                <a href="zertifikat2.pdf" target="_blank" class="button">PDF ansehen</a>
-            </div>
-        </div>
-
-        <!-- Zertifikat 3 -->
-        <div class="card">
-            <img src="zertifikat3.jpg" alt="Fitness Lizenz">
-            <div class="card-content">
-                <h3>Fitness & Sport</h3>
-                <p>Ausbildung im Bereich Fitness & Training.</p>
-                <a href="zertifikat3.pdf" target="_blank" class="button">PDF ansehen</a>
-            </div>
-        </div>
-
-    </div>
+ 
+<!-- Wave -->
+<div class="wave-sep">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="60">
+    <path d="M0 0 Q360 60 720 30 Q1080 0 1440 40 L1440 0 Z" fill="#3D1F0F"/>
+  </svg>
 </div>
-
+ 
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-inner fade-up">
+    <span class="section-label">Warum Mara Move?</span>
+    <h2>Bewegung, die sich<br>gut anfühlt — für jeden.</h2>
+    <p>Du möchtest dich wieder frei bewegen, ohne dass es zieht, schmerzt oder sich falsch anfühlt? Genau dafür bin ich da. Bei mir wird niemand überfordert — ich arbeite sanft, achtsam und immer im Einklang mit deinem Körper, nicht gegen ihn.</p>
+    <p>Ich bin derzeit im Studium zur <strong>Sporttherapeutin</strong> und bringe damit fundiertes Wissen über Bewegung, Rehabilitation und gezielte Körperarbeit mit. Zusätzlich bin ich ausgebildete <strong>Vitalstofftrainerin</strong> — das bedeutet: ich denke Bewegung und Ernährung immer zusammen, weil der eine ohne den anderen nur halb so wirkungsvoll ist.</p>
+    <p>Praktische Erfahrung habe ich unter anderem auf der <strong>Mein Schiff 4</strong> gesammelt, wo ich über <strong>430 Sportstunden sowie Ernährungsberatungen</strong> durchgeführt habe — und in <strong>Italien als Animateurin</strong> am Meer und in Clubanlagen Yoga-, Fitness- und Sportprogramme geleitet habe.</p>
+    <p>Mein Versprechen: Du kommst so, wie du bist — und wir finden gemeinsam heraus, was dir wirklich gut tut.</p>
+ 
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">430+</div>
+        <div class="stat-label">Sportstunden</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Zertifikate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Überforderung</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ZERTIFIKATE -->
+<section class="certs-section">
+  <div class="certs-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">Ausbildung &amp; Qualifikationen</span>
+      <h2>Das bringe ich mit — für dich.</h2>
+    </div>
+ 
+    <div class="certs-grid">
+ 
+      <div class="cert-card fade-up">
+        <div class="cert-img-wrap">
+          <img src="assets/BTV Yoga Lehrerin (1).jpg" alt="BTV Yoga Lehrerin Zertifikat">
+          <span class="cert-tag">Yoga</span>
+        </div>
+        <div class="cert-body">
+          <h3>BTV Yoga Lehrerin</h3>
+          <p>Lizenzierte Yoga-Lehrerin nach den Richtlinien des Bayerischen Landes-Sportverbandes. Du lernst, wieder in deinen Körper zu spüren — sanft, ohne Druck, in deinem eigenen Tempo.</p>
+        </div>
+      </div>
+ 
+      <div class="cert-card fade-up">
+        <div class="cert-img-wrap">
+          <img src="assets/Pilates PDF Zertifikat.jpg" alt="Pilates Zertifikat">
+          <span class="cert-tag">Pilates</span>
+        </div>
+        <div class="cert-body">
+          <h3>Pilates Zertifikat</h3>
+          <p>Zertifizierte Pilates-Trainerin. Pilates stärkt die Tiefenmuskulatur, schont die Gelenke und baut Verspannungen ab — ideal wenn du sanft wieder in Bewegung kommen möchtest.</p>
+        </div>
+      </div>
+ 
+      <div class="cert-card fade-up">
+        <div class="cert-img-wrap">
+          <img src="assets/BFT L I Z E N Z_Mara Tumpach.jpg" alt="BFT Fitness Lizenz">
+          <span class="cert-tag">Fitness</span>
+        </div>
+        <div class="cert-body">
+          <h3>BFT Fitness Lizenz</h3>
+          <p>Offizielle Fitnesslizenz des Bayerischen Fußball-Verbandes. Fundierte Qualifikation für professionelle Trainingskonzepte — individuell angepasst, damit Bewegung Spaß macht statt weh tut.</p>
+        </div>
+      </div>
+ 
+      <div class="cert-card fade-up" style="grid-column: auto;">
+        <div class="cert-img-wrap" style="background: linear-gradient(135deg, #F5EDE3, #EDE0D0); display:flex; align-items:center; justify-content:center;">
+          <span style="font-size: 64px;">🌿</span>
+          <span class="cert-tag">Ernährung</span>
+        </div>
+        <div class="cert-body">
+          <h3>Vitalstofftrainerin</h3>
+          <p>Ausgebildete Vitalstofftrainerin — weil Bewegung und Ernährung zusammengehören. Ich helfe dir, deinen Körper von innen heraus zu stärken und mit den richtigen Nährstoffen zu versorgen.</p>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- FOTOS -->
+<section class="photos-section">
+  <div class="photos-inner">
+    <div class="section-header fade-up">
+      <span class="section-label">In Aktion</span>
+      <h2 style="color:var(--white);">Aus der Praxis</h2>
+    </div>
+    <div class="photos-grid">
+      <div class="photo-card fade-up">
+        <img src="assets/Tumpach Mara-bilder-0.jpg" alt="Mara Tumpach Training">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-label">Training &amp; Bewegung</div>
+      </div>
+      <div class="photo-card fade-up">
+        <img src="assets/Tumpach Mara-bilder-1.jpg" alt="Mara Tumpach Yoga">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-label">Yoga &amp; Balance</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
 <footer>
-    © 2026 Yoga • Sport • Ernährung
+  <strong>Mara Move</strong> &nbsp;·&nbsp; Training &amp; Therapie &nbsp;·&nbsp; Oberottmarshausen<br>
+  <span style="font-size:12px; margin-top:8px; display:block;">
+    <a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a>
+  </span>
 </footer>
-
+ 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
