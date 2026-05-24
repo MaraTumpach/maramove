@@ -1,4 +1,3 @@
-Index · HTML
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,122 +9,59 @@ Index · HTML
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
  
 <style>
-/* ═══════════════════════════════════════
-   TOKENS – Logo-Palette
-═══════════════════════════════════════ */
 :root {
-  --sand:      #f0d5b8;
-  --sand-deep: #e8c9a4;
-  --sand-light:#faf3ea;
-  --terra:     #c4612a;
-  --terra-deep:#a84e20;
-  --terra-soft:#d9845a;
-  --teal:      #6aafb4;
-  --teal-deep: #4a8f94;
-  --brown:     #3d2515;
-  --brown-mid: #5a3a22;
-  --cream:     #fdf8f2;
-  --white:     #ffffff;
-  --ink:       #2a1a0e;
- 
+  --sand:       #f0d5b8;
+  --sand-deep:  #e8c9a4;
+  --sand-light: #faf3ea;
+  --terra:      #c4612a;
+  --terra-deep: #a84e20;
+  --terra-soft: #d9845a;
+  --teal:       #6aafb4;
+  --teal-deep:  #4a8f94;
+  --forest:     #2D4A2D;
+  --forest-mid: #3D6B3D;
+  --forest-light:#4a7c4a;
+  --brown:      #3d2515;
+  --brown-mid:  #5a3a22;
+  --cream:      #fdf8f2;
+  --white:      #ffffff;
+  --ink:        #2a1a0e;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans:  'Jost', sans-serif;
- 
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
  
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
 html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
  
-body {
-  font-family: var(--sans);
-  background: var(--cream);
-  color: var(--ink);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
- 
-/* ═══════════════════════════════════════
-   SCROLLBAR
-═══════════════════════════════════════ */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--sand); }
 ::-webkit-scrollbar-thumb { background: var(--terra); border-radius: 2px; }
  
-/* ═══════════════════════════════════════
-   NAV
-═══════════════════════════════════════ */
+/* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 1.2rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 nav.scrolled {
-  background: rgba(253, 248, 242, 0.96);
+  background: rgba(253,248,242,0.96);
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 rgba(61,37,21,0.08);
 }
-.nav-logo {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--brown);
-  letter-spacing: 0.02em;
-  text-decoration: none;
-}
-.nav-logo span {
-  color: var(--terra);
-}
-.nav-links {
-  display: flex;
-  gap: 1.8rem;
-  list-style: none;
-}
-.nav-links a {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brown-mid);
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; left: 0;
-  width: 0; height: 1px;
-  background: var(--terra);
-  transition: width 0.3s var(--ease);
-}
+.nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--brown); letter-spacing: 0.02em; text-decoration: none; }
+.nav-logo span { color: var(--terra); }
+.nav-links { display: flex; gap: 1.8rem; list-style: none; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown-mid); text-decoration: none; position: relative; transition: color 0.3s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--terra); transition: width 0.3s var(--ease); }
 .nav-links a:hover { color: var(--terra); }
 .nav-links a:hover::after { width: 100%; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--brown); transition: 0.3s; }
  
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none; border: none;
-}
-.hamburger span {
-  display: block; width: 24px; height: 1.5px;
-  background: var(--brown);
-  transition: 0.3s;
-}
- 
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
   background: var(--sand);
@@ -134,1048 +70,415 @@ nav.scrolled {
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
 }
- 
-/* Subtle grain texture */
 .hero::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
+  pointer-events: none; z-index: 1;
 }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 5rem 5rem; position: relative; z-index: 2; }
+.hero-eyebrow { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease) forwards; }
+.hero h1 { font-family: var(--serif); font-size: clamp(3.5rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.08; color: var(--brown); letter-spacing: -0.01em; opacity: 0; animation: fadeUp 0.9s 0.4s var(--ease) forwards; }
+.hero h1 em { font-style: italic; color: var(--terra); }
+.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--brown-mid); margin-top: 1.5rem; max-width: 380px; line-height: 1.8; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; }
+.hero-cta { display: flex; gap: 1rem; margin-top: 3rem; opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease) forwards; flex-wrap: wrap; }
+.btn-primary { display: inline-block; padding: 1rem 2.5rem; background: var(--terra); color: var(--white); font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--terra-deep); transform: translateY(-2px); }
+.btn-outline { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--brown-mid); color: var(--brown-mid); font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
+.btn-outline:hover { border-color: var(--terra); color: var(--terra); transform: translateY(-2px); }
+.hero-ornament { position: absolute; bottom: 3rem; left: 5rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.9s 1s var(--ease) forwards; }
+.hero-ornament::before { content: ''; width: 40px; height: 1px; background: var(--teal); }
+.hero-ornament span { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-deep); }
+.hero-right { position: relative; overflow: hidden; opacity: 0; animation: fadeIn 1.2s 0.5s var(--ease) forwards; }
+.hero-img-main { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-sun { position: absolute; top: 4rem; right: 4rem; width: 80px; height: 80px; border-radius: 50%; background: var(--terra); opacity: 0.15; }
  
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 8rem 5rem 5rem;
-  position: relative;
-  z-index: 2;
-}
+/* ── WAVE ── */
+.wave-divider { width: 100%; overflow: hidden; line-height: 0; background: var(--sand); }
+.wave-divider svg { display: block; width: 100%; }
  
-.hero-eyebrow {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--teal-deep);
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.2s var(--ease) forwards;
-}
+/* ── SECTION HELPERS ── */
+.section-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-deep); display: block; margin-bottom: 1rem; }
+.section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--brown); line-height: 1.2; margin-bottom: 1.5rem; }
  
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(3.5rem, 5vw, 5.5rem);
-  font-weight: 300;
-  line-height: 1.08;
-  color: var(--brown);
-  letter-spacing: -0.01em;
-  opacity: 0;
-  animation: fadeUp 0.9s 0.4s var(--ease) forwards;
-}
- 
-.hero h1 em {
-  font-style: italic;
-  color: var(--terra);
-}
- 
-.hero-sub {
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--brown-mid);
-  margin-top: 1.5rem;
-  max-width: 380px;
-  line-height: 1.8;
-  opacity: 0;
-  animation: fadeUp 0.9s 0.6s var(--ease) forwards;
-}
- 
-.hero-cta {
-  display: flex;
-  gap: 1rem;
-  margin-top: 3rem;
-  opacity: 0;
-  animation: fadeUp 0.9s 0.8s var(--ease) forwards;
-}
- 
-.btn-primary {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--terra);
-  color: var(--white);
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: background 0.3s, transform 0.3s;
-  border: none; cursor: pointer;
-}
-.btn-primary:hover {
-  background: var(--terra-deep);
-  transform: translateY(-2px);
-}
- 
-.btn-outline {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  border: 1px solid var(--brown-mid);
-  color: var(--brown-mid);
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: border-color 0.3s, color 0.3s, transform 0.3s;
-}
-.btn-outline:hover {
-  border-color: var(--terra);
-  color: var(--terra);
-  transform: translateY(-2px);
-}
- 
-/* Hero ornament */
-.hero-ornament {
-  position: absolute;
-  bottom: 3rem; left: 5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  opacity: 0;
-  animation: fadeUp 0.9s 1s var(--ease) forwards;
-}
-.hero-ornament::before {
-  content: '';
-  width: 40px; height: 1px;
-  background: var(--teal);
-}
-.hero-ornament span {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--teal-deep);
-}
- 
-/* Hero right – photo collage */
-.hero-right {
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  animation: fadeIn 1.2s 0.5s var(--ease) forwards;
-}
- 
-.hero-img-main {
-  position: absolute;
-  inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
- 
- 
-/* Sun decoration from logo */
-.hero-sun {
-  position: absolute;
-  top: 4rem; right: 4rem;
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  background: var(--terra);
-  opacity: 0.15;
-}
- 
-/* ═══════════════════════════════════════
-   WAVE DIVIDER
-═══════════════════════════════════════ */
-.wave-divider {
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  background: var(--sand);
-}
-.wave-divider svg {
-  display: block;
-  width: 100%;
-}
- 
-/* ═══════════════════════════════════════
-   PAIN SECTION
-═══════════════════════════════════════ */
-.pain {
-  background: var(--cream);
-  padding: 8rem 2rem;
-  text-align: center;
-}
- 
-.section-label {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--teal-deep);
-  display: block;
-  margin-bottom: 1rem;
-}
- 
-.section-title {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 300;
-  color: var(--brown);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
- 
-.pain-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0;
-  max-width: 960px;
-  margin: 4rem auto 0;
-  border: 1px solid rgba(61,37,21,0.1);
-}
- 
-.pain-card {
-  padding: 3rem 2.5rem;
-  border-right: 1px solid rgba(61,37,21,0.1);
-  position: relative;
-  transition: background 0.3s;
-}
+/* ── PAIN ── */
+.pain { background: var(--cream); padding: 8rem 2rem; text-align: center; }
+.pain-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; max-width: 960px; margin: 4rem auto 0; border: 1px solid rgba(61,37,21,0.1); }
+.pain-card { padding: 3rem 2.5rem; border-right: 1px solid rgba(61,37,21,0.1); transition: background 0.3s; }
 .pain-card:last-child { border-right: none; }
 .pain-card:hover { background: var(--sand-light); }
+.pain-card .number { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: var(--terra); opacity: 0.3; line-height: 1; margin-bottom: 1rem; }
+.pain-card p { font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--brown-mid); line-height: 1.8; }
+.pain-cta { margin-top: 4rem; padding: 2.5rem 3rem; background: linear-gradient(135deg, var(--terra) 0%, var(--terra-soft) 100%); display: inline-block; border-radius: 2px; color: var(--white); font-family: var(--serif); font-size: 1.4rem; font-style: italic; font-weight: 300; max-width: 600px; line-height: 1.5; }
  
-.pain-card .number {
-  font-family: var(--serif);
-  font-size: 3rem;
-  font-weight: 300;
-  color: var(--terra);
-  opacity: 0.3;
-  line-height: 1;
-  margin-bottom: 1rem;
-}
- 
-.pain-card p {
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: var(--brown-mid);
-  line-height: 1.8;
-}
- 
-.pain-cta {
-  margin-top: 4rem;
-  padding: 2.5rem 3rem;
-  background: linear-gradient(135deg, var(--terra) 0%, var(--terra-soft) 100%);
-  display: inline-block;
-  border-radius: 2px;
-  color: var(--white);
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  font-style: italic;
-  font-weight: 300;
-  max-width: 600px;
-  line-height: 1.5;
-}
- 
-/* ═══════════════════════════════════════
-   GALLERY SECTION
-═══════════════════════════════════════ */
-.gallery-section {
-  padding: 6rem 0;
-  background: var(--sand-light);
-}
- 
-.gallery-section .section-header {
-  text-align: center;
-  padding: 0 2rem 4rem;
-}
- 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  grid-template-rows: 340px 280px;
-  gap: 8px;
-  padding: 0 8px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
- 
-.gallery-item {
-  overflow: hidden;
+/* ── PHILOSOPHY (NEW – forest green) ── */
+.philosophy {
+  background: var(--forest);
+  padding: 8rem 2rem;
   position: relative;
-  cursor: pointer;
-}
-.gallery-item:nth-child(1) {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-}
-.gallery-item:nth-child(2) {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
-.gallery-item:nth-child(3) {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-}
-.gallery-item:nth-child(4) {
-  grid-column: 2 / 4;
-  grid-row: 2 / 3;
-}
-/* If more images needed */
-.gallery-item img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s var(--ease);
-}
-.gallery-item:hover img { transform: scale(1.05); }
- 
-.gallery-item-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(61,37,21,0.4) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.gallery-item:hover .gallery-item-overlay { opacity: 1; }
- 
-/* Mobile slider */
-.mobile-gallery {
-  display: none;
-  position: relative;
-  height: 75vw;
-  max-height: 500px;
   overflow: hidden;
 }
-.mobile-gallery img {
-  position: absolute;
-  inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s var(--ease);
+.philosophy::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: var(--forest-light); opacity: 0.25;
 }
-.mobile-gallery img.active { opacity: 1; }
-.gallery-nav {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 5;
+.philosophy::after {
+  content: '';
+  position: absolute; bottom: -60px; left: -60px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: var(--terra); opacity: 0.08;
 }
-.gallery-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
-  border: none;
+.philosophy .section-label { color: rgba(106,175,180,0.8); }
+.philosophy .section-title { color: var(--sand-light); }
+ 
+.philosophy-intro {
+  max-width: 760px; margin: 0 auto; text-align: center;
+  position: relative; z-index: 1;
 }
-.gallery-dot.active {
-  background: var(--white);
-  transform: scale(1.4);
+.philosophy-intro .sub {
+  font-family: var(--sans); font-size: 1.05rem; font-weight: 300;
+  color: rgba(240,213,184,0.75); max-width: 580px; margin: 0 auto 4rem;
+  line-height: 1.85;
 }
  
-/* ═══════════════════════════════════════
-   ABOUT
-═══════════════════════════════════════ */
-.about {
-  background: var(--cream);
-  padding: 8rem 2rem;
+.philosophy-pillars {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-}
- 
-.about-image {
-  position: relative;
-}
-.about-image img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border-radius: 2px;
-}
-.about-image-badge {
-  position: absolute;
-  bottom: -2rem; right: -2rem;
-  width: 140px; height: 140px;
-  border-radius: 50%;
-  background: var(--terra);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  color: var(--white);
-  font-family: var(--serif);
-}
-.about-image-badge .num {
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 1;
-}
-.about-image-badge .label {
-  font-family: var(--sans);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 0.3rem;
-}
- 
-.about-content p {
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--brown-mid);
-  margin-bottom: 1.2rem;
-  line-height: 1.9;
-}
- 
-.about-quote {
-  margin: 2.5rem 0;
-  padding: 2rem 0 2rem 2rem;
-  border-left: 3px solid var(--teal);
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  font-style: italic;
-  font-weight: 300;
-  color: var(--brown);
-  line-height: 1.5;
-}
- 
-/* ═══════════════════════════════════════
-   SERVICES
-═══════════════════════════════════════ */
-.services {
-  background: var(--sand);
-  padding: 8rem 2rem;
-}
- 
-.services .section-header {
-  text-align: center;
-  margin-bottom: 5rem;
-}
- 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2px;
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(61,37,21,0.08);
+  background: rgba(255,255,255,0.04);
+  position: relative; z-index: 1;
 }
- 
-.service-card {
-  background: var(--sand-light);
-  padding: 3rem 2.5rem;
-  transition: background 0.3s, transform 0.3s;
+.pillar {
+  background: rgba(255,255,255,0.03);
+  padding: 3.5rem 2.5rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.3s;
   position: relative;
-  overflow: hidden;
 }
- 
-.service-card::before {
+.pillar:hover { background: rgba(255,255,255,0.07); }
+.pillar::before {
   content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 2px;
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
   background: var(--terra);
-  transition: width 0.4s var(--ease);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
 }
-.service-card:hover::before { width: 100%; }
-.service-card:hover { background: var(--cream); transform: translateY(-4px); }
- 
-.service-icon {
-  font-size: 1.8rem;
-  margin-bottom: 1.2rem;
-  display: block;
-}
- 
-.service-card h3 {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--brown);
-  margin-bottom: 0.7rem;
+.pillar:hover::before { transform: scaleX(1); }
+.pillar-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+.pillar h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--sand-light); margin-bottom: 0.8rem; }
+.pillar p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: rgba(240,213,184,0.65); line-height: 1.85; }
+.pillar .pillar-tag {
+  display: inline-block; margin-top: 1.2rem;
+  background: rgba(196,97,42,0.2); border: 1px solid rgba(196,97,42,0.3);
+  color: var(--terra-soft); font-size: 0.68rem; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 4px 12px; border-radius: 2px;
 }
  
-.service-card p {
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--brown-mid);
-  line-height: 1.8;
-}
- 
-/* ═══════════════════════════════════════
-   WHY
-═══════════════════════════════════════ */
-.why {
+/* ── ANTI-HYPE SECTION ── */
+.anti-hype {
   background: var(--cream);
   padding: 8rem 2rem;
 }
-.why .section-header { text-align: center; margin-bottom: 4rem; }
+.anti-hype .section-header { text-align: center; margin-bottom: 5rem; }
  
-.why-table {
-  max-width: 900px;
-  margin: 0 auto;
-  border: 1px solid rgba(61,37,21,0.1);
-  border-radius: 2px;
-  overflow: hidden;
-}
- 
-.why-table-header {
+.anti-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: var(--brown);
-  color: var(--white);
-}
-.why-table-header div {
-  padding: 1.2rem 2rem;
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
- 
-.why-table-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-top: 1px solid rgba(61,37,21,0.07);
-  transition: background 0.2s;
-}
-.why-table-row:hover { background: var(--sand-light); }
- 
-.why-table-row .challenge {
-  padding: 1.4rem 2rem;
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  color: var(--brown-mid);
-  border-right: 1px solid rgba(61,37,21,0.07);
-}
-.why-table-row .solution {
-  padding: 1.4rem 2rem;
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  color: var(--terra-deep);
-  font-weight: 500;
-}
- 
-/* ═══════════════════════════════════════
-   PRICING
-═══════════════════════════════════════ */
-.pricing {
-  background: var(--sand);
-  padding: 8rem 2rem;
-}
-.pricing .section-header { text-align: center; margin-bottom: 5rem; }
- 
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  max-width: 1100px;
+  gap: 3px;
+  max-width: 1000px;
   margin: 0 auto;
 }
- 
-.pricing-card {
-  background: var(--cream);
+.anti-card {
   padding: 3rem 2.5rem;
-  border-radius: 2px;
   position: relative;
+}
+.anti-card.myth {
+  background: rgba(61,37,21,0.04);
   border: 1px solid rgba(61,37,21,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
 }
-.pricing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(61,37,21,0.12);
+.anti-card.truth {
+  background: var(--forest);
+  color: var(--sand-light);
 }
-.pricing-card.featured {
-  background: var(--brown);
-  color: var(--cream);
-  border-color: transparent;
+.anti-card-label {
+  font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 1rem; display: block;
 }
+.anti-card.myth .anti-card-label { color: rgba(164,78,32,0.6); }
+.anti-card.truth .anti-card-label { color: rgba(106,175,180,0.8); }
+.anti-card h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 0.8rem; line-height: 1.3; }
+.anti-card.myth h3 { color: rgba(61,37,21,0.4); text-decoration: line-through; text-decoration-color: var(--terra); text-decoration-thickness: 2px; }
+.anti-card.truth h3 { color: var(--sand-light); }
+.anti-card p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; line-height: 1.85; }
+.anti-card.myth p { color: var(--brown-mid); }
+.anti-card.truth p { color: rgba(240,213,184,0.7); }
  
-.pricing-card .service-name {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 1rem;
-  display: block;
-}
-.pricing-card.featured .service-name { color: var(--terra-soft); }
- 
-.pricing-card .price-val {
-  font-family: var(--serif);
-  font-size: 3.5rem;
-  font-weight: 300;
-  color: var(--brown);
-  line-height: 1;
-}
-.pricing-card.featured .price-val { color: var(--white); }
- 
-.pricing-card .price-val sup {
-  font-size: 1.2rem;
-  vertical-align: super;
-  font-weight: 400;
-}
- 
-.pricing-card .price-desc {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  color: var(--brown-mid);
-  margin-top: 0.5rem;
-  font-weight: 300;
-}
-.pricing-card.featured .price-desc { color: rgba(240,213,184,0.7); }
- 
-.pricing-card hr {
-  border: none;
-  border-top: 1px solid rgba(61,37,21,0.1);
-  margin: 1.5rem 0;
-}
-.pricing-card.featured hr { border-color: rgba(240,213,184,0.2); }
- 
-.pricing-card ul {
-  list-style: none;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: var(--brown-mid);
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.pricing-card.featured ul { color: rgba(240,213,184,0.8); }
-.pricing-card ul li::before {
-  content: '–';
-  margin-right: 0.5rem;
-  color: var(--terra);
-}
-.pricing-card.featured ul li::before { color: var(--terra-soft); }
- 
-/* ═══════════════════════════════════════
-   TIMELINE
-═══════════════════════════════════════ */
-.timeline {
-  background: var(--cream);
-  padding: 8rem 2rem;
-}
-.timeline .section-header { text-align: center; margin-bottom: 5rem; }
- 
-.timeline-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-}
-.timeline-steps::before {
-  content: '';
-  position: absolute;
-  top: 28px;
-  left: calc(1/6 * 100%);
-  right: calc(1/6 * 100%);
-  height: 1px;
-  background: var(--terra);
-}
- 
-.timeline-step {
-  text-align: center;
-  padding: 0 2rem;
-}
-.timeline-step .dot {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: var(--cream);
-  border: 2px solid var(--terra);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 2rem;
-  font-family: var(--serif);
-  font-size: 1.3rem;
-  color: var(--terra);
-  position: relative;
-  z-index: 1;
-  transition: background 0.3s, color 0.3s;
-}
-.timeline-step:hover .dot {
-  background: var(--terra);
-  color: var(--white);
-}
-.timeline-step h3 {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--brown);
-  margin-bottom: 0.5rem;
-}
-.timeline-step p {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  font-weight: 300;
-  color: var(--brown-mid);
-  line-height: 1.7;
-}
- 
-/* ═══════════════════════════════════════
-   TESTIMONIALS
-═══════════════════════════════════════ */
-.testimonials {
+/* ── STATS / INFOGRAPHIC ── */
+.stats-section {
   background: var(--sand);
   padding: 8rem 2rem;
 }
-.testimonials .section-header { text-align: center; margin-bottom: 5rem; }
+.stats-section .section-header { text-align: center; margin-bottom: 5rem; }
  
-.testimonials-grid {
+.stats-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0;
   max-width: 1100px;
-  margin: 0 auto;
-  background: rgba(61,37,21,0.06);
+  margin: 0 auto 4rem;
+  border: 1px solid rgba(61,37,21,0.1);
 }
- 
-.testimonial {
-  background: var(--sand-light);
-  padding: 3rem 2.5rem;
+.stat-box {
+  padding: 3rem 2rem;
+  text-align: center;
+  border-right: 1px solid rgba(61,37,21,0.1);
   transition: background 0.3s;
 }
+.stat-box:last-child { border-right: none; }
+.stat-box:hover { background: var(--cream); }
+.stat-num { font-family: var(--serif); font-size: 3.5rem; font-weight: 300; color: var(--terra); line-height: 1; }
+.stat-num.forest { color: var(--forest); }
+.stat-unit { font-family: var(--serif); font-size: 1.5rem; color: var(--terra-soft); }
+.stat-label { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; color: var(--brown-mid); letter-spacing: 0.05em; margin-top: 0.5rem; }
+.stat-desc { font-family: var(--sans); font-size: 0.75rem; font-weight: 300; color: rgba(90,58,34,0.55); margin-top: 0.3rem; line-height: 1.5; }
+ 
+/* Sugar viz */
+.sugar-viz {
+  max-width: 800px; margin: 0 auto;
+  background: var(--cream); border-radius: 2px;
+  padding: 3rem; border: 1px solid rgba(61,37,21,0.08);
+}
+.sugar-viz h3 {
+  font-family: var(--serif); font-size: 1.4rem; color: var(--brown);
+  margin-bottom: 0.5rem;
+}
+.sugar-viz p { font-family: var(--sans); font-size: 0.85rem; color: var(--brown-mid); font-weight: 300; margin-bottom: 2rem; }
+.sugar-bar-item { margin-bottom: 1.4rem; }
+.sugar-bar-label { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 0.82rem; color: var(--brown-mid); margin-bottom: 0.4rem; }
+.sugar-bar-label span:last-child { font-weight: 500; color: var(--terra-deep); }
+.sugar-bar-track { height: 8px; background: rgba(61,37,21,0.08); border-radius: 4px; overflow: hidden; }
+.sugar-bar-fill { height: 100%; border-radius: 4px; transition: width 1.2s var(--ease); width: 0; }
+.fill-red { background: linear-gradient(90deg, var(--terra-deep), var(--terra-soft)); }
+.fill-green { background: linear-gradient(90deg, var(--forest), var(--forest-light)); }
+.fill-mid { background: linear-gradient(90deg, var(--terra), var(--teal)); }
+ 
+/* ── GALLERY ── */
+.gallery-section { padding: 6rem 0; background: var(--sand-light); }
+.gallery-section .section-header { text-align: center; padding: 0 2rem 4rem; }
+.gallery-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; grid-template-rows: 340px 280px; gap: 8px; padding: 0 8px; max-width: 1400px; margin: 0 auto; }
+.gallery-item { overflow: hidden; position: relative; cursor: pointer; }
+.gallery-item:nth-child(1) { grid-column: 1/2; grid-row: 1/3; }
+.gallery-item:nth-child(2) { grid-column: 2/3; grid-row: 1/2; }
+.gallery-item:nth-child(3) { grid-column: 3/4; grid-row: 1/2; }
+.gallery-item:nth-child(4) { grid-column: 2/4; grid-row: 2/3; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61,37,21,0.4) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.mobile-gallery { display: none; position: relative; height: 75vw; max-height: 500px; overflow: hidden; }
+.mobile-gallery img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s var(--ease); }
+.mobile-gallery img.active { opacity: 1; }
+.gallery-nav { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; z-index: 5; }
+.gallery-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s, transform 0.3s; border: none; }
+.gallery-dot.active { background: var(--white); transform: scale(1.4); }
+ 
+/* ── ABOUT ── */
+.about { background: var(--cream); padding: 8rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; max-width: 1200px; margin: 0 auto; align-items: center; }
+.about-image { position: relative; }
+.about-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
+.about-image-badge { position: absolute; bottom: -2rem; right: -2rem; width: 140px; height: 140px; border-radius: 50%; background: var(--terra); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1rem; color: var(--white); font-family: var(--serif); }
+.about-image-badge .num { font-size: 2.2rem; font-weight: 300; line-height: 1; }
+.about-image-badge .label { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+.about-content p { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--brown-mid); margin-bottom: 1.2rem; line-height: 1.9; }
+.about-quote { margin: 2.5rem 0; padding: 2rem 0 2rem 2rem; border-left: 3px solid var(--teal); font-family: var(--serif); font-size: 1.35rem; font-style: italic; font-weight: 300; color: var(--brown); line-height: 1.5; }
+ 
+/* Ayurveda partner badge */
+.ayurveda-badge {
+  display: flex; align-items: center; gap: 1rem;
+  margin-top: 2rem; padding: 1.2rem 1.5rem;
+  background: rgba(45,74,45,0.08);
+  border: 1px solid rgba(45,74,45,0.2);
+  border-radius: 2px;
+}
+.ayurveda-badge .badge-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--forest); flex-shrink: 0;
+}
+.ayurveda-badge p {
+  font-family: var(--sans); font-size: 0.82rem; color: var(--forest);
+  font-weight: 400; margin: 0; line-height: 1.5;
+}
+.ayurveda-badge a { color: var(--forest); font-weight: 500; }
+ 
+/* ── SERVICES ── */
+.services { background: var(--sand); padding: 8rem 2rem; }
+.services .section-header { text-align: center; margin-bottom: 5rem; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1200px; margin: 0 auto; background: rgba(61,37,21,0.08); }
+.service-card { background: var(--sand-light); padding: 3rem 2.5rem; transition: background 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+.service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--terra); transition: width 0.4s var(--ease); }
+.service-card:hover::before { width: 100%; }
+.service-card:hover { background: var(--cream); transform: translateY(-4px); }
+.service-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+.service-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--brown); margin-bottom: 0.7rem; }
+.service-card p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: var(--brown-mid); line-height: 1.8; }
+ 
+/* ── WHY ── */
+.why { background: var(--cream); padding: 8rem 2rem; }
+.why .section-header { text-align: center; margin-bottom: 4rem; }
+.why-table { max-width: 900px; margin: 0 auto; border: 1px solid rgba(61,37,21,0.1); border-radius: 2px; overflow: hidden; }
+.why-table-header { display: grid; grid-template-columns: 1fr 1fr; background: var(--brown); color: var(--white); }
+.why-table-header div { padding: 1.2rem 2rem; font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+.why-table-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(61,37,21,0.07); transition: background 0.2s; }
+.why-table-row:hover { background: var(--sand-light); }
+.why-table-row .challenge { padding: 1.4rem 2rem; font-family: var(--sans); font-size: 0.9rem; color: var(--brown-mid); border-right: 1px solid rgba(61,37,21,0.07); }
+.why-table-row .solution { padding: 1.4rem 2rem; font-family: var(--sans); font-size: 0.9rem; color: var(--terra-deep); font-weight: 500; }
+ 
+/* ── PRICING ── */
+.pricing { background: var(--sand); padding: 8rem 2rem; }
+.pricing .section-header { text-align: center; margin-bottom: 5rem; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+.pricing-card { background: var(--cream); padding: 3rem 2.5rem; border-radius: 2px; position: relative; border: 1px solid rgba(61,37,21,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+.pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(61,37,21,0.12); }
+.pricing-card.featured { background: var(--brown); color: var(--cream); border-color: transparent; }
+.pricing-card .service-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+.pricing-card.featured .service-name { color: var(--terra-soft); }
+.pricing-card .price-val { font-family: var(--serif); font-size: 3.5rem; font-weight: 300; color: var(--brown); line-height: 1; }
+.pricing-card.featured .price-val { color: var(--white); }
+.pricing-card .price-val sup { font-size: 1.2rem; vertical-align: super; font-weight: 400; }
+.pricing-card .price-desc { font-family: var(--sans); font-size: 0.82rem; color: var(--brown-mid); margin-top: 0.5rem; font-weight: 300; }
+.pricing-card.featured .price-desc { color: rgba(240,213,184,0.7); }
+.pricing-card hr { border: none; border-top: 1px solid rgba(61,37,21,0.1); margin: 1.5rem 0; }
+.pricing-card.featured hr { border-color: rgba(240,213,184,0.2); }
+.pricing-card ul { list-style: none; font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: var(--brown-mid); display: flex; flex-direction: column; gap: 0.6rem; }
+.pricing-card.featured ul { color: rgba(240,213,184,0.8); }
+.pricing-card ul li::before { content: '–'; margin-right: 0.5rem; color: var(--terra); }
+.pricing-card.featured ul li::before { color: var(--terra-soft); }
+ 
+/* ── TIMELINE ── */
+.timeline { background: var(--cream); padding: 8rem 2rem; }
+.timeline .section-header { text-align: center; margin-bottom: 5rem; }
+.timeline-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 900px; margin: 0 auto; position: relative; }
+.timeline-steps::before { content: ''; position: absolute; top: 28px; left: calc(1/6 * 100%); right: calc(1/6 * 100%); height: 1px; background: var(--terra); }
+.timeline-step { text-align: center; padding: 0 2rem; }
+.timeline-step .dot { width: 56px; height: 56px; border-radius: 50%; background: var(--cream); border: 2px solid var(--terra); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-family: var(--serif); font-size: 1.3rem; color: var(--terra); position: relative; z-index: 1; transition: background 0.3s, color 0.3s; }
+.timeline-step:hover .dot { background: var(--terra); color: var(--white); }
+.timeline-step h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--brown); margin-bottom: 0.5rem; }
+.timeline-step p { font-family: var(--sans); font-size: 0.82rem; font-weight: 300; color: var(--brown-mid); line-height: 1.7; }
+ 
+/* ── TESTIMONIALS ── */
+.testimonials { background: var(--sand); padding: 8rem 2rem; }
+.testimonials .section-header { text-align: center; margin-bottom: 5rem; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1100px; margin: 0 auto; background: rgba(61,37,21,0.06); }
+.testimonial { background: var(--sand-light); padding: 3rem 2.5rem; transition: background 0.3s; }
 .testimonial:hover { background: var(--cream); }
+.testimonial-stars { color: var(--terra); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.2rem; }
+.testimonial p { font-family: var(--serif); font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--brown); line-height: 1.7; }
  
-.testimonial-stars {
-  color: var(--terra);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.2rem;
-}
- 
-.testimonial p {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-style: italic;
-  font-weight: 300;
-  color: var(--brown);
-  line-height: 1.7;
-}
- 
-/* ═══════════════════════════════════════
-   FAQ
-═══════════════════════════════════════ */
-.faq {
-  background: var(--cream);
-  padding: 8rem 2rem;
-}
+/* ── FAQ ── */
+.faq { background: var(--cream); padding: 8rem 2rem; }
 .faq .section-header { text-align: center; margin-bottom: 4rem; }
- 
-.faq-list {
-  max-width: 720px;
-  margin: 0 auto;
-}
- 
-.faq-item {
-  border-top: 1px solid rgba(61,37,21,0.1);
-}
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-top: 1px solid rgba(61,37,21,0.1); }
 .faq-item:last-child { border-bottom: 1px solid rgba(61,37,21,0.1); }
- 
-.faq-question {
-  width: 100%;
-  padding: 1.6rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: none; border: none; cursor: pointer;
-  text-align: left;
-  gap: 1rem;
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--brown);
-  transition: color 0.3s;
-}
+.faq-question { width: 100%; padding: 1.6rem 0; display: flex; align-items: center; justify-content: space-between; background: none; border: none; cursor: pointer; text-align: left; gap: 1rem; font-family: var(--sans); font-size: 0.95rem; font-weight: 400; color: var(--brown); transition: color 0.3s; }
 .faq-question:hover { color: var(--terra); }
- 
-.faq-icon {
-  width: 20px; height: 20px;
-  flex-shrink: 0;
-  position: relative;
-  transition: transform 0.3s var(--ease);
-}
-.faq-icon::before, .faq-icon::after {
-  content: '';
-  position: absolute;
-  background: currentColor;
-  border-radius: 1px;
-}
+.faq-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; transition: transform 0.3s var(--ease); }
+.faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: currentColor; border-radius: 1px; }
 .faq-icon::before { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-.faq-icon::after  { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform 0.3s; }
- 
+.faq-icon::after { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform 0.3s; }
 .faq-item.open .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); }
 .faq-item.open .faq-question { color: var(--terra); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease); }
+.faq-answer-inner { padding-bottom: 1.5rem; font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--brown-mid); line-height: 1.9; }
  
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s var(--ease);
-}
-.faq-answer-inner {
-  padding-bottom: 1.5rem;
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--brown-mid);
-  line-height: 1.9;
-}
- 
-/* ═══════════════════════════════════════
-   CONTACT
-═══════════════════════════════════════ */
-.contact {
-  background: var(--brown);
-  padding: 8rem 2rem;
-  color: var(--sand-light);
-}
- 
-.contact .section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
+/* ── CONTACT ── */
+.contact { background: var(--brown); padding: 8rem 2rem; color: var(--sand-light); }
+.contact .section-header { text-align: center; margin-bottom: 4rem; }
 .contact .section-label { color: var(--teal); }
 .contact .section-title { color: var(--sand-light); }
- 
-.contact-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 6rem;
-  align-items: start;
-}
- 
-.contact-info h3 {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--sand-light);
-  margin-bottom: 1rem;
-}
- 
-.contact-info p, .contact-info a {
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: rgba(240,213,184,0.7);
-  text-decoration: none;
-  line-height: 2;
-  display: block;
-}
+.contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+.contact-info h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--sand-light); margin-bottom: 1rem; }
+.contact-info p, .contact-info a { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: rgba(240,213,184,0.7); text-decoration: none; line-height: 2; display: block; }
 .contact-info a:hover { color: var(--terra-soft); }
- 
-.contact-info .info-item {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(240,213,184,0.1);
-}
- 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
- 
+.contact-info .info-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(240,213,184,0.1); }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
 .form-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
- 
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 1rem 1.2rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(240,213,184,0.15);
-  border-radius: 2px;
-  color: var(--sand-light);
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  font-weight: 300;
-  transition: border-color 0.3s, background 0.3s;
-  outline: none;
-  -webkit-appearance: none;
-}
-.contact-form input::placeholder,
-.contact-form textarea::placeholder { color: rgba(240,213,184,0.35); }
+.contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(240,213,184,0.15); border-radius: 2px; color: var(--sand-light); font-family: var(--sans); font-size: 0.88rem; font-weight: 300; transition: border-color 0.3s, background 0.3s; outline: none; -webkit-appearance: none; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(240,213,184,0.35); }
 .contact-form select { color: rgba(240,213,184,0.5); }
 .contact-form select option { background: var(--brown); color: var(--sand-light); }
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  border-color: var(--terra-soft);
-  background: rgba(196,97,42,0.06);
-}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--terra-soft); background: rgba(196,97,42,0.06); }
 .contact-form textarea { height: 120px; resize: none; }
+.contact-form .btn-primary { align-self: flex-start; margin-top: 0.5rem; }
  
-.contact-form .btn-primary {
-  align-self: flex-start;
-  margin-top: 0.5rem;
-}
- 
-/* ═══════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════ */
-footer {
-  background: var(--ink);
-  padding: 4rem 2rem 3rem;
-  color: rgba(240,213,184,0.5);
-}
- 
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 4rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(240,213,184,0.1);
-}
- 
-.footer-brand .logo {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 300;
-  color: var(--sand-light);
-  display: block;
-  margin-bottom: 1rem;
-}
+/* ── FOOTER ── */
+footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,184,0.5); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(240,213,184,0.1); }
+.footer-brand .logo { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; color: var(--sand-light); display: block; margin-bottom: 1rem; }
 .footer-brand .logo span { color: var(--terra-soft); }
-.footer-brand p {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 300;
-  line-height: 1.8;
-}
- 
-.footer-col h4 {
-  font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--sand-light);
-  margin-bottom: 1.2rem;
-}
+.footer-brand p { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; line-height: 1.8; }
+.footer-col h4 { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand-light); margin-bottom: 1.2rem; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.footer-col a {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: rgba(240,213,184,0.5);
-  text-decoration: none;
-  transition: color 0.3s;
-}
+.footer-col a { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: rgba(240,213,184,0.5); text-decoration: none; transition: color 0.3s; }
 .footer-col a:hover { color: var(--terra-soft); }
+.footer-bottom { max-width: 1200px; margin: 2rem auto 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 0.75rem; }
  
-.footer-bottom {
-  max-width: 1200px;
-  margin: 2rem auto 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--sans);
-  font-size: 0.75rem;
-}
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.visible { opacity: 1; transform: none; }
  
-/* ═══════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
- 
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
- 
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
+/* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: 1fr; gap: 2px; }
+  .anti-grid { grid-template-columns: 1fr; }
 }
- 
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 1.5rem; gap: 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
- 
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 7rem 1.5rem 4rem; }
   .hero-right { height: 70vw; }
   .hero-ornament { display: none; }
- 
   .gallery-grid { display: none; }
   .mobile-gallery { display: block; }
- 
   .about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
   .about-image-badge { bottom: -1rem; right: -0.5rem; width: 110px; height: 110px; }
- 
   .services-grid { grid-template-columns: 1fr; }
   .timeline-steps { grid-template-columns: 1fr; }
   .timeline-steps::before { display: none; }
   .timeline-step { padding: 0 1rem 3rem; }
- 
   .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .form-group { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
- 
   .pain-cards { grid-template-columns: 1fr 1fr; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
-  .testimonials-grid { grid-template-columns: 1fr; }
- 
   .why-table-header, .why-table-row { grid-template-columns: 1fr; }
   .why-table-row .challenge { border-right: none; border-bottom: 1px solid rgba(61,37,21,0.07); }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .philosophy-pillars { grid-template-columns: 1fr; }
 }
- 
 @media (max-width: 480px) {
   .pain-cards { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2.8rem; }
+  .stats-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
  
-<!-- ════════════════════ NAV ════════════════════ -->
+<!-- NAV -->
 <nav id="mainNav">
   <a href="#" class="nav-logo">Mara <span>Move</span></a>
   <ul class="nav-links" id="navLinks">
@@ -1193,12 +496,12 @@ footer {
   </button>
 </nav>
  
-<!-- ════════════════════ HERO ════════════════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <span class="hero-eyebrow">Personal Training · Yoga · Ernährung</span>
+    <span class="hero-eyebrow">Personal Training · Yoga · Ayurveda · Ernährung</span>
     <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
-    <p class="hero-sub">Ganzheitliches Coaching für mehr Energie, Balance und Selbstliebe. Nachhaltig. Individuell. Ohne Druck.</p>
+    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden — über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.</p>
     <div class="hero-cta">
       <a href="#kontakt" class="btn-primary">Erstgespräch vereinbaren</a>
       <a href="#services" class="btn-outline">Leistungen entdecken</a>
@@ -1213,68 +516,168 @@ footer {
   </div>
 </section>
  
-<!-- Wave -->
 <div class="wave-divider">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z" fill="#fdf8f2"/>
   </svg>
 </div>
  
-<!-- ════════════════════ PAIN ════════════════════ -->
+<!-- PAIN -->
 <section class="pain">
   <span class="section-label reveal">Erkennst du dich wieder?</span>
   <h2 class="section-title reveal">Du verdienst mehr<br>als ständige Erschöpfung</h2>
   <div class="pain-cards reveal">
-    <div class="pain-card">
-      <div class="number">01</div>
-      <p>Du schläfst genug – und bist trotzdem ständig müde und energielos.</p>
-    </div>
-    <div class="pain-card">
-      <div class="number">02</div>
-      <p>Schon kleine Belastungen bringen dich außer Atem.</p>
-    </div>
-    <div class="pain-card">
-      <div class="number">03</div>
-      <p>Dein Körper verlangt ständig nach Zucker und schnellen Kalorien.</p>
-    </div>
-    <div class="pain-card">
-      <div class="number">04</div>
-      <p>Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.</p>
-    </div>
+    <div class="pain-card"><div class="number">01</div><p>Du schläfst genug – und bist trotzdem ständig müde und energielos.</p></div>
+    <div class="pain-card"><div class="number">02</div><p>Schon kleine Belastungen bringen dich außer Atem.</p></div>
+    <div class="pain-card"><div class="number">03</div><p>Dein Körper verlangt ständig nach Zucker und schnellen Kalorien.</p></div>
+    <div class="pain-card"><div class="number">04</div><p>Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.</p></div>
   </div>
-  <div class="pain-cta reveal">
-    Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken
+  <div class="pain-cta reveal">Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken</div>
+</section>
+ 
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-intro reveal">
+    <span class="section-label">Mein Ansatz</span>
+    <h2 class="section-title">Nicht Hype. Nicht Diät.<br>Echte Gesundheit.</h2>
+    <p class="sub">Ich glaube nicht an Abkürzungen. Keine Proteinpulver, kein Kalorienzählen — stattdessen arbeite ich mit dem, was wirklich wirkt: einem gesunden Darm, ayurvedischem Jahrtausendwissen und gezielten Nährstoffen, die deinen Körper ins Gleichgewicht bringen.</p>
+  </div>
+  <div class="philosophy-pillars">
+    <div class="pillar reveal">
+      <span class="pillar-icon">🌿</span>
+      <h3>5.000 Jahre Ayurveda</h3>
+      <p>Ayurvedische Kräuter und Gewürze sind keine Trends — sie sind erprobtes Wissen aus Jahrtausenden. Ich arbeite eng mit den Ärztinnen von ayurveda-deutschland.org zusammen und bringe dieses Wissen in dein Leben.</p>
+      <span class="pillar-tag">Kooperation ayurveda-deutschland.org</span>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-icon">🦠</span>
+      <h3>Gesunder Darm — gesundes Leben</h3>
+      <p>80 % deines Immunsystems sitzen im Darm. Wer seinen Darm heilt, heilt seinen ganzen Körper — mehr Energie, stabiles Gewicht, besserer Schlaf, mehr Fokus. Alles beginnt hier.</p>
+      <span class="pillar-tag">Darmgesundheit</span>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-icon">🚫</span>
+      <h3>Kein Proteinpulver-Hype</h3>
+      <p>Die Supplement-Industrie macht Milliarden mit Produkten, die du nicht brauchst. Echter Protein-Bedarf lässt sich über vollwertige Lebensmittel decken. Dein Körper weiß den Unterschied.</p>
+      <span class="pillar-tag">Anti-Supplement-Hype</span>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-icon">🍬</span>
+      <h3>Zucker: der stille Feind</h3>
+      <p>Zucker entzündet, macht abhängig, zerstört die Darmflora und hält dich in einem ewigen Energiekreislauf gefangen. Zuckerfrei zu leben ist kein Verzicht — es ist Befreiung.</p>
+      <span class="pillar-tag">Zuckerfreiheit</span>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-icon">⚖️</span>
+      <h3>Kalorien? Das ist 1980.</h3>
+      <p>Jedes Nahrungsmittel wirkt anders im Körper und löst andere biochemische Reaktionen aus. 100 kcal Zucker und 100 kcal Mandeln sind biologisch komplette Gegensätze. Ich denke in Wirkung — nicht in Zahlen.</p>
+      <span class="pillar-tag">Ganzheitliche Ernährung</span>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-icon">💊</span>
+      <h3>Gezielte Nahrungsergänzung</h3>
+      <p>Als Vitalstofftrainerin analysiere ich gezielt Mangelzustände und ergänze mit hochwertigen Mikronährstoffen — kein Blindkauf im Supermarkt, sondern gezielt und wirksam.</p>
+      <span class="pillar-tag">Vitalstofftherapie</span>
+    </div>
   </div>
 </section>
  
-<!-- ════════════════════ GALLERY ════════════════════ -->
+<!-- ANTI-HYPE -->
+<section class="anti-hype">
+  <div class="section-header">
+    <span class="section-label reveal">Klartext</span>
+    <h2 class="section-title reveal">Was die Fitness-Industrie dir nicht sagt</h2>
+  </div>
+  <div class="anti-grid reveal">
+    <div class="anti-card myth">
+      <span class="anti-card-label">❌ Der Mythos</span>
+      <h3>„Mehr Protein = mehr Muskeln"</h3>
+      <p>Die Supplement-Industrie lebt vom Proteinpulver-Hype. In Wahrheit braucht ein gesunder Erwachsener keine künstlichen Protein-Shakes — vollwertige Lebensmittel reichen aus.</p>
+    </div>
+    <div class="anti-card truth">
+      <span class="anti-card-label">✓ Die Wahrheit</span>
+      <h3>Echte Lebensmittel bauen echte Kraft</h3>
+      <p>Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles, was der Körper braucht. Ich zeige dir, wie du dich satt, stark und energievoll ernährst — ohne Pulver, ohne Pillen, ohne Hype.</p>
+    </div>
+    <div class="anti-card myth">
+      <span class="anti-card-label">❌ Der Mythos</span>
+      <h3>„Kalorienzählen macht schlank"</h3>
+      <p>Kalorienzählen ignoriert, dass jedes Nahrungsmittel völlig unterschiedliche Stoffwechselprozesse auslöst — Insulin, Hormone, Entzündungen. Eine Kalorie ist keine Kalorie.</p>
+    </div>
+    <div class="anti-card truth">
+      <span class="anti-card-label">✓ Die Wahrheit</span>
+      <h3>Dein Körper versteht Qualität</h3>
+      <p>Statt Zahlen zähle ich Wirkungen. Was stärkt den Darm? Was beruhigt Entzündungen? Was gibt echte Energie? Diese Fragen führen zu echten, dauerhaften Ergebnissen.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- STATS -->
+<section class="stats-section">
+  <div class="section-header">
+    <span class="section-label reveal">Fakten & Zahlen</span>
+    <h2 class="section-title reveal">Was die Wissenschaft sagt</h2>
+  </div>
+  <div class="stats-row reveal">
+    <div class="stat-box">
+      <div class="stat-num">80<span class="stat-unit">%</span></div>
+      <div class="stat-label">des Immunsystems</div>
+      <div class="stat-desc">sitzt im Darm — ein gesunder Darm ist die Basis für alles</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num forest">5.000</div>
+      <div class="stat-label">Jahre Ayurveda</div>
+      <div class="stat-desc">erprobtes Heilwissen aus der ältesten Medizin der Welt</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">74<span class="stat-unit">g</span></div>
+      <div class="stat-label">Zucker täglich</div>
+      <div class="stat-desc">nimmt ein Durchschnittsdeutscher pro Tag auf — 3× zu viel</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num forest">0</div>
+      <div class="stat-label">Proteinpulver</div>
+      <div class="stat-desc">nötig bei einer vollwertigen, ausgewogenen Ernährung</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">430<span class="stat-unit">+</span></div>
+      <div class="stat-label">Stunden Erfahrung</div>
+      <div class="stat-desc">gesammelt auf der Mein Schiff 4 und in Clubanlagen</div>
+    </div>
+  </div>
+ 
+  <!-- Sugar viz -->
+  <div class="sugar-viz reveal">
+    <h3>Zucker im Vergleich — täglich aufgenommene Menge</h3>
+    <p>Was dein Körper wirklich verarbeiten kann vs. was wir tatsächlich konsumieren</p>
+    <div class="sugar-bar-item">
+      <div class="sugar-bar-label"><span>🍬 Durchschnitt Deutschland (Gesamt-Zucker/Tag)</span><span>74g</span></div>
+      <div class="sugar-bar-track"><div class="sugar-bar-fill fill-red" data-width="92%"></div></div>
+    </div>
+    <div class="sugar-bar-item">
+      <div class="sugar-bar-label"><span>⚠️ WHO-Empfehlung (freier Zucker/Tag)</span><span>25g</span></div>
+      <div class="sugar-bar-track"><div class="sugar-bar-fill fill-mid" data-width="31%"></div></div>
+    </div>
+    <div class="sugar-bar-item">
+      <div class="sugar-bar-label"><span>✅ Mara Move Ziel (natürlicher Zucker aus Lebensmitteln)</span><span>15–20g</span></div>
+      <div class="sugar-bar-track"><div class="sugar-bar-fill fill-green" data-width="22%"></div></div>
+    </div>
+    <p style="font-size:0.75rem; color: rgba(90,58,34,0.45); margin-top: 1.5rem; margin-bottom: 0;">Quellen: DGE, WHO Zuckerrichtlinien 2023 · Freier Zucker = zugesetzter Zucker und Fruchtsäfte</p>
+  </div>
+</section>
+ 
+<!-- GALLERY -->
 <section class="gallery-section" id="gallery">
   <div class="section-header reveal">
     <span class="section-label">Einblicke</span>
     <h2 class="section-title">Dein Weg beginnt hier</h2>
   </div>
- 
-  <!-- Desktop -->
   <div class="gallery-grid reveal">
-    <div class="gallery-item">
-      <img src="assets/gallery-1.jpg" alt="Mara Move Training 1">
-      <div class="gallery-item-overlay"></div>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/gallery-2.jpg" alt="Mara Move Training 2">
-      <div class="gallery-item-overlay"></div>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/gallery-3.jpg" alt="Mara Move Training 3">
-      <div class="gallery-item-overlay"></div>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/gallery-4.jpg" alt="Mara Move Training 4">
-      <div class="gallery-item-overlay"></div>
-    </div>
+    <div class="gallery-item"><img src="assets/gallery-1.jpg" alt="Mara Move Training 1"><div class="gallery-item-overlay"></div></div>
+    <div class="gallery-item"><img src="assets/gallery-2.jpg" alt="Mara Move Training 2"><div class="gallery-item-overlay"></div></div>
+    <div class="gallery-item"><img src="assets/gallery-3.jpg" alt="Mara Move Training 3"><div class="gallery-item-overlay"></div></div>
+    <div class="gallery-item"><img src="assets/gallery-4.jpg" alt="Mara Move Training 4"><div class="gallery-item-overlay"></div></div>
   </div>
- 
-  <!-- Mobile -->
   <div class="mobile-gallery">
     <img src="assets/gallery-1.jpg" alt="Gallery 1" class="active">
     <img src="assets/gallery-2.jpg" alt="Gallery 2">
@@ -1284,229 +687,115 @@ footer {
   </div>
 </section>
  
-<!-- ════════════════════ ABOUT ════════════════════ -->
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-image reveal">
     <img src="assets/gallery-2.jpg" alt="Mara Tumpach">
-    <div class="about-image-badge">
-      <span class="num">5+</span>
-      <span class="label">Jahre Erfahrung</span>
-    </div>
+    <div class="about-image-badge"><span class="num">5+</span><span class="label">Jahre Erfahrung</span></div>
   </div>
   <div class="about-content reveal">
     <span class="section-label">Über mich</span>
     <h2 class="section-title">Hi, ich bin <em style="font-style:italic;color:var(--terra);">Mara</em></h2>
-    <p>Personal Trainerin, Yoga Instructor, Vitalstofftrainerin und Ernährungsberaterin – ich begleite dich auf dem Weg zu mehr Kraft, Energie und Selbstliebe.</p>
-    <p>Mein Ansatz ist ganzheitlich: Ich betrachte nicht nur deinen Körper, sondern auch deine Ernährung, deinen Schlaf und deinen mentalen Zustand. Weil nachhaltiger Wandel von innen kommt.</p>
-    <blockquote class="about-quote">
-      „Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt."
-    </blockquote>
-    <a href="#kontakt" class="btn-primary">Kostenlos kennenlernen</a>
+    <p>Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.</p>
+    <p>Mein Ansatz ist radikal ganzheitlich: Darm, Ernährung, Bewegung, Schlaf und Psyche gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.</p>
+    <blockquote class="about-quote">„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt."</blockquote>
+    <div class="ayurveda-badge">
+      <div class="badge-dot"></div>
+      <p>Kooperation mit <a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a> — ärztlich begleitetes Ayurveda-Wissen in der Praxis</p>
+    </div>
+    <a href="#kontakt" class="btn-primary" style="margin-top: 2rem;">Kostenlos kennenlernen</a>
   </div>
 </section>
  
-<!-- ════════════════════ SERVICES ════════════════════ -->
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-header">
     <span class="section-label reveal">Angebote</span>
     <h2 class="section-title reveal">Was ich für dich tue</h2>
   </div>
   <div class="services-grid reveal">
-    <div class="service-card">
-      <span class="service-icon">🏋️‍♀️</span>
-      <h3>Personal Training</h3>
-      <p>Individuell auf dich abgestimmte Workouts – effektiv, sicher und mit persönlicher Begleitung bei jedem Schritt.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🧘‍♀️</span>
-      <h3>Yoga &amp; Meditation</h3>
-      <p>Mentale Stärke und körperliche Balance. Yoga als Werkzeug für mehr Ruhe, Klarheit und innere Mitte.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🥗</span>
-      <h3>Ernährungsberatung</h3>
-      <p>Einfach, nachhaltig und lecker. Kein Diätwahnsinn – sondern ein Ernährungsplan, der zu deinem Leben passt.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">⚡</span>
-      <h3>EMS Training</h3>
-      <p>Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Trainingspreis enthalten – du musst nichts kaufen.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📅</span>
-      <h3>Langfristige Begleitung</h3>
-      <p>Wochenweise Unterstützung, messbare Fortschritte und ein Mensch der mitdenkt – für echten Wandel.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">💻</span>
-      <h3>Online Coaching</h3>
-      <p>Flexibel von überall. Training und Ernährungsberatung digital – für Menschen mit vollem Terminkalender.</p>
-    </div>
+    <div class="service-card"><span class="service-icon">🏋️‍♀️</span><h3>Personal Training</h3><p>Individuell auf dich abgestimmte Workouts – effektiv, sicher und mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.</p></div>
+    <div class="service-card"><span class="service-icon">🧘‍♀️</span><h3>Yoga &amp; Meditation</h3><p>Mentale Stärke und körperliche Balance. Yoga als Werkzeug für mehr Ruhe, Klarheit und innere Mitte — lizenziert nach BTV.</p></div>
+    <div class="service-card"><span class="service-icon">🌿</span><h3>Ayurveda-Ernährung</h3><p>Ernährung nach 5.000 Jahren Erfahrung: Kräuter, Gewürze und vollwertige Lebensmittel statt Supplements und Kalorien-Apps.</p></div>
+    <div class="service-card"><span class="service-icon">🦠</span><h3>Darmgesundheit</h3><p>Darmreinigung, Vitalstoffanalyse und gezielte Regeneration der Darmflora als Fundament für dauerhaftes Wohlbefinden.</p></div>
+    <div class="service-card"><span class="service-icon">⚡</span><h3>EMS Training</h3><p>Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Trainingspreis enthalten – du musst nichts kaufen.</p></div>
+    <div class="service-card"><span class="service-icon">💻</span><h3>Online Coaching</h3><p>Flexibel von überall. Training und Ernährungsberatung digital — für Menschen mit vollem Terminkalender.</p></div>
   </div>
 </section>
  
-<!-- ════════════════════ WHY ════════════════════ -->
+<!-- WHY -->
 <section class="why">
   <div class="section-header">
     <span class="section-label reveal">Kein Geheimnis</span>
     <h2 class="section-title reveal">Warum es alleine oft nicht klappt</h2>
   </div>
   <div class="why-table reveal">
-    <div class="why-table-header">
-      <div>Herausforderung</div>
-      <div>Lösung mit Mara Move</div>
-    </div>
-    <div class="why-table-row">
-      <div class="challenge">🛋️ Motivation fehlt, Termine werden verschoben</div>
-      <div class="solution">Personal Training mit festen, verbindlichen Terminen</div>
-    </div>
-    <div class="why-table-row">
-      <div class="challenge">🍫 Falsche Ernährung und unkontrolliertes Verlangen</div>
-      <div class="solution">Individueller Ernährungsplan nach Darmreinigung</div>
-    </div>
-    <div class="why-table-row">
-      <div class="challenge">❓ Unsicherheit bei Übungen und Technik</div>
-      <div class="solution">Persönliche Begleitung und Korrektur bei jedem Training</div>
-    </div>
-    <div class="why-table-row">
-      <div class="challenge">📉 Keine sichtbaren Erfolge trotz Aufwand</div>
-      <div class="solution">Messbare Fortschritte durch konsequentes Zieltracking</div>
-    </div>
+    <div class="why-table-header"><div>Herausforderung</div><div>Lösung mit Mara Move</div></div>
+    <div class="why-table-row"><div class="challenge">🛋️ Motivation fehlt, Termine werden verschoben</div><div class="solution">Personal Training mit festen, verbindlichen Terminen</div></div>
+    <div class="why-table-row"><div class="challenge">🍫 Zuckersucht und unkontrolliertes Verlangen</div><div class="solution">Darmreinigung + ayurvedische Ernährungsumstellung</div></div>
+    <div class="why-table-row"><div class="challenge">❓ Unsicherheit bei Übungen und Technik</div><div class="solution">Persönliche Begleitung und Korrektur bei jedem Training</div></div>
+    <div class="why-table-row"><div class="challenge">📉 Keine sichtbaren Erfolge trotz Aufwand</div><div class="solution">Vitalstoffanalyse + gezielte Nährstoffergänzung</div></div>
+    <div class="why-table-row"><div class="challenge">💊 Teurer Supplement-Kauf ohne Wirkung</div><div class="solution">Gezielte Mikronährstoffe nur bei nachgewiesenem Mangel</div></div>
   </div>
 </section>
  
-<!-- ════════════════════ TIMELINE ════════════════════ -->
+<!-- TIMELINE -->
 <section class="timeline">
   <div class="section-header">
     <span class="section-label reveal">Dein Weg</span>
-    <h2 class="section-title reveal">So sieht dein langfristiges Training aus</h2>
+    <h2 class="section-title reveal">So sieht dein Weg mit mir aus</h2>
   </div>
   <div class="timeline-steps reveal">
-    <div class="timeline-step">
-      <div class="dot">1</div>
-      <h3>Erstes Training</h3>
-      <p>Wir starten mit einem kostenlosen Kennenlerngespräch und einem Probetraining – ganz ohne Druck.</p>
-    </div>
-    <div class="timeline-step">
-      <div class="dot">2</div>
-      <h3>Teilerfolge feiern</h3>
-      <p>Nach einigen Wochen merkst du die ersten Veränderungen: mehr Energie, besserer Schlaf, spürbare Kraft.</p>
-    </div>
-    <div class="timeline-step">
-      <div class="dot">3</div>
-      <h3>Ziel erreicht</h3>
-      <p>Mehr Lebensfreude, Balance und Selbstliebe. Ein neues, starkes Körpergefühl – nachhaltig und dauerhaft.</p>
-    </div>
+    <div class="timeline-step"><div class="dot">1</div><h3>Erstes Gespräch</h3><p>Kostenlos und unverbindlich. Wir schauen gemeinsam, wo du stehst und was du wirklich brauchst — ganz ohne Druck.</p></div>
+    <div class="timeline-step"><div class="dot">2</div><h3>Körper ins Gleichgewicht</h3><p>Darm, Vitalstoffe, Bewegung — wir schaffen die Basis. Nach wenigen Wochen spürst du den Unterschied: Energie, Schlaf, Klarheit.</p></div>
+    <div class="timeline-step"><div class="dot">3</div><h3>Nachhaltige Kraft</h3><p>Kein Jo-Jo, kein Rückfall. Du hast verstanden, wie dein Körper wirklich funktioniert — und kannst es für immer halten.</p></div>
   </div>
 </section>
  
-<!-- ════════════════════ PRICING ════════════════════ -->
+<!-- PRICING -->
 <section class="pricing" id="preise">
   <div class="section-header">
     <span class="section-label reveal">Transparenz</span>
     <h2 class="section-title reveal">Investiere in dich</h2>
   </div>
   <div class="pricing-grid">
-    <div class="pricing-card reveal">
-      <span class="service-name">Personal Training</span>
-      <div class="price-val"><sup>€</sup>49</div>
-      <p class="price-desc">pro Einheit</p>
-      <hr>
-      <ul>
-        <li>Individueller Trainingsplan</li>
-        <li>Persönliche Begleitung</li>
-        <li>Übungskorrektur</li>
-      </ul>
-    </div>
-    <div class="pricing-card featured reveal">
-      <span class="service-name">Ernährungsumstellung</span>
-      <div class="price-val"><sup>€</sup>59</div>
-      <p class="price-desc">Ersttermin inkl. Analyse</p>
-      <hr>
-      <ul>
-        <li>Vitalstoffanalyse</li>
-        <li>Individueller Ernährungsplan</li>
-        <li>Darmreinigung inkl.</li>
-      </ul>
-    </div>
-    <div class="pricing-card reveal">
-      <span class="service-name">Wochenbegleitung</span>
-      <div class="price-val"><sup>€</sup>35</div>
-      <p class="price-desc">pro Woche</p>
-      <hr>
-      <ul>
-        <li>Regelmäßiger Check-in</li>
-        <li>FortschrittsTracking</li>
-        <li>Motivation &amp; Support</li>
-      </ul>
-    </div>
-    <div class="pricing-card reveal">
-      <span class="service-name">EMS Training</span>
-      <div class="price-val"><sup>€</sup>89</div>
-      <p class="price-desc">Gerät inklusive</p>
-      <hr>
-      <ul>
-        <li>Breuer EMS-Gürtel inklusive</li>
-        <li>Intensiv &amp; zeitsparend</li>
-        <li>Professionelle Anleitung</li>
-      </ul>
-    </div>
+    <div class="pricing-card reveal"><span class="service-name">Personal Training</span><div class="price-val"><sup>€</sup>49</div><p class="price-desc">pro Einheit</p><hr><ul><li>Individueller Trainingsplan</li><li>Persönliche Begleitung</li><li>Übungskorrektur</li></ul></div>
+    <div class="pricing-card featured reveal"><span class="service-name">Ernährungsumstellung</span><div class="price-val"><sup>€</sup>59</div><p class="price-desc">Ersttermin inkl. Analyse</p><hr><ul><li>Vitalstoffanalyse</li><li>Ayurvedischer Ernährungsplan</li><li>Darmreinigung inkl.</li></ul></div>
+    <div class="pricing-card reveal"><span class="service-name">Wochenbegleitung</span><div class="price-val"><sup>€</sup>35</div><p class="price-desc">pro Woche</p><hr><ul><li>Regelmäßiger Check-in</li><li>Fortschritts-Tracking</li><li>Motivation &amp; Support</li></ul></div>
+    <div class="pricing-card reveal"><span class="service-name">EMS Training</span><div class="price-val"><sup>€</sup>89</div><p class="price-desc">Gerät inklusive</p><hr><ul><li>Breuer EMS-Gürtel inklusive</li><li>Intensiv &amp; zeitsparend</li><li>Professionelle Anleitung</li></ul></div>
   </div>
 </section>
  
-<!-- ════════════════════ TESTIMONIALS ════════════════════ -->
+<!-- TESTIMONIALS -->
 <section class="testimonials">
   <div class="section-header">
     <span class="section-label reveal">Stimmen</span>
     <h2 class="section-title reveal">Was Frauen sagen</h2>
   </div>
   <div class="testimonials-grid reveal">
-    <div class="testimonial">
-      <div class="testimonial-stars">★★★★★</div>
-      <p>„Ich passe seit Jahren wieder in mein altes Lieblingskleid. Mara hat mein Leben verändert."</p>
-    </div>
-    <div class="testimonial">
-      <div class="testimonial-stars">★★★★★</div>
-      <p>„Meine Food Noise ist endlich still. Ich esse bewusst und genieße es wirklich."</p>
-    </div>
-    <div class="testimonial">
-      <div class="testimonial-stars">★★★★★</div>
-      <p>„Ich fühle mich stark, schön und wohl – in meinem Körper und in meinem Leben."</p>
-    </div>
+    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Ich passe seit Jahren wieder in mein altes Lieblingskleid. Mara hat mein Leben verändert."</p></div>
+    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Meine Food Noise ist endlich still. Ich esse bewusst und genieße es wirklich — ganz ohne Diät."</p></div>
+    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Ich fühle mich stark, schön und wohl – in meinem Körper und in meinem Leben."</p></div>
   </div>
 </section>
  
-<!-- ════════════════════ FAQ ════════════════════ -->
+<!-- FAQ -->
 <section class="faq">
   <div class="section-header">
     <span class="section-label reveal">FAQ</span>
     <h2 class="section-title reveal">Fragen &amp; Antworten</h2>
   </div>
   <div class="faq-list reveal">
-    <div class="faq-item">
-      <button class="faq-question">Wie viel Zeit sollte ich freihalten?<span class="faq-icon"></span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">Mindestens 2–3 Stunden pro Woche reichen für spürbare Erfolge. Das Wichtigste ist die Regelmäßigkeit – nicht die Intensität.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Gibt es individuelle Ernährungspläne?<span class="faq-icon"></span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">Ja, nach einer Darmreinigung und Vitalstoffanalyse wird ein Plan erstellt, der exakt auf dich, deinen Alltag und deine Ziele abgestimmt ist.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Kann ich online teilnehmen?<span class="faq-icon"></span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">Ja, Training und Coaching sind auch vollständig digital möglich. Du brauchst nur eine Internetverbindung und Motivation.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Muss ich den EMS-Gürtel selbst kaufen?<span class="faq-icon"></span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Für wen ist Mara Move geeignet?<span class="faq-icon"></span></button>
-      <div class="faq-answer"><div class="faq-answer-inner">Für alle Frauen, die endlich nachhaltig etwas verändern möchten – egal ob Anfängerin oder schon aktiv. Kein Vorkenntnisse nötig.</div></div>
-    </div>
+    <div class="faq-item"><button class="faq-question">Wie viel Zeit sollte ich freihalten?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Mindestens 2–3 Stunden pro Woche reichen für spürbare Erfolge. Das Wichtigste ist die Regelmäßigkeit – nicht die Intensität.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Warum keine Proteinshakes oder Diätprodukte?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil du sie nicht brauchst. Die Supplement-Industrie lebt von Verunsicherung. Ein vollwertiger Ernährungsplan auf Basis echter Lebensmittel liefert alles, was dein Körper braucht — ohne Nebenwirkungen, ohne Abhängigkeit, ohne leere Versprechen.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Was bedeutet Ernährung nach Ayurveda?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Ayurveda ist die älteste Medizin der Welt — über 5.000 Jahre erprobt. Im Bereich Ernährung bedeutet das: Kräuter und Gewürze als Heilmittel, saisonales und lokales Essen, die Stärkung des Verdauungsfeuers (Agni) und ein tiefer Respekt vor dem, was wir unserem Körper zuführen. Ich arbeite mit den Ärztinnen von ayurveda-deutschland.org zusammen.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Warum ist Kalorienzählen keine gute Idee?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil jedes Lebensmittel anders im Körper wirkt. 100 kcal Traubenzucker und 100 kcal Walnüsse lösen völlig unterschiedliche Hormonreaktionen aus — Insulin, Cortisol, Serotonin. Statt Zahlen schaue ich auf Qualität, Wirkung und Verträglichkeit.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Muss ich den EMS-Gürtel selbst kaufen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Kann ich online teilnehmen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Ja, Training und Coaching sind auch vollständig digital möglich. Du brauchst nur eine Internetverbindung und Motivation.</div></div></div>
   </div>
 </section>
  
-<!-- ════════════════════ CONTACT ════════════════════ -->
+<!-- CONTACT -->
 <section class="contact" id="kontakt">
   <div class="section-header">
     <span class="section-label">Starte jetzt</span>
@@ -1514,22 +803,11 @@ footer {
   </div>
   <div class="contact-inner">
     <div class="contact-info">
-      <div class="info-item">
-        <h3>Schreib mir</h3>
-        <a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a>
-      </div>
-      <div class="info-item">
-        <h3>Ruf an</h3>
-        <a href="tel:+491629453781">+49 162 9453781</a>
-      </div>
-      <div class="info-item">
-        <h3>Standort</h3>
-        <p>Oberottmarshausen (nähe München)</p>
-        <p>Online Coaching weltweit möglich</p>
-      </div>
+      <div class="info-item"><h3>Schreib mir</h3><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></div>
+      <div class="info-item"><h3>Ruf an</h3><a href="tel:+491629453781">+49 162 9453781</a></div>
+      <div class="info-item"><h3>Standort</h3><p>Oberottmarshausen (nähe München)</p><p>Online Coaching weltweit möglich</p></div>
       <p style="font-size:0.8rem;opacity:0.5;margin-top:1rem;">Das erste Gespräch ist kostenlos und unverbindlich.</p>
     </div>
- 
     <form class="contact-form" action="https://formspree.io/f/xnjldvwe" method="POST">
       <input type="hidden" name="_redirect" value="https://deinewebsite.de/danke.html">
       <div class="form-group">
@@ -1541,7 +819,8 @@ footer {
         <option value="">Wähle dein Anliegen</option>
         <option>Kostenloses Beratungsgespräch</option>
         <option>Personaltraining</option>
-        <option>Ernährungsumstellung Ersttermin</option>
+        <option>Ayurveda-Ernährungsberatung</option>
+        <option>Darmgesundheit & Vitalstoffanalyse</option>
         <option>EMS Training</option>
         <option>Online Coaching</option>
       </select>
@@ -1552,12 +831,12 @@ footer {
   </div>
 </section>
  
-<!-- ════════════════════ FOOTER ════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="logo">Mara <span>Move</span></span>
-      <p>Ganzheitliches Personal Training, Yoga, Ernährungsberatung und EMS – nähe München und online. Für Frauen, die sich wohl fühlen wollen – in ihrer Haut.</p>
+      <p>Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
@@ -1581,10 +860,14 @@ footer {
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Social Media</h4>
+      <h4>Partner</h4>
       <ul>
-        <li><a href="https://www.instagram.com/mara.move" target="_blank" rel="noopener">&#128247; Instagram – @mara.move</a></li>
-        <li><a href="https://www.youtube.com/@Mara_Move" target="_blank" rel="noopener">&#9654; YouTube – @Mara_Move</a></li>
+        <li><a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a></li>
+      </ul>
+      <h4 style="margin-top:1.5rem;">Social Media</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/mara.move" target="_blank" rel="noopener">📷 Instagram – @mara.move</a></li>
+        <li><a href="https://www.youtube.com/@Mara_Move" target="_blank" rel="noopener">▶ YouTube – @Mara_Move</a></li>
       </ul>
     </div>
   </div>
@@ -1594,91 +877,73 @@ footer {
   </div>
 </footer>
  
-<!-- Hidden legal sections (anchor targets) -->
 <div id="impressum" style="display:none"></div>
 <div id="datenschutz" style="display:none"></div>
  
-<!-- ════════════════════ JS ════════════════════ -->
 <script>
-// ── Nav scroll
+// Nav scroll
 const nav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
  
-// ── Hamburger
+// Hamburger
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
  
-// ── Reveal on scroll
-const reveals = document.querySelectorAll('.reveal');
+// Reveal on scroll
 const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+ 
+// Sugar bars animate on scroll
+const barObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
+      e.target.querySelectorAll('.sugar-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+      barObserver.unobserve(e.target);
     }
   });
-}, { threshold: 0.12 });
-reveals.forEach(el => observer.observe(el));
+}, { threshold: 0.3 });
+const sugarViz = document.querySelector('.sugar-viz');
+if (sugarViz) barObserver.observe(sugarViz);
  
-// ── Mobile gallery slider
+// Mobile gallery
 (function() {
   const imgs  = document.querySelectorAll('.mobile-gallery img');
   const dotsC = document.getElementById('galleryDots');
   if (!dotsC) return;
   let cur = 0;
- 
   imgs.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
     d.addEventListener('click', () => go(i));
     dotsC.appendChild(d);
   });
- 
   function go(n) {
-    imgs[cur].classList.remove('active');
-    dotsC.children[cur].classList.remove('active');
+    imgs[cur].classList.remove('active'); dotsC.children[cur].classList.remove('active');
     cur = (n + imgs.length) % imgs.length;
-    imgs[cur].classList.add('active');
-    dotsC.children[cur].classList.add('active');
+    imgs[cur].classList.add('active'); dotsC.children[cur].classList.add('active');
   }
- 
   let x0 = null;
   const mg = document.querySelector('.mobile-gallery');
   mg.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; });
-  mg.addEventListener('touchend',   e => {
-    if (x0 === null) return;
-    const dx = e.changedTouches[0].clientX - x0;
-    if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
-    x0 = null;
-  });
- 
+  mg.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); x0 = null; });
   setInterval(() => go(cur + 1), 4000);
 })();
  
-// ── FAQ accordion
+// FAQ
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-question').addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(o => {
-      o.classList.remove('open');
-      o.querySelector('.faq-answer').style.maxHeight = null;
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      const ans = item.querySelector('.faq-answer');
-      ans.style.maxHeight = ans.scrollHeight + 'px';
-    }
+    document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-answer').style.maxHeight = null; });
+    if (!isOpen) { item.classList.add('open'); const ans = item.querySelector('.faq-answer'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
   });
 });
 </script>
- 
 </body>
 </html>
+ 
