@@ -61,6 +61,18 @@ nav.scrolled {
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
 .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--brown); transition: 0.3s; }
  
+.lang-toggle {
+  background: none; border: 1px solid rgba(61,37,21,0.25); border-radius: 2px;
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+  color: var(--brown-mid); cursor: pointer; padding: 5px 12px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.lang-toggle:hover { border-color: var(--terra); color: var(--terra); }
+nav.scrolled .lang-toggle { border-color: rgba(61,37,21,0.25); }
+/* On dark hero, before scroll */
+nav:not(.scrolled) .lang-toggle { border-color: rgba(61,37,21,0.3); }
+ 
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
@@ -429,6 +441,80 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
 .footer-col a:hover { color: var(--terra-soft); }
 .footer-bottom { max-width: 1200px; margin: 2rem auto 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 0.75rem; }
  
+/* ── NEWSLETTER SECTION ── */
+.newsletter-section {
+  background: var(--forest);
+  padding: 8rem 2rem;
+  position: relative; overflow: hidden;
+}
+.newsletter-section::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 260px; height: 260px; border-radius: 50%;
+  background: var(--forest-light); opacity: 0.2;
+}
+.newsletter-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+  position: relative; z-index: 1;
+}
+.newsletter-section .section-label { color: rgba(106,175,180,0.8); }
+.newsletter-left h2 { font-family: var(--serif); font-size: clamp(2rem,3vw,2.8rem); color: var(--sand-light); font-weight: 300; line-height: 1.2; margin-bottom: 1.2rem; }
+.newsletter-left p { font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: rgba(240,213,184,0.7); line-height: 1.85; margin-bottom: 1.5rem; }
+.nl-benefits { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.nl-benefits li { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: rgba(240,213,184,0.75); }
+.newsletter-right { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 2px; padding: 2.5rem; }
+.nl-form label { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,213,184,0.55); display: block; margin-bottom: 0.4rem; }
+.nl-form input { width: 100%; padding: 0.9rem 1.1rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(240,213,184,0.15); border-radius: 2px; color: var(--sand-light); font-family: var(--sans); font-size: 0.88rem; font-weight: 300; margin-bottom: 1.2rem; outline: none; transition: border-color 0.3s; }
+.nl-form input:focus { border-color: var(--terra-soft); }
+.nl-form input::placeholder { color: rgba(240,213,184,0.3); }
+.nl-btn { width: 100%; text-align: center; margin-top: 0.4rem; }
+.nl-fine { font-family: var(--sans); font-size: 0.72rem; color: rgba(240,213,184,0.35); text-align: center; margin-top: 1rem; line-height: 1.6; }
+.nl-success { text-align: center; padding: 2rem 0; }
+.nl-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+.nl-success h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--sand-light); margin-bottom: 0.5rem; }
+.nl-success p { font-family: var(--sans); font-size: 0.9rem; color: rgba(240,213,184,0.6); }
+ 
+/* ── NEWSLETTER POPUP ── */
+.nl-popup-overlay {
+  position: fixed; inset: 0; background: rgba(42,26,14,0.75);
+  z-index: 999; display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+  backdrop-filter: blur(4px);
+}
+.nl-popup-overlay.active { opacity: 1; pointer-events: all; }
+.nl-popup {
+  background: var(--cream); border-radius: 2px;
+  max-width: 460px; width: 90%; padding: 3rem 2.5rem;
+  position: relative; overflow: hidden;
+  transform: translateY(20px);
+  transition: transform 0.4s var(--ease);
+}
+.nl-popup-overlay.active .nl-popup { transform: translateY(0); }
+.nl-popup-deco {
+  position: absolute; top: -40px; right: -40px;
+  width: 140px; height: 140px; border-radius: 50%;
+  background: var(--forest); opacity: 0.08;
+}
+.nl-popup-close {
+  position: absolute; top: 1rem; right: 1.2rem;
+  background: none; border: none; font-size: 1.5rem;
+  color: rgba(61,37,21,0.4); cursor: pointer; line-height: 1;
+  transition: color 0.2s;
+}
+.nl-popup-close:hover { color: var(--terra); }
+.nl-popup-eyebrow { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-deep); display: block; margin-bottom: 0.8rem; }
+.nl-popup h3 { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--brown); margin-bottom: 0.8rem; line-height: 1.2; }
+.nl-popup p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: var(--brown-mid); line-height: 1.8; margin-bottom: 1.5rem; }
+.nl-popup-form { display: flex; flex-direction: column; gap: 0.7rem; }
+.nl-popup-form input { width: 100%; padding: 0.9rem 1.1rem; background: var(--sand-light); border: 1px solid rgba(61,37,21,0.12); border-radius: 2px; font-family: var(--sans); font-size: 0.88rem; color: var(--ink); outline: none; transition: border-color 0.3s; }
+.nl-popup-form input:focus { border-color: var(--terra); }
+.nl-popup-submitted { text-align: center; padding: 1rem 0; }
+.nl-popup-submitted p { font-family: var(--sans); font-size: 0.9rem; color: var(--brown-mid); margin-top: 0.7rem; }
+.nl-popup-skip { display: block; width: 100%; background: none; border: none; font-family: var(--sans); font-size: 0.75rem; color: rgba(61,37,21,0.35); cursor: pointer; margin-top: 1rem; text-align: center; transition: color 0.2s; }
+.nl-popup-skip:hover { color: var(--brown-mid); }
+ 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -468,6 +554,7 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
   .why-table-row .challenge { border-right: none; border-bottom: 1px solid rgba(61,37,21,0.07); }
   .stats-row { grid-template-columns: 1fr 1fr; }
   .philosophy-pillars { grid-template-columns: 1fr; }
+  .newsletter-inner { grid-template-columns: 1fr; gap: 3rem; }
 }
 @media (max-width: 480px) {
   .pain-cards { grid-template-columns: 1fr; }
@@ -482,15 +569,19 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
 <nav id="mainNav">
   <a href="#" class="nav-logo">Mara <span>Move</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#services">Leistungen</a></li>
-    <li><a href="#about">Über mich</a></li>
-    <li><a href="#preise">Preise</a></li>
-    <li><a href="reisen.html">Reisen</a></li>
-    <li><a href="zertifikate.html">Zertifikate</a></li>
-    <li><a href="aktuelles.html">Aktuelles</a></li>
-    <li><a href="trainingsbereich.html">Trainingsbereich</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#about" data-i18n="nav_about">Über mich</a></li>
+    <li><a href="#preise" data-i18n="nav_prices">Preise</a></li>
+    <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
+    <li><a href="yogalehrer.html" data-i18n="nav_yoga">Yogalehrer werden</a></li>
+    <li><a href="reisen.html" data-i18n="nav_travel">Reisen</a></li>
+    <li><a href="zertifikate.html" data-i18n="nav_certs">Zertifikate</a></li>
+    <li><a href="aktuelles.html" data-i18n="nav_news">Aktuelles</a></li>
+    <li><a href="trainingsbereich.html" data-i18n="nav_training">Trainingsbereich</a></li>
+    <li><a href="#kontakt" data-i18n="nav_contact">Kontakt</a></li>
   </ul>
+  <button class="lang-toggle" id="langToggle" onclick="toggleLang()" title="Switch language">
+    <span id="langLabel">EN</span>
+  </button>
   <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
     <span></span><span></span><span></span>
   </button>
@@ -503,8 +594,8 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
     <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
     <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden — über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.</p>
     <div class="hero-cta">
-      <a href="#kontakt" class="btn-primary">Erstgespräch vereinbaren</a>
-      <a href="#services" class="btn-outline">Leistungen entdecken</a>
+      <a href="#kontakt" class="btn-primary" data-i18n="hero_btn1">Erstgespräch vereinbaren</a>
+      <a href="#services" class="btn-outline" data-i18n="hero_btn2">Leistungen entdecken</a>
     </div>
     <div class="hero-ornament">
       <span>Mara Tumpach · Nähe München</span>
@@ -831,12 +922,66 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
   </div>
 </section>
  
-<!-- FOOTER -->
+<!-- NEWSLETTER -->
+<section class="newsletter-section" id="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-left reveal">
+      <span class="section-label" data-i18n="nl_label">Bleib dabei</span>
+      <h2 data-i18n="nl_title">Rezepte, Tipps &amp;<br>echtes Wissen — kostenlos.</h2>
+      <p data-i18n="nl_sub">Neue Rezepte ohne Zucker, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke — direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.</p>
+      <ul class="nl-benefits">
+        <li data-i18n="nl_b1">🌿 Neue zuckerfreie Rezepte</li>
+        <li data-i18n="nl_b2">💡 Tipps & Tricks rund um Ernährung & Sport</li>
+        <li data-i18n="nl_b3">🦠 Darmgesundheit verständlich erklärt</li>
+        <li data-i18n="nl_b4">🧘‍♀️ Yoga &amp; Bewegungsimpulse für den Alltag</li>
+      </ul>
+    </div>
+    <div class="newsletter-right reveal">
+      <form class="nl-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handleNLSubmit(event, this)">
+        <input type="hidden" name="_subject" value="Newsletter Anmeldung">
+        <input type="hidden" name="type" value="newsletter">
+        <label data-i18n="nl_name_label">Dein Vorname</label>
+        <input type="text" name="name" data-i18n-placeholder="nl_name_ph" placeholder="Wie soll ich dich nennen?" required>
+        <label data-i18n="nl_email_label">Deine E-Mail-Adresse</label>
+        <input type="email" name="email" data-i18n-placeholder="nl_email_ph" placeholder="deine@email.de" required>
+        <button type="submit" class="btn-primary nl-btn" data-i18n="nl_btn">Jetzt anmelden &amp; Wissen erhalten →</button>
+        <p class="nl-fine" data-i18n="nl_fine">Kein Spam. Jederzeit abmeldbar. Deine Daten bleiben bei mir.</p>
+      </form>
+      <div class="nl-success" style="display:none">
+        <div class="nl-success-icon">🌿</div>
+        <h3 data-i18n="nl_success_title">Willkommen an Bord!</h3>
+        <p data-i18n="nl_success_sub">Schön, dass du dabei bist. Deine erste Mail kommt bald.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- NEWSLETTER POPUP -->
+<div class="nl-popup-overlay" id="nlPopup">
+  <div class="nl-popup">
+    <button class="nl-popup-close" onclick="closePopup()" aria-label="Schließen">×</button>
+    <div class="nl-popup-deco"></div>
+    <span class="nl-popup-eyebrow" data-i18n="pop_eyebrow">Kostenlos &amp; wertvoll</span>
+    <h3 data-i18n="pop_title">Bevor du weiterstöberst —</h3>
+    <p data-i18n="pop_sub">Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.</p>
+    <form class="nl-popup-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handlePopupSubmit(event, this)">
+      <input type="hidden" name="_subject" value="Newsletter – Popup Anmeldung">
+      <input type="hidden" name="type" value="newsletter-popup">
+      <input type="email" name="email" data-i18n-placeholder="pop_ph" placeholder="deine@email.de" required>
+      <button type="submit" class="btn-primary" style="width:100%" data-i18n="pop_btn">Ja, ich möchte dabei sein →</button>
+    </form>
+    <div class="nl-popup-submitted" style="display:none">
+      <span style="font-size:2rem;">🌿</span>
+      <p data-i18n="pop_thanks">Danke! Schau auch in deinen Spam-Ordner.</p>
+    </div>
+    <button class="nl-popup-skip" onclick="closePopup()" data-i18n="pop_skip">Nein danke, ich schau mich nur um</button>
+  </div>
+</div>
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="logo">Mara <span>Move</span></span>
-      <p>Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.</p>
+      <p data-i18n="footer_tagline">Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
@@ -881,29 +1026,145 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
 <div id="datenschutz" style="display:none"></div>
  
 <script>
-// Nav scroll
+// ── i18n translations ──────────────────────────────────────────
+const TRANSLATIONS = {
+  de: {
+    nav_about: "Über mich", nav_prices: "Preise", nav_shop: "Shop",
+    nav_yoga: "Yogalehrer werden", nav_travel: "Reisen", nav_certs: "Zertifikate",
+    nav_news: "Aktuelles", nav_training: "Trainingsbereich", nav_contact: "Kontakt",
+    hero_eyebrow: "Personal Training · Yoga · Ayurveda · Ernährung",
+    hero_h1: "Fühle dich wohl<br>in deiner <em>Haut</em>",
+    hero_sub: "Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden — über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.",
+    hero_btn1: "Erstgespräch vereinbaren", hero_btn2: "Leistungen entdecken",
+    hero_orn: "Mara Tumpach · Nähe München",
+    nl_label: "Bleib dabei",
+    nl_title: "Rezepte, Tipps &amp;<br>echtes Wissen — kostenlos.",
+    nl_sub: "Neue Rezepte ohne Zucker, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke — direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.",
+    nl_b1: "🌿 Neue zuckerfreie Rezepte",
+    nl_b2: "💡 Tipps & Tricks rund um Ernährung & Sport",
+    nl_b3: "🦠 Darmgesundheit verständlich erklärt",
+    nl_b4: "🧘‍♀️ Yoga & Bewegungsimpulse für den Alltag",
+    nl_name_label: "Dein Vorname", nl_name_ph: "Wie soll ich dich nennen?",
+    nl_email_label: "Deine E-Mail-Adresse", nl_email_ph: "deine@email.de",
+    nl_btn: "Jetzt anmelden &amp; Wissen erhalten →",
+    nl_fine: "Kein Spam. Jederzeit abmeldbar. Deine Daten bleiben bei mir.",
+    nl_success_title: "Willkommen an Bord!",
+    nl_success_sub: "Schön, dass du dabei bist. Deine erste Mail kommt bald.",
+    pop_eyebrow: "Kostenlos &amp; wertvoll",
+    pop_title: "Bevor du weiterstöberst —",
+    pop_sub: "Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.",
+    pop_ph: "deine@email.de",
+    pop_btn: "Ja, ich möchte dabei sein →",
+    pop_thanks: "Danke! Schau auch in deinen Spam-Ordner.",
+    pop_skip: "Nein danke, ich schau mich nur um",
+    yt_label: "Mein Kanal", yt_title: "Neues auf YouTube",
+    footer_tagline: "Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.",
+  },
+  en: {
+    nav_about: "About", nav_prices: "Prices", nav_shop: "Shop",
+    nav_yoga: "Become a Yoga Teacher", nav_travel: "Retreats", nav_certs: "Certificates",
+    nav_news: "News", nav_training: "Training Area", nav_contact: "Contact",
+    hero_eyebrow: "Personal Training · Yoga · Ayurveda · Nutrition",
+    hero_h1: "Feel truly at home<br>in your <em>skin</em>",
+    hero_sub: "No protein powder. No calorie counting. Just real, holistic wellbeing — through gut health, 5,000 years of herbal wisdom, and the power of real food.",
+    hero_btn1: "Book a free call", hero_btn2: "Explore services",
+    hero_orn: "Mara Tumpach · Near Munich",
+    nl_label: "Stay in the loop",
+    nl_title: "Recipes, tips &amp;<br>real knowledge — free.",
+    nl_sub: "Sugar-free recipes, Ayurveda tips, nutrition hacks and honest insights — straight to your inbox. No spam. Only things that actually help.",
+    nl_b1: "🌿 New sugar-free recipes",
+    nl_b2: "💡 Tips & tricks around nutrition & fitness",
+    nl_b3: "🦠 Gut health made simple",
+    nl_b4: "🧘‍♀️ Yoga & movement ideas for everyday life",
+    nl_name_label: "Your first name", nl_name_ph: "What shall I call you?",
+    nl_email_label: "Your email address", nl_email_ph: "your@email.com",
+    nl_btn: "Sign up &amp; get real knowledge →",
+    nl_fine: "No spam. Unsubscribe anytime. Your data stays with me.",
+    nl_success_title: "Welcome on board!",
+    nl_success_sub: "Great to have you. Your first email is on its way.",
+    pop_eyebrow: "Free &amp; valuable",
+    pop_title: "Before you scroll on —",
+    pop_sub: "Get real knowledge straight to your inbox: sugar-free recipes, Ayurveda tips and movement impulses that truly make a difference.",
+    pop_ph: "your@email.com",
+    pop_btn: "Yes, I'm in →",
+    pop_thanks: "Thank you! Check your spam folder too.",
+    pop_skip: "No thanks, I'm just browsing",
+    yt_label: "My Channel", yt_title: "New on YouTube",
+    footer_tagline: "Holistic personal training, yoga, Ayurveda nutrition and EMS — near Munich and online. For women who want to feel truly good in their skin.",
+  }
+};
+ 
+let currentLang = localStorage.getItem('mm_lang') || 'de';
+ 
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('mm_lang', lang);
+  const t = TRANSLATIONS[lang];
+  document.documentElement.lang = lang;
+ 
+  // data-i18n text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+ 
+  // data-i18n-placeholder
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (t[key] !== undefined) el.placeholder = t[key].replace(/&amp;/g, '&');
+  });
+ 
+  // YouTube channel swap
+  const ytFrame = document.getElementById('ytFrame');
+  if (ytFrame) {
+    if (lang === 'en') {
+      ytFrame.src = 'https://www.youtube.com/embed?listType=user_uploads&list=Move_Mara&index=1&rel=0&modestbranding=1';
+    } else {
+      ytFrame.src = 'https://www.youtube.com/embed?listType=user_uploads&list=Mara_Move&index=1&rel=0&modestbranding=1';
+    }
+  }
+  const ytLink = document.getElementById('ytChannelLink');
+  if (ytLink) {
+    ytLink.href = lang === 'en' ? 'https://www.youtube.com/@Move_Mara' : 'https://www.youtube.com/@Mara_Move';
+    ytLink.querySelector('span') && (ytLink.querySelector('span').textContent = lang === 'en' ? 'Watch all videos on @Move_Mara' : 'Alle Videos auf @Mara_Move ansehen');
+  }
+ 
+  // Hero special (has HTML)
+  const h1 = document.querySelector('.hero h1');
+  if (h1 && t.hero_h1) h1.innerHTML = t.hero_h1;
+  const heroSub = document.querySelector('.hero-sub');
+  if (heroSub && t.hero_sub) heroSub.textContent = t.hero_sub;
+  const heroEy = document.querySelector('.hero-eyebrow');
+  if (heroEy && t.hero_eyebrow) heroEy.textContent = t.hero_eyebrow;
+ 
+  document.getElementById('langLabel').textContent = lang === 'de' ? 'EN' : 'DE';
+}
+ 
+function toggleLang() {
+  applyLang(currentLang === 'de' ? 'en' : 'de');
+}
+ 
+// ── Nav scroll ───────────────────────────────────────────────
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
  
-// Hamburger
+// ── Hamburger ────────────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
  
-// Reveal on scroll
+// ── Reveal on scroll ─────────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
  
-// Sugar bars animate on scroll
+// ── Sugar bars ───────────────────────────────────────────────
 const barObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.querySelectorAll('.sugar-bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width;
-      });
+      e.target.querySelectorAll('.sugar-bar-fill').forEach(bar => { bar.style.width = bar.dataset.width; });
       barObserver.unobserve(e.target);
     }
   });
@@ -911,7 +1172,7 @@ const barObserver = new IntersectionObserver((entries) => {
 const sugarViz = document.querySelector('.sugar-viz');
 if (sugarViz) barObserver.observe(sugarViz);
  
-// Mobile gallery
+// ── Mobile gallery ───────────────────────────────────────────
 (function() {
   const imgs  = document.querySelectorAll('.mobile-gallery img');
   const dotsC = document.getElementById('galleryDots');
@@ -935,7 +1196,7 @@ if (sugarViz) barObserver.observe(sugarViz);
   setInterval(() => go(cur + 1), 4000);
 })();
  
-// FAQ
+// ── FAQ ──────────────────────────────────────────────────────
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-question').addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
@@ -943,6 +1204,36 @@ document.querySelectorAll('.faq-item').forEach(item => {
     if (!isOpen) { item.classList.add('open'); const ans = item.querySelector('.faq-answer'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
   });
 });
+ 
+// ── Newsletter popup ─────────────────────────────────────────
+function closePopup() {
+  document.getElementById('nlPopup').classList.remove('active');
+  sessionStorage.setItem('mm_popup_seen', '1');
+}
+function handlePopupSubmit(e, form) {
+  e.preventDefault();
+  form.style.display = 'none';
+  form.nextElementSibling.style.display = 'block';
+  sessionStorage.setItem('mm_popup_seen', '1');
+  fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+}
+function handleNLSubmit(e, form) {
+  e.preventDefault();
+  form.style.display = 'none';
+  document.querySelector('.nl-success').style.display = 'block';
+  fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+}
+// Show popup after 4s if not seen this session
+if (!sessionStorage.getItem('mm_popup_seen')) {
+  setTimeout(() => document.getElementById('nlPopup').classList.add('active'), 4000);
+}
+// Close on overlay click
+document.getElementById('nlPopup').addEventListener('click', e => {
+  if (e.target === document.getElementById('nlPopup')) closePopup();
+});
+ 
+// ── Init language ────────────────────────────────────────────
+applyLang(currentLang);
 </script>
 </body>
 </html>
