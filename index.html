@@ -477,43 +477,111 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
  
 /* ── NEWSLETTER POPUP ── */
 .nl-popup-overlay {
-  position: fixed; inset: 0; background: rgba(42,26,14,0.75);
+  position: fixed; inset: 0;
+  background: rgba(20,35,20,0.82);
   z-index: 999; display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none;
   transition: opacity 0.4s var(--ease);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 }
 .nl-popup-overlay.active { opacity: 1; pointer-events: all; }
 .nl-popup {
-  background: var(--cream); border-radius: 2px;
-  max-width: 460px; width: 90%; padding: 3rem 2.5rem;
+  background: var(--forest);
+  border-radius: 4px;
+  max-width: 480px; width: 90%;
+  padding: 0;
   position: relative; overflow: hidden;
-  transform: translateY(20px);
+  transform: translateY(24px) scale(0.97);
   transition: transform 0.4s var(--ease);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.45);
 }
-.nl-popup-overlay.active .nl-popup { transform: translateY(0); }
+.nl-popup-overlay.active .nl-popup { transform: translateY(0) scale(1); }
+ 
+/* Top accent strip */
+.nl-popup-accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--terra) 0%, var(--terra-soft) 50%, var(--teal) 100%);
+}
+ 
+/* Decorative circles */
 .nl-popup-deco {
-  position: absolute; top: -40px; right: -40px;
-  width: 140px; height: 140px; border-radius: 50%;
-  background: var(--forest); opacity: 0.08;
+  position: absolute; bottom: -50px; right: -50px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: var(--forest-light); opacity: 0.3;
+  pointer-events: none;
 }
+.nl-popup-deco2 {
+  position: absolute; top: 30px; left: -30px;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: var(--terra); opacity: 0.08;
+  pointer-events: none;
+}
+ 
+/* Content wrapper */
+.nl-popup-body { padding: 2.5rem 2.5rem 2rem; position: relative; z-index: 1; }
+ 
 .nl-popup-close {
   position: absolute; top: 1rem; right: 1.2rem;
-  background: none; border: none; font-size: 1.5rem;
-  color: rgba(61,37,21,0.4); cursor: pointer; line-height: 1;
-  transition: color 0.2s;
+  background: rgba(255,255,255,0.1); border: none;
+  width: 28px; height: 28px; border-radius: 50%;
+  font-size: 1rem; color: rgba(240,213,184,0.7);
+  cursor: pointer; line-height: 1; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
 }
-.nl-popup-close:hover { color: var(--terra); }
-.nl-popup-eyebrow { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-deep); display: block; margin-bottom: 0.8rem; }
-.nl-popup h3 { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--brown); margin-bottom: 0.8rem; line-height: 1.2; }
-.nl-popup p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: var(--brown-mid); line-height: 1.8; margin-bottom: 1.5rem; }
+.nl-popup-close:hover { background: var(--terra); color: white; }
+ 
+.nl-popup-eyebrow {
+  font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: rgba(106,175,180,0.9);
+  display: block; margin-bottom: 0.8rem;
+}
+.nl-popup h3 {
+  font-family: var(--serif); font-size: 2rem; font-weight: 300;
+  color: var(--sand-light); margin-bottom: 0.8rem; line-height: 1.15;
+}
+.nl-popup h3 em { color: var(--terra-soft); font-style: italic; }
+.nl-popup > .nl-popup-body > p,
+.nl-popup p.nl-popup-desc {
+  font-family: var(--sans); font-size: 0.88rem; font-weight: 300;
+  color: rgba(240,213,184,0.7); line-height: 1.8; margin-bottom: 1.5rem;
+}
+ 
+/* Benefits mini-list */
+.nl-popup-perks {
+  display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.6rem;
+}
+.nl-popup-perks li {
+  list-style: none; font-family: var(--sans); font-size: 0.82rem;
+  font-weight: 300; color: rgba(240,213,184,0.65);
+  padding-left: 0; display: flex; align-items: center; gap: 0.5rem;
+}
+.nl-popup-perks li::before { content: "✓"; color: var(--teal); font-size: 0.75rem; }
+ 
 .nl-popup-form { display: flex; flex-direction: column; gap: 0.7rem; }
-.nl-popup-form input { width: 100%; padding: 0.9rem 1.1rem; background: var(--sand-light); border: 1px solid rgba(61,37,21,0.12); border-radius: 2px; font-family: var(--sans); font-size: 0.88rem; color: var(--ink); outline: none; transition: border-color 0.3s; }
-.nl-popup-form input:focus { border-color: var(--terra); }
-.nl-popup-submitted { text-align: center; padding: 1rem 0; }
-.nl-popup-submitted p { font-family: var(--sans); font-size: 0.9rem; color: var(--brown-mid); margin-top: 0.7rem; }
-.nl-popup-skip { display: block; width: 100%; background: none; border: none; font-family: var(--sans); font-size: 0.75rem; color: rgba(61,37,21,0.35); cursor: pointer; margin-top: 1rem; text-align: center; transition: color 0.2s; }
-.nl-popup-skip:hover { color: var(--brown-mid); }
+.nl-popup-form input {
+  width: 100%; padding: 0.9rem 1.1rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(240,213,184,0.2); border-radius: 2px;
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--sand-light); outline: none; transition: border-color 0.3s;
+}
+.nl-popup-form input::placeholder { color: rgba(240,213,184,0.3); }
+.nl-popup-form input:focus { border-color: var(--terra-soft); background: rgba(255,255,255,0.1); }
+.nl-popup-form .btn-primary { background: var(--terra); }
+.nl-popup-form .btn-primary:hover { background: var(--terra-soft); }
+ 
+.nl-popup-submitted { text-align: center; padding: 1.5rem 0; }
+.nl-popup-submitted p { font-family: var(--sans); font-size: 0.9rem; color: rgba(240,213,184,0.7); margin-top: 0.7rem; }
+ 
+.nl-popup-skip {
+  display: block; width: 100%; background: none; border: none;
+  font-family: var(--sans); font-size: 0.72rem;
+  color: rgba(240,213,184,0.25); cursor: pointer;
+  margin-top: 1rem; padding-bottom: 0.5rem;
+  text-align: center; transition: color 0.2s;
+}
+.nl-popup-skip:hover { color: rgba(240,213,184,0.55); }
  
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -572,9 +640,8 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
     <li><a href="#about" data-i18n="nav_about">Über mich</a></li>
     <li><a href="#preise" data-i18n="nav_prices">Preise</a></li>
     <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
-    <li><a href="yogalehrer.html" data-i18n="nav_yoga">Yogalehrer werden</a></li>
+    <li id="navYogaItem" style="display:none"><a href="yogalehrer.html" data-i18n="nav_yoga">Yogalehrer werden</a></li>
     <li><a href="reisen.html" data-i18n="nav_travel">Reisen</a></li>
-    <li><a href="zertifikate.html" data-i18n="nav_certs">Zertifikate</a></li>
     <li><a href="aktuelles.html" data-i18n="nav_news">Aktuelles</a></li>
     <li><a href="trainingsbereich.html" data-i18n="nav_training">Trainingsbereich</a></li>
     <li><a href="#kontakt" data-i18n="nav_contact">Kontakt</a></li>
@@ -785,16 +852,19 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
     <div class="about-image-badge"><span class="num">5+</span><span class="label">Jahre Erfahrung</span></div>
   </div>
   <div class="about-content reveal">
-    <span class="section-label">Über mich</span>
-    <h2 class="section-title">Hi, ich bin <em style="font-style:italic;color:var(--terra);">Mara</em></h2>
-    <p>Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.</p>
-    <p>Mein Ansatz ist radikal ganzheitlich: Darm, Ernährung, Bewegung, Schlaf und Psyche gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.</p>
-    <blockquote class="about-quote">„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt."</blockquote>
+    <span class="section-label" data-i18n="about_label">Über mich</span>
+    <h2 class="section-title" data-i18n="about_title">Hi, ich bin <em style="font-style:italic;color:var(--terra);">Mara</em></h2>
+    <p data-i18n="about_p1">Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.</p>
+    <p data-i18n="about_p2">Mein Ansatz ist radikal ganzheitlich: Darm, Ernährung, Bewegung, Schlaf und Psyche gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.</p>
+    <blockquote class="about-quote" data-i18n="about_quote">„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt."</blockquote>
     <div class="ayurveda-badge">
       <div class="badge-dot"></div>
-      <p>Kooperation mit <a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a> — ärztlich begleitetes Ayurveda-Wissen in der Praxis</p>
+      <p data-i18n="about_ayur">Kooperation mit <a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a> — ärztlich begleitetes Ayurveda-Wissen in der Praxis</p>
     </div>
-    <a href="#kontakt" class="btn-primary" style="margin-top: 2rem;">Kostenlos kennenlernen</a>
+    <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
+      <a href="#kontakt" class="btn-primary" data-i18n="about_cta">Kostenlos kennenlernen</a>
+      <a href="zertifikate.html" class="btn-outline" data-i18n="about_certs">Meine Zertifikate →</a>
+    </div>
   </div>
 </section>
  
@@ -938,7 +1008,8 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
     </div>
     <div class="newsletter-right reveal">
       <form class="nl-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handleNLSubmit(event, this)">
-        <input type="hidden" name="_subject" value="Newsletter Anmeldung">
+        <input type="hidden" name="_subject" value="Newsletter Anmeldung – Mara Move">
+        <input type="hidden" name="_replyto" value="maratumpach@gmail.com">
         <input type="hidden" name="type" value="newsletter">
         <label data-i18n="nl_name_label">Dein Vorname</label>
         <input type="text" name="name" data-i18n-placeholder="nl_name_ph" placeholder="Wie soll ich dich nennen?" required>
@@ -959,22 +1030,32 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
 <!-- NEWSLETTER POPUP -->
 <div class="nl-popup-overlay" id="nlPopup">
   <div class="nl-popup">
-    <button class="nl-popup-close" onclick="closePopup()" aria-label="Schließen">×</button>
+    <div class="nl-popup-accent"></div>
     <div class="nl-popup-deco"></div>
-    <span class="nl-popup-eyebrow" data-i18n="pop_eyebrow">Kostenlos &amp; wertvoll</span>
-    <h3 data-i18n="pop_title">Bevor du weiterstöberst —</h3>
-    <p data-i18n="pop_sub">Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.</p>
-    <form class="nl-popup-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handlePopupSubmit(event, this)">
-      <input type="hidden" name="_subject" value="Newsletter – Popup Anmeldung">
-      <input type="hidden" name="type" value="newsletter-popup">
-      <input type="email" name="email" data-i18n-placeholder="pop_ph" placeholder="deine@email.de" required>
-      <button type="submit" class="btn-primary" style="width:100%" data-i18n="pop_btn">Ja, ich möchte dabei sein →</button>
-    </form>
-    <div class="nl-popup-submitted" style="display:none">
-      <span style="font-size:2rem;">🌿</span>
-      <p data-i18n="pop_thanks">Danke! Schau auch in deinen Spam-Ordner.</p>
+    <div class="nl-popup-deco2"></div>
+    <button class="nl-popup-close" onclick="closePopup()" aria-label="Schließen">×</button>
+    <div class="nl-popup-body">
+      <span class="nl-popup-eyebrow" data-i18n="pop_eyebrow">Kostenlos &amp; wertvoll</span>
+      <h3 data-i18n="pop_title">Bevor du<br>weiterstöberst —</h3>
+      <p class="nl-popup-desc" data-i18n="pop_sub">Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.</p>
+      <ul class="nl-popup-perks">
+        <li data-i18n="nl_b1">🌿 Neue zuckerfreie Rezepte</li>
+        <li data-i18n="nl_b2">💡 Tipps & Tricks rund um Ernährung & Sport</li>
+        <li data-i18n="nl_b3">🦠 Darmgesundheit verständlich erklärt</li>
+      </ul>
+      <form class="nl-popup-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handlePopupSubmit(event, this)">
+        <input type="hidden" name="_subject" value="Newsletter Popup – Mara Move">
+        <input type="hidden" name="_replyto" value="maratumpach@gmail.com">
+        <input type="hidden" name="type" value="newsletter-popup">
+        <input type="email" name="email" data-i18n-placeholder="pop_ph" placeholder="deine@email.de" required>
+        <button type="submit" class="btn-primary" style="width:100%" data-i18n="pop_btn">Ja, ich möchte dabei sein →</button>
+      </form>
+      <div class="nl-popup-submitted" style="display:none">
+        <span style="font-size:2.5rem;">🌿</span>
+        <p data-i18n="pop_thanks">Danke! Schau auch in deinen Spam-Ordner.</p>
+      </div>
+      <button class="nl-popup-skip" onclick="closePopup()" data-i18n="pop_skip">Nein danke, ich schau mich nur um</button>
     </div>
-    <button class="nl-popup-skip" onclick="closePopup()" data-i18n="pop_skip">Nein danke, ich schau mich nur um</button>
   </div>
 </div>
 <footer>
@@ -1029,68 +1110,198 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
 // ── i18n translations ──────────────────────────────────────────
 const TRANSLATIONS = {
   de: {
-    nav_about: "Über mich", nav_prices: "Preise", nav_shop: "Shop",
-    nav_yoga: "Yogalehrer werden", nav_travel: "Reisen", nav_certs: "Zertifikate",
-    nav_news: "Aktuelles", nav_training: "Trainingsbereich", nav_contact: "Kontakt",
-    hero_eyebrow: "Personal Training · Yoga · Ayurveda · Ernährung",
-    hero_h1: "Fühle dich wohl<br>in deiner <em>Haut</em>",
-    hero_sub: "Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden — über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.",
-    hero_btn1: "Erstgespräch vereinbaren", hero_btn2: "Leistungen entdecken",
-    hero_orn: "Mara Tumpach · Nähe München",
-    nl_label: "Bleib dabei",
-    nl_title: "Rezepte, Tipps &amp;<br>echtes Wissen — kostenlos.",
-    nl_sub: "Neue Rezepte ohne Zucker, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke — direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.",
-    nl_b1: "🌿 Neue zuckerfreie Rezepte",
-    nl_b2: "💡 Tipps & Tricks rund um Ernährung & Sport",
-    nl_b3: "🦠 Darmgesundheit verständlich erklärt",
-    nl_b4: "🧘‍♀️ Yoga & Bewegungsimpulse für den Alltag",
-    nl_name_label: "Dein Vorname", nl_name_ph: "Wie soll ich dich nennen?",
-    nl_email_label: "Deine E-Mail-Adresse", nl_email_ph: "deine@email.de",
-    nl_btn: "Jetzt anmelden &amp; Wissen erhalten →",
-    nl_fine: "Kein Spam. Jederzeit abmeldbar. Deine Daten bleiben bei mir.",
-    nl_success_title: "Willkommen an Bord!",
-    nl_success_sub: "Schön, dass du dabei bist. Deine erste Mail kommt bald.",
-    pop_eyebrow: "Kostenlos &amp; wertvoll",
-    pop_title: "Bevor du weiterstöberst —",
-    pop_sub: "Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.",
-    pop_ph: "deine@email.de",
-    pop_btn: "Ja, ich möchte dabei sein →",
-    pop_thanks: "Danke! Schau auch in deinen Spam-Ordner.",
-    pop_skip: "Nein danke, ich schau mich nur um",
-    yt_label: "Mein Kanal", yt_title: "Neues auf YouTube",
-    footer_tagline: "Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.",
+    nav_about:"Über mich", nav_prices:"Preise", nav_shop:"Shop",
+    nav_yoga:"Yogalehrer werden", nav_travel:"Reisen",
+    nav_news:"Aktuelles", nav_training:"Trainingsbereich", nav_contact:"Kontakt",
+    hero_eyebrow:"Personal Training · Yoga · Ayurveda · Ernährung",
+    hero_h1:"Fühle dich wohl<br>in deiner <em>Haut</em>",
+    hero_sub:"Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden — über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.",
+    hero_btn1:"Erstgespräch vereinbaren", hero_btn2:"Leistungen entdecken",
+    hero_orn:"Mara Tumpach · Nähe München",
+    pain_label:"Erkennst du dich wieder?",
+    pain_title:"Du verdienst mehr<br>als ständige Erschöpfung",
+    pain_01:"Du schläfst genug – und bist trotzdem ständig müde und energielos.",
+    pain_02:"Schon kleine Belastungen bringen dich außer Atem.",
+    pain_03:"Dein Körper verlangt ständig nach Zucker und schnellen Kalorien.",
+    pain_04:"Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.",
+    pain_cta:"Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken",
+    phil_label:"Mein Ansatz", phil_title:"Nicht Hype. Nicht Diät.<br>Echte Gesundheit.",
+    phil_sub:"Ich glaube nicht an Abkürzungen. Keine Proteinpulver, kein Kalorienzählen — stattdessen arbeite ich mit dem, was wirklich wirkt: einem gesunden Darm, ayurvedischem Jahrtausendwissen und gezielten Nährstoffen, die deinen Körper ins Gleichgewicht bringen.",
+    p1_h:"5.000 Jahre Ayurveda", p1_p:"Ayurvedische Kräuter und Gewürze sind keine Trends — sie sind erprobtes Wissen aus Jahrtausenden. Ich arbeite eng mit den Ärztinnen von ayurveda-deutschland.org zusammen und bringe dieses Wissen in dein Leben.", p1_tag:"Kooperation ayurveda-deutschland.org",
+    p2_h:"Gesunder Darm — gesundes Leben", p2_p:"80 % deines Immunsystems sitzen im Darm. Wer seinen Darm heilt, heilt seinen ganzen Körper — mehr Energie, stabiles Gewicht, besserer Schlaf, mehr Fokus. Alles beginnt hier.", p2_tag:"Darmgesundheit",
+    p3_h:"Kein Proteinpulver-Hype", p3_p:"Die Supplement-Industrie macht Milliarden mit Produkten, die du nicht brauchst. Echter Protein-Bedarf lässt sich über vollwertige Lebensmittel decken. Dein Körper weiß den Unterschied.", p3_tag:"Anti-Supplement-Hype",
+    p4_h:"Zucker: der stille Feind", p4_p:"Zucker entzündet, macht abhängig, zerstört die Darmflora und hält dich in einem ewigen Energiekreislauf gefangen. Zuckerfrei zu leben ist kein Verzicht — es ist Befreiung.", p4_tag:"Zuckerfreiheit",
+    p5_h:"Kalorien? Das ist 1980.", p5_p:"Jedes Nahrungsmittel wirkt anders im Körper und löst andere biochemische Reaktionen aus. 100 kcal Zucker und 100 kcal Mandeln sind biologisch komplette Gegensätze. Ich denke in Wirkung — nicht in Zahlen.", p5_tag:"Ganzheitliche Ernährung",
+    p6_h:"Gezielte Nahrungsergänzung", p6_p:"Als Vitalstofftrainerin analysiere ich gezielt Mangelzustände und ergänze mit hochwertigen Mikronährstoffen — kein Blindkauf im Supermarkt, sondern gezielt und wirksam.", p6_tag:"Vitalstofftherapie",
+    anti_label:"Klartext", anti_title:"Was die Fitness-Industrie dir nicht sagt",
+    myth1_label:"❌ Der Mythos", myth1_h:"„Mehr Protein = mehr Muskeln"", myth1_p:"Die Supplement-Industrie lebt vom Proteinpulver-Hype. In Wahrheit braucht ein gesunder Erwachsener keine künstlichen Protein-Shakes.",
+    truth1_label:"✓ Die Wahrheit", truth1_h:"Echte Lebensmittel bauen echte Kraft", truth1_p:"Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles. Ich zeige dir, wie du dich satt, stark und energievoll ernährst — ohne Pulver, ohne Pillen.",
+    myth2_label:"❌ Der Mythos", myth2_h:"„Kalorienzählen macht schlank"", myth2_p:"Kalorienzählen ignoriert, dass jedes Nahrungsmittel völlig unterschiedliche Stoffwechselprozesse auslöst — Insulin, Hormone, Entzündungen. Eine Kalorie ist keine Kalorie.",
+    truth2_label:"✓ Die Wahrheit", truth2_h:"Dein Körper versteht Qualität", truth2_p:"Statt Zahlen zähle ich Wirkungen. Was stärkt den Darm? Was beruhigt Entzündungen? Was gibt echte Energie? Diese Fragen führen zu echten, dauerhaften Ergebnissen.",
+    stats_label:"Fakten & Zahlen", stats_title:"Was die Wissenschaft sagt",
+    s1_label:"des Immunsystems", s1_desc:"sitzt im Darm — ein gesunder Darm ist die Basis für alles",
+    s2_label:"Jahre Ayurveda", s2_desc:"erprobtes Heilwissen aus der ältesten Medizin der Welt",
+    s3_label:"Zucker täglich", s3_desc:"nimmt ein Durchschnittsdeutscher pro Tag auf — 3× zu viel",
+    s4_label:"Proteinpulver", s4_desc:"nötig bei einer vollwertigen, ausgewogenen Ernährung",
+    s5_label:"Stunden Erfahrung", s5_desc:"gesammelt auf der Mein Schiff 4 und in Clubanlagen",
+    sugar_title:"Zucker im Vergleich — täglich aufgenommene Menge",
+    sugar_sub:"Was dein Körper wirklich verarbeiten kann vs. was wir tatsächlich konsumieren",
+    gal_label:"Einblicke", gal_title:"Dein Weg beginnt hier",
+    about_label:"Über mich", about_title:"Hi, ich bin <em style=\"font-style:italic;color:var(--terra);\">Mara</em>",
+    about_p1:"Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.",
+    about_p2:"Mein Ansatz ist radikal ganzheitlich: Darm, Ernährung, Bewegung, Schlaf und Psyche gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.",
+    about_quote:"„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt."",
+    about_ayur:"Kooperation mit <a href=\"https://www.ayurveda-deutschland.org/\" target=\"_blank\" rel=\"noopener\">ayurveda-deutschland.org</a> — ärztlich begleitetes Ayurveda-Wissen in der Praxis",
+    about_cta:"Kostenlos kennenlernen", about_certs:"Meine Zertifikate →",
+    srv_label:"Angebote", srv_title:"Was ich für dich tue",
+    sv1_h:"Personal Training", sv1_p:"Individuell auf dich abgestimmte Workouts – effektiv, sicher und mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.",
+    sv2_h:"Yoga & Meditation", sv2_p:"Mentale Stärke und körperliche Balance. Yoga als Werkzeug für mehr Ruhe, Klarheit und innere Mitte — lizenziert nach BTV.",
+    sv3_h:"Ayurveda-Ernährung", sv3_p:"Ernährung nach 5.000 Jahren Erfahrung: Kräuter, Gewürze und vollwertige Lebensmittel statt Supplements und Kalorien-Apps.",
+    sv4_h:"Darmgesundheit", sv4_p:"Darmreinigung, Vitalstoffanalyse und gezielte Regeneration der Darmflora als Fundament für dauerhaftes Wohlbefinden.",
+    sv5_h:"EMS Training", sv5_p:"Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Trainingspreis enthalten – du musst nichts kaufen.",
+    sv6_h:"Online Coaching", sv6_p:"Flexibel von überall. Training und Ernährungsberatung digital — für Menschen mit vollem Terminkalender.",
+    why_label:"Kein Geheimnis", why_title:"Warum es alleine oft nicht klappt",
+    why_col1:"Herausforderung", why_col2:"Lösung mit Mara Move",
+    why_c1:"🛋️ Motivation fehlt, Termine werden verschoben", why_s1:"Personal Training mit festen, verbindlichen Terminen",
+    why_c2:"🍫 Zuckersucht und unkontrolliertes Verlangen", why_s2:"Darmreinigung + ayurvedische Ernährungsumstellung",
+    why_c3:"❓ Unsicherheit bei Übungen und Technik", why_s3:"Persönliche Begleitung und Korrektur bei jedem Training",
+    why_c4:"📉 Keine sichtbaren Erfolge trotz Aufwand", why_s4:"Vitalstoffanalyse + gezielte Nährstoffergänzung",
+    why_c5:"💊 Teurer Supplement-Kauf ohne Wirkung", why_s5:"Gezielte Mikronährstoffe nur bei nachgewiesenem Mangel",
+    tl_label:"Dein Weg", tl_title:"So sieht dein Weg mit mir aus",
+    tl1_h:"Erstes Gespräch", tl1_p:"Kostenlos und unverbindlich. Wir schauen gemeinsam, wo du stehst und was du wirklich brauchst — ganz ohne Druck.",
+    tl2_h:"Körper ins Gleichgewicht", tl2_p:"Darm, Vitalstoffe, Bewegung — wir schaffen die Basis. Nach wenigen Wochen spürst du den Unterschied: Energie, Schlaf, Klarheit.",
+    tl3_h:"Nachhaltige Kraft", tl3_p:"Kein Jo-Jo, kein Rückfall. Du hast verstanden, wie dein Körper wirklich funktioniert — und kannst es für immer halten.",
+    pr_label:"Transparenz", pr_title:"Investiere in dich",
+    pr1_name:"Personal Training", pr1_desc:"pro Einheit", pr1_li1:"Individueller Trainingsplan", pr1_li2:"Persönliche Begleitung", pr1_li3:"Übungskorrektur",
+    pr2_name:"Ernährungsumstellung", pr2_desc:"Ersttermin inkl. Analyse", pr2_li1:"Vitalstoffanalyse", pr2_li2:"Ayurvedischer Ernährungsplan", pr2_li3:"Darmreinigung inkl.",
+    pr3_name:"Wochenbegleitung", pr3_desc:"pro Woche", pr3_li1:"Regelmäßiger Check-in", pr3_li2:"Fortschritts-Tracking", pr3_li3:"Motivation & Support",
+    pr4_name:"EMS Training", pr4_desc:"Gerät inklusive", pr4_li1:"Breuer EMS-Gürtel inklusive", pr4_li2:"Intensiv & zeitsparend", pr4_li3:"Professionelle Anleitung",
+    test_label:"Stimmen", test_title:"Was Frauen sagen",
+    test1:"„Ich passe seit Jahren wieder in mein altes Lieblingskleid. Mara hat mein Leben verändert."",
+    test2:"„Meine Food Noise ist endlich still. Ich esse bewusst und genieße es wirklich — ganz ohne Diät."",
+    test3:"„Ich fühle mich stark, schön und wohl – in meinem Körper und in meinem Leben."",
+    faq_label:"FAQ", faq_title:"Fragen & Antworten",
+    faq1_q:"Wie viel Zeit sollte ich freihalten?", faq1_a:"Mindestens 2–3 Stunden pro Woche reichen für spürbare Erfolge. Das Wichtigste ist die Regelmäßigkeit – nicht die Intensität.",
+    faq2_q:"Warum keine Proteinshakes oder Diätprodukte?", faq2_a:"Weil du sie nicht brauchst. Die Supplement-Industrie lebt von Verunsicherung. Ein vollwertiger Ernährungsplan auf Basis echter Lebensmittel liefert alles — ohne Nebenwirkungen, ohne Abhängigkeit.",
+    faq3_q:"Was bedeutet Ernährung nach Ayurveda?", faq3_a:"Ayurveda ist die älteste Medizin der Welt — über 5.000 Jahre erprobt. Kräuter und Gewürze als Heilmittel, saisonales Essen, Stärkung des Verdauungsfeuers (Agni). Ich arbeite mit den Ärztinnen von ayurveda-deutschland.org zusammen.",
+    faq4_q:"Warum ist Kalorienzählen keine gute Idee?", faq4_a:"Weil jedes Lebensmittel anders im Körper wirkt. 100 kcal Traubenzucker und 100 kcal Walnüsse lösen völlig unterschiedliche Hormonreaktionen aus. Statt Zahlen schaue ich auf Qualität, Wirkung und Verträglichkeit.",
+    faq5_q:"Muss ich den EMS-Gürtel selbst kaufen?", faq5_a:"Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.",
+    faq6_q:"Kann ich online teilnehmen?", faq6_a:"Ja, Training und Coaching sind auch vollständig digital möglich. Du brauchst nur eine Internetverbindung und Motivation.",
+    ct_label:"Starte jetzt", ct_title:"Dein erster Schritt",
+    ct_write:"Schreib mir", ct_call:"Ruf an", ct_loc:"Standort",
+    ct_loc1:"Oberottmarshausen (nähe München)", ct_loc2:"Online Coaching weltweit möglich",
+    ct_free:"Das erste Gespräch ist kostenlos und unverbindlich.",
+    nl_label:"Bleib dabei", nl_title:"Rezepte, Tipps &amp;<br>echtes Wissen — kostenlos.",
+    nl_sub:"Neue Rezepte ohne Zucker, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke — direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.",
+    nl_b1:"🌿 Neue zuckerfreie Rezepte", nl_b2:"💡 Tipps & Tricks rund um Ernährung & Sport",
+    nl_b3:"🦠 Darmgesundheit verständlich erklärt", nl_b4:"🧘‍♀️ Yoga & Bewegungsimpulse für den Alltag",
+    nl_name_label:"Dein Vorname", nl_name_ph:"Wie soll ich dich nennen?",
+    nl_email_label:"Deine E-Mail-Adresse", nl_email_ph:"deine@email.de",
+    nl_btn:"Jetzt anmelden &amp; Wissen erhalten →",
+    nl_fine:"Kein Spam. Jederzeit abmeldbar. Deine Daten bleiben bei mir.",
+    nl_success_title:"Willkommen an Bord!", nl_success_sub:"Schön, dass du dabei bist. Deine erste Mail kommt bald.",
+    pop_eyebrow:"Kostenlos &amp; wertvoll", pop_title:"Bevor du weiterstöberst —",
+    pop_sub:"Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.",
+    pop_ph:"deine@email.de", pop_btn:"Ja, ich möchte dabei sein →",
+    pop_thanks:"Danke! Schau auch in deinen Spam-Ordner.", pop_skip:"Nein danke, ich schau mich nur um",
+    footer_tagline:"Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.",
   },
   en: {
-    nav_about: "About", nav_prices: "Prices", nav_shop: "Shop",
-    nav_yoga: "Become a Yoga Teacher", nav_travel: "Retreats", nav_certs: "Certificates",
-    nav_news: "News", nav_training: "Training Area", nav_contact: "Contact",
-    hero_eyebrow: "Personal Training · Yoga · Ayurveda · Nutrition",
-    hero_h1: "Feel truly at home<br>in your <em>skin</em>",
-    hero_sub: "No protein powder. No calorie counting. Just real, holistic wellbeing — through gut health, 5,000 years of herbal wisdom, and the power of real food.",
-    hero_btn1: "Book a free call", hero_btn2: "Explore services",
-    hero_orn: "Mara Tumpach · Near Munich",
-    nl_label: "Stay in the loop",
-    nl_title: "Recipes, tips &amp;<br>real knowledge — free.",
-    nl_sub: "Sugar-free recipes, Ayurveda tips, nutrition hacks and honest insights — straight to your inbox. No spam. Only things that actually help.",
-    nl_b1: "🌿 New sugar-free recipes",
-    nl_b2: "💡 Tips & tricks around nutrition & fitness",
-    nl_b3: "🦠 Gut health made simple",
-    nl_b4: "🧘‍♀️ Yoga & movement ideas for everyday life",
-    nl_name_label: "Your first name", nl_name_ph: "What shall I call you?",
-    nl_email_label: "Your email address", nl_email_ph: "your@email.com",
-    nl_btn: "Sign up &amp; get real knowledge →",
-    nl_fine: "No spam. Unsubscribe anytime. Your data stays with me.",
-    nl_success_title: "Welcome on board!",
-    nl_success_sub: "Great to have you. Your first email is on its way.",
-    pop_eyebrow: "Free &amp; valuable",
-    pop_title: "Before you scroll on —",
-    pop_sub: "Get real knowledge straight to your inbox: sugar-free recipes, Ayurveda tips and movement impulses that truly make a difference.",
-    pop_ph: "your@email.com",
-    pop_btn: "Yes, I'm in →",
-    pop_thanks: "Thank you! Check your spam folder too.",
-    pop_skip: "No thanks, I'm just browsing",
-    yt_label: "My Channel", yt_title: "New on YouTube",
-    footer_tagline: "Holistic personal training, yoga, Ayurveda nutrition and EMS — near Munich and online. For women who want to feel truly good in their skin.",
+    nav_about:"About me", nav_prices:"Prices", nav_shop:"Shop",
+    nav_yoga:"Become a Yoga Teacher", nav_travel:"Retreats",
+    nav_news:"News", nav_training:"Training Area", nav_contact:"Contact",
+    hero_eyebrow:"Personal Training · Yoga · Ayurveda · Nutrition",
+    hero_h1:"Feel truly at home<br>in your <em>skin</em>",
+    hero_sub:"No protein powder. No calorie counting. Just real, holistic wellbeing — through gut health, 5,000 years of herbal wisdom, and the power of real food.",
+    hero_btn1:"Book a free call", hero_btn2:"Explore services",
+    hero_orn:"Mara Tumpach · Near Munich",
+    pain_label:"Does this sound familiar?",
+    pain_title:"You deserve more<br>than constant exhaustion",
+    pain_01:"You sleep enough — and still feel tired and drained all the time.",
+    pain_02:"Even light activities leave you out of breath.",
+    pain_03:"Your body constantly craves sugar and quick fixes.",
+    pain_04:"You are stressed, sluggish and out of balance in your daily life.",
+    pain_cta:"Decide now to listen to what your body and soul are telling you",
+    phil_label:"My approach", phil_title:"Not hype. Not a diet.<br>Real health.",
+    phil_sub:"I don't believe in shortcuts. No protein powders, no calorie counting — instead I work with what truly works: a healthy gut, Ayurvedic wisdom and targeted nutrients that bring your body back into balance.",
+    p1_h:"5,000 Years of Ayurveda", p1_p:"Ayurvedic herbs and spices are not trends — they are proven knowledge from thousands of years. I work closely with the physicians at ayurveda-deutschland.org and bring this wisdom into your life.", p1_tag:"Partner: ayurveda-deutschland.org",
+    p2_h:"Healthy gut — healthy life", p2_p:"80% of your immune system lives in your gut. Healing your gut heals your whole body — more energy, stable weight, better sleep, sharper focus. Everything starts here.", p2_tag:"Gut health",
+    p3_h:"No protein powder hype", p3_p:"The supplement industry makes billions from products you don't need. Your real protein needs can be met through whole foods. Your body knows the difference.", p3_tag:"Anti-supplement hype",
+    p4_h:"Sugar: the silent enemy", p4_p:"Sugar inflames, creates dependency, destroys gut flora and keeps you trapped in an energy cycle. Going sugar-free isn't deprivation — it's liberation.", p4_tag:"Sugar-free living",
+    p5_h:"Calories? That's so 1980.", p5_p:"Every food affects the body differently and triggers different biochemical reactions. 100 kcal of sugar and 100 kcal of almonds are biologically completely opposite. I think in effects — not numbers.", p5_tag:"Holistic nutrition",
+    p6_h:"Targeted supplementation", p6_p:"As a vital nutrient trainer I specifically analyse deficiencies and supplement with high-quality micronutrients — not a random supermarket purchase, but precise and effective.", p6_tag:"Vital nutrient therapy",
+    anti_label:"Straight talk", anti_title:"What the fitness industry doesn't tell you",
+    myth1_label:"❌ The myth", myth1_h:"&quot;More protein = more muscle&quot;", myth1_p:"The supplement industry thrives on the protein powder hype. In reality a healthy adult doesn't need artificial protein shakes — whole foods are enough.",
+    truth1_label:"✓ The truth", truth1_h:"Real food builds real strength", truth1_p:"Eggs, legumes, nuts, fish — nature has everything the body needs. I'll show you how to feel full, strong and energised — without powder, without pills.",
+    myth2_label:"❌ The myth", myth2_h:"&quot;Counting calories makes you slim&quot;", myth2_p:"Calorie counting ignores that every food triggers completely different metabolic processes — insulin, hormones, inflammation. A calorie is not a calorie.",
+    truth2_label:"✓ The truth", truth2_h:"Your body understands quality", truth2_p:"Instead of counting numbers I count effects. What strengthens the gut? What reduces inflammation? What gives real energy? These questions lead to real, lasting results.",
+    stats_label:"Facts & figures", stats_title:"What science says",
+    s1_label:"of the immune system", s1_desc:"lives in the gut — a healthy gut is the foundation for everything",
+    s2_label:"years of Ayurveda", s2_desc:"proven healing knowledge from the oldest medicine in the world",
+    s3_label:"sugar per day", s3_desc:"the average German consumes daily — 3× too much",
+    s4_label:"protein powders", s4_desc:"needed with a wholesome, balanced diet",
+    s5_label:"hours of experience", s5_desc:"gained on Mein Schiff 4 and in Italian club facilities",
+    sugar_title:"Sugar comparison — daily intake",
+    sugar_sub:"What your body can actually process vs. what we actually consume",
+    gal_label:"Gallery", gal_title:"Your journey starts here",
+    about_label:"About me", about_title:"Hi, I'm <em style=\"font-style:italic;color:var(--terra);\">Mara</em>",
+    about_p1:"I'm studying sports therapy, and I'm a certified yoga teacher, Pilates trainer and vital nutrient trainer — I firmly believe that real health doesn't require a product you need to buy.",
+    about_p2:"My approach is radically holistic: gut, nutrition, movement, sleep and mindset belong together. I work with 5,000 year-old Ayurvedic herbal and spice knowledge — in close collaboration with the physicians at ayurveda-deutschland.org.",
+    about_quote:"\"Your body can do anything — convince your mind and take the first step.\"",
+    about_ayur:"Partner: <a href=\"https://www.ayurveda-deutschland.org/\" target=\"_blank\" rel=\"noopener\">ayurveda-deutschland.org</a> — medically supervised Ayurveda knowledge in practice",
+    about_cta:"Meet me for free", about_certs:"My certificates →",
+    srv_label:"Services", srv_title:"What I do for you",
+    sv1_h:"Personal Training", sv1_p:"Workouts tailored entirely to you — effective, safe and with personal guidance. No overwhelm, no pain.",
+    sv2_h:"Yoga & Meditation", sv2_p:"Mental strength and physical balance. Yoga as a tool for more calm, clarity and inner centre — certified by BTV.",
+    sv3_h:"Ayurveda Nutrition", sv3_p:"Nutrition backed by 5,000 years of experience: herbs, spices and whole foods instead of supplements and calorie apps.",
+    sv4_h:"Gut health", sv4_p:"Gut cleansing, vital nutrient analysis and targeted regeneration of gut flora as the foundation for lasting wellbeing.",
+    sv5_h:"EMS Training", sv5_p:"Intensive and time-saving with the Breuer EMS belt. The device is included in the training price — nothing to buy.",
+    sv6_h:"Online Coaching", sv6_p:"Flexible from anywhere. Training and nutrition coaching digitally — for people with full schedules.",
+    why_label:"No secret", why_title:"Why it often doesn't work alone",
+    why_col1:"Challenge", why_col2:"Solution with Mara Move",
+    why_c1:"🛋️ Lack of motivation, appointments get postponed", why_s1:"Personal training with fixed, committed appointments",
+    why_c2:"🍫 Sugar addiction and uncontrolled cravings", why_s2:"Gut cleanse + Ayurvedic nutrition reset",
+    why_c3:"❓ Uncertainty with exercises and technique", why_s3:"Personal guidance and correction at every training session",
+    why_c4:"📉 No visible results despite effort", why_s4:"Vital nutrient analysis + targeted supplementation",
+    why_c5:"💊 Expensive supplements with no effect", why_s5:"Targeted micronutrients only when a deficiency is confirmed",
+    tl_label:"Your path", tl_title:"What your journey with me looks like",
+    tl1_h:"First conversation", tl1_p:"Free and non-binding. We look together at where you are and what you really need — completely without pressure.",
+    tl2_h:"Body back in balance", tl2_p:"Gut, nutrients, movement — we build the foundation. After a few weeks you'll feel the difference: energy, sleep, clarity.",
+    tl3_h:"Sustainable strength", tl3_p:"No yo-yo, no relapse. You've understood how your body really works — and can maintain it forever.",
+    pr_label:"Transparency", pr_title:"Invest in yourself",
+    pr1_name:"Personal Training", pr1_desc:"per session", pr1_li1:"Individual training plan", pr1_li2:"Personal guidance", pr1_li3:"Exercise correction",
+    pr2_name:"Nutrition reset", pr2_desc:"First appointment incl. analysis", pr2_li1:"Vital nutrient analysis", pr2_li2:"Ayurvedic nutrition plan", pr2_li3:"Gut cleanse included",
+    pr3_name:"Weekly coaching", pr3_desc:"per week", pr3_li1:"Regular check-in", pr3_li2:"Progress tracking", pr3_li3:"Motivation & support",
+    pr4_name:"EMS Training", pr4_desc:"Device included", pr4_li1:"Breuer EMS belt included", pr4_li2:"Intensive & time-saving", pr4_li3:"Professional guidance",
+    test_label:"Voices", test_title:"What women say",
+    test1:"\"I fit into my favourite dress again for the first time in years. Mara changed my life.\"",
+    test2:"\"My food noise is finally quiet. I eat mindfully and really enjoy it — without any diet.\"",
+    test3:"\"I feel strong, beautiful and at ease — in my body and in my life.\"",
+    faq_label:"FAQ", faq_title:"Questions & answers",
+    faq1_q:"How much time should I set aside?", faq1_a:"At least 2–3 hours per week are enough for noticeable results. The most important thing is consistency — not intensity.",
+    faq2_q:"Why no protein shakes or diet products?", faq2_a:"Because you don't need them. The supplement industry thrives on uncertainty. A wholefood nutrition plan delivers everything your body needs — without side effects, without dependency.",
+    faq3_q:"What does Ayurveda nutrition mean?", faq3_a:"Ayurveda is the oldest medicine in the world — proven over 5,000 years. Herbs and spices as medicine, seasonal eating, strengthening digestive fire (Agni). I work with the physicians at ayurveda-deutschland.org.",
+    faq4_q:"Why is calorie counting a bad idea?", faq4_a:"Because every food affects the body differently. 100 kcal of glucose and 100 kcal of walnuts trigger completely different hormonal responses — insulin, cortisol, serotonin. Instead of numbers I look at quality, effect and tolerance.",
+    faq5_q:"Do I need to buy the EMS belt myself?", faq5_a:"No. The EMS device is included in the training price. Just bring yourself.",
+    faq6_q:"Can I join online?", faq6_a:"Yes, training and coaching are also fully possible digitally. All you need is an internet connection and motivation.",
+    ct_label:"Start now", ct_title:"Your first step",
+    ct_write:"Write to me", ct_call:"Call me", ct_loc:"Location",
+    ct_loc1:"Oberottmarshausen (near Munich)", ct_loc2:"Online coaching available worldwide",
+    ct_free:"The first conversation is free and non-binding.",
+    nl_label:"Stay in the loop", nl_title:"Recipes, tips &amp;<br>real knowledge — free.",
+    nl_sub:"Sugar-free recipes, Ayurveda tips, nutrition hacks and honest insights — straight to your inbox. No spam. Only things that actually help.",
+    nl_b1:"🌿 New sugar-free recipes", nl_b2:"💡 Tips & tricks around nutrition & fitness",
+    nl_b3:"🦠 Gut health made simple", nl_b4:"🧘‍♀️ Yoga & movement ideas for everyday life",
+    nl_name_label:"Your first name", nl_name_ph:"What shall I call you?",
+    nl_email_label:"Your email address", nl_email_ph:"your@email.com",
+    nl_btn:"Sign up &amp; get real knowledge →",
+    nl_fine:"No spam. Unsubscribe anytime. Your data stays with me.",
+    nl_success_title:"Welcome on board!", nl_success_sub:"Great to have you. Your first email is on its way.",
+    pop_eyebrow:"Free &amp; valuable", pop_title:"Before you scroll on —",
+    pop_sub:"Get real knowledge straight to your inbox: sugar-free recipes, Ayurveda tips and movement impulses that truly make a difference.",
+    pop_ph:"your@email.com", pop_btn:"Yes, I'm in →",
+    pop_thanks:"Thank you! Check your spam folder too.", pop_skip:"No thanks, I'm just browsing",
+    footer_tagline:"Holistic personal training, yoga, Ayurveda nutrition and EMS — near Munich and online. For women who want to feel truly good in their skin.",
   }
 };
  
@@ -1101,48 +1312,29 @@ function applyLang(lang) {
   localStorage.setItem('mm_lang', lang);
   const t = TRANSLATIONS[lang];
   document.documentElement.lang = lang;
- 
-  // data-i18n text nodes
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
- 
-  // data-i18n-placeholder
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.dataset.i18nPlaceholder;
-    if (t[key] !== undefined) el.placeholder = t[key].replace(/&amp;/g, '&');
+    if (t[key] !== undefined) el.placeholder = t[key].replace(/&amp;/g,'&');
   });
- 
-  // YouTube channel swap
-  const ytFrame = document.getElementById('ytFrame');
-  if (ytFrame) {
-    if (lang === 'en') {
-      ytFrame.src = 'https://www.youtube.com/embed?listType=user_uploads&list=Move_Mara&index=1&rel=0&modestbranding=1';
-    } else {
-      ytFrame.src = 'https://www.youtube.com/embed?listType=user_uploads&list=Mara_Move&index=1&rel=0&modestbranding=1';
-    }
-  }
-  const ytLink = document.getElementById('ytChannelLink');
-  if (ytLink) {
-    ytLink.href = lang === 'en' ? 'https://www.youtube.com/@Move_Mara' : 'https://www.youtube.com/@Mara_Move';
-    ytLink.querySelector('span') && (ytLink.querySelector('span').textContent = lang === 'en' ? 'Watch all videos on @Move_Mara' : 'Alle Videos auf @Mara_Move ansehen');
-  }
- 
-  // Hero special (has HTML)
   const h1 = document.querySelector('.hero h1');
   if (h1 && t.hero_h1) h1.innerHTML = t.hero_h1;
-  const heroSub = document.querySelector('.hero-sub');
-  if (heroSub && t.hero_sub) heroSub.textContent = t.hero_sub;
-  const heroEy = document.querySelector('.hero-eyebrow');
-  if (heroEy && t.hero_eyebrow) heroEy.textContent = t.hero_eyebrow;
- 
-  document.getElementById('langLabel').textContent = lang === 'de' ? 'EN' : 'DE';
+  const ytFrame = document.getElementById('ytFrame');
+  if (ytFrame) ytFrame.src = lang==='en'
+    ? 'https://www.youtube.com/embed?listType=user_uploads&list=Move_Mara&index=1&rel=0&modestbranding=1'
+    : 'https://www.youtube.com/embed?listType=user_uploads&list=Mara_Move&index=1&rel=0&modestbranding=1';
+  // Yogalehrer nav item: only show if referred from yogalehrer page
+  const yogaItem = document.getElementById('navYogaItem');
+  if (yogaItem && yogaItem.style.display !== 'none') {
+    // keep visible if already shown
+  }
+  document.getElementById('langLabel').textContent = lang==='de' ? 'EN' : 'DE';
 }
  
-function toggleLang() {
-  applyLang(currentLang === 'de' ? 'en' : 'de');
-}
+function toggleLang() { applyLang(currentLang==='de' ? 'en' : 'de'); }
  
 // ── Nav scroll ───────────────────────────────────────────────
 const nav = document.getElementById('mainNav');
@@ -1231,6 +1423,15 @@ if (!sessionStorage.getItem('mm_popup_seen')) {
 document.getElementById('nlPopup').addEventListener('click', e => {
   if (e.target === document.getElementById('nlPopup')) closePopup();
 });
+ 
+// ── Yogalehrer nav: only show if referred from yogalehrer page ──
+(function() {
+  const ref = document.referrer || '';
+  const param = new URLSearchParams(window.location.search).get('from');
+  const show = ref.includes('yogalehrer') || param === 'yogalehrer';
+  const yogaItem = document.getElementById('navYogaItem');
+  if (yogaItem && show) yogaItem.style.display = 'list-item';
+})();
  
 // ── Init language ────────────────────────────────────────────
 applyLang(currentLang);
