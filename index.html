@@ -959,35 +959,35 @@ footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,18
 <!-- CONTACT -->
 <section class="contact" id="kontakt">
   <div class="section-header">
-    <span class="section-label">Starte jetzt</span>
-    <h2 class="section-title">Dein erster Schritt</h2>
+    <span class="section-label" data-i18n="ct_label">Starte jetzt</span>
+    <h2 class="section-title" data-i18n="ct_title">Dein erster Schritt</h2>
   </div>
   <div class="contact-inner">
     <div class="contact-info">
-      <div class="info-item"><h3>Schreib mir</h3><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></div>
-      <div class="info-item"><h3>Ruf an</h3><a href="tel:+491629453781">+49 162 9453781</a></div>
-      <div class="info-item"><h3>Standort</h3><p>Oberottmarshausen (nähe München)</p><p>Online Coaching weltweit möglich</p></div>
-      <p style="font-size:0.8rem;opacity:0.5;margin-top:1rem;">Das erste Gespräch ist kostenlos und unverbindlich.</p>
+      <div class="info-item"><h3 data-i18n="ct_write">Schreib mir</h3><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></div>
+      <div class="info-item"><h3 data-i18n="ct_call">Ruf an</h3><a href="tel:+491629453781">+49 162 9453781</a></div>
+      <div class="info-item"><h3 data-i18n="ct_loc">Standort</h3><p data-i18n="ct_loc1">Oberottmarshausen (nähe München)</p><p data-i18n="ct_loc2">Online Coaching weltweit möglich</p></div>
+      <p style="font-size:0.8rem;opacity:0.5;margin-top:1rem;" data-i18n="ct_free">Das erste Gespräch ist kostenlos und unverbindlich.</p>
     </div>
     <form class="contact-form" action="https://formspree.io/f/xnjldvwe" method="POST">
       <input type="hidden" name="_redirect" value="https://deinewebsite.de/danke.html">
       <div class="form-group">
-        <input type="text" name="name" placeholder="Dein Name" required>
-        <input type="email" name="email" placeholder="E-Mail-Adresse" required>
+        <input type="text" name="name" data-i18n-placeholder="ct_name" placeholder="Dein Name" required>
+        <input type="email" name="email" data-i18n-placeholder="ct_email" placeholder="E-Mail-Adresse" required>
       </div>
-      <input type="tel" name="telefon" placeholder="Telefonnummer" required>
-      <select name="anliegen" required>
-        <option value="">Wähle dein Anliegen</option>
-        <option>Kostenloses Beratungsgespräch</option>
-        <option>Personaltraining</option>
-        <option>Ayurveda-Ernährungsberatung</option>
-        <option>Darmgesundheit & Vitalstoffanalyse</option>
-        <option>EMS Training</option>
-        <option>Online Coaching</option>
+      <input type="tel" name="telefon" data-i18n-placeholder="ct_phone" placeholder="Telefonnummer" required>
+      <select name="anliegen" required id="contactSelect">
+        <option value="" data-i18n-opt="ct_select">Wähle dein Anliegen</option>
+        <option data-i18n-opt="ct_o1">Kostenloses Beratungsgespräch</option>
+        <option data-i18n-opt="ct_o2">Personaltraining</option>
+        <option data-i18n-opt="ct_o3">Individuelle Ernährungsberatung</option>
+        <option data-i18n-opt="ct_o4">Darmgesundheit &amp; Vitalstoffanalyse</option>
+        <option data-i18n-opt="ct_o5">EMS Training</option>
+        <option data-i18n-opt="ct_o6">Online Coaching</option>
       </select>
-      <input type="text" name="termin" placeholder="Wunschtermin (Datum &amp; Uhrzeit)">
-      <textarea name="nachricht" placeholder="Kurze Nachricht (optional)"></textarea>
-      <button type="submit" class="btn-primary">Termin anfragen →</button>
+      <input type="text" name="termin" data-i18n-placeholder="ct_date" placeholder="Wunschtermin (Datum &amp; Uhrzeit)">
+      <textarea name="nachricht" data-i18n-placeholder="ct_msg" placeholder="Kurze Nachricht (optional)"></textarea>
+      <button type="submit" class="btn-primary" data-i18n="ct_btn">Termin anfragen →</button>
     </form>
   </div>
 </section>
@@ -1191,6 +1191,13 @@ const TRANSLATIONS = {
     ct_write:"Schreib mir", ct_call:"Ruf an", ct_loc:"Standort",
     ct_loc1:"Oberottmarshausen (nähe München)", ct_loc2:"Online Coaching weltweit möglich",
     ct_free:"Das erste Gespräch ist kostenlos und unverbindlich.",
+    ct_select:"Wähle dein Anliegen",
+    ct_o1:"Kostenloses Beratungsgespräch", ct_o2:"Personaltraining",
+    ct_o3:"Individuelle Ernährungsberatung", ct_o4:"Darmgesundheit & Vitalstoffanalyse",
+    ct_o5:"EMS Training", ct_o6:"Online Coaching",
+    ct_name:"Dein Name", ct_email:"E-Mail-Adresse", ct_phone:"Telefonnummer",
+    ct_date:"Wunschtermin (Datum & Uhrzeit)", ct_msg:"Kurze Nachricht (optional)",
+    ct_btn:"Termin anfragen \u2192",
     nl_label:"Bleib dabei", nl_title:"Rezepte, Tipps &amp;<br>echtes Wissen \u2014 kostenlos.",
     nl_sub:"Neue Rezepte ohne Zucker, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke \u2014 direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.",
     nl_b1:"🌿 Neue zuckerfreie Rezepte", nl_b2:"💡 Tipps &amp; Tricks rund um Ernährung &amp; Sport",
@@ -1288,6 +1295,13 @@ const TRANSLATIONS = {
     ct_write:"Write to me", ct_call:"Call me", ct_loc:"Location",
     ct_loc1:"Oberottmarshausen (near Munich)", ct_loc2:"Online coaching available worldwide",
     ct_free:"The first conversation is free and non-binding.",
+    ct_select:"Choose your concern",
+    ct_o1:"Free consultation", ct_o2:"Personal training",
+    ct_o3:"Individual nutrition coaching", ct_o4:"Gut health & vital nutrient analysis",
+    ct_o5:"EMS training", ct_o6:"Online coaching",
+    ct_name:"Your name", ct_email:"Email address", ct_phone:"Phone number",
+    ct_date:"Preferred date (date & time)", ct_msg:"Short message (optional)",
+    ct_btn:"Request appointment \u2192",
     nl_label:"Stay in the loop", nl_title:"Recipes, tips &amp;<br>real knowledge \u2014 free.",
     nl_sub:"Sugar-free recipes, Ayurveda tips, nutrition hacks and honest insights \u2014 straight to your inbox. No spam. Only things that actually help.",
     nl_b1:"🌿 New sugar-free recipes", nl_b2:"💡 Tips &amp; tricks around nutrition &amp; fitness",
@@ -1318,6 +1332,10 @@ function applyLang(lang) {
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.dataset.i18nPlaceholder;
     if (t[key] !== undefined) el.placeholder = t[key].replace(/&amp;/g,'&');
+  });
+  document.querySelectorAll('[data-i18n-opt]').forEach(el => {
+    const key = el.dataset.i18nOpt;
+    if (t[key] !== undefined) el.textContent = t[key];
   });
   const h1 = document.querySelector('.hero h1');
   if (h1 && t.hero_h1) h1.innerHTML = t.hero_h1;
