@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
+<meta name="theme-color" content="#c4612a"/>
+<title>Shop – Mara Move</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand:#f0d5b8; --sand-light:#faf3ea; --terra:#c4612a; --terra-deep:#a84e20;
+  --terra-soft:#d9845a; --teal:#6aafb4; --teal-deep:#4a8f94;
+  --forest:#2D4A2D; --forest-light:#4a7c4a;
+  --brown:#3d2515; --brown-mid:#5a3a22; --cream:#fdf8f2; --white:#fff; --ink:#2a1a0e;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',sans-serif;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#fdf8f2;color:#2a1a0e;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--sand);}::-webkit-scrollbar-thumb{background:var(--terra);border-radius:2px;}
+ 
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;transition:background 0.4s,box-shadow 0.4s;}
+nav.scrolled{background:rgba(253,248,242,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(61,37,21,0.08);}
+@supports not (backdrop-filter:blur(12px)){nav.scrolled{background:rgba(253,248,242,0.99);}}
+.nav-logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--brown);letter-spacing:0.02em;text-decoration:none;}
+.nav-logo span{color:var(--terra);}
+.nav-links{display:-webkit-flex;display:flex;gap:1.4rem;list-style:none;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.nav-links a{font-family:var(--sans);font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--brown-mid);text-decoration:none;position:relative;transition:color 0.3s;white-space:nowrap;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--terra);transition:width 0.3s var(--ease);}
+.nav-links a:hover,.nav-links a.active{color:var(--terra);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.hamburger{display:none;-webkit-flex-direction:column;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--brown);}
+ 
+.cart-btn{background:var(--terra);color:#fff;border:none;border-radius:2px;padding:8px 18px;font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.15s;-webkit-appearance:none;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:8px;flex-shrink:0;}
+.cart-btn:hover{background:var(--terra-deep);transform:translateY(-1px);}
+.cart-count{background:#fff;color:var(--terra);border-radius:50%;width:20px;height:20px;font-size:10px;display:none;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;font-weight:700;}
+ 
+/* ── HERO ── */
+.hero{background:var(--brown);min-height:55vh;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;padding:8rem 5rem 5rem;position:relative;overflow:hidden;}
+.hero-deco1{position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:var(--terra);opacity:0.08;}
+.hero-deco2{position:absolute;bottom:-60px;left:40%;width:300px;height:300px;border-radius:50%;background:var(--teal);opacity:0.05;}
+.hero-deco3{position:absolute;top:30%;left:-60px;width:200px;height:200px;border-radius:50%;background:var(--sand);opacity:0.04;}
+.hero-content{position:relative;z-index:2;max-width:680px;}
+.hero-eyebrow{display:inline-block;background:rgba(232,160,32,0.15);border:1px solid rgba(232,160,32,0.3);color:#e8c070;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;padding:6px 18px;border-radius:2px;margin-bottom:1.8rem;}
+.hero h1{font-family:var(--serif);font-size:clamp(3rem,6vw,6rem);font-weight:300;color:#faf3ea;line-height:1.0;margin-bottom:1.2rem;}
+.hero h1 em{font-style:italic;color:var(--terra-soft);}
+.hero-sub{font-family:var(--sans);font-size:1rem;font-weight:300;color:rgba(240,213,184,0.6);max-width:460px;line-height:1.85;}
+.hero-right{position:absolute;right:4rem;top:50%;transform:translateY(-50%);z-index:2;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:1rem;opacity:0.7;}
+.hero-stat{text-align:right;}
+.hero-stat-num{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--terra-soft);line-height:1;display:block;}
+.hero-stat-label{font-family:var(--sans);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,213,184,0.45);}
+.wave-divider{width:100%;overflow:hidden;line-height:0;background:var(--brown);}
+.wave-divider svg{display:block;width:100%;}
+ 
+/* ── FILTER BAR ── */
+.filter-bar{background:var(--sand-light);border-bottom:1px solid rgba(61,37,21,0.07);padding:1.2rem 4rem;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:0.6rem;-webkit-flex-wrap:wrap;flex-wrap:wrap;position:sticky;top:64px;z-index:50;}
+.filter-label{font-family:var(--sans);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--brown-mid);margin-right:0.4rem;flex-shrink:0;}
+.filter-btn{background:none;border:1px solid rgba(61,37,21,0.12);border-radius:40px;padding:5px 16px;font-family:var(--sans);font-size:0.72rem;font-weight:400;color:var(--brown-mid);cursor:pointer;transition:all 0.2s;-webkit-appearance:none;white-space:nowrap;}
+.filter-btn:hover,.filter-btn.active{background:var(--terra);border-color:var(--terra);color:#fff;}
+ 
+/* ── SHOP SECTION ── */
+.shop-section{padding:5rem 4rem 8rem;background:var(--cream);}
+.shop-inner{max-width:1300px;margin:0 auto;}
+.shop-header{display:-webkit-flex;display:flex;-webkit-align-items:flex-end;align-items:flex-end;-webkit-justify-content:space-between;justify-content:space-between;margin-bottom:3rem;gap:1rem;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.shop-header-left .section-label{font-family:var(--sans);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-deep);display:block;margin-bottom:0.5rem;}
+.shop-header-left h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:var(--brown);line-height:1.15;}
+.shop-header-right{font-family:var(--sans);font-size:0.78rem;font-weight:300;color:var(--brown-mid);}
+ 
+/* ── PRODUCT GRID ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:rgba(61,37,21,0.07);}
+ 
+/* ── PRODUCT CARD ── */
+.product-card{background:var(--cream);display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;position:relative;transition:background 0.3s;overflow:hidden;}
+.product-card:hover{background:var(--white);}
+.product-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease);}
+.product-card:hover::after{transform:scaleX(1);}
+ 
+/* Image placeholder */
+.product-img{aspect-ratio:1/1;background:var(--sand-light);position:relative;overflow:hidden;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
+/* Subtle grid pattern */
+.product-img::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(61,37,21,0.04) 1px,transparent 1px);background-size:20px 20px;}
+.product-img-inner{position:relative;z-index:1;text-align:center;padding:2rem;}
+.product-img-icon{font-size:3rem;display:block;margin-bottom:0.8rem;opacity:0.25;transition:opacity 0.3s,transform 0.3s;}
+.product-card:hover .product-img-icon{opacity:0.4;transform:scale(1.1);}
+.product-img-placeholder{font-family:var(--sans);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brown-mid);opacity:0.3;}
+ 
+/* Badges */
+.product-badge{position:absolute;top:14px;left:14px;font-family:var(--sans);font-size:0.58rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;z-index:2;}
+.badge-new{background:var(--terra);color:#fff;}
+.badge-popular{background:var(--teal-deep);color:#fff;}
+.badge-tip{background:var(--forest);color:#fff;}
+.badge-soon{background:rgba(61,37,21,0.12);color:var(--brown-mid);}
+ 
+/* Quick add hover overlay */
+.product-overlay{position:absolute;inset:0;background:rgba(61,37,21,0.5);display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;opacity:0;transition:opacity 0.3s;z-index:3;}
+.product-card:hover .product-overlay{opacity:1;}
+.quick-add{background:#fff;color:var(--brown);border:none;border-radius:2px;padding:0.8rem 1.8rem;font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;-webkit-appearance:none;}
+.quick-add:hover{background:var(--terra);color:#fff;}
+.quick-add:disabled{background:rgba(255,255,255,0.6);color:rgba(61,37,21,0.4);cursor:not-allowed;}
+ 
+/* Body */
+.product-body{padding:1.4rem 1.6rem 1.8rem;-webkit-flex:1;flex:1;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+.product-cat{font-family:var(--sans);font-size:0.6rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:0.4rem;display:block;}
+.product-name{font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--brown);margin-bottom:0.4rem;line-height:1.25;}
+.product-desc{font-family:var(--sans);font-size:0.8rem;font-weight:300;color:var(--brown-mid);line-height:1.75;-webkit-flex:1;flex:1;margin-bottom:1.2rem;}
+.product-footer{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;gap:0.8rem;margin-top:auto;padding-top:1rem;border-top:1px solid rgba(61,37,21,0.07);}
+.product-price{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--terra);line-height:1;}
+.product-price sup{font-size:0.85rem;vertical-align:super;}
+.product-price.tbd{font-size:1.1rem;color:rgba(90,58,34,0.3);font-family:var(--sans);font-weight:300;font-style:italic;}
+.add-btn{background:var(--brown);color:#fff;border:none;border-radius:2px;padding:0.65rem 1.2rem;font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.15s;-webkit-appearance:none;white-space:nowrap;}
+.add-btn:hover{background:var(--terra);}
+.add-btn:disabled{background:rgba(61,37,21,0.1);color:rgba(61,37,21,0.3);cursor:not-allowed;}
+ 
+/* Empty state styling */
+.product-card.empty .product-name{color:rgba(61,37,21,0.22);font-style:italic;}
+.product-card.empty .product-desc{color:rgba(61,37,21,0.15);}
+ 
+/* ── NEWSLETTER BANNER ── */
+.nl-banner{background:var(--forest);padding:5rem 4rem;position:relative;overflow:hidden;margin-top:1px;}
+.nl-banner::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--forest-light);opacity:0.2;}
+.nl-banner::after{content:'';position:absolute;bottom:-40px;left:10%;width:200px;height:200px;border-radius:50%;background:var(--terra);opacity:0.06;}
+.nl-banner-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1;}
+.nl-banner h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);color:#faf3ea;font-weight:300;line-height:1.2;margin-bottom:0.8rem;}
+.nl-banner h2 em{color:var(--terra-soft);font-style:italic;}
+.nl-banner p{font-family:var(--sans);font-size:0.9rem;font-weight:300;color:rgba(240,213,184,0.65);line-height:1.85;}
+.nl-form-inline{display:-webkit-flex;display:flex;gap:0;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.nl-form-inline input{-webkit-flex:1;flex:1;min-width:200px;padding:1rem 1.2rem;background:rgba(255,255,255,0.07);border:1px solid rgba(240,213,184,0.2);border-right:none;color:#faf3ea;font-family:var(--sans);font-size:0.88rem;outline:none;-webkit-appearance:none;transition:border-color 0.3s,background 0.3s;}
+.nl-form-inline input:focus{border-color:var(--terra-soft);background:rgba(255,255,255,0.1);}
+.nl-form-inline input::placeholder{color:rgba(240,213,184,0.3);}
+.nl-form-inline button{background:var(--terra);color:#fff;border:1px solid var(--terra);padding:1rem 1.8rem;font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;-webkit-appearance:none;white-space:nowrap;transition:background 0.2s;}
+.nl-form-inline button:hover{background:var(--terra-deep);}
+.nl-success-msg{display:none;font-family:var(--serif);font-size:1.4rem;font-style:italic;color:var(--terra-soft);}
+.nl-fine{font-family:var(--sans);font-size:0.7rem;color:rgba(240,213,184,0.3);margin-top:0.7rem;}
+ 
+/* ── CART DRAWER ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(42,26,14,0.55);z-index:998;display:none;}
+.cart-overlay.open{display:block;}
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;max-width:95vw;height:100vh;background:var(--cream);z-index:999;box-shadow:-8px 0 60px rgba(0,0,0,0.15);transition:right 0.35s var(--ease);display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+.cart-drawer.open{right:0;}
+.cart-header{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;padding:1.8rem 2rem;border-bottom:1px solid rgba(61,37,21,0.08);}
+.cart-header h3{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--brown);}
+.cart-close{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--brown-mid);width:32px;height:32px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;border-radius:50%;transition:background 0.2s,color 0.2s;}
+.cart-close:hover{background:var(--sand);color:var(--terra);}
+.cart-items{-webkit-flex:1;flex:1;overflow-y:auto;padding:1.5rem 2rem;}
+.cart-empty{text-align:center;padding:4rem 1rem;}
+.cart-empty-icon{font-size:4rem;display:block;margin-bottom:1rem;opacity:0.2;}
+.cart-empty h4{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--brown);margin-bottom:0.5rem;}
+.cart-empty p{font-family:var(--sans);font-size:0.82rem;font-weight:300;color:var(--brown-mid);}
+.cart-item{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:1rem;padding:1.2rem 0;border-bottom:1px solid rgba(61,37,21,0.07);}
+.cart-item-img{width:52px;height:52px;background:var(--sand-light);border-radius:2px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.cart-item-info{-webkit-flex:1;flex:1;}
+.cart-item-name{font-family:var(--sans);font-size:0.88rem;font-weight:500;color:var(--brown);margin-bottom:2px;}
+.cart-item-price{font-family:var(--serif);font-size:1.1rem;font-weight:300;color:var(--terra);}
+.cart-item-qty{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:8px;background:var(--sand-light);border-radius:2px;padding:4px 8px;}
+.qty-btn{background:none;border:none;width:22px;height:22px;cursor:pointer;font-size:1rem;color:var(--brown-mid);transition:color 0.2s;-webkit-appearance:none;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
+.qty-btn:hover{color:var(--terra);}
+.qty-num{font-family:var(--sans);font-size:0.85rem;font-weight:500;min-width:18px;text-align:center;color:var(--brown);}
+.cart-footer{padding:1.8rem 2rem;background:var(--sand-light);border-top:1px solid rgba(61,37,21,0.08);}
+.cart-total-row{display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:baseline;align-items:baseline;margin-bottom:1.5rem;}
+.cart-total-label{font-family:var(--sans);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--brown-mid);}
+.cart-total-val{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--terra);}
+.paypal-btn{width:100%;background:#FFC439;color:#003087;border:none;border-radius:4px;padding:15px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Jost',sans-serif;transition:background 0.2s,transform 0.15s;-webkit-appearance:none;letter-spacing:0.5px;}
+.paypal-btn:hover{background:#f0b800;transform:translateY(-1px);}
+.paypal-note{font-family:var(--sans);font-size:0.7rem;color:var(--brown-mid);text-align:center;margin-top:1rem;line-height:1.6;}
+ 
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:3.5rem 4rem 2.5rem;color:rgba(240,213,184,0.5);}
+.footer-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(240,213,184,0.1);}
+.footer-brand .logo{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:#faf3ea;display:block;margin-bottom:0.8rem;}
+.footer-brand .logo span{color:var(--terra-soft);}
+.footer-brand p{font-family:var(--sans);font-size:0.82rem;font-weight:300;line-height:1.8;}
+.footer-col h4{font-family:var(--sans);font-size:0.65rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#faf3ea;margin-bottom:1rem;}
+.footer-col ul{list-style:none;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:0.4rem;}
+.footer-col a{font-family:var(--sans);font-size:0.82rem;font-weight:300;color:rgba(240,213,184,0.5);text-decoration:none;transition:color 0.3s;}
+.footer-col a:hover{color:var(--terra-soft);}
+.footer-bottom{max-width:1300px;margin:1.5rem auto 0;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;font-family:var(--sans);font-size:0.72rem;}
+ 
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s var(--ease),transform 0.8s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+ 
+/* ── RESPONSIVE ── */
+@media (max-width:1100px){
+  nav{padding:1rem 2rem;}
+  .shop-section{padding:4rem 2rem 6rem;}
+  .nl-banner{padding:4rem 2rem;}
+  footer{padding:3rem 2rem 2rem;}
+  .filter-bar{padding:1rem 2rem;}
+  .hero{padding:7rem 3rem 4rem;}
+  .hero-right{display:none;}
+}
+@media (max-width:768px){
+  nav{padding:0.9rem 1.2rem;}
+  .nav-links{display:none;-webkit-flex-direction:column;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fdf8f2;padding:1.2rem 1.5rem;gap:1rem;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:1px solid rgba(61,37,21,0.08);max-height:80vh;overflow-y:auto;z-index:99;}
+  .nav-links.open{display:-webkit-flex;display:flex;}
+  .nav-links a{font-size:0.85rem;padding:0.3rem 0;}
+  .hamburger{display:-webkit-flex;display:flex;}
+  .hero{padding:6rem 1.2rem 3.5rem;min-height:auto;}
+  .hero h1{font-size:clamp(2.2rem,9vw,3rem);}
+  .hero-sub{font-size:0.9rem;}
+  .filter-bar{top:56px;padding:0.8rem 1.2rem;gap:0.5rem;}
+  .filter-btn{font-size:0.68rem;padding:4px 12px;}
+  .shop-section{padding:3rem 0 5rem;}
+  .shop-header{padding:0 1.2rem;margin-bottom:2rem;}
+  .products-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
+  .nl-banner-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .nl-banner{padding:3.5rem 1.5rem;}
+  .nl-form-inline input{border-right:1px solid rgba(240,213,184,0.2);border-bottom:none;min-width:100%;border-radius:0;}
+  .nl-form-inline button{width:100%;}
+  .cart-drawer{width:100%;max-width:100%;right:-100%;}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:2rem;padding:0 0 2rem;}
+  footer{padding:2.5rem 1.5rem 2rem;}
+  .footer-bottom{-webkit-flex-direction:column;flex-direction:column;gap:0.4rem;text-align:center;}
+  .product-overlay{display:none;}
+}
+@media (max-width:480px){
+  .hero h1{font-size:clamp(1.9rem,10vw,2.4rem);}
+  .products-grid{grid-template-columns:1fr 1fr;}
+  .product-body{padding:1rem 1.1rem 1.4rem;}
+  .product-name{font-size:1.05rem;}
+  .product-price{font-size:1.4rem;}
+  .footer-inner{grid-template-columns:1fr;}
+  .add-btn{font-size:0.62rem;padding:0.55rem 0.9rem;}
+}
+@media (max-width:360px){
+  .products-grid{grid-template-columns:1fr;}
+}
+@media (hover:none){
+  .product-card:hover{background:var(--cream);}
+  .product-card:hover::after{transform:scaleX(0);}
+  .product-card:hover .product-img-icon{opacity:0.25;transform:none;}
+}
+@media print{nav,footer,.cart-overlay,.cart-drawer{display:none;}.reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+ 
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Mara <span>Move</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#about">Über mich</a></li>
+    <li><a href="index.html#preise">Preise</a></li>
+    <li><a href="reisen.html">Reisen</a></li>
+    <li><a href="aktuelles.html">Aktuelles</a></li>
+    <li><a href="trainingsbereich.html">Trainingsbereich</a></li>
+    <li><a href="index.html#kontakt">Kontakt</a></li>
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="yogalehrer.html">Yogalehrer werden</a></li>
+  </ul>
+  <button class="cart-btn" id="cartBtn" onclick="openCart()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-9.8-3h11.6c.75 0 1.41-.41 1.75-1.03L22 6H6L5 2H1v2h2l3.6 7.59-1.35 2.44C4.94 14.58 5.5 15 6.2 15z"/></svg>
+    Warenkorb
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco1"></div>
+  <div class="hero-deco2"></div>
+  <div class="hero-deco3"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Mara Move · Shop</div>
+    <h1>Gut für dich.<br><em>Direkt von mir.</em></h1>
+    <p class="hero-sub">Produkte, die ich selbst verwende und von Herzen empfehle — für Bewegung, Ernährung und echtes Wohlbefinden.</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat">
+      <span class="hero-stat-num">10</span>
+      <span class="hero-stat-label">Produkte</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">100%</span>
+      <span class="hero-stat-label">Empfohlen</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">PayPal</span>
+      <span class="hero-stat-label">Sicher zahlen</span>
+    </div>
+  </div>
+</section>
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z" fill="#fdf8f2"/>
+  </svg>
+</div>
+ 
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" onclick="filterProducts('all',this)">Alle</button>
+  <button class="filter-btn" onclick="filterProducts('bewegung',this)">Bewegung</button>
+  <button class="filter-btn" onclick="filterProducts('ernaehrung',this)">Ernährung</button>
+  <button class="filter-btn" onclick="filterProducts('wellness',this)">Wellness</button>
+  <button class="filter-btn" onclick="filterProducts('digital',this)">Digital</button>
+</div>
+ 
+<!-- SHOP -->
+<section class="shop-section">
+  <div class="shop-inner">
+    <div class="shop-header reveal">
+      <div class="shop-header-left">
+        <span class="section-label">Produkte</span>
+        <h2>Demnächst erhältlich</h2>
+      </div>
+      <div class="shop-header-right">10 Produkte · Bald verfügbar</div>
+    </div>
+ 
+    <div class="products-grid reveal" id="productsGrid">
+ 
+      <div class="product-card empty" data-cat="bewegung">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">🧘‍♀️</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-new">Neu</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Bewegung</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="ernaehrung">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">🌿</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-popular">Beliebt</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Ernährung</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="wellness">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">🛁</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-tip">Empfehlung</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Wellness</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="digital">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">📱</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-new">Digital</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Digital</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="bewegung">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">⚡</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Bewegung</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="ernaehrung">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">🍵</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-popular">Beliebt</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Ernährung</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="wellness">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">📿</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-tip">Empfehlung</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Wellness</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="ernaehrung">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">🌾</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Ernährung</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="bewegung">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">🏋️‍♀️</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-new">Neu</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Bewegung</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card empty" data-cat="digital">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <span class="product-img-icon">📖</span>
+            <span class="product-img-placeholder">Foto folgt</span>
+          </div>
+          <span class="product-badge badge-tip">E-Book</span>
+          <div class="product-overlay"><button class="quick-add" disabled>Bald verfügbar</button></div>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">Digital</span>
+          <h3 class="product-name">Produktname folgt</h3>
+          <p class="product-desc">Beschreibung folgt. Trage dich in den Newsletter ein, um als Erste informiert zu werden.</p>
+          <div class="product-footer">
+            <div class="product-price tbd">Preis folgt</div>
+            <button class="add-btn" disabled>Bald</button>
+          </div>
+        </div>
+      </div>
+ 
+    </div><!-- /grid -->
+  </div>
+</section>
+ 
+<!-- NEWSLETTER BANNER -->
+<section class="nl-banner">
+  <div class="nl-banner-inner">
+    <div>
+      <h2>Shop öffnet bald —<br>sei <em>als Erste</em> dabei.</h2>
+      <p>Trag dich ein und bekomme eine persönliche Mail von mir, sobald die ersten Produkte verfügbar sind — plus Early-Access und exklusive Rabatte.</p>
+    </div>
+    <div>
+      <form onsubmit="handleNLSubmit(event,this)">
+        <div class="nl-form-inline">
+          <input type="email" name="email" placeholder="deine@email.de" required>
+          <button type="submit">Dabei sein →</button>
+        </div>
+        <div class="nl-success-msg" id="nlSuccess">🌿 Danke — ich melde mich!</div>
+        <p class="nl-fine">Kein Spam. Jederzeit abmeldbar.</p>
+      </form>
+    </div>
+  </div>
+</section>
+ 
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Warenkorb</h3>
+    <button class="cart-close" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <span class="cart-empty-icon">🛒</span>
+      <h4>Noch leer</h4>
+      <p>Füge Produkte aus dem Shop hinzu.</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Gesamt</span>
+      <span class="cart-total-val" id="cartTotal">0,00 €</span>
+    </div>
+    <button class="paypal-btn" onclick="checkoutPayPal()">
+      Mit <span style="color:#009cde;">Pay</span>Pal bezahlen
+    </button>
+    <p class="paypal-note">Sicherer Checkout über PayPal<br>Empfänger: mara.tum@yahoo.com · Versand 2–4 Werktage</p>
+  </div>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">Mara <span>Move</span></span>
+      <p>Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html#about">Über mich</a></li>
+        <li><a href="index.html#preise">Preise</a></li>
+        <li><a href="reisen.html">Reisen</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="index.html#impressum">Impressum</a></li>
+        <li><a href="index.html#datenschutz">Datenschutz</a></li>
+        <li><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mara Tumpach · MARA MOVE</span>
+    <span>Angaben gem. § 5 TMG: Mara Tumpach, Deutschland</span>
+  </div>
+</footer>
+ 
+<script>
+var cart = [];
+var PAYPAL_EMAIL = 'mara.tum@yahoo.com';
+ 
+function addToCart(name, price, icon, id) {
+  var ex = cart.find(function(i){ return i.id===id; });
+  if (ex) { ex.qty++; } else { cart.push({id:id,name:name,price:price,icon:icon,qty:1}); }
+  updateCart(); openCart();
+}
+function changeQty(id, d) {
+  var idx = cart.findIndex(function(i){ return i.id===id; });
+  if (idx===-1) return;
+  cart[idx].qty += d;
+  if (cart[idx].qty <= 0) cart.splice(idx,1);
+  updateCart();
+}
+function updateCart() {
+  var total = cart.reduce(function(s,i){ return s+i.price*i.qty; },0);
+  var count = cart.reduce(function(s,i){ return s+i.qty; },0);
+  var cc = document.getElementById('cartCount');
+  cc.textContent = count;
+  cc.style.display = count>0 ? '-webkit-flex' : 'none';
+  cc.style.display = count>0 ? 'flex' : 'none';
+  var itemsEl = document.getElementById('cartItems');
+  var emptyEl = document.getElementById('cartEmpty');
+  var footerEl = document.getElementById('cartFooter');
+  if (!cart.length) { emptyEl.style.display='block'; footerEl.style.display='none';
+    while(itemsEl.children.length>1) itemsEl.removeChild(itemsEl.lastChild); return; }
+  emptyEl.style.display='none'; footerEl.style.display='block';
+  while(itemsEl.children.length>1) itemsEl.removeChild(itemsEl.lastChild);
+  cart.forEach(function(item) {
+    var d=document.createElement('div'); d.className='cart-item';
+    d.innerHTML='<div class="cart-item-img">'+item.icon+'</div>'+
+      '<div class="cart-item-info"><div class="cart-item-name">'+item.name+'</div>'+
+      '<div class="cart-item-price">'+(item.price*item.qty).toFixed(2).replace('.',',')+' €</div></div>'+
+      '<div class="cart-item-qty">'+
+      '<button class="qty-btn" onclick="changeQty(\''+item.id+'\',-1)">−</button>'+
+      '<span class="qty-num">'+item.qty+'</span>'+
+      '<button class="qty-btn" onclick="changeQty(\''+item.id+'\',1)">+</button></div>';
+    itemsEl.appendChild(d);
+  });
+  document.getElementById('cartTotal').textContent=total.toFixed(2).replace('.',',')+' €';
+}
+function openCart(){ document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartOverlay').classList.add('open'); }
+function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartOverlay').classList.remove('open'); }
+function checkoutPayPal(){
+  var total=cart.reduce(function(s,i){ return s+i.price*i.qty; },0);
+  window.open('https://www.paypal.com/paypalme/maratumpach/'+total.toFixed(2)+'EUR','_blank');
+}
+ 
+// Filter
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(function(card) {
+    if (cat==='all' || card.dataset.cat===cat) { card.style.display=''; }
+    else { card.style.display='none'; }
+  });
+}
+ 
+// Newsletter
+function handleNLSubmit(e, form) {
+  e.preventDefault();
+  fetch('https://formspree.io/f/xnjldvwe', {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}});
+  form.querySelector('.nl-form-inline').style.display='none';
+  document.getElementById('nlSuccess').style.display='block';
+}
+ 
+// Nav
+var nav=document.getElementById('mainNav');
+window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled',window.scrollY>40); });
+document.getElementById('hamburger').addEventListener('click',function(){ document.getElementById('navLinks').classList.toggle('open'); });
+document.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click',function(){ document.getElementById('navLinks').classList.remove('open'); }); });
+ 
+// Reveal
+var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); },{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
