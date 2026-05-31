@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
+<meta name="theme-color" content="#2D4A2D"/>
+<title>Yogalehrer werden – Mara Move</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand:#f0d5b8; --sand-light:#faf3ea; --terra:#c4612a; --terra-deep:#a84e20;
+  --terra-soft:#d9845a; --teal:#6aafb4; --teal-deep:#4a8f94;
+  --forest:#2D4A2D; --forest-mid:#3D6B3D; --forest-light:#4a7c4a;
+  --brown:#3d2515; --brown-mid:#5a3a22; --cream:#fdf8f2; --white:#fff; --ink:#2a1a0e;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',sans-serif;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#fdf8f2;color:#2a1a0e;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--sand);}::-webkit-scrollbar-thumb{background:var(--terra);border-radius:2px;}
+ 
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;transition:background 0.4s,box-shadow 0.4s;}
+nav.scrolled{background:rgba(253,248,242,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(61,37,21,0.08);}
+@supports not (backdrop-filter:blur(12px)){nav.scrolled{background:rgba(253,248,242,0.99);}}
+.nav-logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--brown);letter-spacing:0.02em;text-decoration:none;}
+.nav-logo span{color:var(--terra);}
+.nav-links{display:-webkit-flex;display:flex;gap:1.4rem;list-style:none;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.nav-links a{font-family:var(--sans);font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--brown-mid);text-decoration:none;position:relative;transition:color 0.3s;white-space:nowrap;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--terra);transition:width 0.3s var(--ease);}
+.nav-links a:hover,.nav-links a.active{color:var(--terra);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.hamburger{display:none;-webkit-flex-direction:column;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--brown);}
+ 
+/* HERO */
+.hero{background:var(--forest);min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:var(--forest-light);opacity:0.15;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:20%;width:350px;height:350px;border-radius:50%;background:var(--terra);opacity:0.05;}
+.hero-left{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;-webkit-justify-content:center;justify-content:center;padding:9rem 5rem 5rem;position:relative;z-index:2;}
+.hero-eyebrow{display:inline-block;background:rgba(106,175,180,0.15);border:1px solid rgba(106,175,180,0.3);color:var(--teal);font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;padding:6px 18px;border-radius:2px;margin-bottom:1.8rem;width:fit-content;}
+.hero h1{font-family:var(--serif);font-size:clamp(3rem,5vw,6rem);font-weight:300;color:#faf3ea;line-height:1.0;margin-bottom:1.5rem;}
+.hero h1 em{font-style:italic;color:var(--terra-soft);}
+.hero-sub{font-family:var(--sans);font-size:1rem;font-weight:300;color:rgba(240,213,184,0.65);max-width:440px;line-height:1.85;margin-bottom:2.5rem;}
+.hero-pills{display:-webkit-flex;display:flex;gap:10px;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.hero-pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(240,213,184,0.75);font-family:var(--sans);font-size:0.68rem;font-weight:400;letter-spacing:0.1em;padding:6px 14px;border-radius:40px;}
+.hero-right{position:relative;overflow:hidden;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;padding:9rem 4rem 5rem;}
+/* Big circular stats */
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;position:relative;z-index:2;}
+.stat-circle{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:2.5rem 2rem;text-align:center;transition:background 0.3s;}
+.stat-circle:hover{background:rgba(255,255,255,0.08);}
+.stat-num{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--terra-soft);line-height:1;display:block;}
+.stat-unit{font-family:var(--serif);font-size:1.5rem;color:var(--terra-soft);}
+.stat-label{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,213,184,0.45);margin-top:0.5rem;display:block;line-height:1.4;}
+.stat-circle.big{grid-column:1/3;background:rgba(196,97,42,0.12);border-color:rgba(196,97,42,0.25);}
+.stat-circle.big .stat-num{font-size:5rem;color:var(--terra-soft);}
+ 
+.wave-divider{width:100%;overflow:hidden;line-height:0;background:var(--forest);}
+.wave-divider svg{display:block;width:100%;}
+ 
+/* SECTION HELPERS */
+.section-label{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal-deep);display:block;margin-bottom:0.8rem;}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;color:var(--brown);line-height:1.15;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s var(--ease),transform 0.8s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+ 
+/* CURRICULUM */
+.curriculum{background:var(--cream);padding:8rem 4rem;}
+.curriculum-inner{max-width:1200px;margin:0 auto;}
+.curriculum-header{text-align:center;margin-bottom:5rem;}
+.curriculum-header p{font-family:var(--sans);font-size:1rem;font-weight:300;color:var(--brown-mid);max-width:560px;margin:1rem auto 0;line-height:1.85;}
+ 
+.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(61,37,21,0.07);margin-bottom:2px;}
+.module{background:var(--cream);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s;}
+.module:hover{background:var(--white);}
+.module::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease);}
+.module:hover::before{transform:scaleX(1);}
+.module-num{font-family:var(--serif);font-size:4rem;font-weight:300;color:var(--terra);opacity:0.15;line-height:1;position:absolute;top:1.5rem;right:2rem;}
+.module-icon{font-size:2.2rem;margin-bottom:1.2rem;display:block;}
+.module h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--brown);margin-bottom:0.8rem;}
+.module-hours{display:inline-block;background:rgba(196,97,42,0.1);border:1px solid rgba(196,97,42,0.2);color:var(--terra-deep);font-family:var(--sans);font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:40px;margin-bottom:1rem;}
+.module p{font-family:var(--sans);font-size:0.88rem;font-weight:300;color:var(--brown-mid);line-height:1.85;}
+.module ul{list-style:none;margin-top:1rem;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:0.4rem;}
+.module ul li{font-family:var(--sans);font-size:0.82rem;font-weight:300;color:var(--brown-mid);padding-left:1.2rem;position:relative;}
+.module ul li::before{content:'→';position:absolute;left:0;color:var(--terra);font-size:0.75rem;}
+ 
+/* Total hours bar */
+.hours-bar{background:var(--forest);padding:3rem 4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.hour-item{text-align:center;padding:2rem;border-right:1px solid rgba(255,255,255,0.08);}
+.hour-item:last-child{border-right:none;}
+.hour-num{font-family:var(--serif);font-size:3rem;font-weight:300;color:var(--terra-soft);line-height:1;display:block;}
+.hour-label{font-family:var(--sans);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,213,184,0.45);margin-top:0.4rem;display:block;}
+ 
+/* VIPASSANA */
+.vipassana{background:var(--sand-light);padding:8rem 4rem;}
+.vipassana-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.vipassana-text .section-label{color:var(--forest-mid);}
+.vipassana-text h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--brown);line-height:1.15;margin-bottom:1.2rem;}
+.vipassana-text h2 em{font-style:italic;color:var(--terra);}
+.vipassana-text p{font-family:var(--sans);font-size:0.95rem;font-weight:300;color:var(--brown-mid);line-height:1.9;margin-bottom:1rem;}
+.vipassana-days{display:grid;gap:10px;}
+.vday{background:var(--white);border:1px solid rgba(61,37,21,0.07);border-radius:2px;padding:1.2rem 1.5rem;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:1.2rem;transition:background 0.2s,border-color 0.2s;}
+.vday:hover{background:var(--cream);border-color:rgba(61,37,21,0.15);}
+.vday-num{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--terra);line-height:1;min-width:40px;}
+.vday-info h4{font-family:var(--sans);font-size:0.78rem;font-weight:500;color:var(--brown);margin-bottom:2px;}
+.vday-info p{font-family:var(--sans);font-size:0.75rem;font-weight:300;color:var(--brown-mid);}
+.vday-bar{margin-left:auto;width:60px;height:4px;background:var(--sand);border-radius:2px;overflow:hidden;flex-shrink:0;}
+.vday-bar-fill{height:100%;background:var(--forest);border-radius:2px;}
+ 
+/* PRICING */
+.pricing{background:var(--brown);padding:8rem 4rem;}
+.pricing-inner{max-width:1200px;margin:0 auto;}
+.pricing-header{text-align:center;margin-bottom:5rem;}
+.pricing-header .section-label{color:rgba(106,175,180,0.8);}
+.pricing-header h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;color:#faf3ea;line-height:1.15;}
+.pricing-header p{font-family:var(--sans);font-size:0.95rem;font-weight:300;color:rgba(240,213,184,0.6);max-width:520px;margin:1rem auto 0;line-height:1.85;}
+ 
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.06);}
+.price-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:3.5rem 3rem;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;position:relative;transition:background 0.3s;}
+.price-card:hover{background:rgba(255,255,255,0.07);}
+.price-card.featured{background:var(--terra);border-color:var(--terra);}
+.price-card.featured:hover{background:var(--terra-deep);}
+.price-tag-label{font-family:var(--sans);font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,213,184,0.5);display:block;margin-bottom:0.8rem;}
+.price-card.featured .price-tag-label{color:rgba(255,255,255,0.7);}
+.price-card h3{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:#faf3ea;margin-bottom:0.5rem;line-height:1.15;}
+.price-card.featured h3{color:#fff;}
+.price-card-sub{font-family:var(--sans);font-size:0.78rem;font-weight:300;color:rgba(240,213,184,0.5);margin-bottom:2rem;line-height:1.5;}
+.price-card.featured .price-card-sub{color:rgba(255,255,255,0.65);}
+.price-val{font-family:var(--serif);font-size:5rem;font-weight:300;color:var(--terra-soft);line-height:1;margin-bottom:0.3rem;}
+.price-card.featured .price-val{color:#fff;}
+.price-val sup{font-size:1.8rem;vertical-align:super;}
+.price-note{font-family:var(--sans);font-size:0.72rem;font-weight:300;color:rgba(240,213,184,0.45);margin-bottom:2rem;}
+.price-card.featured .price-note{color:rgba(255,255,255,0.55);}
+.price-divider{height:1px;background:rgba(255,255,255,0.08);margin-bottom:2rem;}
+.price-card.featured .price-divider{background:rgba(255,255,255,0.2);}
+.price-includes{list-style:none;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:0.7rem;margin-bottom:2.5rem;-webkit-flex:1;flex:1;}
+.price-includes li{font-family:var(--sans);font-size:0.85rem;font-weight:300;color:rgba(240,213,184,0.7);display:-webkit-flex;display:flex;-webkit-align-items:flex-start;align-items:flex-start;gap:0.7rem;line-height:1.5;}
+.price-card.featured .price-includes li{color:rgba(255,255,255,0.8);}
+.price-includes li::before{content:'✓';color:var(--teal);font-weight:500;flex-shrink:0;margin-top:1px;}
+.price-card.featured .price-includes li::before{color:#fff;}
+.price-includes li.strike{opacity:0.3;text-decoration:line-through;}
+.price-includes li.strike::before{content:'–';color:inherit;}
+ 
+.btn-enroll{display:block;width:100%;padding:1.1rem;background:var(--terra-soft);color:#fff;border:none;border-radius:2px;font-family:var(--sans);font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;-webkit-appearance:none;transition:background 0.2s,transform 0.15s;text-align:center;text-decoration:none;}
+.btn-enroll:hover{background:var(--terra);transform:translateY(-2px);}
+.price-card.featured .btn-enroll{background:#fff;color:var(--terra-deep);}
+.price-card.featured .btn-enroll:hover{background:#faf3ea;}
+.badge-popular{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--teal-deep);color:#fff;font-family:var(--sans);font-size:0.6rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:5px 16px;border-radius:0 0 4px 4px;white-space:nowrap;}
+ 
+/* EXAM */
+.exam{background:var(--cream);padding:6rem 4rem;}
+.exam-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.exam-left .section-label{color:var(--forest-mid);}
+.exam-left h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:var(--brown);line-height:1.2;margin-bottom:1rem;}
+.exam-left p{font-family:var(--sans);font-size:0.9rem;font-weight:300;color:var(--brown-mid);line-height:1.85;}
+.exam-card{background:var(--forest);border-radius:2px;padding:3rem;position:relative;overflow:hidden;}
+.exam-card::before{content:'';position:absolute;bottom:-30px;right:-30px;width:150px;height:150px;border-radius:50%;background:var(--forest-light);opacity:0.25;}
+.exam-card h3{font-family:var(--serif);font-size:1.5rem;color:#faf3ea;margin-bottom:1.2rem;position:relative;z-index:1;}
+.exam-items{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:0.8rem;position:relative;z-index:1;}
+.exam-item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:0.9rem 1.2rem;font-family:var(--sans);font-size:0.82rem;font-weight:300;color:rgba(240,213,184,0.75);display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:0.8rem;}
+.exam-item-icon{font-size:1.2rem;flex-shrink:0;}
+ 
+/* CONTACT FORM */
+.contact-section{background:var(--sand-light);padding:7rem 4rem;}
+.contact-inner{max-width:720px;margin:0 auto;}
+.contact-header{text-align:center;margin-bottom:3.5rem;}
+.contact-form{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:1rem;}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:1rem 1.2rem;background:var(--white);border:1px solid rgba(61,37,21,0.1);border-radius:2px;color:var(--ink);font-family:var(--sans);font-size:0.88rem;font-weight:300;outline:none;-webkit-appearance:none;transition:border-color 0.3s;}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--terra);}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(61,37,21,0.3);}
+.contact-form select{color:rgba(61,37,21,0.5);}
+.contact-form textarea{height:100px;resize:none;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.btn-primary{display:inline-block;padding:1rem 2.5rem;background:var(--terra);color:#fff;font-family:var(--sans);font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.3s,transform 0.2s;border:none;cursor:pointer;-webkit-appearance:none;text-align:center;}
+.btn-primary:hover{background:var(--terra-deep);transform:translateY(-2px);}
+.contact-success{display:none;text-align:center;padding:2rem;background:var(--forest);border-radius:2px;color:#faf3ea;}
+.contact-success p{font-family:var(--serif);font-size:1.4rem;font-style:italic;}
+ 
+/* FOOTER */
+footer{background:var(--ink);padding:3.5rem 4rem 2.5rem;color:rgba(240,213,184,0.5);}
+.footer-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(240,213,184,0.1);}
+.footer-brand .logo{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:#faf3ea;display:block;margin-bottom:0.8rem;}
+.footer-brand .logo span{color:var(--terra-soft);}
+.footer-brand p{font-family:var(--sans);font-size:0.82rem;font-weight:300;line-height:1.8;}
+.footer-col h4{font-family:var(--sans);font-size:0.65rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#faf3ea;margin-bottom:1rem;}
+.footer-col ul{list-style:none;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:0.4rem;}
+.footer-col a{font-family:var(--sans);font-size:0.82rem;font-weight:300;color:rgba(240,213,184,0.5);text-decoration:none;transition:color 0.3s;}
+.footer-col a:hover{color:var(--terra-soft);}
+.footer-bottom{max-width:1300px;margin:1.5rem auto 0;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;font-family:var(--sans);font-size:0.72rem;}
+ 
+/* RESPONSIVE */
+@media (max-width:1100px){
+  nav{padding:1rem 2rem;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{padding:8rem 3rem 5rem;}
+  .curriculum{padding:6rem 2rem;}
+  .vipassana{padding:6rem 2rem;}
+  .vipassana-inner{gap:4rem;}
+  .pricing{padding:6rem 2rem;}
+  .exam{padding:5rem 2rem;}
+  .contact-section{padding:6rem 2rem;}
+  footer{padding:3rem 2rem 2rem;}
+}
+@media (max-width:900px){
+  .modules{grid-template-columns:1fr 1fr;}
+  .hours-bar{grid-template-columns:1fr 1fr;}
+  .hour-item:nth-child(2){border-right:none;}
+  .hour-item:nth-child(1),.hour-item:nth-child(2){border-bottom:1px solid rgba(255,255,255,0.08);}
+  .pricing-grid{grid-template-columns:1fr;}
+  .vipassana-inner{grid-template-columns:1fr;gap:3rem;}
+  .exam-inner{grid-template-columns:1fr;gap:3rem;}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}
+}
+@media (max-width:768px){
+  nav{padding:0.9rem 1.2rem;}
+  .nav-links{display:none;-webkit-flex-direction:column;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fdf8f2;padding:1.2rem 1.5rem;gap:1rem;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:1px solid rgba(61,37,21,0.08);max-height:80vh;overflow-y:auto;z-index:99;}
+  .nav-links.open{display:-webkit-flex;display:flex;}
+  .nav-links a{font-size:0.85rem;padding:0.3rem 0;}
+  .hamburger{display:-webkit-flex;display:flex;}
+  .hero-left{padding:7rem 1.5rem 4rem;}
+  .hero h1{font-size:clamp(2.4rem,9vw,3.5rem);}
+  .modules{grid-template-columns:1fr;}
+  .hours-bar{grid-template-columns:1fr 1fr;padding:2rem 1.5rem;}
+  .form-row{grid-template-columns:1fr;}
+  .contact-form input,.contact-form select,.contact-form textarea{font-size:16px;}
+  .footer-inner{grid-template-columns:1fr;}
+  .footer-bottom{-webkit-flex-direction:column;flex-direction:column;gap:0.4rem;text-align:center;}
+  .pricing-grid{gap:1rem;background:transparent;}
+  .price-card{border:1px solid rgba(255,255,255,0.08);}
+  .stat-circle.big .stat-num{font-size:3.5rem;}
+}
+@media (max-width:480px){
+  .hero h1{font-size:clamp(2rem,10vw,2.8rem);}
+  .hours-bar{grid-template-columns:1fr;padding:1.5rem;}
+  .hour-item{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .hour-item:last-child{border-bottom:none;}
+  .hero-pills{gap:6px;}
+  .hero-pill{font-size:0.62rem;padding:4px 10px;}
+}
+@media (hover:none){
+  .module:hover{background:var(--cream);}
+  .module:hover::before{transform:scaleX(0);}
+  .btn-enroll:hover,.btn-primary:hover{transform:none;}
+}
+@media print{nav,footer{display:none;}.reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+ 
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Mara <span>Move</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#about">Über mich</a></li>
+    <li><a href="index.html#preise">Preise</a></li>
+    <li><a href="reisen.html">Reisen</a></li>
+    <li><a href="aktuelles.html">Aktuelles</a></li>
+    <li><a href="trainingsbereich.html">Trainingsbereich</a></li>
+    <li><a href="index.html#kontakt">Kontakt</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="yogalehrer.html" class="active">Yogalehrer werden</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Zertifizierte Ausbildung · 125 Stunden</div>
+    <h1>Werde<br><em>Yogalehrerin.</em></h1>
+    <p class="hero-sub">Eine Ausbildung, die Körper, Geist und Wissen vereint. Praxisnah, tiefgründig und mit echter Erfahrung aus über 430 Stunden Unterricht — von Mara persönlich begleitet.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">🧘 125 Std. Ausbildung</span>
+      <span class="hero-pill">🧠 10 Tage Vipassana</span>
+      <span class="hero-pill">🎓 Zertifikat</span>
+      <span class="hero-pill">💚 260 €</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-circle big">
+        <span class="stat-num">125<span class="stat-unit">h</span></span>
+        <span class="stat-label">Gesamte Ausbildungszeit</span>
+      </div>
+      <div class="stat-circle">
+        <span class="stat-num">100<span class="stat-unit">h</span></span>
+        <span class="stat-label">Vipassana Meditation</span>
+      </div>
+      <div class="stat-circle">
+        <span class="stat-num">15</span>
+        <span class="stat-label">Lehrvideos</span>
+      </div>
+      <div class="stat-circle">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Persönliche Calls</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z" fill="#fdf8f2"/>
+  </svg>
+</div>
+ 
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="curriculum-inner">
+    <div class="curriculum-header reveal">
+      <span class="section-label">Lehrplan</span>
+      <h2 class="section-title">Was dich erwartet</h2>
+      <p>Die Ausbildung besteht aus drei Säulen: persönliche Begleitung, eigenständiges Lernen und tiefe innere Erfahrung durch Meditation. Zusammen ergeben sie 125 Stunden fundierte Yogalehrerausbildung.</p>
+    </div>
+ 
+    <div class="modules reveal">
+ 
+      <div class="module">
+        <span class="module-num">01</span>
+        <span class="module-icon">🎥</span>
+        <h3>15 Lehrvideos</h3>
+        <span class="module-hours">25 Std. Inhalt</span>
+        <p>Strukturierte Lernvideos, die dich Schritt für Schritt durch die Grundlagen des Yoga-Unterrichtens führen.</p>
+        <ul>
+          <li>Asanas korrekt anleiten</li>
+          <li>Sequencing &amp; Aufbau</li>
+          <li>Stimme, Sprache &amp; Präsenz</li>
+          <li>Anatomie &amp; Sicherheit</li>
+          <li>Pranayama &amp; Atemführung</li>
+        </ul>
+      </div>
+ 
+      <div class="module">
+        <span class="module-num">02</span>
+        <span class="module-icon">💻</span>
+        <h3>3 persönliche Calls</h3>
+        <span class="module-hours">Je 2 Stunden · 6 Std. gesamt</span>
+        <p>Drei intensive Zoom-Calls oder persönliche Treffen mit Mara — individuell, auf Augenhöhe und wirklich nützlich.</p>
+        <ul>
+          <li>Call 1: Einstieg &amp; Grundlagen</li>
+          <li>Call 2: Praxis &amp; Feedback</li>
+          <li>Call 3: Abschluss &amp; Prüfung</li>
+          <li>Online oder persönlich</li>
+          <li>Freie Terminwahl</li>
+        </ul>
+      </div>
+ 
+      <div class="module">
+        <span class="module-num">03</span>
+        <span class="module-icon">🧠</span>
+        <h3>10 Tage Vipassana</h3>
+        <span class="module-hours">100 Std. Meditation</span>
+        <p>Zehn Tage Vipassana-Meditation in Deutschland — 10 Stunden täglich stilles Sitzen. Die tiefste Erfahrung dieser Ausbildung.</p>
+        <ul>
+          <li>Anerkannte Vipassana-Zentren (DE)</li>
+          <li>10h täglich · 10 Tage</li>
+          <li>Unterkunft &amp; Verpflegung inklusive</li>
+          <li>Noble Silence Retreat</li>
+          <li>Kosten bereits enthalten</li>
+        </ul>
+      </div>
+ 
+    </div>
+ 
+    <!-- Exam module -->
+    <div class="modules reveal" style="margin-top:2px;">
+      <div class="module" style="grid-column:1/4; display:grid; grid-template-columns:auto 1fr; gap:2rem; align-items:start;">
+        <span class="module-icon" style="font-size:3rem; margin:0;">📝</span>
+        <div>
+          <h3>Abschlussarbeit</h3>
+          <span class="module-hours">4-seitige Hausarbeit als Prüfung</span>
+          <p style="margin-top:0.6rem;">Du verfasst eine 4-seitige Hausarbeit zu einem Thema deiner Wahl aus dem Lehrplan. Kein Prüfungsstress — eine tiefe Auseinandersetzung mit dem, was dich bewegt. Nach erfolgreicher Abgabe erhältst du dein Zertifikat.</p>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- HOURS BAR -->
+<div class="hours-bar reveal">
+  <div class="hour-item">
+    <span class="hour-num">100<span style="font-size:1.4rem;">h</span></span>
+    <span class="hour-label">Vipassana Meditation</span>
+  </div>
+  <div class="hour-item">
+    <span class="hour-num">25<span style="font-size:1.4rem;">h</span></span>
+    <span class="hour-label">Lehrvideos</span>
+  </div>
+  <div class="hour-item">
+    <span class="hour-num">6<span style="font-size:1.4rem;">h</span></span>
+    <span class="hour-label">Persönliche Calls</span>
+  </div>
+  <div class="hour-item" style="background:rgba(196,97,42,0.15);border-color:rgba(196,97,42,0.3);">
+    <span class="hour-num" style="color:var(--terra-soft);">125<span style="font-size:1.4rem;">h</span></span>
+    <span class="hour-label">Gesamt · Zertifiziert</span>
+  </div>
+</div>
+ 
+<!-- VIPASSANA -->
+<section class="vipassana">
+  <div class="vipassana-inner">
+    <div class="vipassana-text reveal">
+      <span class="section-label">10 Tage · 100 Stunden</span>
+      <h2>Vipassana —<br>die <em>tiefste</em> Erfahrung.</h2>
+      <p>Vipassana ist die älteste Meditationstechnik der Welt — und ein unverzichtbarer Teil dieser Ausbildung. Denn wer andere in der Meditation führen möchte, muss sie selbst kennen. Nicht aus Büchern. Aus eigener Erfahrung.</p>
+      <p>Du meldest dich über die offiziellen Vipassana-Zentren in Deutschland an (dhamma.org). Die Kosten sind in deiner Ausbildungsgebühr bereits vollständig enthalten.</p>
+      <p style="font-size:0.82rem;color:var(--teal-deep);font-style:italic;">💡 Vipassana-Retreats sind kostenlos zu besuchen — deine Gebühr bei uns ist für die gesamte Ausbildung (Calls, Videos, Zertifikat).</p>
+    </div>
+    <div class="vipassana-days reveal">
+      <div class="vday">
+        <div class="vday-num">1–3</div>
+        <div class="vday-info"><h4>Ankommen &amp; Stille finden</h4><p>Einführung in Anapana-Atembeobachtung · Noble Silence beginnt</p></div>
+        <div class="vday-bar"><div class="vday-bar-fill" style="width:30%"></div></div>
+      </div>
+      <div class="vday">
+        <div class="vday-num">4–6</div>
+        <div class="vday-info"><h4>Vipassana-Technik</h4><p>Körperempfindungen beobachten · Intensivierung der Praxis</p></div>
+        <div class="vday-bar"><div class="vday-bar-fill" style="width:60%"></div></div>
+      </div>
+      <div class="vday">
+        <div class="vday-num">7–9</div>
+        <div class="vday-info"><h4>Vertiefung</h4><p>Adhitthana-Sitzungen (starke Entschlossenheit) · 10h täglich</p></div>
+        <div class="vday-bar"><div class="vday-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="vday" style="border:1px solid rgba(45,74,45,0.2);background:rgba(45,74,45,0.05);">
+        <div class="vday-num" style="color:var(--forest);">10</div>
+        <div class="vday-info"><h4>Metta &amp; Wiedereintritt</h4><p>Liebende Güte-Meditation · Stille endet · Integration</p></div>
+        <div class="vday-bar"><div class="vday-bar-fill" style="width:100%;background:var(--forest)"></div></div>
+      </div>
+      <div style="background:var(--forest);border-radius:2px;padding:1rem 1.5rem;margin-top:4px;">
+        <p style="font-family:var(--sans);font-size:0.8rem;font-weight:300;color:rgba(240,213,184,0.7);">📍 Anmeldung über <a href="https://www.dhamma.org" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(106,175,180,0.3);">dhamma.org</a> · Nächste Zentren: Bad Bevensen, Berlin, München</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PRICING -->
+<section class="pricing" id="pakete">
+  <div class="pricing-inner">
+    <div class="pricing-header reveal">
+      <span class="section-label">Deine Optionen</span>
+      <h2 class="section-title" style="color:#faf3ea;">Wähle deinen Weg</h2>
+      <p>Drei klare Pakete — von der reinen Yogaausbildung bis zum Komplettpaket mit Ernährungslehre. Alles inklusive, keine versteckten Kosten.</p>
+    </div>
+ 
+    <div class="pricing-grid reveal">
+ 
+      <!-- Option 1: Yoga only -->
+      <div class="price-card">
+        <span class="price-tag-label">Paket 1</span>
+        <h3>Yogalehrerin werden</h3>
+        <p class="price-card-sub">Die vollständige 125h Yogalehrerausbildung — alles inklusive.</p>
+        <div class="price-val"><sup>€</sup>260</div>
+        <p class="price-note">Einmalzahlung · alles inklusive</p>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li>15 Lehrvideos (25h Inhalt)</li>
+          <li>3 × 2h persönliche Calls/Treffen</li>
+          <li>10 Tage Vipassana (Kosten enthalten)</li>
+          <li>100h Meditation · 125h gesamt</li>
+          <li>4-seitige Hausarbeit als Prüfung</li>
+          <li>Zertifikat nach Abschluss</li>
+          <li class="strike">20h Ernährungslehre</li>
+        </ul>
+        <a href="#anmelden" class="btn-enroll" onclick="setPackage('Paket 1: Yogalehrerausbildung – 260€')">Jetzt anmelden →</a>
+      </div>
+ 
+      <!-- Option 2: Yoga + Nutrition (FEATURED) -->
+      <div class="price-card featured">
+        <span class="badge-popular">Empfohlen</span>
+        <span class="price-tag-label">Paket 2 – Komplett</span>
+        <h3>Yoga + Ernährungslehre</h3>
+        <p class="price-card-sub">Yogaausbildung inkl. 20h ayurvedischer Ernährungslehre — das Rundum-Paket.</p>
+        <div class="price-val"><sup>€</sup>180</div>
+        <p class="price-note">Statt 260 + 100 = 360 € · Du sparst 180 €</p>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li>Alles aus Paket 1 inklusive</li>
+          <li>20h Ernährungslehre (Modul)</li>
+          <li>Dosha-Typen &amp; Ayurveda</li>
+          <li>Vegan, pesketarisch, Keto</li>
+          <li>Anti-Zucker &amp; Darmgesundheit</li>
+          <li>Zertifikat für beide Module</li>
+        </ul>
+        <a href="#anmelden" class="btn-enroll" onclick="setPackage('Paket 2: Yoga + Ernährungslehre Komplett – 180€')">Jetzt anmelden →</a>
+      </div>
+ 
+      <!-- Option 3: Nutrition only -->
+      <div class="price-card">
+        <span class="price-tag-label">Paket 3 – Einzelmodul</span>
+        <h3>Ernährungslehre</h3>
+        <p class="price-card-sub">Nur das Ernährungsmodul — ohne Yogaausbildung. 20 Stunden ayurvedisches Ernährungswissen.</p>
+        <div class="price-val"><sup>€</sup>100</div>
+        <p class="price-note">Einzelmodul · zubuchbar</p>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li>20h Ernährungslehre kompakt</li>
+          <li>Ayurvedische Grundlagen</li>
+          <li>Dosha-Typen verstehen</li>
+          <li>Vegan / vegeterisch / pesketarisch</li>
+          <li>Keto &amp; Low-Carb erklärt</li>
+          <li>Zucker &amp; Darmgesundheit</li>
+          <li>Zertifikat nach Abschluss</li>
+          <li class="strike">Yogalehrerausbildung 125h</li>
+          <li class="strike">Vipassana Retreat</li>
+        </ul>
+        <a href="#anmelden" class="btn-enroll" onclick="setPackage('Paket 3: Ernährungslehre Einzelmodul – 100€')">Jetzt anmelden →</a>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- EXAM INFO -->
+<section class="exam">
+  <div class="exam-inner">
+    <div class="exam-left reveal">
+      <span class="section-label">Abschluss</span>
+      <h2>Dein Zertifikat —<br>verdient &amp; echt.</h2>
+      <p>Am Ende der Ausbildung verfasst du eine 4-seitige Hausarbeit. Kein Multiple-Choice, keine Prüfungsangst — eine ehrliche, schriftliche Auseinandersetzung mit dem, was du gelernt hast und was Yoga für dich bedeutet.</p>
+      <p style="margin-top:1rem;">Nach erfolgreicher Abgabe erhältst du dein persönliches Zertifikat von Mara — als Yogalehrerin, oder als Yogalehrerin und zertifizierte Ernährungsberaterin.</p>
+    </div>
+    <div class="exam-card reveal">
+      <h3>Was die Hausarbeit enthält</h3>
+      <div class="exam-items">
+        <div class="exam-item"><span class="exam-item-icon">📖</span>4 Seiten · eigene Wahl des Themas</div>
+        <div class="exam-item"><span class="exam-item-icon">🧘</span>Deine Yoga-Philosophie & Unterrichtsstil</div>
+        <div class="exam-item"><span class="exam-item-icon">🌿</span>Bezug zu Asana, Pranayama oder Meditation</div>
+        <div class="exam-item"><span class="exam-item-icon">💬</span>Persönliche Reflexion der Vipassana-Erfahrung</div>
+        <div class="exam-item"><span class="exam-item-icon">✉️</span>Einreichen per E-Mail · Feedback von Mara</div>
+        <div class="exam-item"><span class="exam-item-icon">🎓</span>Zertifikat nach Abnahme</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT FORM -->
+<section class="contact-section" id="anmelden">
+  <div class="contact-inner">
+    <div class="contact-header reveal">
+      <span class="section-label">Anmeldung</span>
+      <h2 class="section-title">Dein erster Schritt zur<br>Yogalehrerin.</h2>
+      <p style="font-family:var(--sans);font-size:0.95rem;font-weight:300;color:var(--brown-mid);margin-top:1rem;line-height:1.85;">Melde dich unverbindlich an — ich melde mich persönlich bei dir und wir klären alle Details.</p>
+    </div>
+    <form class="contact-form reveal" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handleSubmit(event,this)">
+      <input type="hidden" name="_subject" value="Yogalehrerausbildung – Anmeldung">
+      <input type="hidden" name="_replyto" value="maratumpach@gmail.com">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Dein Name" required>
+        <input type="email" name="email" placeholder="E-Mail-Adresse" required>
+      </div>
+      <input type="tel" name="telefon" placeholder="Telefonnummer (optional)">
+      <select name="paket" id="paketSelect" required>
+        <option value="">Paket wählen</option>
+        <option value="Paket 1: Yogalehrerausbildung – 260€">Paket 1: Yogalehrerausbildung (260 €)</option>
+        <option value="Paket 2: Yoga + Ernährungslehre Komplett – 180€">Paket 2: Yoga + Ernährungslehre — Komplett (180 €)</option>
+        <option value="Paket 3: Ernährungslehre Einzelmodul – 100€">Paket 3: Ernährungslehre Einzelmodul (100 €)</option>
+      </select>
+      <textarea name="nachricht" placeholder="Fragen oder kurze Nachricht (optional)"></textarea>
+      <button type="submit" class="btn-primary" style="width:100%;font-size:0.85rem;padding:1.1rem;">Jetzt unverbindlich anmelden →</button>
+    </form>
+    <div class="contact-success" id="contactSuccess">
+      <p>🌿 Danke! Ich melde mich persönlich bei dir.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">Mara <span>Move</span></span>
+      <p>Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html#about">Über mich</a></li>
+        <li><a href="index.html#preise">Preise</a></li>
+        <li><a href="reisen.html">Reisen</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="index.html#impressum">Impressum</a></li>
+        <li><a href="index.html#datenschutz">Datenschutz</a></li>
+        <li><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mara Tumpach · MARA MOVE</span>
+    <span>Angaben gem. § 5 TMG: Mara Tumpach, Deutschland</span>
+  </div>
+</footer>
+ 
+<script>
+function setPackage(val) {
+  var sel = document.getElementById('paketSelect');
+  sel.value = val;
+  document.getElementById('anmelden').scrollIntoView({behavior:'smooth'});
+}
+function handleSubmit(e, form) {
+  e.preventDefault();
+  fetch(form.action, {method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .then(function(){ form.style.display='none'; document.getElementById('contactSuccess').style.display='block'; })
+    .catch(function(){ form.submit(); });
+}
+var nav = document.getElementById('mainNav');
+window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); });
+document.getElementById('hamburger').addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
+document.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); }); });
+var obs = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
