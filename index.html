@@ -364,24 +364,41 @@ nav:not(.scrolled) .lang-toggle { border-color: rgba(61,37,21,0.3); }
  
 /* ── PRICING ── */
 .pricing { background: var(--sand); padding: 8rem 2rem; }
-.pricing .section-header { text-align: center; margin-bottom: 5rem; }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
-.pricing-card { background: var(--cream); padding: 3rem 2.5rem; border-radius: 2px; position: relative; border: 1px solid rgba(61,37,21,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+.pricing .section-header { text-align: center; margin-bottom: 3rem; }
+.pricing-intro { max-width: 700px; margin: 0 auto 5rem; text-align: center; font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--brown-mid); line-height: 1.85; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+.pricing-card { background: var(--cream); padding: 2.6rem 2.2rem; border-radius: 2px; position: relative; border: 1px solid rgba(61,37,21,0.08); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
 .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(61,37,21,0.12); }
-.pricing-card.featured { background: var(--brown); color: var(--cream); border-color: transparent; }
+.pricing-card.featured { background: var(--forest); color: var(--cream); border-color: transparent; }
 .pricing-card .service-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
 .pricing-card.featured .service-name { color: var(--terra-soft); }
-.pricing-card .price-val { font-family: var(--serif); font-size: 3.5rem; font-weight: 300; color: var(--brown); line-height: 1; }
+.pricing-badge { position: absolute; top: -1px; right: 1.6rem; background: var(--terra); color: var(--white); font-family: var(--sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 0 0 4px 4px; }
+.pricing-card .price-val { font-family: var(--serif); font-size: 3.1rem; font-weight: 300; color: var(--brown); line-height: 1; transition: opacity 0.2s; }
 .pricing-card.featured .price-val { color: var(--white); }
-.pricing-card .price-val sup { font-size: 1.2rem; vertical-align: super; font-weight: 400; }
-.pricing-card .price-desc { font-family: var(--sans); font-size: 0.82rem; color: var(--brown-mid); margin-top: 0.5rem; font-weight: 300; }
+.pricing-card .price-val sup { font-size: 1.1rem; vertical-align: super; font-weight: 400; }
+.pricing-card .price-desc { font-family: var(--sans); font-size: 0.78rem; color: var(--brown-mid); margin-top: 0.4rem; font-weight: 300; min-height: 1.2rem; }
 .pricing-card.featured .price-desc { color: rgba(240,213,184,0.7); }
-.pricing-card hr { border: none; border-top: 1px solid rgba(61,37,21,0.1); margin: 1.5rem 0; }
+.pricing-card hr { border: none; border-top: 1px solid rgba(61,37,21,0.1); margin: 1.3rem 0; }
 .pricing-card.featured hr { border-color: rgba(240,213,184,0.2); }
-.pricing-card ul { list-style: none; font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: var(--brown-mid); display: flex; flex-direction: column; gap: 0.6rem; }
+.pricing-card ul { list-style: none; font-family: var(--sans); font-size: 0.83rem; font-weight: 300; color: var(--brown-mid); display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.4rem; flex: 1; }
 .pricing-card.featured ul { color: rgba(240,213,184,0.8); }
 .pricing-card ul li::before { content: '–'; margin-right: 0.5rem; color: var(--terra); }
 .pricing-card.featured ul li::before { color: var(--terra-soft); }
+ 
+/* Package toggle pills */
+.pkg-toggle { display: flex; gap: 6px; margin-top: auto; flex-wrap: wrap; }
+.pkg-pill {
+  flex: 1; min-width: 58px; padding: 8px 6px; text-align: center;
+  background: rgba(61,37,21,0.05); border: 1px solid rgba(61,37,21,0.12);
+  border-radius: 2px; cursor: pointer; transition: background 0.2s, border-color 0.2s;
+  font-family: var(--sans); font-size: 0.68rem; font-weight: 500; color: var(--brown-mid);
+}
+.pkg-pill .pkg-save { display: block; font-size: 0.6rem; color: var(--teal-deep); margin-top: 2px; font-weight: 400; }
+.pkg-pill.active { background: var(--terra); border-color: var(--terra); color: var(--white); }
+.pkg-pill.active .pkg-save { color: rgba(255,255,255,0.85); }
+.pricing-card.featured .pkg-pill { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: rgba(240,213,184,0.8); }
+.pricing-card.featured .pkg-pill.active { background: var(--terra-soft); border-color: var(--terra-soft); color: var(--white); }
+.pricing-card.featured .pkg-pill .pkg-save { color: rgba(106,175,180,0.9); }
  
 /* ── TIMELINE ── */
 .timeline { background: var(--cream); padding: 8rem 2rem; }
@@ -831,9 +848,9 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <span class="hero-eyebrow">Personal Training · Yoga · Ayurveda · Ernährung</span>
+    <span class="hero-eyebrow">Personal Training · Healing Humans · Mindset · Ernährung</span>
     <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
-    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden — über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.</p>
+    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echtes, ganzheitliches Wohlbefinden nach dem Healing-Humans-Prinzip — Sporttherapie, Mindset und gezielte Ernährung als ein System.</p>
     <div class="hero-cta">
       <a href="#kontakt" class="btn-primary" data-i18n="hero_btn1">Erstgespräch vereinbaren</a>
       <a href="#services" class="btn-outline" data-i18n="hero_btn2">Leistungen entdecken</a>
@@ -871,21 +888,21 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
 <section class="philosophy">
   <div class="philosophy-intro reveal">
     <span class="section-label">Mein Ansatz</span>
-    <h2 class="section-title">Nicht Hype. Nicht Diät.<br>Echte Gesundheit.</h2>
-    <p class="sub">Ich glaube nicht an Abkürzungen. Keine Proteinpulver, kein Kalorienzählen — stattdessen arbeite ich mit dem, was wirklich wirkt: einem gesunden Darm, ayurvedischem Jahrtausendwissen und gezielten Nährstoffen, die deinen Körper ins Gleichgewicht bringen.</p>
+    <h2 class="section-title">Drei Säulen.<br>Ein System.</h2>
+    <p class="sub">Ich arbeite nach dem Healing-Humans-Prinzip: <strong style="color:rgba(240,213,184,0.95);font-weight:500;">Sporttherapie</strong> für deinen Körper, <strong style="color:rgba(240,213,184,0.95);font-weight:500;">Mindset</strong> für deine Psyche und <strong style="color:rgba(240,213,184,0.95);font-weight:500;">Ernährung</strong> als Treibstoff. Drei Säulen, die zusammen für ein gesundes, langes und fittes Leben sorgen — nicht isoliert betrachtet, sondern als ein System.</p>
   </div>
   <div class="philosophy-pillars">
     <div class="pillar reveal">
-      <span class="pillar-icon">🌿</span>
-      <h3>5.000 Jahre Ayurveda</h3>
-      <p>Ayurvedische Kräuter und Gewürze sind keine Trends — sie sind erprobtes Wissen aus Jahrtausenden. Ich arbeite eng mit den Ärztinnen von ayurveda-deutschland.org zusammen und bringe dieses Wissen in dein Leben.</p>
-      <span class="pillar-tag">Kooperation ayurveda-deutschland.org</span>
+      <span class="pillar-icon">🧬</span>
+      <h3>Healing Humans Sporttherapie</h3>
+      <p>Gezielte Biomechanik-Arbeit an Faszien, Bindegewebe und Bewegungsmustern. Dein Körper zeigt oft mehr über deinen Zustand als jedes Gespräch — ich lese und behandle beides.</p>
+      <span class="pillar-tag">Säule 1 · Sporttherapie</span>
     </div>
     <div class="pillar reveal">
       <span class="pillar-icon">🦠</span>
       <h3>Gesunder Darm — gesundes Leben</h3>
       <p>80 % deines Immunsystems sitzen im Darm. Wer seinen Darm heilt, heilt seinen ganzen Körper — mehr Energie, stabiles Gewicht, besserer Schlaf, mehr Fokus. Alles beginnt hier.</p>
-      <span class="pillar-tag">Darmgesundheit</span>
+      <span class="pillar-tag">Säule 2 · Ernährung</span>
     </div>
     <div class="pillar reveal">
       <span class="pillar-icon">🚫</span>
@@ -906,10 +923,10 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
       <span class="pillar-tag">Ganzheitliche Ernährung</span>
     </div>
     <div class="pillar reveal">
-      <span class="pillar-icon">💊</span>
-      <h3>Gezielte Nahrungsergänzung</h3>
-      <p>Als Vitalstofftrainerin analysiere ich gezielt Mangelzustände und ergänze mit hochwertigen Mikronährstoffen — kein Blindkauf im Supermarkt, sondern gezielt und wirksam.</p>
-      <span class="pillar-tag">Vitalstofftherapie</span>
+      <span class="pillar-icon">🧠</span>
+      <h3>Mindset &amp; Biomechanik</h3>
+      <p>Körper und Psyche sind kein Zufall. Eingeschränkte Bewegungsmuster zeigen oft, welches Thema im Nervensystem noch unverarbeitet ist. Ich arbeite mit dir an beiden Ebenen gleichzeitig.</p>
+      <span class="pillar-tag">Säule 3 · Mindset</span>
     </div>
   </div>
 </section>
@@ -1050,9 +1067,9 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
   </div>
   <div class="services-grid reveal">
     <div class="service-card"><span class="service-icon">🏋️‍♀️</span><h3>Personal Training</h3><p>Individuell auf dich abgestimmte Workouts – effektiv, sicher und mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.</p></div>
-    <div class="service-card"><span class="service-icon">🧘‍♀️</span><h3>Yoga &amp; Meditation</h3><p>Mentale Stärke und körperliche Balance. Yoga als Werkzeug für mehr Ruhe, Klarheit und innere Mitte — lizenziert nach BTV.</p></div>
+    <div class="service-card"><span class="service-icon">🧬</span><h3>Healing Humans Sporttherapie</h3><p>Gezielte Biomechanik-Arbeit an Faszien und Bewegungsmustern — Einzeltherapie, die Körper und Nervensystem zusammen betrachtet.</p></div>
     <div class="service-card"><span class="service-icon">🌿</span><h3 data-i18n="sv3_h">Individuelle Ernährung</h3><p data-i18n="sv3_p">Keto, basisch, ayurvedisch oder antientzündlich — ich schaue was zu dir passt. Kein starres Konzept, sondern ehrliche Ernährungsberatung die deinen Körper und Alltag versteht.</p></div>
-    <div class="service-card"><span class="service-icon">🦠</span><h3>Darmgesundheit</h3><p>Darmreinigung, Vitalstoffanalyse und gezielte Regeneration der Darmflora als Fundament für dauerhaftes Wohlbefinden.</p></div>
+    <div class="service-card"><span class="service-icon">🧠</span><h3>Mindset Coaching</h3><p>Bewegungsmuster und psychoemotionale Themen hängen zusammen. Wir arbeiten an beiden Ebenen — für echte, dauerhafte Veränderung.</p></div>
     <div class="service-card"><span class="service-icon">⚡</span><h3>EMS Training</h3><p>Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Trainingspreis enthalten – du musst nichts kaufen.</p></div>
     <div class="service-card"><span class="service-icon">💻</span><h3>Online Coaching</h3><p>Flexibel von überall. Training und Ernährungsberatung digital — für Menschen mit vollem Terminkalender.</p></div>
   </div>
@@ -1093,11 +1110,56 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
     <span class="section-label reveal">Transparenz</span>
     <h2 class="section-title reveal">Investiere in dich</h2>
   </div>
+  <p class="pricing-intro reveal">Buche einzeln oder spare mit einer Karte: <strong>3er –5 %</strong>, <strong>5er –8 %</strong>, <strong>10er –10 %</strong> — je mehr Termine, desto günstiger pro Einheit.</p>
   <div class="pricing-grid">
-    <div class="pricing-card reveal"><span class="service-name">Personal Training</span><div class="price-val"><sup>€</sup>49</div><p class="price-desc">pro Einheit</p><hr><ul><li>Individueller Trainingsplan</li><li>Persönliche Begleitung</li><li>Übungskorrektur</li></ul></div>
-    <div class="pricing-card featured reveal"><span class="service-name">Ernährungsumstellung</span><div class="price-val"><sup>€</sup>59</div><p class="price-desc">Ersttermin inkl. Analyse</p><hr><ul><li>Vitalstoffanalyse</li><li>Ayurvedischer Ernährungsplan</li><li>Darmreinigung inkl.</li></ul></div>
+ 
+    <div class="pricing-card reveal" data-base-price="49">
+      <span class="service-name">Personal Training</span>
+      <div class="price-val" data-price-display><sup>€</sup>49</div>
+      <p class="price-desc" data-price-desc>pro Einheit</p>
+      <hr>
+      <ul><li>Individueller Trainingsplan</li><li>Persönliche Begleitung</li><li>Übungskorrektur</li></ul>
+      <div class="pkg-toggle">
+        <button class="pkg-pill active" data-qty="1">1×</button>
+        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
+        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
+        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+      </div>
+    </div>
+ 
+    <div class="pricing-card featured reveal" data-base-price="99">
+      <span class="pricing-badge">Neu</span>
+      <span class="service-name">Healing Humans Therapiestunde</span>
+      <div class="price-val" data-price-display><sup>€</sup>99</div>
+      <p class="price-desc" data-price-desc>pro Termin</p>
+      <hr>
+      <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Mindset-Anteil inklusive</li><li>Healing-Humans-zertifiziert</li></ul>
+      <div class="pkg-toggle">
+        <button class="pkg-pill active" data-qty="1">1×</button>
+        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
+        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
+        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+      </div>
+    </div>
+ 
+    <div class="pricing-card reveal"><span class="service-name">Ernährungsumstellung</span><div class="price-val"><sup>€</sup>59</div><p class="price-desc">Ersttermin inkl. Analyse</p><hr><ul><li>Vitalstoffanalyse</li><li>Individueller Ernährungsplan</li><li>Darmreinigung inkl.</li></ul></div>
+ 
     <div class="pricing-card reveal"><span class="service-name">Wochenbegleitung</span><div class="price-val"><sup>€</sup>35</div><p class="price-desc">pro Woche</p><hr><ul><li>Regelmäßiger Check-in</li><li>Fortschritts-Tracking</li><li>Motivation &amp; Support</li></ul></div>
-    <div class="pricing-card reveal"><span class="service-name">EMS Training</span><div class="price-val"><sup>€</sup>89</div><p class="price-desc">Gerät inklusive</p><hr><ul><li>Breuer EMS-Gürtel inklusive</li><li>Intensiv &amp; zeitsparend</li><li>Professionelle Anleitung</li></ul></div>
+ 
+    <div class="pricing-card reveal" data-base-price="89">
+      <span class="service-name">EMS Training</span>
+      <div class="price-val" data-price-display><sup>€</sup>89</div>
+      <p class="price-desc" data-price-desc>Gerät inklusive</p>
+      <hr>
+      <ul><li>Breuer EMS-Gürtel inklusive</li><li>Intensiv &amp; zeitsparend</li><li>Professionelle Anleitung</li></ul>
+      <div class="pkg-toggle">
+        <button class="pkg-pill active" data-qty="1">1×</button>
+        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
+        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
+        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+      </div>
+    </div>
+ 
   </div>
 </section>
  
@@ -1287,7 +1349,7 @@ const TRANSLATIONS = {
     nav_about:"Über mich", nav_prices:"Preise", nav_shop:"Shop",
     nav_yoga:"Yogalehrer werden", nav_travel:"Reisen",
     nav_news:"Aktuelles", nav_training:"Trainingsbereich", nav_contact:"Kontakt",
-    hero_eyebrow:"Personal Training \u00b7 Yoga \u00b7 Ayurveda \u00b7 Ernährung",
+    hero_eyebrow:"Personal Training \u00b7 Healing Humans \u00b7 Mindset \u00b7 Ernährung",
     hero_h1:"Fühle dich wohl<br>in deiner <em>Haut</em>",
     hero_sub:"Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden \u2014 über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.",
     hero_btn1:"Erstgespräch vereinbaren", hero_btn2:"Leistungen entdecken",
@@ -1300,7 +1362,7 @@ const TRANSLATIONS = {
     pain_04:"Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.",
     pain_cta:"Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken",
     phil_label:"Mein Ansatz", phil_title:"Nicht Hype. Nicht Diät.<br>Echte Gesundheit.",
-    phil_sub:"Ich glaube nicht an Abkürzungen. Keine Proteinpulver, kein Kalorienzählen \u2014 stattdessen arbeite ich mit dem, was wirklich wirkt: einem gesunden Darm, ayurvedischem Jahrtausendwissen und gezielten Nährstoffen, die deinen Körper ins Gleichgewicht bringen.",
+    phil_sub:"Echte Gesundheit braucht keine Abkürzungen. Ich arbeite nach dem Healing-Humans-Prinzip mit drei Säulen, die zusammengehören: Sporttherapie für den Körper, gezielte Ernährung als Treibstoff und Mindset-Arbeit für das, was sich im Nervensystem festgesetzt hat.",
     p1_h:"5.000 Jahre Ayurveda", p1_p:"Ayurvedische Kräuter und Gewürze sind keine Trends \u2014 sie sind erprobtes Wissen aus Jahrtausenden. Ich arbeite eng mit den Ärztinnen von ayurveda-deutschland.org zusammen.", p1_tag:"Kooperation ayurveda-deutschland.org",
     p2_h:"Gesunder Darm \u2014 gesundes Leben", p2_p:"80 % deines Immunsystems sitzen im Darm. Wer seinen Darm heilt, heilt seinen ganzen Körper \u2014 mehr Energie, stabiles Gewicht, besserer Schlaf, mehr Fokus.", p2_tag:"Darmgesundheit",
     p3_h:"Kein Proteinpulver-Hype", p3_p:"Die Supplement-Industrie macht Milliarden mit Produkten, die du nicht brauchst. Echter Protein-Bedarf lässt sich über vollwertige Lebensmittel decken.", p3_tag:"Anti-Supplement-Hype",
@@ -1391,7 +1453,7 @@ const TRANSLATIONS = {
     nav_about:"About me", nav_prices:"Prices", nav_shop:"Shop",
     nav_yoga:"Become a Yoga Teacher", nav_travel:"Retreats",
     nav_news:"News", nav_training:"Training Area", nav_contact:"Contact",
-    hero_eyebrow:"Personal Training \u00b7 Yoga \u00b7 Ayurveda \u00b7 Nutrition",
+    hero_eyebrow:"Personal Training \u00b7 Healing Humans \u00b7 Mindset \u00b7 Nutrition",
     hero_h1:"Feel truly at home<br>in your <em>skin</em>",
     hero_sub:"No protein powder. No calorie counting. Just real, holistic wellbeing \u2014 through gut health, 5,000 years of herbal wisdom, and the power of real food.",
     hero_btn1:"Book a free call", hero_btn2:"Explore services",
@@ -1623,6 +1685,38 @@ document.getElementById('nlPopup').addEventListener('click', e => {
   const yogaItem = document.getElementById('navYogaItem');
   if (yogaItem && show) yogaItem.style.display = 'list-item';
 })();
+ 
+// ── Package pricing (3er/5er/10er Karten) ──────────────────────
+const PKG_DISCOUNTS = { 1: 0, 3: 5, 5: 8, 10: 10 };
+document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
+  const base = parseFloat(card.dataset.basePrice);
+  const priceEl = card.querySelector('[data-price-display]');
+  const descEl = card.querySelector('[data-price-desc]');
+  const baseDesc = descEl.textContent;
+  function render(qty) {
+    const discount = PKG_DISCOUNTS[qty] || 0;
+    const total = base * qty * (1 - discount / 100);
+    const perUnit = total / qty;
+    if (qty === 1) {
+      priceEl.innerHTML = '<sup>\u20ac</sup>' + base;
+      descEl.textContent = baseDesc;
+    } else {
+      const totalStr = total.toFixed(2).replace(/\.00$/, '').replace('.', ',');
+      const perStr = perUnit.toFixed(2).replace('.', ',');
+      priceEl.innerHTML = '<sup>\u20ac</sup>' + totalStr;
+      descEl.textContent = currentLang === 'en'
+        ? qty + '-pack \u00b7 ' + perStr + ' \u20ac / session'
+        : qty + 'er-Karte \u00b7 ' + perStr + ' \u20ac/Termin';
+    }
+  }
+  card.querySelectorAll('.pkg-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      card.querySelectorAll('.pkg-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      render(parseInt(pill.dataset.qty, 10));
+    });
+  });
+});
  
 // ── Init language ────────────────────────────────────────────
 applyLang(currentLang);
