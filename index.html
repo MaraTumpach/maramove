@@ -1329,7 +1329,7 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
       <h4 style="margin-top:1.5rem;">Social Media</h4>
       <ul>
         <li><a href="https://www.instagram.com/mara.move" target="_blank" rel="noopener">📷 Instagram – @mara.move</a></li>
-        <li><a href="https://www.youtube.com/@Mara_Move" target="_blank" rel="noopener">▶ YouTube – @Mara_Move</a></li>
+        <li><a id="ytLink" href="https://www.youtube.com/@Mara_Move" target="_blank" rel="noopener">▶ YouTube – @Mara_Move</a></li>
       </ul>
     </div>
   </div>
@@ -1579,6 +1579,13 @@ function applyLang(lang) {
   if (ytFrame) ytFrame.src = lang==='en'
     ? 'https://www.youtube.com/embed?listType=user_uploads&list=Move_Mara&index=1&rel=0&modestbranding=1'
     : 'https://www.youtube.com/embed?listType=user_uploads&list=Mara_Move&index=1&rel=0&modestbranding=1';
+  // YouTube channel link in footer: DE -> @Mara_Move, EN -> @Move_Mara
+  const ytLink = document.getElementById('ytLink');
+  if (ytLink) {
+    const ytHandle = lang === 'en' ? 'Move_Mara' : 'Mara_Move';
+    ytLink.href = 'https://www.youtube.com/@' + ytHandle;
+    ytLink.textContent = '▶ YouTube – @' + ytHandle;
+  }
   // Yogalehrer nav item: only show if referred from yogalehrer page
   const yogaItem = document.getElementById('navYogaItem');
   if (yogaItem && yogaItem.style.display !== 'none') {
