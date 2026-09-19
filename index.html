@@ -9,38 +9,44 @@
 <meta name="description" content="Lebensfreude: das Ganzheitskonzept von Mara Tumpach. Für Menschen, die fit bleiben wollen – und für Menschen, die aus ihrer Basis heraus heilen möchten. Bewegungsfreude, Geistesfreude, Alltagsfreude." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
  
 <style>
 :root {
-  /* ── Ei-Weiss Palette: edles Dunkelgrün, Beige, Off-White, Gold ── */
-  --forest-950: #142619;
-  --forest-900: #1E392A;
-  --forest-800: #274a34;
-  --forest-700: #34613f;
-  --forest-600: #47784f;
-  --forest-500: #5c8f63;
+  /* ── Palette aus dem Hero-Foto (Tempel, Grün, Himmel, Stein) ── */
+  --forest-950: #16281a;
+  --forest-900: #2E5A27;
+  --forest-800: #3b6e4c;
+  --forest-700: #4d8058;
+  --forest-600: #5f9268;
+  --forest-500: #7aab82;
  
-  --gold:       #b6903f;
-  --gold-light: #d3b26c;
-  --gold-pale:  #e7d5a8;
+  --gold:       #C28B47;
+  --gold-light: #d3a86a;
+  --gold-pale:  #e8d2ae;
  
-  /* zurückgeholt aus dem ursprünglichen Mara-Move-Look */
-  --terra:      #c4612a;
-  --terra-deep: #a84e20;
-  --terra-soft: #d9845a;
+  /* Indigo & Stein als Sekundärakzente aus dem Foto */
+  --indigo:     #1B365D;
+  --indigo-light: #3a5885;
+  --mint:       #C7E3C8;
+  --stone:      #8C7A6B;
  
-  --cream:      #f8f3e8;
-  --cream-deep: #f1e9d8;
-  --sand:       #e9dcbe;
-  --sand-deep:  #ddc99e;
+  /* zurückgeholte, wärmere Töne */
+  --terra:      #C28B47;
+  --terra-deep: #a06f34;
+  --terra-soft: #d3a86a;
  
-  --ink:        #3d2515;
-  --ink-soft:   #5a3a22;
-  --white:      #fffdf8;
+  --cream:      #F5F7F3;
+  --cream-deep: #eaeee6;
+  --sand:       #e6e2d6;
+  --sand-deep:  #d8d1bd;
  
-  --serif: 'Fraunces', Georgia, serif;
-  --sans:  'Poppins', -apple-system, sans-serif;
+  --ink:        #2B303A;
+  --ink-soft:   #4a4f5a;
+  --white:      #ffffff;
+ 
+  --serif: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --sans:  'Lato', -apple-system, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
  
@@ -85,32 +91,31 @@ nav.scrolled .nav-links a:hover { color: var(--gold-light); }
 nav.scrolled .hamburger span { background: var(--cream); }
  
 /* ── HERO ── */
-.hero { min-height: 100vh; background: var(--sand); position: relative; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
-.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 5rem 5rem; position: relative; z-index: 2; }
-.hero-eyebrow { font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest-700); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease) forwards; }
-.hero h1 { font-family: var(--serif); font-size: clamp(3rem, 5vw, 5rem); font-weight: 400; line-height: 1.08; color: var(--forest-900); opacity: 0; animation: fadeUp 0.9s 0.4s var(--ease) forwards; }
-.hero h1 em { font-style: italic; color: var(--gold); font-weight: 300; }
-.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-soft); margin-top: 1.5rem; max-width: 420px; line-height: 1.85; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; }
+.hero { min-height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 78%; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,40,26,0.1) 0%, rgba(22,40,26,0.35) 45%, rgba(15,24,17,0.88) 100%); }
+.hero-inner { position: relative; z-index: 2; padding: 8rem 5rem 5rem; max-width: 720px; }
+.hero-eyebrow { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease) forwards; }
+.hero h1 { font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 700; line-height: 1.1; color: var(--white); opacity: 0; animation: fadeUp 0.9s 0.4s var(--ease) forwards; }
+.hero h1 em { font-style: italic; color: var(--gold-light); font-weight: 500; }
+.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: rgba(245,247,243,0.85); margin-top: 1.5rem; max-width: 460px; line-height: 1.85; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; }
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.6rem; opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease) forwards; flex-wrap: wrap; }
-.btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--terra); color: var(--cream); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
+.btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--terra); color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
 .btn-primary:hover { background: var(--terra-deep); transform: translateY(-2px); }
-.btn-outline { display: inline-block; padding: 1rem 2.4rem; border: 1px solid var(--forest-700); color: var(--forest-900); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-.btn-gold { display: inline-block; padding: 1rem 2.4rem; background: var(--gold); color: var(--forest-950); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
+.btn-outline { display: inline-block; padding: 1rem 2.4rem; border: 1px solid rgba(245,247,243,0.45); color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
+.btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-2px); }
+.btn-gold { display: inline-block; padding: 1rem 2.4rem; background: var(--gold); color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
 .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-.hero-ornament { position: absolute; bottom: 3rem; left: 5rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.9s 1s var(--ease) forwards; }
-.hero-ornament::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
-.hero-ornament span { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.06em; color: var(--forest-700); }
-.hero-right { position: relative; overflow: hidden; opacity: 0; animation: fadeIn 1.2s 0.5s var(--ease) forwards; }
-.hero-img-main { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,38,25,0.05) 0%, rgba(20,38,25,0.25) 100%); }
+.hero-ornament { position: relative; z-index: 2; margin-top: 2.8rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.9s 1s var(--ease) forwards; }
+.hero-ornament::before { content: ''; width: 40px; height: 1px; background: var(--gold-light); }
+.hero-ornament span { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(245,247,243,0.7); }
  
 .wave-divider { width: 100%; overflow: hidden; line-height: 0; background: var(--sand); }
 .wave-divider svg { display: block; width: 100%; }
  
 /* ── SECTION HELPERS ── */
 .section-label { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.03em; color: var(--forest-600); display: block; margin-bottom: 0.9rem; }
-.section-title { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 400; color: var(--forest-900); line-height: 1.2; }
+.section-title { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 700; color: var(--forest-900); line-height: 1.2; }
 .section-header { max-width: 640px; margin-bottom: 4rem; }
 .section-header.center { max-width: 660px; margin-left: auto; margin-right: auto; text-align: center; }
 .on-dark .section-label { color: var(--gold-light); }
@@ -122,9 +127,9 @@ nav.scrolled .hamburger span { background: var(--cream); }
 .pain-card { padding: 3rem 2.4rem; border-right: 1px solid rgba(33,31,24,0.1); transition: background 0.3s; }
 .pain-card:last-child { border-right: none; }
 .pain-card:hover { background: var(--cream-deep); }
-.pain-card .number { font-family: var(--serif); font-style: italic; font-size: 2.6rem; font-weight: 300; color: var(--gold); opacity: 0.6; line-height: 1; margin-bottom: 1rem; }
+.pain-card .number { font-family: var(--serif); font-style: italic; font-size: 2.6rem; font-weight: 600; color: var(--gold); opacity: 0.6; line-height: 1; margin-bottom: 1rem; }
 .pain-card p { font-family: var(--sans); font-size: 0.94rem; font-weight: 300; color: var(--ink-soft); line-height: 1.8; }
-.pain-cta { margin-top: 3.5rem; padding: 2.3rem 3rem; background: linear-gradient(135deg, var(--terra) 0%, var(--terra-soft) 100%); display: inline-block; border-radius: 2px; color: var(--white); font-family: var(--serif); font-size: 1.3rem; font-style: italic; font-weight: 300; max-width: 620px; line-height: 1.5; }
+.pain-cta { margin-top: 3.5rem; padding: 2.3rem 3rem; background: linear-gradient(135deg, var(--terra) 0%, var(--terra-soft) 100%); display: inline-block; border-radius: 2px; color: var(--white); font-family: var(--serif); font-size: 1.3rem; font-style: italic; font-weight: 500; max-width: 620px; line-height: 1.5; }
  
 /* ── FORK ── */
 .fork { background: var(--cream-deep); padding: 7rem 2rem; }
@@ -209,6 +214,7 @@ nav.scrolled .hamburger span { background: var(--cream); }
 .stat-box:hover { background: var(--cream); }
 .stat-num { font-family: var(--serif); font-size: 3.2rem; font-weight: 400; color: var(--forest-800); line-height: 1; }
 .stat-num.gold { color: var(--gold); }
+.stat-num.indigo { color: var(--indigo); }
 .stat-unit { font-family: var(--serif); font-size: 1.4rem; color: var(--gold); }
 .stat-label { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; color: var(--ink); margin-top: 0.5rem; }
 .stat-desc { font-family: var(--sans); font-size: 0.74rem; font-weight: 300; color: rgba(33,31,24,0.55); margin-top: 0.35rem; line-height: 1.55; }
@@ -269,6 +275,23 @@ nav.scrolled .hamburger span { background: var(--cream); }
 .eco-card h4 { font-family: var(--serif); font-size: 1.15rem; color: var(--forest-900); margin-bottom: 0.6rem; }
 .eco-card p { font-family: var(--sans); font-size: 0.82rem; font-weight: 300; color: var(--ink-soft); line-height: 1.7; }
 .eco-card a.eco-link { display: inline-block; margin-top: 0.9rem; font-size: 0.76rem; font-weight: 700; color: var(--forest-800); text-decoration: none; border-bottom: 1px solid var(--gold); }
+.eco-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 2px; margin-bottom: 1.2rem; }
+ 
+/* ── EXPAND / MEHR ERFAHREN ── */
+.expand { margin-top: 0.7rem; text-align: left; }
+.expand summary { list-style: none; cursor: pointer; font-family: var(--sans); font-size: 0.78rem; font-weight: 700; color: var(--terra-deep); display: inline-flex; align-items: center; gap: 0.35rem; }
+.expand summary::-webkit-details-marker { display: none; }
+.expand summary::before { content: '+'; font-size: 0.95rem; line-height: 1; }
+.expand[open] summary::before { content: '–'; }
+.expand .less-label { display: none; }
+.expand[open] .more-label { display: none; }
+.expand[open] .less-label { display: inline; }
+.expand .expand-body { margin-top: 0.7rem; font-family: var(--sans); font-weight: 300; font-size: 0.87rem; color: var(--ink-soft); line-height: 1.8; }
+.eco-card .expand { text-align: center; }
+.path2 .expand summary { color: var(--gold-light); }
+.path2 .expand .expand-body { color: rgba(248,243,232,0.68); }
+ 
+.nl-portrait { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 8px 24px rgba(33,31,24,0.15); margin-bottom: 1.2rem; }
  
 /* ── WHY ── */
 .why { background: var(--white); padding: 7.5rem 2rem; }
@@ -436,10 +459,10 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   .nav-logo, nav.scrolled .nav-logo { color: var(--forest-900); }
   nav.scrolled .nav-logo { color: var(--cream); }
   .hamburger { display: flex; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 6rem 1.2rem 3rem; }
+  .hero { min-height: 92vh; }
+  .hero-inner { padding: 6rem 1.2rem 3rem; }
   .hero h1 { font-size: clamp(2.3rem, 9vw, 3.1rem); }
-  .hero-right { height: 60vw; min-height: 220px; }
+  .hero-bg { object-position: center 85%; }
   .hero-ornament { display: none; }
   .btn-primary, .btn-outline, .btn-gold { width: 100%; text-align: center; padding: 0.85rem 1.8rem; }
   .gallery-grid { display: none; }
@@ -484,7 +507,9 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
  
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
+  <img class="hero-bg" src="assets/gallery-1.jpg" alt="Lebensfreude – Yoga & Bewegung">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
     <span class="hero-eyebrow">Ganzheitlich · Von Grund auf · Lebensfreude</span>
     <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
     <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echte Lebensfreude, die von innen wächst — für alle, die einfach fit bleiben wollen, und für alle, die aus ihrer Basis heraus heilen möchten.</p>
@@ -494,14 +519,11 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <div class="hero-ornament"><span>Mara Tumpach · Oberottmarshausen, nähe München</span></div>
   </div>
-  <div class="hero-right">
-    <img class="hero-img-main" src="assets/gallery-1.jpg" alt="Lebensfreude Training">
-  </div>
 </section>
  
 <div class="wave-divider">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z" fill="#f1e9d8"/>
+    <path d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z" fill="#eaeee6"/>
   </svg>
 </div>
  
@@ -575,7 +597,11 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="path2-lede reveal">
       <span class="section-label" style="color:var(--gold-light)">Weg zwei · Therapieweg</span>
       <h2 class="section-title" style="color:var(--cream)">Von Grund auf zur Lebensfreude</h2>
-      <p>Der Therapieweg setzt an der Basis an, statt nur Symptome zu behandeln. Fundiert durch mein Therapeutenstudium in Sporttherapie und ganzheitlicher Körperarbeit beginnt alles mit einer ganzheitlichen Analyse und einer Ausleitung, bevor wir über drei Säulen wieder aufbauen — nie isoliert, sondern als ein System, immer individuell auf dich abgestimmt.</p>
+      <p>Der Therapieweg setzt an der Basis an, statt nur Symptome zu behandeln — drei Säulen, die als ein System wirken.</p>
+      <details class="expand">
+        <summary><span class="more-label">Wie das genau funktioniert</span><span class="less-label">Weniger anzeigen</span></summary>
+        <div class="expand-body">Fundiert durch mein Therapeutenstudium in Sporttherapie und ganzheitlicher Körperarbeit beginnt alles mit einer ganzheitlichen Analyse und einer Ausleitung, bevor wir über die drei Säulen wieder aufbauen — immer individuell auf dich abgestimmt.</div>
+      </details>
     </div>
     <div class="pillars reveal">
       <div class="pillar">
@@ -644,7 +670,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="stat-box"><div class="stat-num">80<span class="stat-unit">%</span></div><div class="stat-label">des Immunsystems</div><div class="stat-desc">sitzt im Darm — Alltagsfreude beginnt hier</div></div>
     <div class="stat-box"><div class="stat-num gold">5.000</div><div class="stat-label">Jahre Ayurveda</div><div class="stat-desc">erprobtes Heilwissen aus der ältesten Medizin der Welt</div></div>
     <div class="stat-box"><div class="stat-num">74<span class="stat-unit">g</span></div><div class="stat-label">Zucker täglich</div><div class="stat-desc">nimmt ein Durchschnittsdeutscher auf — 3× zu viel</div></div>
-    <div class="stat-box"><div class="stat-num gold">6</div><div class="stat-label">Schritte</div><div class="stat-desc">im Therapieweg-Programm</div></div>
+    <div class="stat-box"><div class="stat-num indigo">6</div><div class="stat-label">Schritte</div><div class="stat-desc">im Therapieweg-Programm</div></div>
     <div class="stat-box"><div class="stat-num">430<span class="stat-unit">+</span></div><div class="stat-label">Stunden Erfahrung</div><div class="stat-desc">gesammelt auf der Mein Schiff 4 und in Clubanlagen</div></div>
   </div>
   <div class="sugar-viz reveal">
@@ -697,9 +723,12 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <div class="about-content reveal">
     <span class="section-label">Über mich</span>
     <h2 class="section-title">Hi, ich bin <em style="font-style:italic;color:var(--gold);">Mara</em></h2>
-    <p>Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.</p>
-    <p>Mein Ansatz ist radikal ganzheitlich: Körper, Psyche und Ernährung gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.</p>
+    <p>Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — echte Gesundheit braucht kein Produkt, das man kaufen muss.</p>
     <blockquote class="about-quote">„Dein Körper kann alles — überzeuge deinen Geist und geh den ersten Schritt."</blockquote>
+    <details class="expand">
+      <summary><span class="more-label">Mehr über meinen Ansatz</span><span class="less-label">Weniger anzeigen</span></summary>
+      <div class="expand-body">Mein Ansatz ist radikal ganzheitlich: Körper, Psyche und Ernährung gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.</div>
+    </details>
     <div class="partner-badge">
       <div class="dot"></div>
       <p>Kooperation mit <a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a> — ärztlich begleitetes Ayurveda-Wissen in der Praxis</p>
@@ -725,25 +754,41 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="eco-card">
       <span class="eco-icon">☕</span>
       <h4>Ei-Weiss Café &amp; Hofladen</h4>
-      <p>Bio-Kaffee, Golden Milk und Hofladen-Schätze in Oberottmarshausen — der niedrigschwellige Einstieg in die Lebensfreude-Welt.</p>
+      <p>Der niedrigschwellige Einstieg in die Lebensfreude-Welt.</p>
+      <details class="expand">
+        <summary><span class="more-label">Mehr erfahren</span><span class="less-label">Weniger</span></summary>
+        <div class="expand-body">Bio-Kaffee, Golden Milk und Hofladen-Schätze in Oberottmarshausen — 24/7 geöffnet, Selbstbedienung direkt ab Hof.</div>
+      </details>
       <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" class="eco-link">Zum Hofladen →</a>
     </div>
     <div class="eco-card">
       <span class="eco-icon">🧘</span>
       <h4>Sonntagsfreude</h4>
-      <p>Yoga auf der Wiese hinterm Café, danach ein gemeinsames Vital-Frühstück. Bewegung und Genuss an einem Vormittag.</p>
+      <p>Bewegung und Genuss an einem Vormittag.</p>
+      <details class="expand">
+        <summary><span class="more-label">Mehr erfahren</span><span class="less-label">Weniger</span></summary>
+        <div class="expand-body">Yoga auf der Wiese hinterm Café, danach ein gemeinsames Vital-Frühstück im Sonntagscafé — bei schönem Wetter, ganz entspannt.</div>
+      </details>
       <a href="https://maratumpach.github.io/Ei-Weiss/sonntagscafe.html" target="_blank" rel="noopener" class="eco-link">Zum Sonntagscafé →</a>
     </div>
     <div class="eco-card">
-      <span class="eco-icon">🐔</span>
-      <h4>Hühnerpatenschaft</h4>
-      <p>Auch Gutes tun gehört zur Geistesfreude: Übernimm eine Patenschaft für ein gerettetes Huhn und bekomme monatlich frische Bio-Eier.</p>
-      <a href="https://maratumpach.github.io/Ei-Weiss/#paten" target="_blank" rel="noopener" class="eco-link">Patin werden →</a>
+      <img src="assets/bild1.jpg" alt="Gerettetes Huhn auf dem Ei-Weiss Hof" class="eco-photo">
+      <h4>🐔 Hühnerpatenschaft</h4>
+      <p>Auch Gutes tun gehört zur Geistesfreude.</p>
+      <details class="expand">
+        <summary><span class="more-label">Mehr erfahren</span><span class="less-label">Weniger</span></summary>
+        <div class="expand-body">Übernimm eine Patenschaft für ein gerettetes Huhn und bekomme monatlich frische Bio-Eier direkt aus Oberottmarshausen.</div>
+      </details>
+      <a href="https://maratumpach.github.io/Ei-Weiss/index.html#paten" target="_blank" rel="noopener" class="eco-link">Patin werden →</a>
     </div>
     <div class="eco-card">
       <span class="eco-icon">🌿</span>
       <h4>Ayurveda-NEM-Linie</h4>
-      <p>Unsere hochwertigen ayurvedischen Nahrungsergänzungen liegen im Hofladen aus — gezielt, nicht als Blindkauf.</p>
+      <p>Gezielt statt Blindkauf.</p>
+      <details class="expand">
+        <summary><span class="more-label">Mehr erfahren</span><span class="less-label">Weniger</span></summary>
+        <div class="expand-body">Unsere hochwertigen ayurvedischen Nahrungsergänzungen liegen im Hofladen aus — abgestimmt auf deine Dosha-Analyse.</div>
+      </details>
       <a href="shop.html" class="eco-link">Zum Shop →</a>
     </div>
   </div>
@@ -946,14 +991,14 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <section class="newsletter-section" id="newsletter">
   <div class="newsletter-inner">
     <div class="newsletter-left reveal">
+      <img src="assets/bild5.jpg" alt="Mara mit einem ihrer Hühner" class="nl-portrait">
       <span class="section-label">Bleib dabei</span>
       <h2>Rezepte, Tipps &amp; echtes Wissen — kostenlos.</h2>
-      <p>Neue zuckerfreie Rezepte, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke — direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.</p>
+      <p>Kurz &amp; herzlich, was mich gerade bewegt — Rezepte, Ayurveda-Tipps und ehrliche Einblicke direkt ins Postfach.</p>
       <ul class="nl-benefits">
         <li>🌿 Neue zuckerfreie Rezepte</li>
-        <li>💡 Tipps &amp; Tricks rund um Ernährung &amp; Sport</li>
         <li>🦠 Darmgesundheit verständlich erklärt</li>
-        <li>🧘‍♀️ Yoga &amp; Bewegungsimpulse für den Alltag</li>
+        <li>🐔 Neuigkeiten von Hof &amp; Hühnern</li>
       </ul>
     </div>
     <div class="newsletter-right reveal">
