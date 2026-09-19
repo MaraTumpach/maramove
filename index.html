@@ -74,31 +74,29 @@ nav {
   transition: background 0.4s var(--ease), padding 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); padding: 0.85rem 3.5rem; box-shadow: 0 1px 0 rgba(214,184,120,0.12); }
-.nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--forest-900); text-decoration: none; transition: color 0.4s; flex-shrink: 0; }
-.nav-logo em { font-style: italic; color: var(--gold); }
-nav.scrolled .nav-logo { color: var(--cream); }
+.nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; transition: color 0.4s; flex-shrink: 0; text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
+.nav-logo em { font-style: italic; color: var(--gold-light); }
 .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; flex-wrap: wrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 500; color: var(--ink-soft); text-decoration: none; position: relative; transition: color 0.3s; white-space: nowrap; }
-nav.scrolled .nav-links a { color: rgba(248,243,232,0.78); }
-.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease); }
-.nav-links a:hover { color: var(--gold); }
-nav.scrolled .nav-links a:hover { color: var(--gold-light); }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.92); text-decoration: none; position: relative; transition: color 0.3s; white-space: nowrap; text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold-light); transition: width 0.3s var(--ease); }
+.nav-links a:hover { color: var(--gold-light); }
 .nav-links a:hover::after { width: 100%; }
-.nav-cta { padding: 0.55rem 1.2rem; background: var(--forest-800); color: var(--cream) !important; border-radius: 2px; font-size: 0.75rem !important; }
+.nav-cta { padding: 0.55rem 1.2rem; background: var(--forest-800); color: var(--cream) !important; border-radius: 2px; font-size: 0.75rem !important; text-shadow: none !important; }
 .nav-cta::after { display: none; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; flex-shrink: 0; }
-.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--ink); transition: 0.3s; }
-nav.scrolled .hamburger span { background: var(--cream); }
+.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: 0.3s; box-shadow: 0 1px 4px rgba(0,0,0,0.3); }
  
 /* ── HERO ── */
 .hero { min-height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 78%; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,40,26,0.1) 0%, rgba(22,40,26,0.35) 45%, rgba(15,24,17,0.88) 100%); }
+.hero-overlay { position: absolute; inset: 0; background:
+  linear-gradient(100deg, rgba(12,20,14,0.82) 0%, rgba(12,20,14,0.55) 35%, rgba(12,20,14,0.15) 60%, rgba(12,20,14,0.05) 75%),
+  linear-gradient(180deg, rgba(22,40,26,0.05) 0%, rgba(22,40,26,0.2) 45%, rgba(12,20,14,0.85) 100%); }
 .hero-inner { position: relative; z-index: 2; padding: 8rem 5rem 5rem; max-width: 720px; }
-.hero-eyebrow { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease) forwards; }
-.hero h1 { font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 700; line-height: 1.1; color: var(--white); opacity: 0; animation: fadeUp 0.9s 0.4s var(--ease) forwards; }
+.hero-eyebrow { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease) forwards; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+.hero h1 { font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 700; line-height: 1.1; color: var(--white); opacity: 0; animation: fadeUp 0.9s 0.4s var(--ease) forwards; text-shadow: 0 4px 24px rgba(0,0,0,0.45); }
 .hero h1 em { font-style: italic; color: var(--gold-light); font-weight: 500; }
-.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: rgba(245,247,243,0.85); margin-top: 1.5rem; max-width: 460px; line-height: 1.85; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; }
+.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 400; color: rgba(255,255,255,0.94); margin-top: 1.5rem; max-width: 460px; line-height: 1.85; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; text-shadow: 0 2px 14px rgba(0,0,0,0.45); }
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.6rem; opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease) forwards; flex-wrap: wrap; }
 .btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--terra); color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
 .btn-primary:hover { background: var(--terra-deep); transform: translateY(-2px); }
@@ -108,7 +106,7 @@ nav.scrolled .hamburger span { background: var(--cream); }
 .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
 .hero-ornament { position: relative; z-index: 2; margin-top: 2.8rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.9s 1s var(--ease) forwards; }
 .hero-ornament::before { content: ''; width: 40px; height: 1px; background: var(--gold-light); }
-.hero-ornament span { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(245,247,243,0.7); }
+.hero-ornament span { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
  
 .wave-divider { width: 100%; overflow: hidden; line-height: 0; background: var(--sand); }
 .wave-divider svg { display: block; width: 100%; }
@@ -408,6 +406,7 @@ nav.scrolled .hamburger span { background: var(--cream); }
 .nl-popup-close { position: absolute; top: 1rem; right: 1.2rem; background: rgba(255,255,255,0.1); border: none; width: 28px; height: 28px; border-radius: 50%; font-size: 1rem; color: rgba(248,243,232,0.7); cursor: pointer; line-height: 1; z-index: 10; display: flex; align-items: center; justify-content: center; }
 .nl-popup-close:hover { background: var(--gold); color: var(--forest-950); }
 .nl-popup-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 0.8rem; }
+.nl-popup-portrait { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin-bottom: 1.1rem; }
 .nl-popup h3 { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; color: var(--cream); margin-bottom: 0.8rem; line-height: 1.15; }
 .nl-popup p.nl-popup-desc { font-family: var(--sans); font-size: 0.87rem; font-weight: 300; color: rgba(248,243,232,0.7); line-height: 1.8; margin-bottom: 1.4rem; }
 .nl-popup-perks { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; }
@@ -456,8 +455,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   nav { padding: 0.9rem 1.2rem !important; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--forest-950); padding: 1.2rem 1.5rem; gap: 1rem; max-height: 80vh; overflow-y: auto; }
   .nav-links.open { display: flex; }
-  .nav-logo, nav.scrolled .nav-logo { color: var(--forest-900); }
-  nav.scrolled .nav-logo { color: var(--cream); }
   .hamburger { display: flex; }
   .hero { min-height: 92vh; }
   .hero-inner { padding: 6rem 1.2rem 3rem; }
@@ -1028,6 +1025,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="nl-popup-deco"></div>
     <button class="nl-popup-close" onclick="closePopup()" aria-label="Schließen">×</button>
     <div class="nl-popup-body">
+      <img src="assets/bild5.jpg" alt="Mara mit einem ihrer Hühner" class="nl-popup-portrait">
       <span class="nl-popup-eyebrow">Kostenlos &amp; wertvoll</span>
       <h3>Bevor du<br>weiterstöberst —</h3>
       <p class="nl-popup-desc">Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.</p>
