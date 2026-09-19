@@ -4,33 +4,39 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-<meta name="theme-color" content="#c4612a" />
-<title>Mara Move – Fühle dich wohl in deiner Haut</title>
+<meta name="theme-color" content="#16311f" />
+<title>Lebensfreude by Mara Tumpach – Heilung beginnt an der Ursache</title>
+<meta name="description" content="Lebensfreude: das Ganzheitskonzept von Mara Tumpach. Für Menschen, die fit bleiben wollen – und für Menschen, die tiefer heilen wollen. Bewegungsfreude, Geistesfreude, Alltagsfreude." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
  
 <style>
 :root {
-  --sand:       #f0d5b8;
-  --sand-deep:  #e8c9a4;
-  --sand-light: #faf3ea;
-  --terra:      #c4612a;
-  --terra-deep: #a84e20;
-  --terra-soft: #d9845a;
-  --teal:       #6aafb4;
-  --teal-deep:  #4a8f94;
-  --forest:     #2D4A2D;
-  --forest-mid: #3D6B3D;
-  --forest-light:#4a7c4a;
-  --brown:      #3d2515;
-  --brown-mid:  #5a3a22;
-  --cream:      #fdf8f2;
-  --white:      #ffffff;
-  --ink:        #2a1a0e;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans:  'Jost', sans-serif;
-  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* ── Ei-Weiss-adjacent palette: dark, verdant, warm gold ── */
+  --forest-950: #0e1c13;
+  --forest-900: #142e1c;
+  --forest-800: #1c3e25;
+  --forest-700: #27512f;
+  --forest-600: #38683e;
+  --forest-500: #4d7d51;
+ 
+  --gold:       #b6903f;
+  --gold-light: #d3b26c;
+  --gold-pale:  #e7d5a8;
+ 
+  --cream:      #f8f3e8;
+  --cream-deep: #f1e9d8;
+  --sand:       #e9dcbe;
+  --sand-deep:  #ddc99e;
+ 
+  --ink:        #1a1f16;
+  --ink-soft:   #3c4436;
+  --white:      #fffdf8;
+ 
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Manrope', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
  
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,997 +48,494 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
  
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--sand); }
-::-webkit-scrollbar-thumb { background: var(--terra); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--forest-700); border-radius: 2px; }
  
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 1.2rem 4rem;
+  padding: 1.3rem 4rem;
   display: flex; align-items: center; justify-content: space-between;
-  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  transition: background 0.4s var(--ease), padding 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 nav.scrolled {
-  background: rgba(253,248,242,0.96);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(61,37,21,0.08);
+  background: rgba(14,28,19,0.94);
+  backdrop-filter: blur(14px);
+  padding: 0.9rem 4rem;
+  box-shadow: 0 1px 0 rgba(214,184,120,0.12);
 }
-.nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--brown); letter-spacing: 0.02em; text-decoration: none; }
-.nav-logo span { color: var(--terra); }
-.nav-links { display: flex; gap: 1.8rem; list-style: none; }
-.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown-mid); text-decoration: none; position: relative; transition: color 0.3s; }
-.nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--terra); transition: width 0.3s var(--ease); }
-.nav-links a:hover { color: var(--terra); }
+.nav-logo { font-family: var(--serif); font-size: 1.55rem; font-weight: 500; color: var(--forest-900); letter-spacing: 0.01em; text-decoration: none; transition: color 0.4s; }
+.nav-logo em { font-style: italic; color: var(--gold); }
+nav.scrolled .nav-logo { color: var(--cream); }
+.nav-links { display: flex; gap: 1.9rem; list-style: none; align-items: center; }
+.nav-links a { font-family: var(--sans); font-size: 0.82rem; font-weight: 500; color: var(--ink-soft); text-decoration: none; position: relative; transition: color 0.3s; }
+nav.scrolled .nav-links a { color: rgba(248,243,232,0.78); }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease); }
+.nav-links a:hover { color: var(--gold); }
+nav.scrolled .nav-links a:hover { color: var(--gold-light); }
 .nav-links a:hover::after { width: 100%; }
+.nav-cta { padding: 0.6rem 1.3rem; background: var(--forest-800); color: var(--cream) !important; border-radius: 2px; font-size: 0.78rem !important; }
+.nav-cta::after { display: none; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--brown); transition: 0.3s; }
- 
-.lang-toggle {
-  background: none; border: 1px solid rgba(61,37,21,0.25); border-radius: 2px;
-  font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
-  color: var(--brown-mid); cursor: pointer; padding: 5px 12px;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-  flex-shrink: 0;
-}
-.lang-toggle:hover { border-color: var(--terra); color: var(--terra); }
-nav.scrolled .lang-toggle { border-color: rgba(61,37,21,0.25); }
-/* On dark hero, before scroll */
-nav:not(.scrolled) .lang-toggle { border-color: rgba(61,37,21,0.3); }
+.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--ink); transition: 0.3s; }
+nav.scrolled .hamburger span { background: var(--cream); }
  
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
-  background: var(--sand);
+  background: radial-gradient(ellipse 120% 90% at 30% 0%, var(--forest-800) 0%, var(--forest-900) 45%, var(--forest-950) 100%);
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex; align-items: center;
+  padding: 9rem 4rem 6rem;
   overflow: hidden;
 }
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none; z-index: 1;
+  background-image: radial-gradient(circle at 82% 20%, rgba(214,184,120,0.14) 0%, transparent 45%);
+  pointer-events: none;
 }
-.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 5rem 5rem; position: relative; z-index: 2; }
-.hero-eyebrow { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease) forwards; }
-.hero h1 { font-family: var(--serif); font-size: clamp(3.5rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.08; color: var(--brown); letter-spacing: -0.01em; opacity: 0; animation: fadeUp 0.9s 0.4s var(--ease) forwards; }
-.hero h1 em { font-style: italic; color: var(--terra); }
-.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--brown-mid); margin-top: 1.5rem; max-width: 380px; line-height: 1.8; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; }
-.hero-cta { display: flex; gap: 1rem; margin-top: 3rem; opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease) forwards; flex-wrap: wrap; }
-.btn-primary { display: inline-block; padding: 1rem 2.5rem; background: var(--terra); color: var(--white); font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
-.btn-primary:hover { background: var(--terra-deep); transform: translateY(-2px); }
-.btn-outline { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--brown-mid); color: var(--brown-mid); font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
-.btn-outline:hover { border-color: var(--terra); color: var(--terra); transform: translateY(-2px); }
-.hero-ornament { position: absolute; bottom: 3rem; left: 5rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.9s 1s var(--ease) forwards; }
-.hero-ornament::before { content: ''; width: 40px; height: 1px; background: var(--teal); }
-.hero-ornament span { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-deep); }
-.hero-right { position: relative; overflow: hidden; opacity: 0; animation: fadeIn 1.2s 0.5s var(--ease) forwards; }
-.hero-img-main { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-sun { position: absolute; top: 4rem; right: 4rem; width: 80px; height: 80px; border-radius: 50%; background: var(--terra); opacity: 0.15; }
- 
-/* ── WAVE ── */
-.wave-divider { width: 100%; overflow: hidden; line-height: 0; background: var(--sand); }
-.wave-divider svg { display: block; width: 100%; }
+.hero::after {
+  content: '';
+  position: absolute; bottom: -18%; right: -10%;
+  width: 620px; height: 620px; border-radius: 50%;
+  border: 1px solid rgba(214,184,120,0.18);
+  pointer-events: none;
+}
+.hero-inner { max-width: 720px; position: relative; z-index: 2; }
+.hero-eyebrow { display: inline-block; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.06em; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp 0.9s 0.15s var(--ease) forwards; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(214,184,120,0.35); }
+.hero h1 { font-family: var(--serif); font-size: clamp(3rem, 6vw, 5.4rem); font-weight: 400; line-height: 1.05; color: var(--cream); opacity: 0; animation: fadeUp 1s 0.35s var(--ease) forwards; }
+.hero h1 em { font-style: italic; color: var(--gold-light); font-weight: 300; }
+.hero-sub { font-family: var(--sans); font-size: 1.08rem; font-weight: 300; color: rgba(248,243,232,0.78); margin-top: 1.8rem; max-width: 500px; line-height: 1.85; opacity: 0; animation: fadeUp 1s 0.55s var(--ease) forwards; }
+.hero-cta { display: flex; gap: 1rem; margin-top: 2.8rem; opacity: 0; animation: fadeUp 1s 0.75s var(--ease) forwards; flex-wrap: wrap; }
+.btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--gold); color: var(--forest-950); font-family: var(--sans); font-size: 0.82rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-outline { display: inline-block; padding: 1rem 2.4rem; border: 1px solid rgba(248,243,232,0.4); color: var(--cream); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
+.btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-2px); }
+.btn-dark { display: inline-block; padding: 1rem 2.4rem; background: var(--forest-900); color: var(--cream); font-family: var(--sans); font-size: 0.82rem; font-weight: 600; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
+.btn-dark:hover { background: var(--forest-800); transform: translateY(-2px); }
+.hero-tag { position: absolute; bottom: 3rem; left: 4rem; font-family: var(--sans); font-size: 0.72rem; color: rgba(248,243,232,0.45); letter-spacing: 0.05em; z-index: 2; opacity: 0; animation: fadeUp 1s 0.95s var(--ease) forwards; }
  
 /* ── SECTION HELPERS ── */
-.section-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-deep); display: block; margin-bottom: 1rem; }
-.section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--brown); line-height: 1.2; margin-bottom: 1.5rem; }
+.section-label { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; color: var(--forest-600); display: block; margin-bottom: 0.9rem; }
+.section-title { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 400; color: var(--forest-900); line-height: 1.2; }
+.section-header { max-width: 640px; margin-bottom: 4rem; }
+.section-header.center { max-width: 640px; margin-left: auto; margin-right: auto; text-align: center; }
+.on-dark .section-label { color: var(--gold-light); }
+.on-dark .section-title { color: var(--cream); }
  
-/* ── PAIN ── */
-.pain { background: var(--cream); padding: 8rem 2rem; text-align: center; }
-.pain-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; max-width: 960px; margin: 4rem auto 0; border: 1px solid rgba(61,37,21,0.1); }
-.pain-card { padding: 3rem 2.5rem; border-right: 1px solid rgba(61,37,21,0.1); transition: background 0.3s; }
-.pain-card:last-child { border-right: none; }
-.pain-card:hover { background: var(--sand-light); }
-.pain-card .number { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: var(--terra); opacity: 0.3; line-height: 1; margin-bottom: 1rem; }
-.pain-card p { font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--brown-mid); line-height: 1.8; }
-.pain-cta { margin-top: 4rem; padding: 2.5rem 3rem; background: linear-gradient(135deg, var(--terra) 0%, var(--terra-soft) 100%); display: inline-block; border-radius: 2px; color: var(--white); font-family: var(--serif); font-size: 1.4rem; font-style: italic; font-weight: 300; max-width: 600px; line-height: 1.5; }
+/* ── FORK (two paths) ── */
+.fork { background: var(--cream); padding: 7rem 4rem; }
+.fork-head { max-width: 680px; margin: 0 auto 4rem; text-align: center; }
+.fork-head p { font-family: var(--sans); font-weight: 300; color: var(--ink-soft); font-size: 1.02rem; margin-top: 1rem; line-height: 1.85; }
+.fork-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 1180px; margin: 0 auto; background: var(--sand-deep); }
+.fork-card { padding: 3.5rem 3rem; position: relative; text-decoration: none; transition: transform 0.35s var(--ease); display: flex; flex-direction: column; }
+.fork-card.a { background: var(--cream-deep); color: var(--ink); }
+.fork-card.b { background: var(--forest-900); color: var(--cream); }
+.fork-card:hover { transform: translateY(-6px); }
+.fork-kicker { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 1.4rem; }
+.fork-card.a .fork-kicker { color: var(--forest-600); }
+.fork-card.b .fork-kicker { color: var(--gold-light); }
+.fork-card h3 { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; line-height: 1.25; margin-bottom: 1.1rem; }
+.fork-card.a h3 { color: var(--forest-900); }
+.fork-card.b h3 { color: var(--cream); }
+.fork-card p { font-family: var(--sans); font-weight: 300; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.8rem; }
+.fork-card.a p { color: var(--ink-soft); }
+.fork-card.b p { color: rgba(248,243,232,0.72); }
+.fork-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.fork-tag { font-size: 0.72rem; padding: 5px 12px; border-radius: 20px; font-family: var(--sans); font-weight: 500; }
+.fork-card.a .fork-tag { background: rgba(39,81,47,0.08); color: var(--forest-700); }
+.fork-card.b .fork-tag { background: rgba(214,184,120,0.14); color: var(--gold-light); }
+.fork-more { margin-top: auto; font-family: var(--sans); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
+.fork-card.a .fork-more { color: var(--forest-800); }
+.fork-card.b .fork-more { color: var(--gold-light); }
+.fork-more .arrow { transition: transform 0.3s var(--ease); }
+.fork-card:hover .arrow { transform: translateX(5px); }
  
-/* ── PHILOSOPHY (NEW – forest green) ── */
-.philosophy {
-  background: var(--forest);
-  padding: 8rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.philosophy::before {
-  content: '';
-  position: absolute; top: -80px; right: -80px;
-  width: 320px; height: 320px; border-radius: 50%;
-  background: var(--forest-light); opacity: 0.25;
-}
-.philosophy::after {
-  content: '';
-  position: absolute; bottom: -60px; left: -60px;
-  width: 240px; height: 240px; border-radius: 50%;
-  background: var(--terra); opacity: 0.08;
-}
-.philosophy .section-label { color: rgba(106,175,180,0.8); }
-.philosophy .section-title { color: var(--sand-light); }
+/* ── PATH 1: Bewegungsfreude ── */
+.path1 { background: var(--cream); padding: 7rem 4rem; }
+.path1-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px; max-width: 1180px; margin: 0 auto; background: rgba(26,31,22,0.07); }
+.svc-card { background: var(--white); padding: 2.8rem 2.2rem; transition: background 0.3s; }
+.svc-card:hover { background: var(--cream-deep); }
+.svc-icon { font-size: 1.7rem; margin-bottom: 1.1rem; display: block; }
+.svc-card h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--forest-900); margin-bottom: 0.6rem; }
+.svc-card p { font-family: var(--sans); font-size: 0.87rem; font-weight: 300; color: var(--ink-soft); line-height: 1.75; }
  
-.philosophy-intro {
-  max-width: 760px; margin: 0 auto; text-align: center;
-  position: relative; z-index: 1;
-}
-.philosophy-intro .sub {
-  font-family: var(--sans); font-size: 1.05rem; font-weight: 300;
-  color: rgba(240,213,184,0.75); max-width: 580px; margin: 0 auto 4rem;
-  line-height: 1.85;
-}
- 
-.philosophy-pillars {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2px;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.04);
-  position: relative; z-index: 1;
-}
-.pillar {
-  background: rgba(255,255,255,0.03);
-  padding: 3.5rem 2.5rem;
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: background 0.3s;
-  position: relative;
-}
-.pillar:hover { background: rgba(255,255,255,0.07); }
-.pillar::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--terra);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease);
-}
+/* ── PATH 2: Healing Humans ── */
+.path2 { background: var(--forest-950); padding: 7.5rem 4rem; position: relative; overflow: hidden; }
+.path2::before { content: ''; position: absolute; top: -100px; left: -100px; width: 340px; height: 340px; border-radius: 50%; background: var(--forest-800); opacity: 0.5; }
+.path2-inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
+.path2-lede { max-width: 700px; margin-bottom: 4.5rem; }
+.path2-lede p { font-family: var(--sans); font-weight: 300; color: rgba(248,243,232,0.72); font-size: 1.02rem; line-height: 1.9; margin-top: 1.2rem; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(248,243,232,0.08); border: 1px solid rgba(248,243,232,0.08); }
+.pillar { background: rgba(248,243,232,0.025); padding: 3rem 2.3rem; position: relative; }
+.pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--ease); }
 .pillar:hover::before { transform: scaleX(1); }
-.pillar-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
-.pillar h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--sand-light); margin-bottom: 0.8rem; }
-.pillar p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: rgba(240,213,184,0.65); line-height: 1.85; }
-.pillar .pillar-tag {
-  display: inline-block; margin-top: 1.2rem;
-  background: rgba(196,97,42,0.2); border: 1px solid rgba(196,97,42,0.3);
-  color: var(--terra-soft); font-size: 0.68rem; letter-spacing: 0.15em;
-  text-transform: uppercase; padding: 4px 12px; border-radius: 2px;
-}
+.pillar-num { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--gold-light); display: block; margin-bottom: 1rem; }
+.pillar h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--cream); margin-bottom: 0.9rem; }
+.pillar p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: rgba(248,243,232,0.65); line-height: 1.85; }
+.pillar ul { margin-top: 1.2rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.pillar ul li { font-family: var(--sans); font-size: 0.82rem; color: rgba(248,243,232,0.55); padding-left: 1rem; position: relative; }
+.pillar ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+.system-line { text-align: center; margin-top: 3.5rem; font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--gold-pale); font-weight: 300; }
  
-/* ── ANTI-HYPE SECTION ── */
-.anti-hype {
-  background: var(--cream);
-  padding: 8rem 2rem;
-}
-.anti-hype .section-header { text-align: center; margin-bottom: 5rem; }
+/* ── CLEANSE ── */
+.cleanse { background: var(--sand); padding: 6rem 4rem; }
+.cleanse-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; }
+.cleanse-text p { font-family: var(--sans); font-weight: 300; color: var(--ink-soft); font-size: 0.98rem; line-height: 1.85; margin-top: 1.2rem; }
+.cleanse-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.cleanse-card { background: var(--white); padding: 2.2rem; border-radius: 2px; border-left: 3px solid var(--gold); }
+.cleanse-card h4 { font-family: var(--serif); font-size: 1.2rem; color: var(--forest-900); margin-bottom: 0.6rem; }
+.cleanse-card p { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); font-weight: 300; line-height: 1.7; margin-top: 0; }
  
-.anti-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.anti-card {
-  padding: 3rem 2.5rem;
-  position: relative;
-}
-.anti-card.myth {
-  background: rgba(61,37,21,0.04);
-  border: 1px solid rgba(61,37,21,0.08);
-}
-.anti-card.truth {
-  background: var(--forest);
-  color: var(--sand-light);
-}
-.anti-card-label {
-  font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.18em;
-  text-transform: uppercase; margin-bottom: 1rem; display: block;
-}
-.anti-card.myth .anti-card-label { color: rgba(164,78,32,0.6); }
-.anti-card.truth .anti-card-label { color: rgba(106,175,180,0.8); }
-.anti-card h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 0.8rem; line-height: 1.3; }
-.anti-card.myth h3 { color: rgba(61,37,21,0.4); text-decoration: line-through; text-decoration-color: var(--terra); text-decoration-thickness: 2px; }
-.anti-card.truth h3 { color: var(--sand-light); }
-.anti-card p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; line-height: 1.85; }
-.anti-card.myth p { color: var(--brown-mid); }
-.anti-card.truth p { color: rgba(240,213,184,0.7); }
- 
-/* ── STATS / INFOGRAPHIC ── */
-.stats-section {
-  background: var(--sand);
-  padding: 8rem 2rem;
-}
-.stats-section .section-header { text-align: center; margin-bottom: 5rem; }
- 
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0;
-  max-width: 1100px;
-  margin: 0 auto 4rem;
-  border: 1px solid rgba(61,37,21,0.1);
-}
-.stat-box {
-  padding: 3rem 2rem;
-  text-align: center;
-  border-right: 1px solid rgba(61,37,21,0.1);
-  transition: background 0.3s;
-}
-.stat-box:last-child { border-right: none; }
-.stat-box:hover { background: var(--cream); }
-.stat-num { font-family: var(--serif); font-size: 3.5rem; font-weight: 300; color: var(--terra); line-height: 1; }
-.stat-num.forest { color: var(--forest); }
-.stat-unit { font-family: var(--serif); font-size: 1.5rem; color: var(--terra-soft); }
-.stat-label { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; color: var(--brown-mid); letter-spacing: 0.05em; margin-top: 0.5rem; }
-.stat-desc { font-family: var(--sans); font-size: 0.75rem; font-weight: 300; color: rgba(90,58,34,0.55); margin-top: 0.3rem; line-height: 1.5; }
- 
-/* Sugar viz */
-.sugar-viz {
-  max-width: 800px; margin: 0 auto;
-  background: var(--cream); border-radius: 2px;
-  padding: 3rem; border: 1px solid rgba(61,37,21,0.08);
-}
-.sugar-viz h3 {
-  font-family: var(--serif); font-size: 1.4rem; color: var(--brown);
-  margin-bottom: 0.5rem;
-}
-.sugar-viz p { font-family: var(--sans); font-size: 0.85rem; color: var(--brown-mid); font-weight: 300; margin-bottom: 2rem; }
-.sugar-bar-item { margin-bottom: 1.4rem; }
-.sugar-bar-label { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 0.82rem; color: var(--brown-mid); margin-bottom: 0.4rem; }
-.sugar-bar-label span:last-child { font-weight: 500; color: var(--terra-deep); }
-.sugar-bar-track { height: 8px; background: rgba(61,37,21,0.08); border-radius: 4px; overflow: hidden; }
-.sugar-bar-fill { height: 100%; border-radius: 4px; transition: width 1.2s var(--ease); width: 0; }
-.fill-red { background: linear-gradient(90deg, var(--terra-deep), var(--terra-soft)); }
-.fill-green { background: linear-gradient(90deg, var(--forest), var(--forest-light)); }
-.fill-mid { background: linear-gradient(90deg, var(--terra), var(--teal)); }
- 
-/* ── GALLERY ── */
-.gallery-section { padding: 6rem 0; background: var(--sand-light); }
-.gallery-section .section-header { text-align: center; padding: 0 2rem 4rem; }
-.gallery-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; grid-template-rows: 340px 280px; gap: 8px; padding: 0 8px; max-width: 1400px; margin: 0 auto; }
-.gallery-item { overflow: hidden; position: relative; cursor: pointer; }
-.gallery-item:nth-child(1) { grid-column: 1/2; grid-row: 1/3; }
-.gallery-item:nth-child(2) { grid-column: 2/3; grid-row: 1/2; }
-.gallery-item:nth-child(3) { grid-column: 3/4; grid-row: 1/2; }
-.gallery-item:nth-child(4) { grid-column: 2/4; grid-row: 2/3; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
-.gallery-item:hover img { transform: scale(1.05); }
-.gallery-item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61,37,21,0.4) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
-.gallery-item:hover .gallery-item-overlay { opacity: 1; }
-.mobile-gallery { display: none; position: relative; height: 75vw; max-height: 500px; overflow: hidden; }
-.mobile-gallery img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s var(--ease); }
-.mobile-gallery img.active { opacity: 1; }
-.gallery-nav { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; z-index: 5; }
-.gallery-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s, transform 0.3s; border: none; }
-.gallery-dot.active { background: var(--white); transform: scale(1.4); }
+/* ── TIMELINE (5 steps) ── */
+.journey { background: var(--white); padding: 7.5rem 4rem; }
+.journey-list { max-width: 900px; margin: 4rem auto 0; }
+.j-step { display: grid; grid-template-columns: 90px 1fr; gap: 2rem; padding: 2.2rem 0; border-top: 1px solid rgba(26,31,22,0.09); }
+.j-step:last-child { border-bottom: 1px solid rgba(26,31,22,0.09); }
+.j-num { font-family: var(--serif); font-style: italic; font-size: 2.6rem; font-weight: 300; color: var(--gold); line-height: 1; }
+.j-content h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; color: var(--forest-900); margin-bottom: 0.6rem; }
+.j-content p { font-family: var(--sans); font-size: 0.92rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; }
+.j-content .j-tag { display: inline-block; margin-top: 0.9rem; font-size: 0.72rem; font-weight: 600; color: var(--forest-600); background: rgba(39,81,47,0.08); padding: 4px 11px; border-radius: 20px; }
  
 /* ── ABOUT ── */
-.about { background: var(--cream); padding: 8rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; max-width: 1200px; margin: 0 auto; align-items: center; }
+.about { background: var(--cream-deep); padding: 7.5rem 4rem; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 5rem; max-width: 1180px; margin: 0 auto; align-items: center; }
 .about-image { position: relative; }
 .about-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
-.about-image-badge { position: absolute; bottom: -2rem; right: -2rem; width: 140px; height: 140px; border-radius: 50%; background: var(--terra); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1rem; color: var(--white); font-family: var(--serif); }
-.about-image-badge .num { font-size: 2.2rem; font-weight: 300; line-height: 1; }
-.about-image-badge .label { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
-.about-content p { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--brown-mid); margin-bottom: 1.2rem; line-height: 1.9; }
-.about-quote { margin: 2.5rem 0; padding: 2rem 0 2rem 2rem; border-left: 3px solid var(--teal); font-family: var(--serif); font-size: 1.35rem; font-style: italic; font-weight: 300; color: var(--brown); line-height: 1.5; }
+.about-image-badge { position: absolute; bottom: -1.6rem; right: -1.6rem; width: 132px; height: 132px; border-radius: 50%; background: var(--forest-900); border: 3px solid var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1rem; color: var(--cream); font-family: var(--serif); }
+.about-image-badge .num { font-size: 2rem; font-weight: 400; line-height: 1; color: var(--gold-light); }
+.about-image-badge .label { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.06em; margin-top: 0.3rem; }
+.about-content p { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-soft); margin-bottom: 1.2rem; line-height: 1.9; }
+.about-quote { margin: 2.2rem 0; padding: 1.8rem 0 1.8rem 2rem; border-left: 3px solid var(--gold); font-family: var(--serif); font-size: 1.3rem; font-style: italic; font-weight: 300; color: var(--forest-900); line-height: 1.5; }
+.partner-badge { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; padding: 1.2rem 1.5rem; background: rgba(39,81,47,0.07); border: 1px solid rgba(39,81,47,0.16); border-radius: 2px; }
+.partner-badge .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.partner-badge p { font-family: var(--sans); font-size: 0.82rem; color: var(--forest-800); font-weight: 400; margin: 0; line-height: 1.5; }
+.partner-badge a { color: var(--forest-900); font-weight: 700; text-decoration: underline; }
  
-/* Ayurveda partner badge */
-.ayurveda-badge {
-  display: flex; align-items: center; gap: 1rem;
-  margin-top: 2rem; padding: 1.2rem 1.5rem;
-  background: rgba(45,74,45,0.08);
-  border: 1px solid rgba(45,74,45,0.2);
-  border-radius: 2px;
-}
-.ayurveda-badge .badge-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--forest); flex-shrink: 0;
-}
-.ayurveda-badge p {
-  font-family: var(--sans); font-size: 0.82rem; color: var(--forest);
-  font-weight: 400; margin: 0; line-height: 1.5;
-}
-.ayurveda-badge a { color: var(--forest); font-weight: 500; }
- 
-/* ── SERVICES ── */
-.services { background: var(--sand); padding: 8rem 2rem; }
-.services .section-header { text-align: center; margin-bottom: 5rem; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1200px; margin: 0 auto; background: rgba(61,37,21,0.08); }
-.service-card { background: var(--sand-light); padding: 3rem 2.5rem; transition: background 0.3s, transform 0.3s; position: relative; overflow: hidden; }
-.service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--terra); transition: width 0.4s var(--ease); }
-.service-card:hover::before { width: 100%; }
-.service-card:hover { background: var(--cream); transform: translateY(-4px); }
-.service-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
-.service-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--brown); margin-bottom: 0.7rem; }
-.service-card p { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: var(--brown-mid); line-height: 1.8; }
- 
-/* ── WHY ── */
-.why { background: var(--cream); padding: 8rem 2rem; }
-.why .section-header { text-align: center; margin-bottom: 4rem; }
-.why-table { max-width: 900px; margin: 0 auto; border: 1px solid rgba(61,37,21,0.1); border-radius: 2px; overflow: hidden; }
-.why-table-header { display: grid; grid-template-columns: 1fr 1fr; background: var(--brown); color: var(--white); }
-.why-table-header div { padding: 1.2rem 2rem; font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
-.why-table-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(61,37,21,0.07); transition: background 0.2s; }
-.why-table-row:hover { background: var(--sand-light); }
-.why-table-row .challenge { padding: 1.4rem 2rem; font-family: var(--sans); font-size: 0.9rem; color: var(--brown-mid); border-right: 1px solid rgba(61,37,21,0.07); }
-.why-table-row .solution { padding: 1.4rem 2rem; font-family: var(--sans); font-size: 0.9rem; color: var(--terra-deep); font-weight: 500; }
+/* ── STATS ── */
+.stats-section { background: var(--forest-900); padding: 6.5rem 4rem; }
+.stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0; max-width: 1100px; margin: 0 auto; border: 1px solid rgba(248,243,232,0.12); }
+.stat-box { padding: 2.6rem 1.6rem; text-align: center; border-right: 1px solid rgba(248,243,232,0.12); }
+.stat-box:last-child { border-right: none; }
+.stat-num { font-family: var(--serif); font-size: 3rem; font-weight: 400; color: var(--gold-light); line-height: 1; }
+.stat-unit { font-family: var(--serif); font-size: 1.3rem; color: var(--gold-pale); }
+.stat-label { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; color: var(--cream); margin-top: 0.5rem; }
+.stat-desc { font-family: var(--sans); font-size: 0.74rem; font-weight: 300; color: rgba(248,243,232,0.55); margin-top: 0.35rem; line-height: 1.55; }
  
 /* ── PRICING ── */
-.pricing { background: var(--sand); padding: 8rem 2rem; }
-.pricing .section-header { text-align: center; margin-bottom: 3rem; }
-.pricing-intro { max-width: 700px; margin: 0 auto 5rem; text-align: center; font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--brown-mid); line-height: 1.85; }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-.pricing-card { background: var(--cream); padding: 2.6rem 2.2rem; border-radius: 2px; position: relative; border: 1px solid rgba(61,37,21,0.08); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
-.pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(61,37,21,0.12); }
-.pricing-card.featured { background: var(--forest); color: var(--cream); border-color: transparent; }
-.pricing-card .service-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
-.pricing-card.featured .service-name { color: var(--terra-soft); }
-.pricing-badge { position: absolute; top: -1px; right: 1.6rem; background: var(--terra); color: var(--white); font-family: var(--sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 0 0 4px 4px; }
-.pricing-card .price-val { font-family: var(--serif); font-size: 3.1rem; font-weight: 300; color: var(--brown); line-height: 1; transition: opacity 0.2s; }
-.pricing-card.featured .price-val { color: var(--white); }
-.pricing-card .price-val sup { font-size: 1.1rem; vertical-align: super; font-weight: 400; }
-.pricing-card .price-desc { font-family: var(--sans); font-size: 0.78rem; color: var(--brown-mid); margin-top: 0.4rem; font-weight: 300; min-height: 1.2rem; }
-.pricing-card.featured .price-desc { color: rgba(240,213,184,0.7); }
-.pricing-card hr { border: none; border-top: 1px solid rgba(61,37,21,0.1); margin: 1.3rem 0; }
-.pricing-card.featured hr { border-color: rgba(240,213,184,0.2); }
-.pricing-card ul { list-style: none; font-family: var(--sans); font-size: 0.83rem; font-weight: 300; color: var(--brown-mid); display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.4rem; flex: 1; }
-.pricing-card.featured ul { color: rgba(240,213,184,0.8); }
-.pricing-card ul li::before { content: '–'; margin-right: 0.5rem; color: var(--terra); }
-.pricing-card.featured ul li::before { color: var(--terra-soft); }
- 
-/* Package toggle pills */
-.pkg-toggle { display: flex; gap: 6px; margin-top: auto; flex-wrap: wrap; }
-.pkg-pill {
-  flex: 1; min-width: 58px; padding: 8px 6px; text-align: center;
-  background: rgba(61,37,21,0.05); border: 1px solid rgba(61,37,21,0.12);
-  border-radius: 2px; cursor: pointer; transition: background 0.2s, border-color 0.2s;
-  font-family: var(--sans); font-size: 0.68rem; font-weight: 500; color: var(--brown-mid);
-}
-.pkg-pill .pkg-save { display: block; font-size: 0.6rem; color: var(--teal-deep); margin-top: 2px; font-weight: 400; }
-.pkg-pill.active { background: var(--terra); border-color: var(--terra); color: var(--white); }
-.pkg-pill.active .pkg-save { color: rgba(255,255,255,0.85); }
-.pricing-card.featured .pkg-pill { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: rgba(240,213,184,0.8); }
-.pricing-card.featured .pkg-pill.active { background: var(--terra-soft); border-color: var(--terra-soft); color: var(--white); }
-.pricing-card.featured .pkg-pill .pkg-save { color: rgba(106,175,180,0.9); }
- 
-/* ── TIMELINE ── */
-.timeline { background: var(--cream); padding: 8rem 2rem; }
-.timeline .section-header { text-align: center; margin-bottom: 5rem; }
-.timeline-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 900px; margin: 0 auto; position: relative; }
-.timeline-steps::before { content: ''; position: absolute; top: 28px; left: calc(1/6 * 100%); right: calc(1/6 * 100%); height: 1px; background: var(--terra); }
-.timeline-step { text-align: center; padding: 0 2rem; }
-.timeline-step .dot { width: 56px; height: 56px; border-radius: 50%; background: var(--cream); border: 2px solid var(--terra); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-family: var(--serif); font-size: 1.3rem; color: var(--terra); position: relative; z-index: 1; transition: background 0.3s, color 0.3s; }
-.timeline-step:hover .dot { background: var(--terra); color: var(--white); }
-.timeline-step h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--brown); margin-bottom: 0.5rem; }
-.timeline-step p { font-family: var(--sans); font-size: 0.82rem; font-weight: 300; color: var(--brown-mid); line-height: 1.7; }
+.pricing { background: var(--cream); padding: 7.5rem 4rem; }
+.pricing-intro { max-width: 680px; margin: 0 auto 4rem; text-align: center; font-family: var(--sans); font-size: 0.98rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; max-width: 1180px; margin: 0 auto; }
+.pricing-card { background: var(--white); padding: 2.6rem 2.2rem; border-radius: 2px; border: 1px solid rgba(26,31,22,0.08); display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s; }
+.pricing-card:hover { transform: translateY(-5px); box-shadow: 0 22px 50px rgba(20,46,28,0.1); }
+.pricing-card.featured { background: var(--forest-900); color: var(--cream); }
+.pricing-card .p-name { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; color: var(--forest-600); margin-bottom: 1rem; display: block; }
+.pricing-card.featured .p-name { color: var(--gold-light); }
+.p-badge { position: absolute; }
+.pricing-card { position: relative; }
+.pricing-badge { position: absolute; top: -1px; right: 1.6rem; background: var(--gold); color: var(--forest-950); font-family: var(--sans); font-size: 0.6rem; font-weight: 700; padding: 5px 12px; border-radius: 0 0 4px 4px; }
+.pricing-card .price-val { font-family: var(--serif); font-size: 2.9rem; font-weight: 400; color: var(--forest-900); line-height: 1; }
+.pricing-card.featured .price-val { color: var(--cream); }
+.pricing-card .price-val sup { font-size: 1.05rem; vertical-align: super; }
+.pricing-card .price-desc { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.4rem; font-weight: 300; }
+.pricing-card.featured .price-desc { color: rgba(248,243,232,0.65); }
+.pricing-card hr { border: none; border-top: 1px solid rgba(26,31,22,0.1); margin: 1.3rem 0; }
+.pricing-card.featured hr { border-color: rgba(248,243,232,0.15); }
+.pricing-card ul { list-style: none; font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.4rem; flex: 1; }
+.pricing-card.featured ul { color: rgba(248,243,232,0.78); }
+.pricing-card ul li::before { content: '—'; margin-right: 0.5rem; color: var(--gold); }
  
 /* ── TESTIMONIALS ── */
-.testimonials { background: var(--sand); padding: 8rem 2rem; }
-.testimonials .section-header { text-align: center; margin-bottom: 5rem; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1100px; margin: 0 auto; background: rgba(61,37,21,0.06); }
-.testimonial { background: var(--sand-light); padding: 3rem 2.5rem; transition: background 0.3s; }
-.testimonial:hover { background: var(--cream); }
-.testimonial-stars { color: var(--terra); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.2rem; }
-.testimonial p { font-family: var(--serif); font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--brown); line-height: 1.7; }
+.testimonials { background: var(--sand); padding: 6.5rem 4rem; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; max-width: 1100px; margin: 0 auto; background: rgba(26,31,22,0.08); }
+.testimonial { background: var(--cream-deep); padding: 2.8rem 2.3rem; }
+.testimonial-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.1rem; }
+.testimonial p { font-family: var(--serif); font-size: 1.08rem; font-style: italic; font-weight: 300; color: var(--forest-900); line-height: 1.7; }
+.testimonial span { display: block; margin-top: 1rem; font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft); }
  
 /* ── FAQ ── */
-.faq { background: var(--cream); padding: 8rem 2rem; }
-.faq .section-header { text-align: center; margin-bottom: 4rem; }
+.faq { background: var(--white); padding: 7.5rem 4rem; }
 .faq-list { max-width: 720px; margin: 0 auto; }
-.faq-item { border-top: 1px solid rgba(61,37,21,0.1); }
-.faq-item:last-child { border-bottom: 1px solid rgba(61,37,21,0.1); }
-.faq-question { width: 100%; padding: 1.6rem 0; display: flex; align-items: center; justify-content: space-between; background: none; border: none; cursor: pointer; text-align: left; gap: 1rem; font-family: var(--sans); font-size: 0.95rem; font-weight: 400; color: var(--brown); transition: color 0.3s; }
-.faq-question:hover { color: var(--terra); }
-.faq-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; transition: transform 0.3s var(--ease); }
+.faq-item { border-top: 1px solid rgba(26,31,22,0.1); }
+.faq-item:last-child { border-bottom: 1px solid rgba(26,31,22,0.1); }
+.faq-question { width: 100%; padding: 1.5rem 0; display: flex; align-items: center; justify-content: space-between; background: none; border: none; cursor: pointer; text-align: left; gap: 1rem; font-family: var(--sans); font-size: 0.95rem; font-weight: 500; color: var(--forest-900); }
+.faq-question:hover { color: var(--forest-600); }
+.faq-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; }
 .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: currentColor; border-radius: 1px; }
 .faq-icon::before { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
 .faq-icon::after { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%,-50%); transition: transform 0.3s; }
 .faq-item.open .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); }
-.faq-item.open .faq-question { color: var(--terra); }
+.faq-item.open .faq-question { color: var(--forest-600); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease); }
-.faq-answer-inner { padding-bottom: 1.5rem; font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--brown-mid); line-height: 1.9; }
+.faq-answer-inner { padding-bottom: 1.5rem; font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); line-height: 1.9; }
  
 /* ── CONTACT ── */
-.contact { background: var(--brown); padding: 8rem 2rem; color: var(--sand-light); }
-.contact .section-header { text-align: center; margin-bottom: 4rem; }
-.contact .section-label { color: var(--teal); }
-.contact .section-title { color: var(--sand-light); }
-.contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
-.contact-info h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--sand-light); margin-bottom: 1rem; }
-.contact-info p, .contact-info a { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: rgba(240,213,184,0.7); text-decoration: none; line-height: 2; display: block; }
-.contact-info a:hover { color: var(--terra-soft); }
-.contact-info .info-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(240,213,184,0.1); }
+.contact { background: var(--forest-950); padding: 7.5rem 4rem; color: var(--cream); }
+.contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+.contact-info .info-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(248,243,232,0.1); }
+.contact-info h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--cream); margin-bottom: 0.6rem; }
+.contact-info p, .contact-info a { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: rgba(248,243,232,0.7); text-decoration: none; line-height: 1.9; display: block; }
+.contact-info a:hover { color: var(--gold-light); }
 .contact-form { display: flex; flex-direction: column; gap: 1rem; }
 .form-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(240,213,184,0.15); border-radius: 2px; color: var(--sand-light); font-family: var(--sans); font-size: 0.88rem; font-weight: 300; transition: border-color 0.3s, background 0.3s; outline: none; -webkit-appearance: none; }
-.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(240,213,184,0.35); }
-.contact-form select { color: rgba(240,213,184,0.5); }
-.contact-form select option { background: var(--brown); color: var(--sand-light); }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--terra-soft); background: rgba(196,97,42,0.06); }
+.contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 1rem 1.2rem; background: rgba(248,243,232,0.05); border: 1px solid rgba(248,243,232,0.15); border-radius: 2px; color: var(--cream); font-family: var(--sans); font-size: 0.88rem; font-weight: 300; outline: none; -webkit-appearance: none; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(248,243,232,0.35); }
+.contact-form select option { background: var(--forest-900); color: var(--cream); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold); background: rgba(182,144,63,0.08); }
 .contact-form textarea { height: 120px; resize: none; }
-.contact-form .btn-primary { align-self: flex-start; margin-top: 0.5rem; }
+ 
+/* ── NEWSLETTER ── */
+.newsletter-section { background: var(--sand); padding: 6.5rem 4rem; }
+.newsletter-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.newsletter-left h2 { font-family: var(--serif); font-size: clamp(1.8rem,2.6vw,2.4rem); color: var(--forest-900); font-weight: 400; line-height: 1.25; margin-bottom: 1rem; }
+.newsletter-left p { font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; }
+.newsletter-right { background: var(--white); border-radius: 2px; padding: 2.4rem; }
+.nl-form input { width: 100%; padding: 0.9rem 1.1rem; background: var(--cream); border: 1px solid rgba(26,31,22,0.12); border-radius: 2px; color: var(--ink); font-family: var(--sans); font-size: 0.88rem; margin-bottom: 1.1rem; outline: none; }
+.nl-form input:focus { border-color: var(--gold); }
+.nl-btn { width: 100%; text-align: center; }
+.nl-fine { font-family: var(--sans); font-size: 0.72rem; color: var(--ink-soft); opacity: 0.6; text-align: center; margin-top: 1rem; }
  
 /* ── FOOTER ── */
-footer { background: var(--ink); padding: 4rem 2rem 3rem; color: rgba(240,213,184,0.5); }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(240,213,184,0.1); }
-.footer-brand .logo { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; color: var(--sand-light); display: block; margin-bottom: 1rem; }
-.footer-brand .logo span { color: var(--terra-soft); }
+footer { background: var(--forest-950); padding: 4rem 4rem 2.4rem; color: rgba(248,243,232,0.55); }
+.footer-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; padding-bottom: 2.6rem; border-bottom: 1px solid rgba(248,243,232,0.1); }
+.footer-brand .logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--cream); display: block; margin-bottom: 1rem; }
+.footer-brand .logo em { color: var(--gold-light); font-style: italic; }
 .footer-brand p { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; line-height: 1.8; }
-.footer-col h4 { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand-light); margin-bottom: 1.2rem; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.footer-col a { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: rgba(240,213,184,0.5); text-decoration: none; transition: color 0.3s; }
-.footer-col a:hover { color: var(--terra-soft); }
-.footer-bottom { max-width: 1200px; margin: 2rem auto 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 0.75rem; }
- 
-/* ── NEWSLETTER SECTION ── */
-.newsletter-section {
-  background: var(--forest);
-  padding: 8rem 2rem;
-  position: relative; overflow: hidden;
-}
-.newsletter-section::before {
-  content: ''; position: absolute; top: -60px; right: -60px;
-  width: 260px; height: 260px; border-radius: 50%;
-  background: var(--forest-light); opacity: 0.2;
-}
-.newsletter-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 6rem; align-items: center;
-  position: relative; z-index: 1;
-}
-.newsletter-section .section-label { color: rgba(106,175,180,0.8); }
-.newsletter-left h2 { font-family: var(--serif); font-size: clamp(2rem,3vw,2.8rem); color: var(--sand-light); font-weight: 300; line-height: 1.2; margin-bottom: 1.2rem; }
-.newsletter-left p { font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: rgba(240,213,184,0.7); line-height: 1.85; margin-bottom: 1.5rem; }
-.nl-benefits { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.nl-benefits li { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: rgba(240,213,184,0.75); }
-.newsletter-right { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 2px; padding: 2.5rem; }
-.nl-form label { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,213,184,0.55); display: block; margin-bottom: 0.4rem; }
-.nl-form input { width: 100%; padding: 0.9rem 1.1rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(240,213,184,0.15); border-radius: 2px; color: var(--sand-light); font-family: var(--sans); font-size: 0.88rem; font-weight: 300; margin-bottom: 1.2rem; outline: none; transition: border-color 0.3s; }
-.nl-form input:focus { border-color: var(--terra-soft); }
-.nl-form input::placeholder { color: rgba(240,213,184,0.3); }
-.nl-btn { width: 100%; text-align: center; margin-top: 0.4rem; }
-.nl-fine { font-family: var(--sans); font-size: 0.72rem; color: rgba(240,213,184,0.35); text-align: center; margin-top: 1rem; line-height: 1.6; }
-.nl-success { text-align: center; padding: 2rem 0; }
-.nl-success-icon { font-size: 3rem; margin-bottom: 1rem; }
-.nl-success h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--sand-light); margin-bottom: 0.5rem; }
-.nl-success p { font-family: var(--sans); font-size: 0.9rem; color: rgba(240,213,184,0.6); }
- 
-/* ── NEWSLETTER POPUP ── */
-.nl-popup-overlay {
-  position: fixed; inset: 0;
-  background: rgba(20,35,20,0.82);
-  z-index: 999; display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.4s var(--ease);
-  backdrop-filter: blur(6px);
-}
-.nl-popup-overlay.active { opacity: 1; pointer-events: all; }
-.nl-popup {
-  background: var(--forest);
-  border-radius: 4px;
-  max-width: 480px; width: 90%;
-  padding: 0;
-  position: relative; overflow: hidden;
-  transform: translateY(24px) scale(0.97);
-  transition: transform 0.4s var(--ease);
-  box-shadow: 0 32px 80px rgba(0,0,0,0.45);
-}
-.nl-popup-overlay.active .nl-popup { transform: translateY(0) scale(1); }
- 
-/* Top accent strip */
-.nl-popup-accent {
-  height: 4px;
-  background: linear-gradient(90deg, var(--terra) 0%, var(--terra-soft) 50%, var(--teal) 100%);
-}
- 
-/* Decorative circles */
-.nl-popup-deco {
-  position: absolute; bottom: -50px; right: -50px;
-  width: 180px; height: 180px; border-radius: 50%;
-  background: var(--forest-light); opacity: 0.3;
-  pointer-events: none;
-}
-.nl-popup-deco2 {
-  position: absolute; top: 30px; left: -30px;
-  width: 100px; height: 100px; border-radius: 50%;
-  background: var(--terra); opacity: 0.08;
-  pointer-events: none;
-}
- 
-/* Content wrapper */
-.nl-popup-body { padding: 2.5rem 2.5rem 2rem; position: relative; z-index: 1; }
- 
-.nl-popup-close {
-  position: absolute; top: 1rem; right: 1.2rem;
-  background: rgba(255,255,255,0.1); border: none;
-  width: 28px; height: 28px; border-radius: 50%;
-  font-size: 1rem; color: rgba(240,213,184,0.7);
-  cursor: pointer; line-height: 1; z-index: 10;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, color 0.2s;
-}
-.nl-popup-close:hover { background: var(--terra); color: white; }
- 
-.nl-popup-eyebrow {
-  font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: rgba(106,175,180,0.9);
-  display: block; margin-bottom: 0.8rem;
-}
-.nl-popup h3 {
-  font-family: var(--serif); font-size: 2rem; font-weight: 300;
-  color: var(--sand-light); margin-bottom: 0.8rem; line-height: 1.15;
-}
-.nl-popup h3 em { color: var(--terra-soft); font-style: italic; }
-.nl-popup > .nl-popup-body > p,
-.nl-popup p.nl-popup-desc {
-  font-family: var(--sans); font-size: 0.88rem; font-weight: 300;
-  color: rgba(240,213,184,0.7); line-height: 1.8; margin-bottom: 1.5rem;
-}
- 
-/* Benefits mini-list */
-.nl-popup-perks {
-  display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.6rem;
-}
-.nl-popup-perks li {
-  list-style: none; font-family: var(--sans); font-size: 0.82rem;
-  font-weight: 300; color: rgba(240,213,184,0.65);
-  padding-left: 0; display: flex; align-items: center; gap: 0.5rem;
-}
-.nl-popup-perks li::before { content: "✓"; color: var(--teal); font-size: 0.75rem; }
- 
-.nl-popup-form { display: flex; flex-direction: column; gap: 0.7rem; }
-.nl-popup-form input {
-  width: 100%; padding: 0.9rem 1.1rem;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(240,213,184,0.2); border-radius: 2px;
-  font-family: var(--sans); font-size: 0.88rem;
-  color: var(--sand-light); outline: none; transition: border-color 0.3s;
-}
-.nl-popup-form input::placeholder { color: rgba(240,213,184,0.3); }
-.nl-popup-form input:focus { border-color: var(--terra-soft); background: rgba(255,255,255,0.1); }
-.nl-popup-form .btn-primary { background: var(--terra); }
-.nl-popup-form .btn-primary:hover { background: var(--terra-soft); }
- 
-.nl-popup-submitted { text-align: center; padding: 1.5rem 0; }
-.nl-popup-submitted p { font-family: var(--sans); font-size: 0.9rem; color: rgba(240,213,184,0.7); margin-top: 0.7rem; }
- 
-.nl-popup-skip {
-  display: block; width: 100%; background: none; border: none;
-  font-family: var(--sans); font-size: 0.72rem;
-  color: rgba(240,213,184,0.25); cursor: pointer;
-  margin-top: 1rem; padding-bottom: 0.5rem;
-  text-align: center; transition: color 0.2s;
-}
-.nl-popup-skip:hover { color: rgba(240,213,184,0.55); }
+.footer-col h4 { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; color: var(--cream); margin-bottom: 1.1rem; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.footer-col a { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: rgba(248,243,232,0.55); text-decoration: none; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom { max-width: 1180px; margin: 1.8rem auto 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 0.75rem; flex-wrap: wrap; gap: 0.5rem; }
  
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal.visible { opacity: 1; transform: none; }
  
-/* ── RESPONSIVE & CROSS-BROWSER ── */
- 
-/* IE11 / older Windows fallbacks */
-.hero-left, .hero { display: -ms-flexbox; display: flex; }
-.hero { -ms-flex-wrap: wrap; flex-wrap: wrap; }
-.hero-cta { -ms-flex-wrap: wrap; flex-wrap: wrap; }
-nav { -ms-flex-align: center; }
-.btn-primary, .btn-outline { -ms-flex-align: center; }
- 
-/* backdrop-filter fallback for older browsers */
-@supports not (backdrop-filter: blur(12px)) {
-  nav.scrolled { background: rgba(253,248,242,0.98); }
-}
- 
-/* CSS custom property fallbacks for IE */
-.nav-logo { font-family: 'Cormorant Garamond', Georgia, serif; }
-.hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; }
-.section-title { font-family: 'Cormorant Garamond', Georgia, serif; }
-.btn-primary { background-color: #c4612a; color: #ffffff; border-radius: 2px; }
-.btn-outline { border: 1px solid #5a3a22; color: #5a3a22; border-radius: 2px; }
-body { background-color: #fdf8f2; color: #2a1a0e; }
- 
-/* ── TABLET (max 1100px) ── */
+/* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
-  nav { padding: 1rem 2rem; }
-  .nav-links { gap: 1.2rem; }
-  .nav-links a { font-size: 0.72rem; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .testimonials-grid { grid-template-columns: 1fr; gap: 2px; }
-  .anti-grid { grid-template-columns: 1fr; }
-  .philosophy-pillars { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  .about { gap: 4rem; }
-  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  nav, .hero, .fork, .path1, .path2, .cleanse, .journey, .stats-section, .pricing, .testimonials, .faq, .contact, .newsletter-section, footer { padding-left: 2rem; padding-right: 2rem; }
+  .pillars { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; gap: 3rem; }
+  .cleanse-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.2rem; }
+  .testimonials-grid { grid-template-columns: 1fr; }
 }
- 
-/* ── MOBILE (max 768px) ── */
 @media (max-width: 768px) {
- 
-  /* NAV */
-  nav { padding: 0.9rem 1.2rem; }
-  .nav-links {
-    display: none; -webkit-flex-direction: column; flex-direction: column;
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: #fdf8f2; padding: 1.2rem 1.5rem; gap: 1rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    border-top: 1px solid rgba(61,37,21,0.08);
-    max-height: 80vh; overflow-y: auto;
-  }
-  .nav-links.open { display: -webkit-flex; display: flex; }
-  .nav-links a { font-size: 0.85rem; padding: 0.3rem 0; }
-  .hamburger { display: -webkit-flex; display: flex; }
-  .lang-toggle { padding: 5px 10px; font-size: 0.68rem; }
- 
-  /* HERO */
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 6rem 1.2rem 3rem; }
-  .hero h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
-  .hero-sub { font-size: 0.92rem; margin-top: 1rem; }
-  .hero-cta { margin-top: 2rem; gap: 0.8rem; }
-  .btn-primary, .btn-outline { padding: 0.85rem 1.8rem; font-size: 0.72rem; width: 100%; text-align: center; -webkit-box-sizing: border-box; box-sizing: border-box; }
-  .hero-right { height: 60vw; min-height: 220px; }
-  .hero-ornament { display: none; }
-  .chickens-row { gap: 24px; margin-top: 40px; }
-  .chicken-card { width: 140px; }
-  .chicken-card svg { width: 90px; height: 90px; }
- 
-  /* GALLERY */
-  .gallery-grid { display: none; }
-  .mobile-gallery { display: block; }
- 
-  /* ABOUT */
-  .about { grid-template-columns: 1fr; padding: 4rem 1.2rem; gap: 2.5rem; }
-  .about-image-badge { bottom: -1rem; right: -0.5rem; width: 100px; height: 100px; }
-  .about-image-badge .num { font-size: 1.8rem; }
-  .about-quote { font-size: 1.1rem; padding: 1.2rem 0 1.2rem 1.2rem; }
-  .ayurveda-badge { flex-direction: column; gap: 0.6rem; }
-  .ayurveda-badge p { font-size: 0.78rem; }
- 
-  /* SERVICES */
-  .services-grid { grid-template-columns: 1fr; }
-  .service-card { padding: 2rem 1.5rem; }
- 
-  /* PAIN */
-  .pain { padding: 5rem 1.2rem; }
-  .pain-cards { grid-template-columns: 1fr 1fr; }
-  .pain-card { padding: 2rem 1.2rem; }
-  .pain-cta { padding: 1.8rem 1.5rem; font-size: 1.1rem; }
- 
-  /* PHILOSOPHY */
-  .philosophy { padding: 5rem 1.2rem; }
-  .philosophy-pillars { grid-template-columns: 1fr; gap: 2px; }
-  .pillar { padding: 2.2rem 1.8rem; }
- 
-  /* ANTI-HYPE */
-  .anti-hype { padding: 5rem 1.2rem; }
-  .anti-grid { grid-template-columns: 1fr; gap: 2px; }
-  .anti-card { padding: 2rem 1.5rem; }
- 
-  /* STATS */
-  .stats-section { padding: 5rem 1.2rem; }
-  .stats-row { grid-template-columns: 1fr 1fr; }
-  .stat-box { padding: 2rem 1rem; }
-  .stat-num { font-size: 2.5rem; }
-  .sugar-viz { padding: 2rem 1.2rem; }
-  .sugar-bar-label { font-size: 0.72rem; flex-direction: column; gap: 2px; }
-  .sugar-bar-label span:last-child { align-self: flex-end; }
- 
-  /* WHY TABLE */
-  .why { padding: 5rem 1.2rem; }
-  .why-table-header { grid-template-columns: 1fr; }
-  .why-table-header div:last-child { display: none; }
-  .why-table-row { grid-template-columns: 1fr; }
-  .why-table-row .challenge { border-right: none; border-bottom: 1px solid rgba(61,37,21,0.07); }
-  .why-table-row .solution { font-size: 0.82rem; }
- 
-  /* TIMELINE */
-  .timeline { padding: 5rem 1.2rem; }
-  .timeline-steps { grid-template-columns: 1fr; gap: 0; }
-  .timeline-steps::before { display: none; }
-  .timeline-step { padding: 0 1rem 2.5rem; }
- 
-  /* PRICING */
-  .pricing { padding: 5rem 1.2rem; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
-  .pricing-card { padding: 2rem 1.5rem; }
-  .pricing-card .price-val { font-size: 2.8rem; }
- 
-  /* TESTIMONIALS */
-  .testimonials { padding: 5rem 1.2rem; }
-  .testimonials-grid { grid-template-columns: 1fr; gap: 2px; }
- 
-  /* FAQ */
-  .faq { padding: 5rem 1.2rem; }
-  .faq-question { font-size: 0.88rem; }
- 
-  /* CONTACT */
-  .contact { padding: 5rem 1.2rem; }
-  .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  nav { padding: 1rem 1.2rem !important; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--forest-950); padding: 1.4rem 1.6rem; gap: 1rem; }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+  .nav-logo, nav.scrolled .nav-logo { color: var(--cream); }
+  .hero { padding: 7rem 1.4rem 4rem; }
+  .hero-tag { display: none; }
+  .fork-grid { grid-template-columns: 1fr; }
+  .path1-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .contact-inner, .newsletter-inner { grid-template-columns: 1fr; gap: 2.4rem; }
   .form-group { grid-template-columns: 1fr; }
-  .contact-form input, .contact-form select, .contact-form textarea {
-    font-size: 16px; /* prevents iOS zoom on focus */
-  }
- 
-  /* NEWSLETTER */
-  .newsletter-section { padding: 5rem 1.2rem; }
-  .newsletter-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .newsletter-right { padding: 1.8rem; }
-  .nl-form input { font-size: 16px; } /* prevent iOS zoom */
- 
-  /* POPUP */
-  .nl-popup { max-width: 95vw; }
-  .nl-popup-body { padding: 2rem 1.5rem 1.5rem; }
-  .nl-popup h3 { font-size: 1.5rem; }
-  .nl-popup-form input { font-size: 16px; }
- 
-  /* FOOTER */
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .footer-bottom { -webkit-flex-direction: column; flex-direction: column; gap: 0.5rem; text-align: center; }
-}
- 
-/* ── SMALL MOBILE (max 480px) ── */
-@media (max-width: 480px) {
-  nav { padding: 0.8rem 1rem; }
-  .nav-logo { font-size: 1.25rem; }
-  .hero-left { padding: 5.5rem 1rem 2.5rem; }
-  .hero h1 { font-size: clamp(2rem, 10vw, 2.6rem); }
-  .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.15em; }
-  .hero-sub { font-size: 0.88rem; }
-  .chickens-row { gap: 16px; }
-  .chicken-card { width: 110px; }
-  .chicken-card svg { width: 75px; height: 75px; }
-  .chicken-name { font-size: 13px; }
-  .chicken-status { font-size: 10px; }
-  .pain-cards { grid-template-columns: 1fr; }
-  .stats-row { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
-  .pain-cta { font-size: 1rem; padding: 1.5rem 1.2rem; }
-  .section-title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
-  .philosophy-intro .sub { font-size: 0.9rem; }
-  .sugar-viz h3 { font-size: 1.1rem; }
-  .about-image-badge { width: 85px; height: 85px; right: 0; }
-  .about-image-badge .num { font-size: 1.5rem; }
-  .about-image-badge .label { font-size: 0.55rem; }
-  .nl-popup-perks { display: none; } /* too long on tiny screens */
-}
- 
-/* ── TOUCH IMPROVEMENTS ── */
-@media (hover: none) {
-  .btn-primary:hover, .btn-outline:hover { transform: none; }
-  .service-card:hover { transform: none; }
-  .pricing-card:hover { transform: none; box-shadow: none; }
-  .pillar:hover { background: rgba(255,255,255,0.03); }
-  .pillar:hover::before { transform: scaleX(0); }
-}
- 
-/* ── PRINT ── */
-@media print {
-  nav, .nl-popup-overlay, .newsletter-section, .mobile-gallery { display: none; }
-  .hero { min-height: auto; padding: 2rem; }
-  .reveal { opacity: 1; transform: none; }
+  .contact-form input, .contact-form select, .contact-form textarea, .nl-form input { font-size: 16px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .j-step { grid-template-columns: 55px 1fr; gap: 1.2rem; }
+  .j-num { font-size: 1.8rem; }
+  .stats-row, .path1-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
- 
 </head>
 <body>
  
-<!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Mara <span>Move</span></a>
+  <a href="#" class="nav-logo">Lebens<em>freude</em></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about" data-i18n="nav_about">Über mich</a></li>
-    <li><a href="#preise" data-i18n="nav_prices">Preise</a></li>
-    <li><a href="reisen.html" data-i18n="nav_travel">Reisen</a></li>
-    <li><a href="aktuelles.html" data-i18n="nav_news">Aktuelles</a></li>
-    <li><a href="trainingsbereich.html" data-i18n="nav_training">Trainingsbereich</a></li>
-    <li><a href="#kontakt" data-i18n="nav_contact">Kontakt</a></li>
-    <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
-    <li id="navYogaItem"><a href="yogalehrer.html" data-i18n="nav_yoga">Yogalehrer werden</a></li>
+    <li><a href="#fork">Dein Weg</a></li>
+    <li><a href="#bewegungsfreude">Bewegungsfreude</a></li>
+    <li><a href="#healing-humans">Healing Humans</a></li>
+    <li><a href="#about">Über mich</a></li>
+    <li><a href="#preise">Preise</a></li>
+    <li><a href="#kontakt" class="nav-cta">Erstgespräch</a></li>
   </ul>
-  <button class="lang-toggle" id="langToggle" onclick="toggleLang()" title="Switch language">
-    <span id="langLabel">EN</span>
-  </button>
-  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
 </nav>
  
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <span class="hero-eyebrow">Personal Training · Healing Humans · Mindset · Ernährung</span>
-    <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
-    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echtes, ganzheitliches Wohlbefinden nach dem Healing-Humans-Prinzip — Sporttherapie, Mindset und gezielte Ernährung als ein System.</p>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Das Ganzheitskonzept von Mara Tumpach</span>
+    <h1>Lebensfreude<br>heilt an der <em>Ursache</em></h1>
+    <p class="hero-sub">Ob du einfach fit und beweglich bleiben willst, oder tiefer heilen möchtest: Alles beginnt mit Freude an Bewegung, Klarheit im Kopf und echtem Genuss im Alltag — nie mit Verzicht.</p>
     <div class="hero-cta">
-      <a href="#kontakt" class="btn-primary" data-i18n="hero_btn1">Erstgespräch vereinbaren</a>
-      <a href="#services" class="btn-outline" data-i18n="hero_btn2">Leistungen entdecken</a>
-    </div>
-    <div class="hero-ornament">
-      <span>Mara Tumpach · Nähe München</span>
+      <a href="#fork" class="btn-primary">Finde deinen Weg</a>
+      <a href="#kontakt" class="btn-outline">Kostenloses Erstgespräch</a>
     </div>
   </div>
-  <div class="hero-right">
-    <img class="hero-img-main" src="assets/gallery-1.jpg" alt="Mara Move Training">
-    <div class="hero-sun"></div>
+  <span class="hero-tag">Mara Tumpach · Oberottmarshausen, nähe München</span>
+</section>
+ 
+<!-- FORK: two paths -->
+<section class="fork" id="fork">
+  <div class="fork-head reveal">
+    <span class="section-label">Zwei Wege, ein Ziel</span>
+    <h2 class="section-title">Wo stehst du gerade?</h2>
+    <p>Es gibt keinen Weg, der für alle passt. Deshalb beginnt Lebensfreude mit einer ehrlichen Frage an dich.</p>
+  </div>
+  <div class="fork-grid reveal">
+    <a href="#bewegungsfreude" class="fork-card a">
+      <span class="fork-kicker">PFAD EINS</span>
+      <h3>Ich bin gesund und will es bleiben</h3>
+      <p>Du fühlst dich grundsätzlich gut, willst fit, beweglich und stark bleiben — mit Training, das zu deinem Leben passt, nicht dagegen arbeitet.</p>
+      <div class="fork-tags">
+        <span class="fork-tag">Personal Training</span>
+        <span class="fork-tag">Yoga</span>
+        <span class="fork-tag">Funktionelles Training</span>
+        <span class="fork-tag">Outdoor</span>
+      </div>
+      <span class="fork-more">Zu Bewegungsfreude <span class="arrow">→</span></span>
+    </a>
+    <a href="#healing-humans" class="fork-card b">
+      <span class="fork-kicker">PFAD ZWEI</span>
+      <h3>Ich brauche mehr als Training</h3>
+      <p>Du bist erschöpft, aus der Balance oder trägst Themen mit dir, die reines Training nicht löst. Hier setzen wir an der Ursache an — körperlich, mental und über die Ernährung.</p>
+      <div class="fork-tags">
+        <span class="fork-tag">Sporttherapie</span>
+        <span class="fork-tag">Emotionscode</span>
+        <span class="fork-tag">Ayurveda</span>
+        <span class="fork-tag">Panchakarma / Fasten</span>
+      </div>
+      <span class="fork-more">Zu Healing Humans <span class="arrow">→</span></span>
+    </a>
   </div>
 </section>
  
-<div class="wave-divider">
-  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z" fill="#fdf8f2"/>
-  </svg>
-</div>
- 
-<!-- PAIN -->
-<section class="pain">
-  <span class="section-label reveal">Erkennst du dich wieder?</span>
-  <h2 class="section-title reveal">Du verdienst mehr<br>als ständige Erschöpfung</h2>
-  <div class="pain-cards reveal">
-    <div class="pain-card"><div class="number">01</div><p>Du schläfst genug – und bist trotzdem ständig müde und energielos.</p></div>
-    <div class="pain-card"><div class="number">02</div><p>Schon kleine Belastungen bringen dich außer Atem.</p></div>
-    <div class="pain-card"><div class="number">03</div><p>Dein Körper verlangt ständig nach Zucker und schnellen Kalorien.</p></div>
-    <div class="pain-card"><div class="number">04</div><p>Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.</p></div>
-  </div>
-  <div class="pain-cta reveal">Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken</div>
-</section>
- 
-<!-- PHILOSOPHY -->
-<section class="philosophy">
-  <div class="philosophy-intro reveal">
-    <span class="section-label">Mein Ansatz</span>
-    <h2 class="section-title">Drei Säulen.<br>Ein System.</h2>
-    <p class="sub">Ich arbeite nach dem Healing-Humans-Prinzip: <strong style="color:rgba(240,213,184,0.95);font-weight:500;">Sporttherapie</strong> für deinen Körper, <strong style="color:rgba(240,213,184,0.95);font-weight:500;">Mindset</strong> für deine Psyche und <strong style="color:rgba(240,213,184,0.95);font-weight:500;">Ernährung</strong> als Treibstoff. Drei Säulen, die zusammen für ein gesundes, langes und fittes Leben sorgen — nicht isoliert betrachtet, sondern als ein System.</p>
-  </div>
-  <div class="philosophy-pillars">
-    <div class="pillar reveal">
-      <span class="pillar-icon">🧬</span>
-      <h3>Healing Humans Sporttherapie</h3>
-      <p>Gezielte Biomechanik-Arbeit an Faszien, Bindegewebe und Bewegungsmustern. Dein Körper zeigt oft mehr über deinen Zustand als jedes Gespräch — ich lese und behandle beides.</p>
-      <span class="pillar-tag">Säule 1 · Sporttherapie</span>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">🦠</span>
-      <h3>Gesunder Darm — gesundes Leben</h3>
-      <p>80 % deines Immunsystems sitzen im Darm. Wer seinen Darm heilt, heilt seinen ganzen Körper — mehr Energie, stabiles Gewicht, besserer Schlaf, mehr Fokus. Alles beginnt hier.</p>
-      <span class="pillar-tag">Säule 2 · Ernährung</span>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">🚫</span>
-      <h3>Kein Proteinpulver-Hype</h3>
-      <p>Die Supplement-Industrie macht Milliarden mit Produkten, die du nicht brauchst. Echter Protein-Bedarf lässt sich über vollwertige Lebensmittel decken. Dein Körper weiß den Unterschied.</p>
-      <span class="pillar-tag">Anti-Supplement-Hype</span>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">🍬</span>
-      <h3>Zucker: der stille Feind</h3>
-      <p>Zucker entzündet, macht abhängig, zerstört die Darmflora und hält dich in einem ewigen Energiekreislauf gefangen. Zuckerfrei zu leben ist kein Verzicht — es ist Befreiung.</p>
-      <span class="pillar-tag">Zuckerfreiheit</span>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">⚖️</span>
-      <h3>Kalorien? Das ist 1980.</h3>
-      <p>Jedes Nahrungsmittel wirkt anders im Körper und löst andere biochemische Reaktionen aus. 100 kcal Zucker und 100 kcal Mandeln sind biologisch komplette Gegensätze. Ich denke in Wirkung — nicht in Zahlen.</p>
-      <span class="pillar-tag">Ganzheitliche Ernährung</span>
-    </div>
-    <div class="pillar reveal">
-      <span class="pillar-icon">🧠</span>
-      <h3>Mindset &amp; Biomechanik</h3>
-      <p>Körper und Psyche sind kein Zufall. Eingeschränkte Bewegungsmuster zeigen oft, welches Thema im Nervensystem noch unverarbeitet ist. Ich arbeite mit dir an beiden Ebenen gleichzeitig.</p>
-      <span class="pillar-tag">Säule 3 · Mindset</span>
-    </div>
-  </div>
-</section>
- 
-<!-- ANTI-HYPE -->
-<section class="anti-hype">
-  <div class="section-header">
-    <span class="section-label reveal">Klartext</span>
-    <h2 class="section-title reveal">Was die Fitness-Industrie dir nicht sagt</h2>
-  </div>
-  <div class="anti-grid reveal">
-    <div class="anti-card myth">
-      <span class="anti-card-label">❌ Der Mythos</span>
-      <h3>„Mehr Protein = mehr Muskeln"</h3>
-      <p>Die Supplement-Industrie lebt vom Proteinpulver-Hype. In Wahrheit braucht ein gesunder Erwachsener keine künstlichen Protein-Shakes — vollwertige Lebensmittel reichen aus.</p>
-    </div>
-    <div class="anti-card truth">
-      <span class="anti-card-label">✓ Die Wahrheit</span>
-      <h3>Echte Lebensmittel bauen echte Kraft</h3>
-      <p>Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles, was der Körper braucht. Ich zeige dir, wie du dich satt, stark und energievoll ernährst — ohne Pulver, ohne Pillen, ohne Hype.</p>
-    </div>
-    <div class="anti-card myth">
-      <span class="anti-card-label">❌ Der Mythos</span>
-      <h3>„Kalorienzählen macht schlank"</h3>
-      <p>Kalorienzählen ignoriert, dass jedes Nahrungsmittel völlig unterschiedliche Stoffwechselprozesse auslöst — Insulin, Hormone, Entzündungen. Eine Kalorie ist keine Kalorie.</p>
-    </div>
-    <div class="anti-card truth">
-      <span class="anti-card-label">✓ Die Wahrheit</span>
-      <h3>Dein Körper versteht Qualität</h3>
-      <p>Statt Zahlen zähle ich Wirkungen. Was stärkt den Darm? Was beruhigt Entzündungen? Was gibt echte Energie? Diese Fragen führen zu echten, dauerhaften Ergebnissen.</p>
-    </div>
-  </div>
-</section>
- 
-<!-- STATS -->
-<section class="stats-section">
-  <div class="section-header">
-    <span class="section-label reveal">Fakten & Zahlen</span>
-    <h2 class="section-title reveal">Was die Wissenschaft sagt</h2>
-  </div>
-  <div class="stats-row reveal">
-    <div class="stat-box">
-      <div class="stat-num">80<span class="stat-unit">%</span></div>
-      <div class="stat-label">des Immunsystems</div>
-      <div class="stat-desc">sitzt im Darm — ein gesunder Darm ist die Basis für alles</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num forest">5.000</div>
-      <div class="stat-label">Jahre Ayurveda</div>
-      <div class="stat-desc">erprobtes Heilwissen aus der ältesten Medizin der Welt</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">74<span class="stat-unit">g</span></div>
-      <div class="stat-label">Zucker täglich</div>
-      <div class="stat-desc">nimmt ein Durchschnittsdeutscher pro Tag auf — 3× zu viel</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num forest">0</div>
-      <div class="stat-label">Proteinpulver</div>
-      <div class="stat-desc">nötig bei einer vollwertigen, ausgewogenen Ernährung</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">430<span class="stat-unit">+</span></div>
-      <div class="stat-label">Stunden Erfahrung</div>
-      <div class="stat-desc">gesammelt auf der Mein Schiff 4 und in Clubanlagen</div>
-    </div>
-  </div>
- 
-  <!-- Sugar viz -->
-  <div class="sugar-viz reveal">
-    <h3>Zucker im Vergleich — täglich aufgenommene Menge</h3>
-    <p>Was dein Körper wirklich verarbeiten kann vs. was wir tatsächlich konsumieren</p>
-    <div class="sugar-bar-item">
-      <div class="sugar-bar-label"><span>🍬 Durchschnitt Deutschland (Gesamt-Zucker/Tag)</span><span>74g</span></div>
-      <div class="sugar-bar-track"><div class="sugar-bar-fill fill-red" data-width="92%"></div></div>
-    </div>
-    <div class="sugar-bar-item">
-      <div class="sugar-bar-label"><span>⚠️ WHO-Empfehlung (freier Zucker/Tag)</span><span>25g</span></div>
-      <div class="sugar-bar-track"><div class="sugar-bar-fill fill-mid" data-width="31%"></div></div>
-    </div>
-    <div class="sugar-bar-item">
-      <div class="sugar-bar-label"><span>✅ Mara Move Ziel (natürlicher Zucker aus Lebensmitteln)</span><span>15–20g</span></div>
-      <div class="sugar-bar-track"><div class="sugar-bar-fill fill-green" data-width="22%"></div></div>
-    </div>
-    <p style="font-size:0.75rem; color: rgba(90,58,34,0.45); margin-top: 1.5rem; margin-bottom: 0;">Quellen: DGE, WHO Zuckerrichtlinien 2023 · Freier Zucker = zugesetzter Zucker und Fruchtsäfte</p>
-  </div>
-</section>
- 
-<!-- GALLERY -->
-<section class="gallery-section" id="gallery">
+<!-- PATH 1 -->
+<section class="path1" id="bewegungsfreude">
   <div class="section-header reveal">
-    <span class="section-label">Einblicke</span>
-    <h2 class="section-title">Dein Weg beginnt hier</h2>
+    <span class="section-label">Pfad eins · Für gesunde Menschen</span>
+    <h2 class="section-title">Bewegungsfreude für den Alltag</h2>
   </div>
-  <div class="gallery-grid reveal">
-    <div class="gallery-item"><img src="assets/gallery-1.jpg" alt="Mara Move Training 1"><div class="gallery-item-overlay"></div></div>
-    <div class="gallery-item"><img src="assets/gallery-2.jpg" alt="Mara Move Training 2"><div class="gallery-item-overlay"></div></div>
-    <div class="gallery-item"><img src="assets/gallery-3.jpg" alt="Mara Move Training 3"><div class="gallery-item-overlay"></div></div>
-    <div class="gallery-item"><img src="assets/gallery-4.jpg" alt="Mara Move Training 4"><div class="gallery-item-overlay"></div></div>
+  <div class="path1-grid reveal">
+    <div class="svc-card"><span class="svc-icon">🏋️‍♀️</span><h4>Personal Training</h4><p>Individuell abgestimmte Workouts — effektiv, sicher, mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.</p></div>
+    <div class="svc-card"><span class="svc-icon">🧘‍♀️</span><h4>Yoga</h4><p>Mentale Stärke und körperliche Balance. Ein Werkzeug für Ruhe, Klarheit und innere Mitte.</p></div>
+    <div class="svc-card"><span class="svc-icon">⚡</span><h4>Funktionelles Training</h4><p>Kraft und Beweglichkeit, die im echten Leben zählen — für Alltag, Sport und Beruf.</p></div>
+    <div class="svc-card"><span class="svc-icon">🌳</span><h4>Training an der frischen Luft</h4><p>Bewegung draußen, in der Natur rund um Oberottmarshausen — Kopf frei, Körper wach.</p></div>
+    <div class="svc-card"><span class="svc-icon">⚡</span><h4>EMS Training</h4><p>Intensiv und zeitsparend. Das Gerät ist im Preis enthalten — du musst nichts kaufen.</p></div>
+    <div class="svc-card"><span class="svc-icon">💻</span><h4>Online Coaching</h4><p>Flexibel von überall — für Menschen mit vollem Terminkalender.</p></div>
   </div>
-  <div class="mobile-gallery">
-    <img src="assets/gallery-1.jpg" alt="Gallery 1" class="active">
-    <img src="assets/gallery-2.jpg" alt="Gallery 2">
-    <img src="assets/gallery-3.jpg" alt="Gallery 3">
-    <img src="assets/gallery-4.jpg" alt="Gallery 4">
-    <div class="gallery-nav" id="galleryDots"></div>
+</section>
+ 
+<!-- PATH 2: HEALING HUMANS -->
+<section class="path2" id="healing-humans">
+  <div class="path2-inner">
+    <div class="path2-lede reveal">
+      <span class="section-label" style="color:var(--gold-light)">Pfad zwei · Healing Humans</span>
+      <h2 class="section-title" style="color:var(--cream)">Lebensfreude, um zu heilen</h2>
+      <p>Healing Humans ist Ursachenbehandlung statt Symptombekämpfung. Drei Säulen, die nie isoliert betrachtet werden, sondern als ein System zusammenwirken — dein Programm ist immer individuell auf dich abgestimmt.</p>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <span class="pillar-num">Säule I</span>
+        <h3>Bewegungsfreude</h3>
+        <p>Körper- und Sporttherapie. Wir bauen Kraft, Mobilität und Vertrauen in den eigenen Körper wieder auf.</p>
+        <ul>
+          <li>Healing-Humans-Sporttherapie</li>
+          <li>Biomechanik &amp; Faszien-Arbeit</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Säule II</span>
+        <h3>Geistesfreude</h3>
+        <p>Arbeit mit der Psyche. Eingeschlossene emotionale Blockaden werden aufgespürt und sanft gelöst.</p>
+        <ul>
+          <li>Emotionscode</li>
+          <li>Mindset Coaching</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Säule III</span>
+        <h3>Alltagsfreude</h3>
+        <p>Ernährungsumstellung nach neuester Wissenschaft — wenig Zucker, viel Wirkung, echter Genuss.</p>
+        <ul>
+          <li>Dosha-Analyse (Ayurveda)</li>
+          <li>Kochunterricht</li>
+        </ul>
+      </div>
+    </div>
+    <p class="system-line reveal">Drei Säulen. Ein System. Das Ganzheitskonzept Lebensfreude.</p>
+  </div>
+</section>
+ 
+<!-- CLEANSE -->
+<section class="cleanse">
+  <div class="cleanse-inner">
+    <div class="cleanse-text reveal">
+      <span class="section-label">Der Anfang</span>
+      <h2 class="section-title">Jedes Programm beginnt mit Reinigung</h2>
+      <p>Bevor wir aufbauen, entlasten wir. Je nach Konstitution und Befund startet dein Lebensfreude-Programm mit einer der beiden Methoden — beide immer individuell dosiert und begleitet.</p>
+    </div>
+    <div class="cleanse-cards reveal">
+      <div class="cleanse-card">
+        <h4>🌿 Panchakarma</h4>
+        <p>Ayurvedische Ausleitung und Regeneration des Verdauungsfeuers — 5.000 Jahre erprobtes Heilwissen.</p>
+      </div>
+      <div class="cleanse-card">
+        <h4>💧 Buchinger Fasten</h4>
+        <p>Therapeutisches Fasten zur Anregung der Zellerneuerung — wissenschaftlich begleitet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- 5-STEP JOURNEY -->
+<section class="journey">
+  <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
+    <span class="section-label">Dein Weg</span>
+    <h2 class="section-title">So läuft das Lebensfreude-Programm ab</h2>
+  </div>
+  <div class="journey-list reveal">
+    <div class="j-step">
+      <span class="j-num">01</span>
+      <div class="j-content">
+        <h3>Entgiftung &amp; Reinigung — das Fundament</h3>
+        <p>Jeder Heilungsprozess beginnt mit einer tiefen Entlastung des Körpers: Panchakarma-Kur oder therapeutisches Buchinger-Fasten, je nach Befund und Konstitution.</p>
+        <span class="j-tag">Fundament</span>
+      </div>
+    </div>
+    <div class="j-step">
+      <span class="j-num">02</span>
+      <div class="j-content">
+        <h3>Analyse &amp; Säule Alltagsfreude</h3>
+        <p>Fundierte Ayurveda-Dosha-Analyse, ein Ernährungsplan nach neuesten wissenschaftlichen Erkenntnissen (z. B. Blutzuckerstabilität, minimale Zuckerbelastung) und gemeinsamer Kochunterricht für den Alltag.</p>
+        <span class="j-tag">Alltagsfreude</span>
+      </div>
+    </div>
+    <div class="j-step">
+      <span class="j-num">03</span>
+      <div class="j-content">
+        <h3>Säule Geistesfreude — mentale &amp; emotionale Ebene</h3>
+        <p>Sitzungen mit dem Emotionscode spüren eingeschlossene emotionale Blockaden auf und lösen sie sanft. Begleitendes Mindset Coaching verankert neue, förderliche Denkmuster.</p>
+        <span class="j-tag">Geistesfreude</span>
+      </div>
+    </div>
+    <div class="j-step">
+      <span class="j-num">04</span>
+      <div class="j-content">
+        <h3>Säule Bewegungsfreude — Körper- &amp; Sporttherapie</h3>
+        <p>Gezielte Sport- und Körpertherapie baut Kraft, Mobilität und Vertrauen wieder auf — abgestimmt auf dein aktuelles Energieniveau, frei von Überlastung.</p>
+        <span class="j-tag">Bewegungsfreude</span>
+      </div>
+    </div>
+    <div class="j-step">
+      <span class="j-num">05</span>
+      <div class="j-content">
+        <h3>Integration &amp; Nachhaltigkeit</h3>
+        <p>In regelmäßigen Feedback-Impulsen passen wir Routinen an Veränderungen im Alltag an, damit Wohlbefinden und Lebensfreude langfristig erhalten bleiben.</p>
+        <span class="j-tag">Langfristig</span>
+      </div>
+    </div>
   </div>
 </section>
  
@@ -1043,187 +546,127 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
     <div class="about-image-badge"><span class="num">5+</span><span class="label">Jahre Erfahrung</span></div>
   </div>
   <div class="about-content reveal">
-    <span class="section-label" data-i18n="about_label">Über mich</span>
-    <h2 class="section-title" data-i18n="about_title">Hi, ich bin <em style="font-style:italic;color:var(--terra);">Mara</em></h2>
-    <p data-i18n="about_p1">Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.</p>
-    <p data-i18n="about_p2">Mein Ansatz ist radikal ganzheitlich: Darm, Ernährung, Bewegung, Schlaf und Psyche gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.</p>
-    <blockquote class="about-quote" data-i18n="about_quote">„Dein Körper kann alles – überzeuge deinen Geist und geh den ersten Schritt."</blockquote>
-    <div class="ayurveda-badge">
-      <div class="badge-dot"></div>
-      <p data-i18n="about_ayur">Kooperation mit <a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a> — ärztlich begleitetes Ayurveda-Wissen in der Praxis</p>
+    <span class="section-label">Über mich</span>
+    <h2 class="section-title">Hi, ich bin <em style="font-style:italic;color:var(--gold);">Mara</em></h2>
+    <p>Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin — und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.</p>
+    <p>Mein Ansatz ist radikal ganzheitlich: Körper, Psyche und Ernährung gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Wissen — in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.</p>
+    <blockquote class="about-quote">„Dein Körper kann alles — überzeuge deinen Geist und geh den ersten Schritt."</blockquote>
+    <div class="partner-badge">
+      <div class="dot"></div>
+      <p>Zur Mara-Tumpach-Welt gehört auch <a href="https://maratumpach.github.io/Ei-Weiss/" target="_blank" rel="noopener">Ei-Weiss</a> — Bio-Hofladen und Protein-Chips aus geretteten Hühnern, für echten Genuss im Alltag.</p>
     </div>
     <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
-      <a href="#kontakt" class="btn-primary" data-i18n="about_cta">Kostenlos kennenlernen</a>
-      <a href="zertifikate.html" class="btn-outline" data-i18n="about_certs">Meine Zertifikate →</a>
+      <a href="#kontakt" class="btn-dark">Kostenlos kennenlernen</a>
     </div>
   </div>
 </section>
  
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-header">
-    <span class="section-label reveal">Angebote</span>
-    <h2 class="section-title reveal">Was ich für dich tue</h2>
-  </div>
-  <div class="services-grid reveal">
-    <div class="service-card"><span class="service-icon">🏋️‍♀️</span><h3>Personal Training</h3><p>Individuell auf dich abgestimmte Workouts – effektiv, sicher und mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.</p></div>
-    <div class="service-card"><span class="service-icon">🧬</span><h3>Healing Humans Sporttherapie</h3><p>Gezielte Biomechanik-Arbeit an Faszien und Bewegungsmustern — Einzeltherapie, die Körper und Nervensystem zusammen betrachtet.</p></div>
-    <div class="service-card"><span class="service-icon">🌿</span><h3 data-i18n="sv3_h">Individuelle Ernährung</h3><p data-i18n="sv3_p">Keto, basisch, ayurvedisch oder antientzündlich — ich schaue was zu dir passt. Kein starres Konzept, sondern ehrliche Ernährungsberatung die deinen Körper und Alltag versteht.</p></div>
-    <div class="service-card"><span class="service-icon">🧠</span><h3>Mindset Coaching</h3><p>Bewegungsmuster und psychoemotionale Themen hängen zusammen. Wir arbeiten an beiden Ebenen — für echte, dauerhafte Veränderung.</p></div>
-    <div class="service-card"><span class="service-icon">⚡</span><h3>EMS Training</h3><p>Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Trainingspreis enthalten – du musst nichts kaufen.</p></div>
-    <div class="service-card"><span class="service-icon">💻</span><h3>Online Coaching</h3><p>Flexibel von überall. Training und Ernährungsberatung digital — für Menschen mit vollem Terminkalender.</p></div>
-  </div>
-</section>
- 
-<!-- WHY -->
-<section class="why">
-  <div class="section-header">
-    <span class="section-label reveal">Kein Geheimnis</span>
-    <h2 class="section-title reveal">Warum es alleine oft nicht klappt</h2>
-  </div>
-  <div class="why-table reveal">
-    <div class="why-table-header"><div>Herausforderung</div><div>Lösung mit Mara Move</div></div>
-    <div class="why-table-row"><div class="challenge">🛋️ Motivation fehlt, Termine werden verschoben</div><div class="solution">Personal Training mit festen, verbindlichen Terminen</div></div>
-    <div class="why-table-row"><div class="challenge">🍫 Zuckersucht und unkontrolliertes Verlangen</div><div class="solution">Darmreinigung + ayurvedische Ernährungsumstellung</div></div>
-    <div class="why-table-row"><div class="challenge">❓ Unsicherheit bei Übungen und Technik</div><div class="solution">Persönliche Begleitung und Korrektur bei jedem Training</div></div>
-    <div class="why-table-row"><div class="challenge">📉 Keine sichtbaren Erfolge trotz Aufwand</div><div class="solution">Vitalstoffanalyse + gezielte Nährstoffergänzung</div></div>
-    <div class="why-table-row"><div class="challenge">💊 Teurer Supplement-Kauf ohne Wirkung</div><div class="solution">Gezielte Mikronährstoffe nur bei nachgewiesenem Mangel</div></div>
-  </div>
-</section>
- 
-<!-- TIMELINE -->
-<section class="timeline">
-  <div class="section-header">
-    <span class="section-label reveal">Dein Weg</span>
-    <h2 class="section-title reveal">So sieht dein Weg mit mir aus</h2>
-  </div>
-  <div class="timeline-steps reveal">
-    <div class="timeline-step"><div class="dot">1</div><h3>Erstes Gespräch</h3><p>Kostenlos und unverbindlich. Wir schauen gemeinsam, wo du stehst und was du wirklich brauchst — ganz ohne Druck.</p></div>
-    <div class="timeline-step"><div class="dot">2</div><h3>Körper ins Gleichgewicht</h3><p>Darm, Vitalstoffe, Bewegung — wir schaffen die Basis. Nach wenigen Wochen spürst du den Unterschied: Energie, Schlaf, Klarheit.</p></div>
-    <div class="timeline-step"><div class="dot">3</div><h3>Nachhaltige Kraft</h3><p>Kein Jo-Jo, kein Rückfall. Du hast verstanden, wie dein Körper wirklich funktioniert — und kannst es für immer halten.</p></div>
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-row reveal">
+    <div class="stat-box"><div class="stat-num">80<span class="stat-unit">%</span></div><div class="stat-label">des Immunsystems</div><div class="stat-desc">sitzt im Darm — Alltagsfreude beginnt hier</div></div>
+    <div class="stat-box"><div class="stat-num">5.000</div><div class="stat-label">Jahre Ayurveda</div><div class="stat-desc">erprobtes Heilwissen aus der ältesten Medizin der Welt</div></div>
+    <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Säulen</div><div class="stat-desc">Bewegung, Geist und Alltag als ein System</div></div>
+    <div class="stat-box"><div class="stat-num">430<span class="stat-unit">+</span></div><div class="stat-label">Stunden Erfahrung</div><div class="stat-desc">gesammelt auf der Mein Schiff 4 und in Clubanlagen</div></div>
   </div>
 </section>
  
 <!-- PRICING -->
 <section class="pricing" id="preise">
-  <div class="section-header">
-    <span class="section-label reveal">Transparenz</span>
-    <h2 class="section-title reveal">Investiere in dich</h2>
+  <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
+    <span class="section-label">Transparenz</span>
+    <h2 class="section-title">Investiere in dich</h2>
   </div>
-  <p class="pricing-intro reveal">Buche einzeln oder spare mit einer Karte: <strong>3er –5 %</strong>, <strong>5er –8 %</strong>, <strong>10er –10 %</strong> — je mehr Termine, desto günstiger pro Einheit.</p>
+  <p class="pricing-intro reveal">Beide Pfade lassen sich einzeln buchen oder als personalisiertes Lebensfreude-Programm kombinieren — nach deinem Erstgespräch erhältst du einen Vorschlag, der wirklich zu dir passt.</p>
   <div class="pricing-grid">
- 
-    <div class="pricing-card reveal" data-base-price="49">
-      <span class="service-name">Personal Training</span>
-      <div class="price-val" data-price-display><sup>€</sup>49</div>
-      <p class="price-desc" data-price-desc>pro Einheit</p>
+    <div class="pricing-card reveal">
+      <span class="p-name">Bewegungsfreude</span>
+      <div class="price-val"><sup>€</sup>49</div>
+      <p class="price-desc">Personal Training, pro Einheit</p>
       <hr>
       <ul><li>Individueller Trainingsplan</li><li>Persönliche Begleitung</li><li>Übungskorrektur</li></ul>
-      <div class="pkg-toggle">
-        <button class="pkg-pill active" data-qty="1">1×</button>
-        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
-        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
-        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
-      </div>
     </div>
- 
-    <div class="pricing-card featured reveal" data-base-price="99">
-      <span class="pricing-badge">Neu</span>
-      <span class="service-name">Healing Humans Therapiestunde</span>
-      <div class="price-val" data-price-display><sup>€</sup>99</div>
-      <p class="price-desc" data-price-desc>pro Termin</p>
+    <div class="pricing-card featured reveal">
+      <span class="pricing-badge">Ursachenarbeit</span>
+      <span class="p-name">Healing Humans Therapiestunde</span>
+      <div class="price-val"><sup>€</sup>99</div>
+      <p class="price-desc">Sporttherapie inkl. Mindset-Anteil</p>
       <hr>
-      <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Mindset-Anteil inklusive</li><li>Healing-Humans-zertifiziert</li></ul>
-      <div class="pkg-toggle">
-        <button class="pkg-pill active" data-qty="1">1×</button>
-        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
-        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
-        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
-      </div>
+      <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li><li>Healing-Humans-zertifiziert</li></ul>
     </div>
- 
-    <div class="pricing-card reveal"><span class="service-name">Ernährungsumstellung</span><div class="price-val"><sup>€</sup>59</div><p class="price-desc">Ersttermin inkl. Analyse</p><hr><ul><li>Vitalstoffanalyse</li><li>Individueller Ernährungsplan</li><li>Darmreinigung inkl.</li></ul></div>
- 
-    <div class="pricing-card reveal"><span class="service-name">Wochenbegleitung</span><div class="price-val"><sup>€</sup>35</div><p class="price-desc">pro Woche</p><hr><ul><li>Regelmäßiger Check-in</li><li>Fortschritts-Tracking</li><li>Motivation &amp; Support</li></ul></div>
- 
-    <div class="pricing-card reveal" data-base-price="89">
-      <span class="service-name">EMS Training</span>
-      <div class="price-val" data-price-display><sup>€</sup>89</div>
-      <p class="price-desc" data-price-desc>Gerät inklusive</p>
+    <div class="pricing-card reveal">
+      <span class="p-name">Alltagsfreude</span>
+      <div class="price-val"><sup>€</sup>59</div>
+      <p class="price-desc">Ersttermin inkl. Dosha-Analyse</p>
       <hr>
-      <ul><li>Breuer EMS-Gürtel inklusive</li><li>Intensiv &amp; zeitsparend</li><li>Professionelle Anleitung</li></ul>
-      <div class="pkg-toggle">
-        <button class="pkg-pill active" data-qty="1">1×</button>
-        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
-        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
-        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
-      </div>
+      <ul><li>Ayurveda-Dosha-Analyse</li><li>Individueller Ernährungsplan</li><li>Kochunterricht auf Anfrage</li></ul>
     </div>
- 
+    <div class="pricing-card reveal">
+      <span class="p-name">Lebensfreude-Programm</span>
+      <div class="price-val">Individuell</div>
+      <p class="price-desc">Alle drei Säulen, personalisiert</p>
+      <hr>
+      <ul><li>Reinigung: Panchakarma oder Fasten</li><li>Bewegungs-, Geistes- &amp; Alltagsfreude</li><li>Langfristige Begleitung</li></ul>
+    </div>
   </div>
 </section>
  
 <!-- TESTIMONIALS -->
 <section class="testimonials">
-  <div class="section-header">
-    <span class="section-label reveal">Stimmen</span>
-    <h2 class="section-title reveal">Was Frauen sagen</h2>
+  <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
+    <span class="section-label">Stimmen</span>
+    <h2 class="section-title">Was Frauen sagen</h2>
   </div>
   <div class="testimonials-grid reveal">
     <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Ich passe seit Jahren wieder in mein altes Lieblingskleid. Mara hat mein Leben verändert."</p></div>
     <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Meine Food Noise ist endlich still. Ich esse bewusst und genieße es wirklich — ganz ohne Diät."</p></div>
-    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Ich fühle mich stark, schön und wohl – in meinem Körper und in meinem Leben."</p></div>
+    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Ich fühle mich stark, schön und wohl — in meinem Körper und in meinem Leben."</p></div>
   </div>
 </section>
  
 <!-- FAQ -->
 <section class="faq">
-  <div class="section-header">
-    <span class="section-label reveal">FAQ</span>
-    <h2 class="section-title reveal">Fragen &amp; Antworten</h2>
+  <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Fragen &amp; Antworten</h2>
   </div>
   <div class="faq-list reveal">
-    <div class="faq-item"><button class="faq-question">Wie viel Zeit sollte ich freihalten?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Mindestens 2–3 Stunden pro Woche reichen für spürbare Erfolge. Das Wichtigste ist die Regelmäßigkeit – nicht die Intensität.</div></div></div>
-    <div class="faq-item"><button class="faq-question">Warum keine Proteinshakes oder Diätprodukte?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil du sie nicht brauchst. Die Supplement-Industrie lebt von Verunsicherung. Ein vollwertiger Ernährungsplan auf Basis echter Lebensmittel liefert alles, was dein Körper braucht — ohne Nebenwirkungen, ohne Abhängigkeit, ohne leere Versprechen.</div></div></div>
-    <div class="faq-item"><button class="faq-question">Was bedeutet Ernährung nach Ayurveda?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Ayurveda ist die älteste Medizin der Welt — über 5.000 Jahre erprobt. Im Bereich Ernährung bedeutet das: Kräuter und Gewürze als Heilmittel, saisonales und lokales Essen, die Stärkung des Verdauungsfeuers (Agni) und ein tiefer Respekt vor dem, was wir unserem Körper zuführen. Ich arbeite mit den Ärztinnen von ayurveda-deutschland.org zusammen.</div></div></div>
-    <div class="faq-item"><button class="faq-question">Warum ist Kalorienzählen keine gute Idee?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil jedes Lebensmittel anders im Körper wirkt. 100 kcal Traubenzucker und 100 kcal Walnüsse lösen völlig unterschiedliche Hormonreaktionen aus — Insulin, Cortisol, Serotonin. Statt Zahlen schaue ich auf Qualität, Wirkung und Verträglichkeit.</div></div></div>
-    <div class="faq-item"><button class="faq-question">Muss ich den EMS-Gürtel selbst kaufen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.</div></div></div>
-    <div class="faq-item"><button class="faq-question">Kann ich online teilnehmen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Ja, Training und Coaching sind auch vollständig digital möglich. Du brauchst nur eine Internetverbindung und Motivation.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Woher weiß ich, welcher Pfad zu mir passt?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Das klären wir im kostenlosen Erstgespräch. Manchmal reicht Bewegungsfreude völlig aus, manchmal zeigt sich schnell, dass tiefere Ursachenarbeit über Healing Humans sinnvoller ist. Du musst dich vorher nicht festlegen.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Muss ich immer mit einer Reinigung starten?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nur im Healing-Humans-Pfad. Panchakarma oder Buchinger Fasten sind das Fundament der Ursachenbehandlung, werden aber immer individuell auf deine Konstitution und deinen Gesundheitszustand abgestimmt.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Was ist der Emotionscode?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Eine Methode, um eingeschlossene emotionale Blockaden aufzuspüren und sanft zu lösen. Sie ist Teil der Säule Geistesfreude und ergänzt das Mindset Coaching.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Wie läuft die Dosha-Analyse ab?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Wir bestimmen deine ayurvedische Konstitution und leiten daraus einen Ernährungsplan ab, der wissenschaftlich fundiert ist — z. B. mit Fokus auf Blutzuckerstabilität und minimale Zuckerbelastung.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Kann ich online teilnehmen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Ja, viele Bausteine — Personal Training, Mindset Coaching, Ernährungsberatung — sind auch vollständig digital möglich.</div></div></div>
   </div>
 </section>
  
 <!-- CONTACT -->
 <section class="contact" id="kontakt">
-  <div class="section-header">
-    <span class="section-label" data-i18n="ct_label">Starte jetzt</span>
-    <h2 class="section-title" data-i18n="ct_title">Dein erster Schritt</h2>
+  <div class="section-header on-dark reveal" style="max-width:100%; margin-bottom:4rem;">
+    <span class="section-label">Starte jetzt</span>
+    <h2 class="section-title">Dein erster Schritt</h2>
   </div>
   <div class="contact-inner">
     <div class="contact-info">
-      <div class="info-item"><h3 data-i18n="ct_write">Schreib mir</h3><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></div>
-      <div class="info-item"><h3 data-i18n="ct_call">Ruf an</h3><a href="tel:+491629453781">+49 162 9453781</a></div>
-      <div class="info-item"><h3 data-i18n="ct_loc">Standort</h3><p data-i18n="ct_loc1">Oberottmarshausen (nähe München)</p><p data-i18n="ct_loc2">Online Coaching weltweit möglich</p></div>
-      <p style="font-size:0.8rem;opacity:0.5;margin-top:1rem;" data-i18n="ct_free">Das erste Gespräch ist kostenlos und unverbindlich.</p>
+      <div class="info-item"><h3>Schreib mir</h3><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></div>
+      <div class="info-item"><h3>Ruf an</h3><a href="tel:+491629453781">+49 162 9453781</a></div>
+      <div class="info-item"><h3>Standort</h3><p style="font-family:var(--sans);font-size:0.9rem;font-weight:300;color:rgba(248,243,232,0.7);">Oberottmarshausen (nähe München)<br>Online Coaching weltweit möglich</p></div>
+      <p style="font-size:0.8rem;opacity:0.5;">Das erste Gespräch ist kostenlos und unverbindlich.</p>
     </div>
     <form class="contact-form" action="https://formspree.io/f/xnjldvwe" method="POST">
-      <input type="hidden" name="_redirect" value="https://deinewebsite.de/danke.html">
       <div class="form-group">
-        <input type="text" name="name" data-i18n-placeholder="ct_name" placeholder="Dein Name" required>
-        <input type="email" name="email" data-i18n-placeholder="ct_email" placeholder="E-Mail-Adresse" required>
+        <input type="text" name="name" placeholder="Dein Name" required>
+        <input type="email" name="email" placeholder="E-Mail-Adresse" required>
       </div>
-      <input type="tel" name="telefon" data-i18n-placeholder="ct_phone" placeholder="Telefonnummer" required>
-      <select name="anliegen" required id="contactSelect">
-        <option value="" data-i18n-opt="ct_select">Wähle dein Anliegen</option>
-        <option data-i18n-opt="ct_o1">Kostenloses Beratungsgespräch</option>
-        <option data-i18n-opt="ct_o2">Personaltraining</option>
-        <option data-i18n-opt="ct_o3">Individuelle Ernährungsberatung</option>
-        <option data-i18n-opt="ct_o4">Darmgesundheit &amp; Vitalstoffanalyse</option>
-        <option data-i18n-opt="ct_o5">EMS Training</option>
-        <option data-i18n-opt="ct_o6">Online Coaching</option>
+      <input type="tel" name="telefon" placeholder="Telefonnummer" required>
+      <select name="anliegen" required>
+        <option value="">Wähle deinen Pfad</option>
+        <option>Bewegungsfreude — Personal Training, Yoga & Co.</option>
+        <option>Healing Humans — Ursachenbehandlung</option>
+        <option>Ich bin mir noch nicht sicher</option>
       </select>
-      <input type="text" name="termin" data-i18n-placeholder="ct_date" placeholder="Wunschtermin (Datum &amp; Uhrzeit)">
-      <textarea name="nachricht" data-i18n-placeholder="ct_msg" placeholder="Kurze Nachricht (optional)"></textarea>
-      <button type="submit" class="btn-primary" data-i18n="ct_btn">Termin anfragen →</button>
+      <input type="text" name="termin" placeholder="Wunschtermin (Datum &amp; Uhrzeit)">
+      <textarea name="nachricht" placeholder="Kurze Nachricht (optional)"></textarea>
+      <button type="submit" class="btn-primary">Termin anfragen →</button>
     </form>
   </div>
 </section>
@@ -1232,423 +675,76 @@ body { background-color: #fdf8f2; color: #2a1a0e; }
 <section class="newsletter-section" id="newsletter">
   <div class="newsletter-inner">
     <div class="newsletter-left reveal">
-      <span class="section-label" data-i18n="nl_label">Bleib dabei</span>
-      <h2 data-i18n="nl_title">Rezepte, Tipps &amp;<br>echtes Wissen — kostenlos.</h2>
-      <p data-i18n="nl_sub">Neue Rezepte ohne Zucker, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke — direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.</p>
-      <ul class="nl-benefits">
-        <li data-i18n="nl_b1">🌿 Neue zuckerfreie Rezepte</li>
-        <li data-i18n="nl_b2">💡 Tipps & Tricks rund um Ernährung & Sport</li>
-        <li data-i18n="nl_b3">🦠 Darmgesundheit verständlich erklärt</li>
-        <li data-i18n="nl_b4">🧘‍♀️ Yoga &amp; Bewegungsimpulse für den Alltag</li>
-      </ul>
+      <span class="section-label">Bleib dabei</span>
+      <h2>Rezepte, Tipps &amp; echtes Wissen — kostenlos.</h2>
+      <p>Ayurveda-Tipps, zuckerfreie Rezepte und Impulse zu Bewegung und Mindset — direkt in dein Postfach. Kein Spam, nur Dinge, die wirklich helfen.</p>
     </div>
     <div class="newsletter-right reveal">
       <form class="nl-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handleNLSubmit(event, this)">
-        <input type="hidden" name="_subject" value="Newsletter Anmeldung – Mara Move">
-        <input type="hidden" name="_replyto" value="maratumpach@gmail.com">
-        <input type="hidden" name="type" value="newsletter">
-        <label data-i18n="nl_name_label">Dein Vorname</label>
-        <input type="text" name="name" data-i18n-placeholder="nl_name_ph" placeholder="Wie soll ich dich nennen?" required>
-        <label data-i18n="nl_email_label">Deine E-Mail-Adresse</label>
-        <input type="email" name="email" data-i18n-placeholder="nl_email_ph" placeholder="deine@email.de" required>
-        <button type="submit" class="btn-primary nl-btn" data-i18n="nl_btn">Jetzt anmelden &amp; Wissen erhalten →</button>
-        <p class="nl-fine" data-i18n="nl_fine">Kein Spam. Jederzeit abmeldbar. Deine Daten bleiben bei mir.</p>
+        <input type="hidden" name="_subject" value="Newsletter Anmeldung – Lebensfreude">
+        <input type="text" name="name" placeholder="Wie soll ich dich nennen?" required>
+        <input type="email" name="email" placeholder="deine@email.de" required>
+        <button type="submit" class="btn-primary nl-btn">Jetzt anmelden →</button>
+        <p class="nl-fine">Kein Spam. Jederzeit abmeldbar.</p>
       </form>
-      <div class="nl-success" style="display:none">
-        <div class="nl-success-icon">🌿</div>
-        <h3 data-i18n="nl_success_title">Willkommen an Bord!</h3>
-        <p data-i18n="nl_success_sub">Schön, dass du dabei bist. Deine erste Mail kommt bald.</p>
+      <div class="nl-success" style="display:none; text-align:center; padding:1.5rem 0;">
+        <div style="font-size:2.5rem;">🌿</div>
+        <h3 style="font-family:var(--serif); font-size:1.3rem; color:var(--forest-900); margin-top:0.5rem;">Willkommen an Bord!</h3>
       </div>
     </div>
   </div>
 </section>
  
-<!-- NEWSLETTER POPUP -->
-<div class="nl-popup-overlay" id="nlPopup">
-  <div class="nl-popup">
-    <div class="nl-popup-accent"></div>
-    <div class="nl-popup-deco"></div>
-    <div class="nl-popup-deco2"></div>
-    <button class="nl-popup-close" onclick="closePopup()" aria-label="Schließen">×</button>
-    <div class="nl-popup-body">
-      <span class="nl-popup-eyebrow" data-i18n="pop_eyebrow">Kostenlos &amp; wertvoll</span>
-      <h3 data-i18n="pop_title">Bevor du<br>weiterstöberst —</h3>
-      <p class="nl-popup-desc" data-i18n="pop_sub">Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.</p>
-      <ul class="nl-popup-perks">
-        <li data-i18n="nl_b1">🌿 Neue zuckerfreie Rezepte</li>
-        <li data-i18n="nl_b2">💡 Tipps & Tricks rund um Ernährung & Sport</li>
-        <li data-i18n="nl_b3">🦠 Darmgesundheit verständlich erklärt</li>
-      </ul>
-      <form class="nl-popup-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handlePopupSubmit(event, this)">
-        <input type="hidden" name="_subject" value="Newsletter Popup – Mara Move">
-        <input type="hidden" name="_replyto" value="maratumpach@gmail.com">
-        <input type="hidden" name="type" value="newsletter-popup">
-        <input type="email" name="email" data-i18n-placeholder="pop_ph" placeholder="deine@email.de" required>
-        <button type="submit" class="btn-primary" style="width:100%" data-i18n="pop_btn">Ja, ich möchte dabei sein →</button>
-      </form>
-      <div class="nl-popup-submitted" style="display:none">
-        <span style="font-size:2.5rem;">🌿</span>
-        <p data-i18n="pop_thanks">Danke! Schau auch in deinen Spam-Ordner.</p>
-      </div>
-      <button class="nl-popup-skip" onclick="closePopup()" data-i18n="pop_skip">Nein danke, ich schau mich nur um</button>
-    </div>
-  </div>
-</div>
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="logo">Mara <span>Move</span></span>
-      <p data-i18n="footer_tagline">Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS — nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.</p>
+      <span class="logo">Lebens<em>freude</em></span>
+      <p>Das Ganzheitskonzept von Mara Tumpach — Bewegungsfreude, Geistesfreude und Alltagsfreude als ein System. Nähe München und online.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
       <ul>
-        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#bewegungsfreude">Bewegungsfreude</a></li>
+        <li><a href="#healing-humans">Healing Humans</a></li>
         <li><a href="#about">Über mich</a></li>
         <li><a href="#preise">Preise</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Rechtliches</h4>
-      <ul>
-        <li><a href="#impressum">Impressum</a></li>
-        <li><a href="#datenschutz">Datenschutz</a></li>
-      </ul>
-      <h4 style="margin-top:1.5rem;">Kontakt</h4>
+      <h4>Kontakt</h4>
       <ul>
         <li><a href="mailto:maratumpach@gmail.com">maratumpach@gmail.com</a></li>
         <li><a href="tel:+491629453781">+49 162 9453781</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Partner</h4>
+      <h4>Mehr von Mara</h4>
       <ul>
-        <li><a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a></li>
-      </ul>
-      <h4 style="margin-top:1.5rem;">Social Media</h4>
-      <ul>
-        <li><a href="https://www.instagram.com/mara.move" target="_blank" rel="noopener">📷 Instagram – @mara.move</a></li>
-        <li><a id="ytLink" href="https://www.youtube.com/@Mara_Move" target="_blank" rel="noopener">▶ YouTube – @Mara_Move</a></li>
+        <li><a href="https://maratumpach.github.io/Ei-Weiss/" target="_blank" rel="noopener">Ei-Weiss Hofladen</a></li>
+        <li><a href="https://www.instagram.com/mara.move" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Mara Tumpach · MARA MOVE</span>
+    <span>© 2025 Mara Tumpach · LEBENSFREUDE</span>
     <span>Angaben gem. § 5 TMG: Mara Tumpach, Deutschland</span>
   </div>
 </footer>
  
-<div id="impressum" style="display:none"></div>
-<div id="datenschutz" style="display:none"></div>
- 
 <script>
-// ── i18n translations ──────────────────────────────────────────
-const TRANSLATIONS = {
-  de: {
-    nav_about:"Über mich", nav_prices:"Preise", nav_shop:"Shop",
-    nav_yoga:"Yogalehrer werden", nav_travel:"Reisen",
-    nav_news:"Aktuelles", nav_training:"Trainingsbereich", nav_contact:"Kontakt",
-    hero_eyebrow:"Personal Training \u00b7 Healing Humans \u00b7 Mindset \u00b7 Ernährung",
-    hero_h1:"Fühle dich wohl<br>in deiner <em>Haut</em>",
-    hero_sub:"Kein Proteinpulver. Kein Kalorienzählen. Nur echtes, ganzheitliches Wohlbefinden \u2014 über einen gesunden Darm, 5.000 Jahre altes Kräuterwissen und die Kraft natürlicher Lebensmittel.",
-    hero_btn1:"Erstgespräch vereinbaren", hero_btn2:"Leistungen entdecken",
-    hero_orn:"Mara Tumpach \u00b7 Nähe München",
-    pain_label:"Erkennst du dich wieder?",
-    pain_title:"Du verdienst mehr<br>als ständige Erschöpfung",
-    pain_01:"Du schläfst genug \u2013 und bist trotzdem ständig müde und energielos.",
-    pain_02:"Schon kleine Belastungen bringen dich außer Atem.",
-    pain_03:"Dein Körper verlangt ständig nach Zucker und schnellen Kalorien.",
-    pain_04:"Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.",
-    pain_cta:"Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken",
-    phil_label:"Mein Ansatz", phil_title:"Nicht Hype. Nicht Diät.<br>Echte Gesundheit.",
-    phil_sub:"Echte Gesundheit braucht keine Abkürzungen. Ich arbeite nach dem Healing-Humans-Prinzip mit drei Säulen, die zusammengehören: Sporttherapie für den Körper, gezielte Ernährung als Treibstoff und Mindset-Arbeit für das, was sich im Nervensystem festgesetzt hat.",
-    p1_h:"5.000 Jahre Ayurveda", p1_p:"Ayurvedische Kräuter und Gewürze sind keine Trends \u2014 sie sind erprobtes Wissen aus Jahrtausenden. Ich arbeite eng mit den Ärztinnen von ayurveda-deutschland.org zusammen.", p1_tag:"Kooperation ayurveda-deutschland.org",
-    p2_h:"Gesunder Darm \u2014 gesundes Leben", p2_p:"80 % deines Immunsystems sitzen im Darm. Wer seinen Darm heilt, heilt seinen ganzen Körper \u2014 mehr Energie, stabiles Gewicht, besserer Schlaf, mehr Fokus.", p2_tag:"Darmgesundheit",
-    p3_h:"Kein Proteinpulver-Hype", p3_p:"Die Supplement-Industrie macht Milliarden mit Produkten, die du nicht brauchst. Echter Protein-Bedarf lässt sich über vollwertige Lebensmittel decken.", p3_tag:"Anti-Supplement-Hype",
-    p4_h:"Zucker: der stille Feind", p4_p:"Zucker entzündet, macht abhängig, zerstört die Darmflora und hält dich in einem ewigen Energiekreislauf gefangen. Zuckerfrei zu leben ist kein Verzicht \u2014 es ist Befreiung.", p4_tag:"Zuckerfreiheit",
-    p5_h:"Kalorien? Das ist 1980.", p5_p:"Jedes Nahrungsmittel wirkt anders im Körper und löst andere biochemische Reaktionen aus. 100 kcal Zucker und 100 kcal Mandeln sind biologisch komplette Gegensätze. Ich denke in Wirkung \u2014 nicht in Zahlen.", p5_tag:"Ganzheitliche Ernährung",
-    p6_h:"Gezielte Nahrungsergänzung", p6_p:"Als Vitalstofftrainerin analysiere ich gezielt Mangelzustände und ergänze mit hochwertigen Mikronährstoffen \u2014 kein Blindkauf im Supermarkt, sondern gezielt und wirksam.", p6_tag:"Vitalstofftherapie",
-    anti_label:"Klartext", anti_title:"Was die Fitness-Industrie dir nicht sagt",
-    myth1_label:"❌ Der Mythos", myth1_h:"Mehr Protein = mehr Muskeln?", myth1_p:"Die Supplement-Industrie lebt vom Proteinpulver-Hype. In Wahrheit braucht ein gesunder Erwachsener keine künstlichen Protein-Shakes.",
-    truth1_label:"✓ Die Wahrheit", truth1_h:"Echte Lebensmittel bauen echte Kraft", truth1_p:"Eier, Hülsenfrüchte, Nüsse, Fisch \u2014 die Natur hat alles. Ich zeige dir, wie du dich satt, stark und energievoll ernährst \u2014 ohne Pulver, ohne Pillen.",
-    myth2_label:"❌ Der Mythos", myth2_h:"Kalorienzählen macht schlank?", myth2_p:"Kalorienzählen ignoriert, dass jedes Nahrungsmittel völlig unterschiedliche Stoffwechselprozesse auslöst \u2014 Insulin, Hormone, Entzündungen. Eine Kalorie ist keine Kalorie.",
-    truth2_label:"✓ Die Wahrheit", truth2_h:"Dein Körper versteht Qualität", truth2_p:"Statt Zahlen zähle ich Wirkungen. Was stärkt den Darm? Was beruhigt Entzündungen? Was gibt echte Energie? Diese Fragen führen zu echten, dauerhaften Ergebnissen.",
-    stats_label:"Fakten &amp; Zahlen", stats_title:"Was die Wissenschaft sagt",
-    s1_label:"des Immunsystems", s1_desc:"sitzt im Darm \u2014 ein gesunder Darm ist die Basis für alles",
-    s2_label:"Jahre Ayurveda", s2_desc:"erprobtes Heilwissen aus der ältesten Medizin der Welt",
-    s3_label:"Zucker täglich", s3_desc:"nimmt ein Durchschnittsdeutscher pro Tag auf \u2014 3\u00d7 zu viel",
-    s4_label:"Proteinpulver", s4_desc:"nötig bei einer vollwertigen, ausgewogenen Ernährung",
-    s5_label:"Stunden Erfahrung", s5_desc:"gesammelt auf der Mein Schiff 4 und in Clubanlagen",
-    sugar_title:"Zucker im Vergleich \u2014 täglich aufgenommene Menge",
-    sugar_sub:"Was dein Körper wirklich verarbeiten kann vs. was wir tatsächlich konsumieren",
-    gal_label:"Einblicke", gal_title:"Dein Weg beginnt hier",
-    about_label:"Über mich", about_title:"Hi, ich bin <em style=\"font-style:italic;color:var(--terra);\">Mara</em>",
-    about_p1:"Ich studiere Sporttherapie, bin ausgebildete Yoga-Lehrerin, Pilates-Trainerin und Vitalstofftrainerin \u2014 und ich glaube fest daran, dass echte Gesundheit kein Produkt braucht, das man kaufen muss.",
-    about_p2:"Mein Ansatz ist radikal ganzheitlich: Darm, Ernährung, Bewegung, Schlaf und Psyche gehören zusammen. Ich arbeite mit 5.000 Jahre altem ayurvedischem Kräuter- und Gewürzwissen \u2014 in enger Zusammenarbeit mit den Ärztinnen von ayurveda-deutschland.org.",
-    about_quote:"Dein Körper kann alles \u2013 überzeuge deinen Geist und geh den ersten Schritt.",
-    about_ayur:"Kooperation mit <a href=\"https://www.ayurveda-deutschland.org/\" target=\"_blank\" rel=\"noopener\">ayurveda-deutschland.org</a> \u2014 ärztlich begleitetes Ayurveda-Wissen in der Praxis",
-    about_cta:"Kostenlos kennenlernen", about_certs:"Meine Zertifikate \u2192",
-    srv_label:"Angebote", srv_title:"Was ich für dich tue",
-    sv1_h:"Personal Training", sv1_p:"Individuell auf dich abgestimmte Workouts \u2013 effektiv, sicher und mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.",
-    sv2_h:"Yoga &amp; Meditation", sv2_p:"Mentale Stärke und körperliche Balance. Yoga als Werkzeug für mehr Ruhe, Klarheit und innere Mitte \u2014 lizenziert nach BTV.",
-    sv3_h:"Individuelle Ernährung", sv3_p:"Keto, basisch, ayurvedisch oder antientzündlich \u2014 ich schaue was zu dir passt. Kein starres Konzept, sondern ehrliche Ernährungsberatung die deinen Körper und Alltag versteht.",
-    sv4_h:"Darmgesundheit", sv4_p:"Darmreinigung, Vitalstoffanalyse und gezielte Regeneration der Darmflora als Fundament für dauerhaftes Wohlbefinden.",
-    sv5_h:"EMS Training", sv5_p:"Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Trainingspreis enthalten \u2013 du musst nichts kaufen.",
-    sv6_h:"Online Coaching", sv6_p:"Flexibel von überall. Training und Ernährungsberatung digital \u2014 für Menschen mit vollem Terminkalender.",
-    why_label:"Kein Geheimnis", why_title:"Warum es alleine oft nicht klappt",
-    why_col1:"Herausforderung", why_col2:"Lösung mit Mara Move",
-    why_c1:"🛋️ Motivation fehlt, Termine werden verschoben", why_s1:"Personal Training mit festen, verbindlichen Terminen",
-    why_c2:"🍫 Zuckersucht und unkontrolliertes Verlangen", why_s2:"Darmreinigung + ayurvedische Ernährungsumstellung",
-    why_c3:"❓ Unsicherheit bei Übungen und Technik", why_s3:"Persönliche Begleitung und Korrektur bei jedem Training",
-    why_c4:"📉 Keine sichtbaren Erfolge trotz Aufwand", why_s4:"Vitalstoffanalyse + gezielte Nährstoffergänzung",
-    why_c5:"💊 Teurer Supplement-Kauf ohne Wirkung", why_s5:"Gezielte Mikronährstoffe nur bei nachgewiesenem Mangel",
-    tl_label:"Dein Weg", tl_title:"So sieht dein Weg mit mir aus",
-    tl1_h:"Erstes Gespräch", tl1_p:"Kostenlos und unverbindlich. Wir schauen gemeinsam, wo du stehst und was du wirklich brauchst \u2014 ganz ohne Druck.",
-    tl2_h:"Körper ins Gleichgewicht", tl2_p:"Darm, Vitalstoffe, Bewegung \u2014 wir schaffen die Basis. Nach wenigen Wochen spürst du den Unterschied: Energie, Schlaf, Klarheit.",
-    tl3_h:"Nachhaltige Kraft", tl3_p:"Kein Jo-Jo, kein Rückfall. Du hast verstanden, wie dein Körper wirklich funktioniert \u2014 und kannst es für immer halten.",
-    pr_label:"Transparenz", pr_title:"Investiere in dich",
-    pr1_name:"Personal Training", pr1_desc:"pro Einheit", pr1_li1:"Individueller Trainingsplan", pr1_li2:"Persönliche Begleitung", pr1_li3:"Übungskorrektur",
-    pr2_name:"Ernährungsumstellung", pr2_desc:"Ersttermin inkl. Analyse", pr2_li1:"Vitalstoffanalyse", pr2_li2:"Ayurvedischer Ernährungsplan", pr2_li3:"Darmreinigung inkl.",
-    pr3_name:"Wochenbegleitung", pr3_desc:"pro Woche", pr3_li1:"Regelmäßiger Check-in", pr3_li2:"Fortschritts-Tracking", pr3_li3:"Motivation &amp; Support",
-    pr4_name:"EMS Training", pr4_desc:"Gerät inklusive", pr4_li1:"Breuer EMS-Gürtel inklusive", pr4_li2:"Intensiv &amp; zeitsparend", pr4_li3:"Professionelle Anleitung",
-    test_label:"Stimmen", test_title:"Was Frauen sagen",
-    test1:"Ich passe seit Jahren wieder in mein altes Lieblingskleid. Mara hat mein Leben verändert.",
-    test2:"Meine Food Noise ist endlich still. Ich esse bewusst und genieße es wirklich \u2014 ganz ohne Diät.",
-    test3:"Ich fühle mich stark, schön und wohl \u2013 in meinem Körper und in meinem Leben.",
-    faq_label:"FAQ", faq_title:"Fragen &amp; Antworten",
-    faq1_q:"Wie viel Zeit sollte ich freihalten?", faq1_a:"Mindestens 2\u20133 Stunden pro Woche reichen für spürbare Erfolge. Das Wichtigste ist die Regelmäßigkeit \u2013 nicht die Intensität.",
-    faq2_q:"Warum keine Proteinshakes oder Diätprodukte?", faq2_a:"Weil du sie nicht brauchst. Die Supplement-Industrie lebt von Verunsicherung. Ein vollwertiger Ernährungsplan liefert alles \u2014 ohne Nebenwirkungen, ohne Abhängigkeit.",
-    faq3_q:"Was bedeutet Ernährung nach Ayurveda?", faq3_a:"Ayurveda ist die älteste Medizin der Welt \u2014 über 5.000 Jahre erprobt. Kräuter und Gewürze als Heilmittel, saisonales Essen, Stärkung des Verdauungsfeuers (Agni). Ich arbeite mit den Ärztinnen von ayurveda-deutschland.org zusammen.",
-    faq4_q:"Warum ist Kalorienzählen keine gute Idee?", faq4_a:"Weil jedes Lebensmittel anders im Körper wirkt. 100 kcal Traubenzucker und 100 kcal Walnüsse lösen völlig unterschiedliche Hormonreaktionen aus. Statt Zahlen schaue ich auf Qualität, Wirkung und Verträglichkeit.",
-    faq5_q:"Muss ich den EMS-Gürtel selbst kaufen?", faq5_a:"Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.",
-    faq6_q:"Kann ich online teilnehmen?", faq6_a:"Ja, Training und Coaching sind auch vollständig digital möglich. Du brauchst nur eine Internetverbindung und Motivation.",
-    ct_label:"Starte jetzt", ct_title:"Dein erster Schritt",
-    ct_write:"Schreib mir", ct_call:"Ruf an", ct_loc:"Standort",
-    ct_loc1:"Oberottmarshausen (nähe München)", ct_loc2:"Online Coaching weltweit möglich",
-    ct_free:"Das erste Gespräch ist kostenlos und unverbindlich.",
-    ct_select:"Wähle dein Anliegen",
-    ct_o1:"Kostenloses Beratungsgespräch", ct_o2:"Personaltraining",
-    ct_o3:"Individuelle Ernährungsberatung", ct_o4:"Darmgesundheit & Vitalstoffanalyse",
-    ct_o5:"EMS Training", ct_o6:"Online Coaching",
-    ct_name:"Dein Name", ct_email:"E-Mail-Adresse", ct_phone:"Telefonnummer",
-    ct_date:"Wunschtermin (Datum & Uhrzeit)", ct_msg:"Kurze Nachricht (optional)",
-    ct_btn:"Termin anfragen \u2192",
-    nl_label:"Bleib dabei", nl_title:"Rezepte, Tipps &amp;<br>echtes Wissen \u2014 kostenlos.",
-    nl_sub:"Neue Rezepte ohne Zucker, Ayurveda-Tipps, Ernährungs-Hacks und ehrliche Einblicke \u2014 direkt in dein Postfach. Kein Spam. Nur Dinge, die wirklich helfen.",
-    nl_b1:"🌿 Neue zuckerfreie Rezepte", nl_b2:"💡 Tipps &amp; Tricks rund um Ernährung &amp; Sport",
-    nl_b3:"🦠 Darmgesundheit verständlich erklärt", nl_b4:"🧘 Yoga &amp; Bewegungsimpulse für den Alltag",
-    nl_name_label:"Dein Vorname", nl_name_ph:"Wie soll ich dich nennen?",
-    nl_email_label:"Deine E-Mail-Adresse", nl_email_ph:"deine@email.de",
-    nl_btn:"Jetzt anmelden &amp; Wissen erhalten \u2192",
-    nl_fine:"Kein Spam. Jederzeit abmeldbar. Deine Daten bleiben bei mir.",
-    nl_success_title:"Willkommen an Bord!", nl_success_sub:"Schön, dass du dabei bist. Deine erste Mail kommt bald.",
-    pop_eyebrow:"Kostenlos &amp; wertvoll", pop_title:"Bevor du<br>weiterstöberst \u2014",
-    pop_sub:"Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.",
-    pop_ph:"deine@email.de", pop_btn:"Ja, ich möchte dabei sein \u2192",
-    pop_thanks:"Danke! Schau auch in deinen Spam-Ordner.", pop_skip:"Nein danke, ich schau mich nur um",
-    footer_tagline:"Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung und EMS \u2014 nähe München und online. Für Frauen, die sich wirklich wohl fühlen wollen.",
-  },
-  en: {
-    nav_about:"About me", nav_prices:"Prices", nav_shop:"Shop",
-    nav_yoga:"Become a Yoga Teacher", nav_travel:"Retreats",
-    nav_news:"News", nav_training:"Training Area", nav_contact:"Contact",
-    hero_eyebrow:"Personal Training \u00b7 Healing Humans \u00b7 Mindset \u00b7 Nutrition",
-    hero_h1:"Feel truly at home<br>in your <em>skin</em>",
-    hero_sub:"No protein powder. No calorie counting. Just real, holistic wellbeing \u2014 through gut health, 5,000 years of herbal wisdom, and the power of real food.",
-    hero_btn1:"Book a free call", hero_btn2:"Explore services",
-    hero_orn:"Mara Tumpach \u00b7 Near Munich",
-    pain_label:"Does this sound familiar?",
-    pain_title:"You deserve more<br>than constant exhaustion",
-    pain_01:"You sleep enough \u2014 and still feel tired and drained all the time.",
-    pain_02:"Even light activities leave you out of breath.",
-    pain_03:"Your body constantly craves sugar and quick fixes.",
-    pain_04:"You are stressed, sluggish and out of balance in your daily life.",
-    pain_cta:"Decide now to listen to what your body and soul are telling you",
-    phil_label:"My approach", phil_title:"Not hype. Not a diet.<br>Real health.",
-    phil_sub:"I don't believe in shortcuts. No protein powders, no calorie counting \u2014 instead I work with what truly works: a healthy gut, Ayurvedic wisdom and targeted nutrients that bring your body back into balance.",
-    p1_h:"5,000 Years of Ayurveda", p1_p:"Ayurvedic herbs and spices are not trends \u2014 they are proven knowledge from thousands of years. I work closely with the physicians at ayurveda-deutschland.org.", p1_tag:"Partner: ayurveda-deutschland.org",
-    p2_h:"Healthy gut \u2014 healthy life", p2_p:"80% of your immune system lives in your gut. Healing your gut heals your whole body \u2014 more energy, stable weight, better sleep, sharper focus.", p2_tag:"Gut health",
-    p3_h:"No protein powder hype", p3_p:"The supplement industry makes billions from products you don't need. Your real protein needs can be met through whole foods. Your body knows the difference.", p3_tag:"Anti-supplement hype",
-    p4_h:"Sugar: the silent enemy", p4_p:"Sugar inflames, creates dependency, destroys gut flora and keeps you trapped in an energy cycle. Going sugar-free isn't deprivation \u2014 it's liberation.", p4_tag:"Sugar-free living",
-    p5_h:"Calories? That's so 1980.", p5_p:"Every food affects the body differently and triggers different biochemical reactions. 100 kcal of sugar and 100 kcal of almonds are biologically completely opposite. I think in effects \u2014 not numbers.", p5_tag:"Holistic nutrition",
-    p6_h:"Targeted supplementation", p6_p:"As a vital nutrient trainer I specifically analyse deficiencies and supplement with high-quality micronutrients \u2014 not a random supermarket purchase, but precise and effective.", p6_tag:"Vital nutrient therapy",
-    anti_label:"Straight talk", anti_title:"What the fitness industry doesn't tell you",
-    myth1_label:"❌ The myth", myth1_h:"More protein = more muscle?", myth1_p:"The supplement industry thrives on the protein powder hype. In reality a healthy adult doesn't need artificial protein shakes \u2014 whole foods are enough.",
-    truth1_label:"✓ The truth", truth1_h:"Real food builds real strength", truth1_p:"Eggs, legumes, nuts, fish \u2014 nature has everything the body needs. I'll show you how to feel full, strong and energised \u2014 without powder, without pills.",
-    myth2_label:"❌ The myth", myth2_h:"Counting calories makes you slim?", myth2_p:"Calorie counting ignores that every food triggers completely different metabolic processes \u2014 insulin, hormones, inflammation. A calorie is not a calorie.",
-    truth2_label:"✓ The truth", truth2_h:"Your body understands quality", truth2_p:"Instead of counting numbers I count effects. What strengthens the gut? What reduces inflammation? What gives real energy? These questions lead to real, lasting results.",
-    stats_label:"Facts &amp; figures", stats_title:"What science says",
-    s1_label:"of the immune system", s1_desc:"lives in the gut \u2014 a healthy gut is the foundation for everything",
-    s2_label:"years of Ayurveda", s2_desc:"proven healing knowledge from the oldest medicine in the world",
-    s3_label:"sugar per day", s3_desc:"the average German consumes daily \u2014 3\u00d7 too much",
-    s4_label:"protein powders", s4_desc:"needed with a wholesome, balanced diet",
-    s5_label:"hours of experience", s5_desc:"gained on Mein Schiff 4 and in Italian club facilities",
-    sugar_title:"Sugar comparison \u2014 daily intake",
-    sugar_sub:"What your body can actually process vs. what we actually consume",
-    gal_label:"Gallery", gal_title:"Your journey starts here",
-    about_label:"About me", about_title:"Hi, I'm <em style=\"font-style:italic;color:var(--terra);\">Mara</em>",
-    about_p1:"I'm studying sports therapy, and I'm a certified yoga teacher, Pilates trainer and vital nutrient trainer \u2014 I firmly believe that real health doesn't require a product you need to buy.",
-    about_p2:"My approach is radically holistic: gut, nutrition, movement, sleep and mindset belong together. I work with 5,000 year-old Ayurvedic herbal and spice knowledge \u2014 in close collaboration with the physicians at ayurveda-deutschland.org.",
-    about_quote:"Your body can do anything \u2013 convince your mind and take the first step.",
-    about_ayur:"Partner: <a href=\"https://www.ayurveda-deutschland.org/\" target=\"_blank\" rel=\"noopener\">ayurveda-deutschland.org</a> \u2014 medically supervised Ayurveda knowledge in practice",
-    about_cta:"Meet me for free", about_certs:"My certificates \u2192",
-    srv_label:"Services", srv_title:"What I do for you",
-    sv1_h:"Personal Training", sv1_p:"Workouts tailored entirely to you \u2013 effective, safe and with personal guidance. No overwhelm, no pain.",
-    sv2_h:"Yoga &amp; Meditation", sv2_p:"Mental strength and physical balance. Yoga as a tool for more calm, clarity and inner centre \u2014 certified by BTV.",
-    sv3_h:"Individual Nutrition", sv3_p:"Keto, alkaline, Ayurvedic or anti-inflammatory \u2014 I look at what suits you personally. No rigid concept, just honest nutrition coaching that understands your body and your lifestyle.",
-    sv4_h:"Gut health", sv4_p:"Gut cleansing, vital nutrient analysis and targeted regeneration of gut flora as the foundation for lasting wellbeing.",
-    sv5_h:"EMS Training", sv5_p:"Intensive and time-saving with the Breuer EMS belt. The device is included in the training price \u2014 nothing to buy.",
-    sv6_h:"Online Coaching", sv6_p:"Flexible from anywhere. Training and nutrition coaching digitally \u2014 for people with full schedules.",
-    why_label:"No secret", why_title:"Why it often doesn't work alone",
-    why_col1:"Challenge", why_col2:"Solution with Mara Move",
-    why_c1:"🛋️ Lack of motivation, appointments get postponed", why_s1:"Personal training with fixed, committed appointments",
-    why_c2:"🍫 Sugar addiction and uncontrolled cravings", why_s2:"Gut cleanse + Ayurvedic nutrition reset",
-    why_c3:"❓ Uncertainty with exercises and technique", why_s3:"Personal guidance and correction at every training session",
-    why_c4:"📉 No visible results despite effort", why_s4:"Vital nutrient analysis + targeted supplementation",
-    why_c5:"💊 Expensive supplements with no effect", why_s5:"Targeted micronutrients only when a deficiency is confirmed",
-    tl_label:"Your path", tl_title:"What your journey with me looks like",
-    tl1_h:"First conversation", tl1_p:"Free and non-binding. We look together at where you are and what you really need \u2014 completely without pressure.",
-    tl2_h:"Body back in balance", tl2_p:"Gut, nutrients, movement \u2014 we build the foundation. After a few weeks you'll feel the difference: energy, sleep, clarity.",
-    tl3_h:"Sustainable strength", tl3_p:"No yo-yo, no relapse. You've understood how your body really works \u2014 and can maintain it forever.",
-    pr_label:"Transparency", pr_title:"Invest in yourself",
-    pr1_name:"Personal Training", pr1_desc:"per session", pr1_li1:"Individual training plan", pr1_li2:"Personal guidance", pr1_li3:"Exercise correction",
-    pr2_name:"Nutrition reset", pr2_desc:"First appointment incl. analysis", pr2_li1:"Vital nutrient analysis", pr2_li2:"Ayurvedic nutrition plan", pr2_li3:"Gut cleanse included",
-    pr3_name:"Weekly coaching", pr3_desc:"per week", pr3_li1:"Regular check-in", pr3_li2:"Progress tracking", pr3_li3:"Motivation &amp; support",
-    pr4_name:"EMS Training", pr4_desc:"Device included", pr4_li1:"Breuer EMS belt included", pr4_li2:"Intensive &amp; time-saving", pr4_li3:"Professional guidance",
-    test_label:"Voices", test_title:"What women say",
-    test1:"I fit into my favourite dress again for the first time in years. Mara changed my life.",
-    test2:"My food noise is finally quiet. I eat mindfully and really enjoy it \u2014 without any diet.",
-    test3:"I feel strong, beautiful and at ease \u2014 in my body and in my life.",
-    faq_label:"FAQ", faq_title:"Questions &amp; answers",
-    faq1_q:"How much time should I set aside?", faq1_a:"At least 2\u20133 hours per week are enough for noticeable results. The most important thing is consistency \u2014 not intensity.",
-    faq2_q:"Why no protein shakes or diet products?", faq2_a:"Because you don't need them. The supplement industry thrives on uncertainty. A wholefood nutrition plan delivers everything your body needs \u2014 without side effects, without dependency.",
-    faq3_q:"What does Ayurveda nutrition mean?", faq3_a:"Ayurveda is the oldest medicine in the world \u2014 proven over 5,000 years. Herbs and spices as medicine, seasonal eating, strengthening digestive fire (Agni). I work with the physicians at ayurveda-deutschland.org.",
-    faq4_q:"Why is calorie counting a bad idea?", faq4_a:"Because every food affects the body differently. 100 kcal of glucose and 100 kcal of walnuts trigger completely different hormonal responses. Instead of numbers I look at quality, effect and tolerance.",
-    faq5_q:"Do I need to buy the EMS belt myself?", faq5_a:"No. The EMS device is included in the training price. Just bring yourself.",
-    faq6_q:"Can I join online?", faq6_a:"Yes, training and coaching are also fully possible digitally. All you need is an internet connection and motivation.",
-    ct_label:"Start now", ct_title:"Your first step",
-    ct_write:"Write to me", ct_call:"Call me", ct_loc:"Location",
-    ct_loc1:"Oberottmarshausen (near Munich)", ct_loc2:"Online coaching available worldwide",
-    ct_free:"The first conversation is free and non-binding.",
-    ct_select:"Choose your concern",
-    ct_o1:"Free consultation", ct_o2:"Personal training",
-    ct_o3:"Individual nutrition coaching", ct_o4:"Gut health & vital nutrient analysis",
-    ct_o5:"EMS training", ct_o6:"Online coaching",
-    ct_name:"Your name", ct_email:"Email address", ct_phone:"Phone number",
-    ct_date:"Preferred date (date & time)", ct_msg:"Short message (optional)",
-    ct_btn:"Request appointment \u2192",
-    nl_label:"Stay in the loop", nl_title:"Recipes, tips &amp;<br>real knowledge \u2014 free.",
-    nl_sub:"Sugar-free recipes, Ayurveda tips, nutrition hacks and honest insights \u2014 straight to your inbox. No spam. Only things that actually help.",
-    nl_b1:"🌿 New sugar-free recipes", nl_b2:"💡 Tips &amp; tricks around nutrition &amp; fitness",
-    nl_b3:"🦠 Gut health made simple", nl_b4:"🧘 Yoga &amp; movement ideas for everyday life",
-    nl_name_label:"Your first name", nl_name_ph:"What shall I call you?",
-    nl_email_label:"Your email address", nl_email_ph:"your@email.com",
-    nl_btn:"Sign up &amp; get real knowledge \u2192",
-    nl_fine:"No spam. Unsubscribe anytime. Your data stays with me.",
-    nl_success_title:"Welcome on board!", nl_success_sub:"Great to have you. Your first email is on its way.",
-    pop_eyebrow:"Free &amp; valuable", pop_title:"Before you<br>scroll on \u2014",
-    pop_sub:"Get real knowledge straight to your inbox: sugar-free recipes, Ayurveda tips and movement impulses that truly make a difference.",
-    pop_ph:"your@email.com", pop_btn:"Yes, I'm in \u2192",
-    pop_thanks:"Thank you! Check your spam folder too.", pop_skip:"No thanks, I'm just browsing",
-    footer_tagline:"Holistic personal training, yoga, Ayurveda nutrition and EMS \u2014 near Munich and online. For women who want to feel truly good in their skin.",
-  }
-};
-let currentLang = localStorage.getItem('mm_lang') || 'de';
- 
-function applyLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('mm_lang', lang);
-  const t = TRANSLATIONS[lang];
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.dataset.i18nPlaceholder;
-    if (t[key] !== undefined) el.placeholder = t[key].replace(/&amp;/g,'&');
-  });
-  document.querySelectorAll('[data-i18n-opt]').forEach(el => {
-    const key = el.dataset.i18nOpt;
-    if (t[key] !== undefined) el.textContent = t[key];
-  });
-  const h1 = document.querySelector('.hero h1');
-  if (h1 && t.hero_h1) h1.innerHTML = t.hero_h1;
-  const ytFrame = document.getElementById('ytFrame');
-  if (ytFrame) ytFrame.src = lang==='en'
-    ? 'https://www.youtube.com/embed?listType=user_uploads&list=Move_Mara&index=1&rel=0&modestbranding=1'
-    : 'https://www.youtube.com/embed?listType=user_uploads&list=Mara_Move&index=1&rel=0&modestbranding=1';
-  // YouTube channel link in footer: DE -> @Mara_Move, EN -> @Move_Mara
-  const ytLink = document.getElementById('ytLink');
-  if (ytLink) {
-    const ytHandle = lang === 'en' ? 'Move_Mara' : 'Mara_Move';
-    ytLink.href = 'https://www.youtube.com/@' + ytHandle;
-    ytLink.textContent = '▶ YouTube – @' + ytHandle;
-  }
-  // Yogalehrer nav item: only show if referred from yogalehrer page
-  const yogaItem = document.getElementById('navYogaItem');
-  if (yogaItem && yogaItem.style.display !== 'none') {
-    // keep visible if already shown
-  }
-  document.getElementById('langLabel').textContent = lang==='de' ? 'EN' : 'DE';
-}
- 
-function toggleLang() { applyLang(currentLang==='de' ? 'en' : 'de'); }
- 
-// ── Nav scroll ───────────────────────────────────────────────
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
  
-// ── Hamburger ────────────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
  
-// ── Reveal on scroll ─────────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
  
-// ── Sugar bars ───────────────────────────────────────────────
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.sugar-bar-fill').forEach(bar => { bar.style.width = bar.dataset.width; });
-      barObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-const sugarViz = document.querySelector('.sugar-viz');
-if (sugarViz) barObserver.observe(sugarViz);
- 
-// ── Mobile gallery ───────────────────────────────────────────
-(function() {
-  const imgs  = document.querySelectorAll('.mobile-gallery img');
-  const dotsC = document.getElementById('galleryDots');
-  if (!dotsC) return;
-  let cur = 0;
-  imgs.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
-    d.addEventListener('click', () => go(i));
-    dotsC.appendChild(d);
-  });
-  function go(n) {
-    imgs[cur].classList.remove('active'); dotsC.children[cur].classList.remove('active');
-    cur = (n + imgs.length) % imgs.length;
-    imgs[cur].classList.add('active'); dotsC.children[cur].classList.add('active');
-  }
-  let x0 = null;
-  const mg = document.querySelector('.mobile-gallery');
-  mg.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; });
-  mg.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); x0 = null; });
-  setInterval(() => go(cur + 1), 4000);
-})();
- 
-// ── FAQ ──────────────────────────────────────────────────────
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-question').addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
@@ -1657,76 +753,12 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
  
-// ── Newsletter popup ─────────────────────────────────────────
-function closePopup() {
-  document.getElementById('nlPopup').classList.remove('active');
-  sessionStorage.setItem('mm_popup_seen', '1');
-}
-function handlePopupSubmit(e, form) {
-  e.preventDefault();
-  form.style.display = 'none';
-  form.nextElementSibling.style.display = 'block';
-  sessionStorage.setItem('mm_popup_seen', '1');
-  fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-}
 function handleNLSubmit(e, form) {
   e.preventDefault();
   form.style.display = 'none';
-  document.querySelector('.nl-success').style.display = 'block';
+  form.nextElementSibling.style.display = 'block';
   fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
 }
-// Show popup after 4s if not seen this session
-if (!sessionStorage.getItem('mm_popup_seen')) {
-  setTimeout(() => document.getElementById('nlPopup').classList.add('active'), 4000);
-}
-// Close on overlay click
-document.getElementById('nlPopup').addEventListener('click', e => {
-  if (e.target === document.getElementById('nlPopup')) closePopup();
-});
- 
-// ── Yogalehrer nav: only show if referred from yogalehrer page ──
-(function() {
-  const ref = document.referrer || '';
-  const param = new URLSearchParams(window.location.search).get('from');
-  const show = ref.includes('yogalehrer') || param === 'yogalehrer';
-  const yogaItem = document.getElementById('navYogaItem');
-  if (yogaItem && show) yogaItem.style.display = 'list-item';
-})();
- 
-// ── Package pricing (3er/5er/10er Karten) ──────────────────────
-const PKG_DISCOUNTS = { 1: 0, 3: 5, 5: 8, 10: 10 };
-document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
-  const base = parseFloat(card.dataset.basePrice);
-  const priceEl = card.querySelector('[data-price-display]');
-  const descEl = card.querySelector('[data-price-desc]');
-  const baseDesc = descEl.textContent;
-  function render(qty) {
-    const discount = PKG_DISCOUNTS[qty] || 0;
-    const total = base * qty * (1 - discount / 100);
-    const perUnit = total / qty;
-    if (qty === 1) {
-      priceEl.innerHTML = '<sup>\u20ac</sup>' + base;
-      descEl.textContent = baseDesc;
-    } else {
-      const totalStr = total.toFixed(2).replace(/\.00$/, '').replace('.', ',');
-      const perStr = perUnit.toFixed(2).replace('.', ',');
-      priceEl.innerHTML = '<sup>\u20ac</sup>' + totalStr;
-      descEl.textContent = currentLang === 'en'
-        ? qty + '-pack \u00b7 ' + perStr + ' \u20ac / session'
-        : qty + 'er-Karte \u00b7 ' + perStr + ' \u20ac/Termin';
-    }
-  }
-  card.querySelectorAll('.pkg-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      card.querySelectorAll('.pkg-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      render(parseInt(pill.dataset.qty, 10));
-    });
-  });
-});
- 
-// ── Init language ────────────────────────────────────────────
-applyLang(currentLang);
 </script>
 </body>
 </html>
