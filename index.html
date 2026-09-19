@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 <meta name="theme-color" content="#1E392A" />
-<title>Lebensfreude by Mara Tumpach – Heilung beginnt an der Ursache</title>
-<meta name="description" content="Lebensfreude: das Ganzheitskonzept von Mara Tumpach. Für Menschen, die fit bleiben wollen – und für Menschen, die an der Ursache heilen wollen. Bewegungsfreude, Geistesfreude, Alltagsfreude." />
+<title>Lebensfreude by Mara Tumpach – Heilung von Grund auf</title>
+<meta name="description" content="Lebensfreude: das Ganzheitskonzept von Mara Tumpach. Für Menschen, die fit bleiben wollen – und für Menschen, die aus ihrer Basis heraus heilen möchten. Bewegungsfreude, Geistesfreude, Alltagsfreude." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
  
 <style>
 :root {
@@ -25,17 +25,22 @@
   --gold-light: #d3b26c;
   --gold-pale:  #e7d5a8;
  
+  /* zurückgeholt aus dem ursprünglichen Mara-Move-Look */
+  --terra:      #c4612a;
+  --terra-deep: #a84e20;
+  --terra-soft: #d9845a;
+ 
   --cream:      #f8f3e8;
   --cream-deep: #f1e9d8;
   --sand:       #e9dcbe;
   --sand-deep:  #ddc99e;
  
-  --ink:        #211f18;
-  --ink-soft:   #423f34;
+  --ink:        #3d2515;
+  --ink-soft:   #5a3a22;
   --white:      #fffdf8;
  
   --serif: 'Fraunces', Georgia, serif;
-  --sans:  'Manrope', -apple-system, sans-serif;
+  --sans:  'Poppins', -apple-system, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
  
@@ -87,8 +92,8 @@ nav.scrolled .hamburger span { background: var(--cream); }
 .hero h1 em { font-style: italic; color: var(--gold); font-weight: 300; }
 .hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-soft); margin-top: 1.5rem; max-width: 420px; line-height: 1.85; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; }
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.6rem; opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease) forwards; flex-wrap: wrap; }
-.btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--forest-900); color: var(--cream); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
-.btn-primary:hover { background: var(--forest-800); transform: translateY(-2px); }
+.btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--terra); color: var(--cream); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--terra-deep); transform: translateY(-2px); }
 .btn-outline { display: inline-block; padding: 1rem 2.4rem; border: 1px solid var(--forest-700); color: var(--forest-900); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
 .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 .btn-gold { display: inline-block; padding: 1rem 2.4rem; background: var(--gold); color: var(--forest-950); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
@@ -119,7 +124,7 @@ nav.scrolled .hamburger span { background: var(--cream); }
 .pain-card:hover { background: var(--cream-deep); }
 .pain-card .number { font-family: var(--serif); font-style: italic; font-size: 2.6rem; font-weight: 300; color: var(--gold); opacity: 0.6; line-height: 1; margin-bottom: 1rem; }
 .pain-card p { font-family: var(--sans); font-size: 0.94rem; font-weight: 300; color: var(--ink-soft); line-height: 1.8; }
-.pain-cta { margin-top: 3.5rem; padding: 2.3rem 3rem; background: var(--forest-900); display: inline-block; border-radius: 2px; color: var(--cream); font-family: var(--serif); font-size: 1.3rem; font-style: italic; font-weight: 300; max-width: 620px; line-height: 1.5; }
+.pain-cta { margin-top: 3.5rem; padding: 2.3rem 3rem; background: linear-gradient(135deg, var(--terra) 0%, var(--terra-soft) 100%); display: inline-block; border-radius: 2px; color: var(--white); font-family: var(--serif); font-size: 1.3rem; font-style: italic; font-weight: 300; max-width: 620px; line-height: 1.5; }
  
 /* ── FORK ── */
 .fork { background: var(--cream-deep); padding: 7rem 2rem; }
@@ -465,7 +470,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">Über mich</a></li>
     <li><a href="#fitness">Fit bleiben</a></li>
-    <li><a href="#healing-humans">Healing Humans</a></li>
+    <li><a href="#therapieweg">Therapieweg</a></li>
     <li><a href="#preise">Preise</a></li>
     <li><a href="reisen.html">Reisen</a></li>
     <li><a href="aktuelles.html">Aktuelles</a></li>
@@ -480,9 +485,9 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <span class="hero-eyebrow">Ganzheitlich · Ursachenbehandlung · Lebensfreude</span>
+    <span class="hero-eyebrow">Ganzheitlich · Von Grund auf · Lebensfreude</span>
     <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
-    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echte Lebensfreude nach dem Healing-Humans-Prinzip — für alle, die einfach fit bleiben wollen, und für alle, die an der Ursache heilen wollen.</p>
+    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echte Lebensfreude, die von innen wächst — für alle, die einfach fit bleiben wollen, und für alle, die aus ihrer Basis heraus heilen möchten.</p>
     <div class="hero-cta">
       <a href="#fork" class="btn-primary">Finde deinen Weg</a>
       <a href="#kontakt" class="btn-outline">Erstgespräch vereinbaren</a>
@@ -533,17 +538,17 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       </div>
       <span class="fork-more">Zu Fit bleiben <span class="arrow">→</span></span>
     </a>
-    <a href="#healing-humans" class="fork-card b">
+    <a href="#therapieweg" class="fork-card b">
       <span class="fork-kicker">WEG ZWEI</span>
       <h3>Ich brauche mehr als Training</h3>
-      <p>Du bist erschöpft, aus der Balance oder trägst Themen mit dir, die reines Training nicht löst. Healing Humans setzt an der Ursache an.</p>
+      <p>Du bist erschöpft, aus der Balance oder trägst Themen mit dir, die reines Training nicht löst. Hier setzen wir an der Basis an — dort, wo Veränderung wirklich beginnt.</p>
       <div class="fork-tags">
         <span class="fork-tag">Sporttherapie</span>
         <span class="fork-tag">Emotionscode</span>
         <span class="fork-tag">Ayurveda</span>
         <span class="fork-tag">Panchakarma / Fasten</span>
       </div>
-      <span class="fork-more">Zu Healing Humans <span class="arrow">→</span></span>
+      <span class="fork-more">Zum Therapieweg <span class="arrow">→</span></span>
     </a>
   </div>
 </section>
@@ -564,13 +569,13 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   </div>
 </section>
  
-<!-- PATH 2: HEALING HUMANS -->
-<section class="path2" id="healing-humans">
+<!-- PATH 2: THERAPIEWEG -->
+<section class="path2" id="therapieweg">
   <div class="path2-inner">
     <div class="path2-lede reveal">
-      <span class="section-label" style="color:var(--gold-light)">Weg zwei · Healing Humans</span>
-      <h2 class="section-title" style="color:var(--cream)">Lebensfreude, um zu heilen</h2>
-      <p>Healing Humans ist Ursachenbehandlung statt Symptombekämpfung. Alles beginnt mit einer ganzheitlichen Analyse und einer Ausleitung, bevor wir über drei Säulen wieder aufbauen — nie isoliert, sondern als ein System, immer individuell auf dich abgestimmt.</p>
+      <span class="section-label" style="color:var(--gold-light)">Weg zwei · Therapieweg</span>
+      <h2 class="section-title" style="color:var(--cream)">Von Grund auf zur Lebensfreude</h2>
+      <p>Der Therapieweg setzt an der Basis an, statt nur Symptome zu behandeln. Fundiert durch mein Therapeutenstudium in Sporttherapie und ganzheitlicher Körperarbeit beginnt alles mit einer ganzheitlichen Analyse und einer Ausleitung, bevor wir über drei Säulen wieder aufbauen — nie isoliert, sondern als ein System, immer individuell auf dich abgestimmt.</p>
     </div>
     <div class="pillars reveal">
       <div class="pillar">
@@ -583,7 +588,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
         <span class="pillar-num">Säule II</span>
         <h3>Bewegungsfreude</h3>
         <p>Körper- und Sporttherapie, aufbauend auf der Analyse deiner 8 Grundbewegungen — Kraft, Mobilität und Vertrauen in den eigenen Körper.</p>
-        <ul><li>Healing-Humans-Sporttherapie</li><li>Biomechanik &amp; Faszien-Arbeit</li></ul>
+        <ul><li>Sporttherapie aus meinem Therapeutenstudium</li><li>Biomechanik &amp; Faszien-Arbeit</li></ul>
       </div>
       <div class="pillar">
         <span class="pillar-num">Säule III</span>
@@ -594,7 +599,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <p class="system-line reveal">Drei Säulen. Ein System. Das Ganzheitskonzept Lebensfreude.</p>
     <div class="reinigung-note reveal">
-      <p><strong>Ausleitungsfreude:</strong> Jedes Healing-Humans-Programm startet mit einer Tiefenentgiftung — Panchakarma, therapeutisches Buchinger-Fasten oder ein individueller Kombi-Mix aus beidem, abgestimmt auf deine Konstitution.</p>
+      <p><strong>Ausleitungsfreude:</strong> Jedes Therapieweg-Programm startet mit einer Tiefenentgiftung — Panchakarma, therapeutisches Buchinger-Fasten oder ein individueller Kombi-Mix aus beidem, abgestimmt auf deine Konstitution.</p>
     </div>
   </div>
 </section>
@@ -614,7 +619,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="anti-card truth">
       <span class="anti-card-label">✓ Die Wahrheit</span>
       <h3>Echte Lebensmittel bauen echte Kraft</h3>
-      <p>Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles. Auch unsere eigenen <a href="https://maratumpach.github.io/Ei-Weiss/" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:underline;">Ei-Weiss Protein-Chips</a> zeigen: 2–5 echte Zutaten reichen für 12g Protein — ganz ohne Pulver.</p>
+      <p>Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles. Auch unsere eigenen <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:underline;">Ei-Weiss Protein-Chips</a> zeigen: 2–5 echte Zutaten reichen für 12g Protein — ganz ohne Pulver.</p>
     </div>
     <div class="anti-card myth">
       <span class="anti-card-label">❌ Der Mythos</span>
@@ -639,7 +644,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="stat-box"><div class="stat-num">80<span class="stat-unit">%</span></div><div class="stat-label">des Immunsystems</div><div class="stat-desc">sitzt im Darm — Alltagsfreude beginnt hier</div></div>
     <div class="stat-box"><div class="stat-num gold">5.000</div><div class="stat-label">Jahre Ayurveda</div><div class="stat-desc">erprobtes Heilwissen aus der ältesten Medizin der Welt</div></div>
     <div class="stat-box"><div class="stat-num">74<span class="stat-unit">g</span></div><div class="stat-label">Zucker täglich</div><div class="stat-desc">nimmt ein Durchschnittsdeutscher auf — 3× zu viel</div></div>
-    <div class="stat-box"><div class="stat-num gold">6</div><div class="stat-label">Schritte</div><div class="stat-desc">im Healing-Humans-Heilprogramm</div></div>
+    <div class="stat-box"><div class="stat-num gold">6</div><div class="stat-label">Schritte</div><div class="stat-desc">im Therapieweg-Programm</div></div>
     <div class="stat-box"><div class="stat-num">430<span class="stat-unit">+</span></div><div class="stat-label">Stunden Erfahrung</div><div class="stat-desc">gesammelt auf der Mein Schiff 4 und in Clubanlagen</div></div>
   </div>
   <div class="sugar-viz reveal">
@@ -657,7 +662,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <div class="sugar-bar-label"><span>✅ Lebensfreude-Ziel (natürlicher Zucker aus Lebensmitteln)</span><span>15–20g</span></div>
       <div class="sugar-bar-track"><div class="sugar-bar-fill fill-green" data-width="22%"></div></div>
     </div>
-    <div class="sugar-cross">🥚 Unsere <a href="https://maratumpach.github.io/Ei-Weiss/" target="_blank" rel="noopener">Ei-Weiss Protein-Chips</a> enthalten 0g zugesetzten Zucker — ein Alltagsfreude-Snack, der zur Praxis passt.</div>
+    <div class="sugar-cross">🥚 Unsere <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Ei-Weiss Protein-Chips</a> enthalten 0g zugesetzten Zucker — ein Alltagsfreude-Snack, der zur Praxis passt.</div>
     <p style="font-size:0.75rem; color: rgba(33,31,24,0.45); margin-top: 1.2rem; margin-bottom: 0;">Quellen: DGE, WHO Zuckerrichtlinien 2023 · Freier Zucker = zugesetzter Zucker und Fruchtsäfte</p>
   </div>
 </section>
@@ -701,7 +706,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <div class="partner-badge">
       <div class="dot"></div>
-      <p>Zur Mara-Tumpach-Welt gehört auch <a href="https://maratumpach.github.io/Ei-Weiss/" target="_blank" rel="noopener">Ei-Weiss</a> — Bio-Hofladen &amp; Café in Oberottmarshausen.</p>
+      <p>Zur Mara-Tumpach-Welt gehört auch <a href="https://maratumpach.github.io/Ei-Weiss/index.html" target="_blank" rel="noopener">Ei-Weiss</a> — Bio-Hofladen &amp; Café in Oberottmarshausen.</p>
     </div>
     <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
       <a href="#kontakt" class="btn-primary">Kostenlos kennenlernen</a>
@@ -721,7 +726,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <span class="eco-icon">☕</span>
       <h4>Ei-Weiss Café &amp; Hofladen</h4>
       <p>Bio-Kaffee, Golden Milk und Hofladen-Schätze in Oberottmarshausen — der niedrigschwellige Einstieg in die Lebensfreude-Welt.</p>
-      <a href="https://maratumpach.github.io/Ei-Weiss/" target="_blank" rel="noopener" class="eco-link">Zum Hofladen →</a>
+      <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" class="eco-link">Zum Hofladen →</a>
     </div>
     <div class="eco-card">
       <span class="eco-icon">🧘</span>
@@ -755,7 +760,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="why-table-row"><div class="challenge">🛋️ Motivation fehlt, Termine werden verschoben</div><div class="solution">Personal Training mit festen, verbindlichen Terminen</div></div>
     <div class="why-table-row"><div class="challenge">🍫 Zuckersucht und unkontrolliertes Verlangen</div><div class="solution">Ausleitung + ayurvedische Ernährungsumstellung (Alltagsfreude)</div></div>
     <div class="why-table-row"><div class="challenge">❓ Unsicherheit bei Übungen und Technik</div><div class="solution">Persönliche Begleitung und Korrektur bei jedem Training</div></div>
-    <div class="why-table-row"><div class="challenge">📉 Keine sichtbaren Erfolge trotz Aufwand</div><div class="solution">Ganzheitliche Analyse + gezielte Ursachenarbeit</div></div>
+    <div class="why-table-row"><div class="challenge">📉 Keine sichtbaren Erfolge trotz Aufwand</div><div class="solution">Ganzheitliche Analyse + gezielte Arbeit an der Basis</div></div>
     <div class="why-table-row"><div class="challenge">😔 Emotionale Blockaden, die sich körperlich zeigen</div><div class="solution">Emotionscode &amp; Mindset Coaching (Geistesfreude)</div></div>
   </div>
 </section>
@@ -763,8 +768,8 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <!-- 6-STEP JOURNEY -->
 <section class="journey">
   <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
-    <span class="section-label">Healing Humans</span>
-    <h2 class="section-title">Das 6-Schritte-Heilprogramm</h2>
+    <span class="section-label">Therapieweg</span>
+    <h2 class="section-title">Das 6-Schritte-Therapieprogramm</h2>
   </div>
   <div class="journey-list reveal">
     <div class="j-step">
@@ -840,12 +845,12 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       </div>
     </div>
     <div class="pricing-card featured reveal" data-base-price="99">
-      <span class="pricing-badge">Ursachenarbeit</span>
-      <span class="p-name">Healing Humans Therapiestunde</span>
+      <span class="pricing-badge">Von Grund auf</span>
+      <span class="p-name">Therapieweg Einzelstunde</span>
       <div class="price-val" data-price-display><sup>€</sup>99</div>
       <p class="price-desc" data-price-desc>pro Termin</p>
       <hr>
-      <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li><li>Healing-Humans-zertifiziert</li></ul>
+      <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li><li>Fundiert durch mein Therapeutenstudium</li></ul>
       <div class="pkg-toggle">
         <button class="pkg-pill active" data-qty="1">1×</button>
         <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
@@ -892,8 +897,8 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <h2 class="section-title">Fragen &amp; Antworten</h2>
   </div>
   <div class="faq-list reveal">
-    <div class="faq-item"><button class="faq-question">Woher weiß ich, welcher Weg zu mir passt?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Das klären wir im kostenlosen Erstgespräch. Manchmal reicht Fit-bleiben völlig aus, manchmal zeigt sich schnell, dass tiefere Ursachenarbeit über Healing Humans sinnvoller ist.</div></div></div>
-    <div class="faq-item"><button class="faq-question">Muss ich immer mit einer Reinigung starten?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nur im Healing-Humans-Weg. Panchakarma oder Buchinger Fasten sind das Fundament der Ursachenbehandlung, immer individuell auf deine Konstitution abgestimmt.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Woher weiß ich, welcher Weg zu mir passt?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Das klären wir im kostenlosen Erstgespräch. Manchmal reicht Fit-bleiben völlig aus, manchmal zeigt sich schnell, dass der Therapieweg sinnvoller ist, um wirklich von Grund auf anzusetzen.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Muss ich immer mit einer Reinigung starten?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nur im Therapieweg. Panchakarma oder Buchinger Fasten sind das Fundament, damit wir wirklich von Grund auf ansetzen können — immer individuell auf deine Konstitution abgestimmt.</div></div></div>
     <div class="faq-item"><button class="faq-question">Warum keine Proteinshakes oder Diätprodukte?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil du sie nicht brauchst. Ein vollwertiger Ernährungsplan auf Basis echter Lebensmittel liefert alles, was dein Körper braucht — unsere eigenen Ei-Weiss Protein-Chips sind ein gutes Beispiel dafür.</div></div></div>
     <div class="faq-item"><button class="faq-question">Was ist der Emotionscode?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Eine Methode, um eingeschlossene emotionale Blockaden aufzuspüren und sanft zu lösen. Teil der Säule Geistesfreude, ergänzt durch Mindset Coaching.</div></div></div>
     <div class="faq-item"><button class="faq-question">Muss ich den EMS-Gürtel selbst kaufen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.</div></div></div>
@@ -925,7 +930,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
         <option value="">Wähle dein Anliegen</option>
         <option>Kostenloses Beratungsgespräch</option>
         <option>Personal Training (Fit bleiben)</option>
-        <option>Healing Humans — Ursachenbehandlung</option>
+        <option>Therapieweg — von Grund auf heilen</option>
         <option>Alltagsfreude — Ernährungsberatung</option>
         <option>EMS Training</option>
         <option>Online Coaching</option>
@@ -1005,13 +1010,13 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="logo">Lebens<em>freude</em></span>
-      <p>Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung, EMS und Healing Humans — nähe München und online. Für Menschen, die sich wirklich wohl fühlen wollen.</p>
+      <p>Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung, EMS und der Therapieweg — nähe München und online. Für Menschen, die sich wirklich wohl fühlen wollen.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
       <ul>
         <li><a href="#fitness">Fit bleiben</a></li>
-        <li><a href="#healing-humans">Healing Humans</a></li>
+        <li><a href="#therapieweg">Therapieweg</a></li>
         <li><a href="#about">Über mich</a></li>
         <li><a href="#preise">Preise</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
@@ -1035,7 +1040,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <h4>Partner</h4>
       <ul>
         <li><a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a></li>
-        <li><a href="https://maratumpach.github.io/Ei-Weiss/" target="_blank" rel="noopener">Ei-Weiss Hofladen</a></li>
+        <li><a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Ei-Weiss Hofladen</a></li>
       </ul>
       <h4 style="margin-top:1.5rem;">Social Media</h4>
       <ul>
