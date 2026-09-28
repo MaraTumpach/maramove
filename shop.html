@@ -251,6 +251,21 @@ footer{background:var(--forest-950);padding:3.5rem 3.5rem 2.5rem;color:rgba(248,
   .product-body{padding:1rem 1.1rem 1.4rem;}
   .footer-inner{grid-template-columns:1fr;}
 }
+ 
+/* ── FLOATING CONTACT BUTTONS (Lebensfreude × Sonntagsfreude) ── */
+.float-contact { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 90; display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-end; }
+.fc-btn { position: relative; width: 48px; height: 48px; border-radius: 50%; background: var(--forest-900, #2E5A27); color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(211,168,106,0.5); box-shadow: 0 8px 22px rgba(12,20,14,0.3); transition: transform 0.25s, background 0.25s, box-shadow 0.25s; }
+.fc-btn svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.fc-btn svg .f { fill: currentColor; stroke: none; }
+.fc-btn:hover, .fc-btn:focus-visible { transform: translateY(-3px); background: var(--gold, #C28B47); box-shadow: 0 12px 28px rgba(12,20,14,0.38); outline: none; }
+.fc-mail { background: var(--gold, #C28B47); border-color: rgba(255,255,255,0.35); }
+.fc-mail:hover, .fc-mail:focus-visible { background: var(--forest-800, #3b6e4c); }
+.fc-label { position: absolute; right: calc(100% + 0.7rem); top: 50%; transform: translate(6px, -50%); white-space: nowrap; background: var(--forest-950, #16281a); color: #f5f7f3; font-family: var(--sans, 'Lato', sans-serif); font-size: 0.72rem; font-weight: 700; padding: 7px 14px; border-radius: 20px; opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s; box-shadow: 0 6px 18px rgba(12,20,14,0.25); }
+.fc-btn:hover .fc-label, .fc-btn:focus-visible .fc-label { opacity: 1; transform: translate(0, -50%); }
+.nav-links a.nav-sister { color: var(--gold-light, #d3a86a); }
+@media (max-width: 768px) { .float-contact { right: 0.8rem; bottom: 0.8rem; gap: 0.5rem; } .fc-btn { width: 44px; height: 44px; } }
+@media (hover: none) { .fc-label { display: none; } }
+@media print { .float-contact { display: none; } }
 </style>
 </head>
 <body>
@@ -266,6 +281,7 @@ footer{background:var(--forest-950);padding:3.5rem 3.5rem 2.5rem;color:rgba(248,
     <li><a href="trainingsbereich.html">Trainingsbereich</a></li>
     <li><a href="index.html#kontakt">Kontakt</a></li>
     <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="https://maratumpach.github.io/Ei-Weiss/index.html" class="nav-sister">Sonntagsfreude ↗</a></li>
   </ul>
   <button class="cart-btn" id="cartBtn" onclick="openCart()">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-9.8-3h11.6c.75 0 1.41-.41 1.75-1.03L22 6H6L5 2H1v2h2l3.6 7.59-1.35 2.44C4.94 14.58 5.5 15 6.2 15z"/></svg>
@@ -562,5 +578,21 @@ document.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListene
 var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
 </script>
+ 
+<!-- FLOATING BUTTONS -->
+<div class="float-contact" aria-label="Lebensfreude Kontakt & Social Media">
+  <a class="fc-btn fc-fb" href="https://www.facebook.com/share/1Dco4Kyd8E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+    <svg viewBox="0 0 24 24"><path class="f" d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V13h2.7v8h3.1z"/></svg>
+    <span class="fc-label">Facebook</span>
+  </a>
+  <a class="fc-btn fc-ig" href="https://www.instagram.com/mara.move" target="_blank" rel="noopener" aria-label="Instagram @mara.move">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="f" cx="17.3" cy="6.7" r="1"/></svg>
+    <span class="fc-label">Instagram</span>
+  </a>
+  <a class="fc-btn fc-mail" href="mailto:maratumpach@gmail.com" aria-label="E-Mail schreiben">
+    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+    <span class="fc-label">Schreib mir</span>
+  </a>
+</div>
 </body>
 </html>
