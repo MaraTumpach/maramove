@@ -183,10 +183,22 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .pillar ul { margin-top: 1.1rem; list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
 .pillar ul li { font-family: var(--sans); font-size: 0.8rem; color: rgba(248,243,232,0.55); padding-left: 1rem; position: relative; }
 .pillar ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
-.system-line { text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--gold-pale); font-weight: 300; }
+.system-line { text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--gold-pale); font-weight: 300; margin-top: 1.5rem; }
 .reinigung-note { max-width: 780px; margin: 3rem auto 0; text-align: center; background: rgba(248,243,232,0.04); border: 1px solid rgba(248,243,232,0.1); padding: 1.8rem 2rem; border-radius: 2px; }
 .reinigung-note p { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: rgba(248,243,232,0.68); line-height: 1.8; }
 .reinigung-note strong { color: var(--gold-light); font-weight: 600; }
+ 
+/* ── THERAPIEWEG: ANALYSE & AUSLEITUNG ── */
+.tw-step { display: grid; grid-template-columns: 64px 1fr; gap: 1.6rem; padding: 2.4rem 0; border-top: 1px solid rgba(248,243,232,0.1); position: relative; z-index: 1; }
+.tw-step:last-of-type { border-bottom: 1px solid rgba(248,243,232,0.1); margin-bottom: 3rem; }
+.tw-num { font-family: var(--serif); font-style: italic; font-size: 2.1rem; color: var(--gold); line-height: 1; }
+.tw-step-body h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--cream); margin-bottom: 0.6rem; }
+.tw-step-body > p { font-family: var(--sans); font-size: 0.92rem; font-weight: 300; color: rgba(248,243,232,0.72); line-height: 1.85; margin-bottom: 0.3rem; }
+.dosha-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(248,243,232,0.08); margin-top: 1.5rem; }
+.dosha-card { background: rgba(248,243,232,0.03); padding: 1.5rem 1.4rem; }
+.dosha-icon { font-size: 1.3rem; margin-bottom: 0.5rem; display: block; }
+.dosha-card h4 { font-family: var(--sans); font-size: 0.9rem; font-weight: 700; color: var(--gold-light); margin-bottom: 0.5rem; }
+.dosha-card .dosha-traits { font-family: var(--sans); font-size: 0.78rem; font-weight: 300; color: rgba(248,243,232,0.6); line-height: 1.65; margin-bottom: 0.6rem; }
  
 /* ── ANTI-HYPE ── */
 .anti-hype { background: var(--cream); padding: 7.5rem 2rem; }
@@ -485,6 +497,9 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   .pain-cards, .stats-row, .path1-grid, .eco-grid { grid-template-columns: 1fr 1fr; }
   .fork-grid, .anti-grid, .pillars, .testimonials-grid, .pricing-grid { grid-template-columns: 1fr; }
   .nem-studies { grid-template-columns: 1fr; }
+  .tw-step { grid-template-columns: 40px 1fr; gap: 1rem; }
+  .tw-num { font-size: 1.6rem; }
+  .dosha-grid { grid-template-columns: 1fr; }
   .why-table-header { grid-template-columns: 1fr; }
   .why-table-header div:last-child { display: none; }
   .why-table-row { grid-template-columns: 1fr; }
@@ -628,18 +643,83 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="path2-lede reveal">
       <span class="section-label" style="color:var(--gold-light)">Weg zwei · Therapieweg</span>
       <h2 class="section-title" style="color:var(--cream)">Von Grund auf zur Lebensfreude</h2>
-      <p>Der Therapieweg setzt an der Basis an, statt nur Symptome zu behandeln — drei Säulen, die als ein System wirken.</p>
+      <p>Der Therapieweg arbeitet mit Körper, Ernährung, Psyche und gezielter Supplementierung — nie einzeln, sondern als ein System. Alles beginnt mit einer Analyse, nicht mit einem Schema.</p>
       <details class="expand">
         <summary><span class="more-label">Wie das genau funktioniert</span><span class="less-label">Weniger anzeigen</span></summary>
-        <div class="expand-body">Fundiert durch mein Therapeutenstudium in Sporttherapie und ganzheitlicher Körperarbeit beginnt alles mit einer ganzheitlichen Analyse und einer Ausleitung, bevor wir über die drei Säulen wieder aufbauen — immer individuell auf dich abgestimmt.</div>
+        <div class="expand-body">Fundiert durch mein Therapeutenstudium in Sporttherapie und ganzheitlicher Körperarbeit beginnt alles mit der Analyse deiner Bewegung und deiner ayurvedischen Konstitution. Darauf folgt eine individuelle Ausleitung, bevor wir über Ernährung, Körperarbeit und Psyche wieder aufbauen — mit Nahrungsergänzung dort, wo sie wirklich nötig ist.</div>
       </details>
     </div>
+ 
+    <!-- SCHRITT 1: ANALYSE -->
+    <div class="tw-step reveal">
+      <span class="tw-num">01</span>
+      <div class="tw-step-body">
+        <h3>Die 8 Grundbewegungen — und dein Dosha</h3>
+        <p>Bevor sich etwas verändert, schaue ich mir an, wie du dich bewegst: Squat, Hinge, Lunge, Rotation, Zug, Druck, Gehen, Balance. Aus diesem Bewegungsbild liest sich nicht nur deine Kraft und Mobilität ab, sondern auch, welcher ayurvedischen Konstitution — welchem Dosha — du gerade am nächsten bist.</p>
+        <details class="expand">
+          <summary><span class="more-label">Was hat Bewegung mit meinem Dosha zu tun?</span><span class="less-label">Weniger anzeigen</span></summary>
+          <div class="expand-body">
+            <p>Im Ayurveda gilt: Alles im Körper wird von drei Energien — den Doshas Vata, Pitta und Kapha — geprägt. Jeder Mensch trägt alle drei in sich, meist dominiert aber eine. Wie du dich bewegst, ist einer der ehrlichsten Spiegel dafür, welches Dosha bei dir gerade führt — schneller und unruhig, kraftvoll und zielgerichtet, oder eher langsam und ausdauernd.</p>
+            <p>Deshalb ist die Bewegungsanalyse bei mir kein reiner Fitness-Check, sondern der erste Baustein der Konstitutionsbestimmung — sie zeigt, wo dein Körper stark ist, wo er kompensiert, und in welche Richtung wir ihn wieder in Balance bringen.</p>
+          </div>
+        </details>
+ 
+        <div class="dosha-grid">
+          <div class="dosha-card">
+            <span class="dosha-icon">💨</span>
+            <h4>Vata — Luft &amp; Äther</h4>
+            <p class="dosha-traits">Leicht, schnell, ideenreich. Bewegt sich oft flatterhaft und schnell ermüdend. Neigt zu Kälte, Trockenheit, innerer Unruhe.</p>
+            <details class="expand">
+              <summary><span class="more-label">Woran erkenne ich Vata?</span><span class="less-label">Weniger</span></summary>
+              <div class="expand-body">Meist schlanker, eher leichter Körperbau. Wechselhafte Energie — mal voller Ideen, dann plötzlich erschöpft. Kalte Hände und Füße, unruhiger Schlaf, Tendenz zu Verspannungen und Gelenkknacken bei Belastung.</div>
+            </details>
+          </div>
+          <div class="dosha-card">
+            <span class="dosha-icon">🔥</span>
+            <h4>Pitta — Feuer &amp; Wasser</h4>
+            <p class="dosha-traits">Zielstrebig, ehrgeizig, kraftvoll in Bewegung. Neigt zu Hitze, Ungeduld und Überlastung durch zu viel Antrieb.</p>
+            <details class="expand">
+              <summary><span class="more-label">Woran erkenne ich Pitta?</span><span class="less-label">Weniger</span></summary>
+              <div class="expand-body">Mittlerer, athletischer Körperbau. Trainiert gerne intensiv und wettkampforientiert, neigt aber zu Überhitzung, Sodbrennen, Hautreizungen und Reizbarkeit, wenn zu viel „Feuer" im System ist.</div>
+            </details>
+          </div>
+          <div class="dosha-card">
+            <span class="dosha-icon">🌱</span>
+            <h4>Kapha — Erde &amp; Wasser</h4>
+            <p class="dosha-traits">Ruhig, stabil, ausdauernd. Bewegt sich eher gemächlich, braucht oft einen Anschub, hält dann aber lange durch.</p>
+            <details class="expand">
+              <summary><span class="more-label">Woran erkenne ich Kapha?</span><span class="less-label">Weniger</span></summary>
+              <div class="expand-body">Meist kräftigerer, stabilerer Körperbau. Gelassenes Gemüt, guter Ausdauersport-Typ, neigt aber zu Trägheit, langsamem Stoffwechsel, Schweregefühl und braucht bewusste Impulse, um in Bewegung zu kommen.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- SCHRITT 2: AUSLEITUNG -->
+    <div class="tw-step reveal">
+      <span class="tw-num">02</span>
+      <div class="tw-step-body">
+        <h3>Ausleitung — individuell nach Dosha</h3>
+        <p>Jedes Therapieweg-Programm startet mit einer Tiefenentgiftung: Panchakarma, therapeutisches Buchinger-Fasten oder ein individueller Kombi-Mix aus beidem. Welche Form passt, hängt von deiner Konstitution ab — nicht von einem Standardplan.</p>
+        <details class="expand">
+          <summary><span class="more-label">Welche Ausleitung passt zu welchem Dosha?</span><span class="less-label">Weniger anzeigen</span></summary>
+          <div class="expand-body">
+            <p><strong style="color:var(--gold-light);">Bei Vata-Dominanz</strong> setze ich eher auf sanfte, wärmende, ölbasierte Panchakarma-Anwendungen mit viel Ruhe und warmen Speisen — ein hartes Fasten würde einen ohnehin unruhigen, kühlen Typ nur weiter auszehren.</p>
+            <p><strong style="color:var(--gold-light);">Bei Pitta-Dominanz</strong> arbeite ich eher kühlend und mild ausleitend, mit moderatem Fasten und ohne zusätzliche Reize durch Schärfe oder Hitze — das Ziel ist, das innere Feuer zu beruhigen, nicht weiter anzufachen.</p>
+            <p><strong style="color:var(--gold-light);">Bei Kapha-Dominanz</strong> darf es aktivierender und konsequenter sein: ein festeres Buchinger-Fasten, kombiniert mit anregenden Panchakarma-Elementen, um Stauung und Trägheit spürbar zu lösen.</p>
+            <p style="opacity:0.75; font-style:italic;">Das ist eine grobe Orientierung — die endgültige Auswahl treffen wir gemeinsam nach deiner ausführlichen Anamnese, nie nach Schema F.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+ 
     <div class="pillars reveal">
       <div class="pillar">
         <span class="pillar-num">Säule I</span>
         <h3>Alltagsfreude</h3>
-        <p>Wissenschaftlich fundierte Ernährungsumstellung — wenig Zucker, mehr Blutzuckerstabilität — plus praktischer Kochunterricht und Ayurveda-Dosha-Analyse.</p>
-        <ul><li>Dosha-Analyse (Ayurveda)</li><li>Kochunterricht</li></ul>
+        <p>Wissenschaftlich fundierte Ernährungsumstellung — wenig Zucker, mehr Blutzuckerstabilität — plus praktischer Kochunterricht, abgestimmt auf dein Dosha.</p>
+        <ul><li>Ernährungsplan nach Dosha</li><li>Kochunterricht</li><li>Individuelle Supplementierung (NEM)</li></ul>
       </div>
       <div class="pillar">
         <span class="pillar-num">Säule II</span>
@@ -655,9 +735,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       </div>
     </div>
     <p class="system-line reveal">Drei Säulen. Ein System. Das Ganzheitskonzept Lebensfreude.</p>
-    <div class="reinigung-note reveal">
-      <p><strong>Ausleitungsfreude:</strong> Jedes Therapieweg-Programm startet mit einer Tiefenentgiftung — Panchakarma, therapeutisches Buchinger-Fasten oder ein individueller Kombi-Mix aus beidem, abgestimmt auf deine Konstitution.</p>
-    </div>
   </div>
 </section>
  
@@ -905,9 +982,9 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="j-step">
       <span class="j-num">02</span>
       <div class="j-content">
-        <h3>Reinigung &amp; Ausleitungsfreude</h3>
-        <p>Tiefenentgiftung über Panchakarma, Buchinger Heilfasten oder einen individuellen Kombi-Mix aus beidem.</p>
-        <span class="j-tag">Ausleitungsfreude</span>
+        <h3>Reinigung &amp; Ausleitung</h3>
+        <p>Tiefenentgiftung über Panchakarma, Buchinger Heilfasten oder einen individuellen Kombi-Mix aus beidem — abgestimmt auf dein Dosha.</p>
+        <span class="j-tag">Ausleitung</span>
       </div>
     </div>
     <div class="j-step">
@@ -1308,4 +1385,3 @@ document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
 </div>
 </body>
 </html>
- 
