@@ -500,6 +500,21 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   .pain-cards, .stats-row, .path1-grid, .eco-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
 }
+ 
+/* ── FLOATING CONTACT BUTTONS (Lebensfreude × Sonntagsfreude) ── */
+.float-contact { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 90; display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-end; }
+.fc-btn { position: relative; width: 48px; height: 48px; border-radius: 50%; background: var(--forest-900, #2E5A27); color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(211,168,106,0.5); box-shadow: 0 8px 22px rgba(12,20,14,0.3); transition: transform 0.25s, background 0.25s, box-shadow 0.25s; }
+.fc-btn svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.fc-btn svg .f { fill: currentColor; stroke: none; }
+.fc-btn:hover, .fc-btn:focus-visible { transform: translateY(-3px); background: var(--gold, #C28B47); box-shadow: 0 12px 28px rgba(12,20,14,0.38); outline: none; }
+.fc-mail { background: var(--gold, #C28B47); border-color: rgba(255,255,255,0.35); }
+.fc-mail:hover, .fc-mail:focus-visible { background: var(--forest-800, #3b6e4c); }
+.fc-label { position: absolute; right: calc(100% + 0.7rem); top: 50%; transform: translate(6px, -50%); white-space: nowrap; background: var(--forest-950, #16281a); color: #f5f7f3; font-family: var(--sans, 'Lato', sans-serif); font-size: 0.72rem; font-weight: 700; padding: 7px 14px; border-radius: 20px; opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s; box-shadow: 0 6px 18px rgba(12,20,14,0.25); }
+.fc-btn:hover .fc-label, .fc-btn:focus-visible .fc-label { opacity: 1; transform: translate(0, -50%); }
+.nav-links a.nav-sister { color: var(--gold-light, #d3a86a); }
+@media (max-width: 768px) { .float-contact { right: 0.8rem; bottom: 0.8rem; gap: 0.5rem; } .fc-btn { width: 44px; height: 44px; } }
+@media (hover: none) { .fc-label { display: none; } }
+@media print { .float-contact { display: none; } }
 </style>
 </head>
 <body>
@@ -515,6 +530,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <li><a href="aktuelles.html">Aktuelles</a></li>
     <li><a href="trainingsbereich.html">Trainingsbereich</a></li>
     <li><a href="shop.html">Shop</a></li>
+    <li><a href="https://maratumpach.github.io/Ei-Weiss/index.html" class="nav-sister">Sonntagsfreude ↗</a></li>
     <li><a href="#kontakt" class="nav-cta">Erstgespräch</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
@@ -660,7 +676,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="anti-card truth">
       <span class="anti-card-label">✓ Die Wahrheit</span>
       <h3>Echte Lebensmittel bauen echte Kraft</h3>
-      <p>Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles. Auch unsere eigenen <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:underline;">Ei-Weiss Protein-Chips</a> zeigen: 2–5 echte Zutaten reichen für 12g Protein — ganz ohne Pulver.</p>
+      <p>Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles. Auch unsere eigenen <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:underline;">Sonntagsfreude Protein-Chips</a> zeigen: 2–5 echte Zutaten reichen für 12g Protein — ganz ohne Pulver.</p>
     </div>
     <div class="anti-card myth">
       <span class="anti-card-label">❌ Der Mythos</span>
@@ -703,7 +719,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <div class="sugar-bar-label"><span>✅ Lebensfreude-Ziel (natürlicher Zucker aus Lebensmitteln)</span><span>15–20g</span></div>
       <div class="sugar-bar-track"><div class="sugar-bar-fill fill-green" data-width="22%"></div></div>
     </div>
-    <div class="sugar-cross">🥚 Unsere <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Ei-Weiss Protein-Chips</a> enthalten 0g zugesetzten Zucker — ein Alltagsfreude-Snack, der zur Praxis passt.</div>
+    <div class="sugar-cross">🥚 Unsere <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Sonntagsfreude Protein-Chips</a> enthalten 0g zugesetzten Zucker — ein Alltagsfreude-Snack, der zur Praxis passt.</div>
     <p style="font-size:0.75rem; color: rgba(33,31,24,0.45); margin-top: 1.2rem; margin-bottom: 0;">Quellen: DGE, WHO Zuckerrichtlinien 2023 · Freier Zucker = zugesetzter Zucker und Fruchtsäfte</p>
   </div>
 </section>
@@ -750,7 +766,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <div class="partner-badge">
       <div class="dot"></div>
-      <p>Zur Lebensfreude-Welt gehört auch <a href="https://maratumpach.github.io/Ei-Weiss/index.html" target="_blank" rel="noopener">Ei-Weiss</a> — Bio-Hofladen &amp; Café in Oberottmarshausen.</p>
+      <p>Zur Lebensfreude-Welt gehört auch <a href="https://maratumpach.github.io/Ei-Weiss/index.html" target="_blank" rel="noopener">Sonntagsfreude</a> — Bio-Hofladen &amp; Café in Oberottmarshausen.</p>
     </div>
     <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
       <a href="#kontakt" class="btn-primary">Kostenlos kennenlernen</a>
@@ -768,26 +784,26 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <div class="eco-grid reveal">
     <div class="eco-card">
       <span class="eco-icon">☕</span>
-      <h4>Ei-Weiss Café &amp; Hofladen</h4>
+      <h4>Sonntagsfreude Hofladen</h4>
       <p>Der niedrigschwellige Einstieg in die Lebensfreude-Welt.</p>
       <details class="expand">
         <summary><span class="more-label">Mehr erfahren</span><span class="less-label">Weniger</span></summary>
-        <div class="expand-body">Bio-Kaffee, Golden Milk und Hofladen-Schätze in Oberottmarshausen — 24/7 geöffnet, Selbstbedienung direkt ab Hof.</div>
+        <div class="expand-body">Bio-Eier, Protein-Chips und Hofladen-Schätze in Oberottmarshausen — 24/7 geöffnet, Selbstbedienung direkt ab Hof.</div>
       </details>
       <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" class="eco-link">Zum Hofladen →</a>
     </div>
     <div class="eco-card">
       <span class="eco-icon">🧘</span>
-      <h4>Sonntagsfreude</h4>
+      <h4>Sonntagscafé &amp; Yoga</h4>
       <p>Bewegung und Genuss an einem Vormittag.</p>
       <details class="expand">
         <summary><span class="more-label">Mehr erfahren</span><span class="less-label">Weniger</span></summary>
-        <div class="expand-body">Yoga auf der Wiese hinterm Café, danach ein gemeinsames Vital-Frühstück im Sonntagscafé — bei schönem Wetter, ganz entspannt.</div>
+        <div class="expand-body">Sonntags bei schönem Wetter 11:30–19:30 Uhr im Hofgarten: Kaffee, Matcha, eine kostenlose Runde Yoga und Hühner im Hintergrund.</div>
       </details>
       <a href="https://maratumpach.github.io/Ei-Weiss/sonntagscafe.html" target="_blank" rel="noopener" class="eco-link">Zum Sonntagscafé →</a>
     </div>
     <div class="eco-card">
-      <img src="assets/bild1.jpg" alt="Gerettetes Huhn auf dem Ei-Weiss Hof" class="eco-photo">
+      <img src="assets/bild1.jpg" alt="Gerettetes Huhn auf dem Sonntagsfreude Hof" class="eco-photo">
       <h4>🐔 Hühnerpatenschaft</h4>
       <p>Auch Gutes tun gehört zur Geistesfreude.</p>
       <details class="expand">
@@ -1005,7 +1021,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <div class="faq-list reveal">
     <div class="faq-item"><button class="faq-question">Woher weiß ich, welcher Weg zu mir passt?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Das klären wir im kostenlosen Erstgespräch. Manchmal reicht Fit-bleiben völlig aus, manchmal zeigt sich schnell, dass der Therapieweg sinnvoller ist, um wirklich von Grund auf anzusetzen.</div></div></div>
     <div class="faq-item"><button class="faq-question">Muss ich immer mit einer Reinigung starten?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nur im Therapieweg. Panchakarma oder Buchinger Fasten sind das Fundament, damit wir wirklich von Grund auf ansetzen können — immer individuell auf deine Konstitution abgestimmt.</div></div></div>
-    <div class="faq-item"><button class="faq-question">Warum keine Proteinshakes oder Diätprodukte?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil du sie nicht brauchst. Ein vollwertiger Ernährungsplan auf Basis echter Lebensmittel liefert alles, was dein Körper braucht — unsere eigenen Ei-Weiss Protein-Chips sind ein gutes Beispiel dafür.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Warum keine Proteinshakes oder Diätprodukte?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil du sie nicht brauchst. Ein vollwertiger Ernährungsplan auf Basis echter Lebensmittel liefert alles, was dein Körper braucht — unsere eigenen Sonntagsfreude Protein-Chips sind ein gutes Beispiel dafür.</div></div></div>
     <div class="faq-item"><button class="faq-question">Was ist der Emotionscode?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Eine Methode, um eingeschlossene emotionale Blockaden aufzuspüren und sanft zu lösen. Teil der Säule Geistesfreude, ergänzt durch Mindset Coaching.</div></div></div>
     <div class="faq-item"><button class="faq-question">Muss ich den EMS-Gürtel selbst kaufen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nein. Das EMS-Gerät ist im Trainingspreis enthalten. Du bringst nichts mit außer dir selbst.</div></div></div>
     <div class="faq-item"><button class="faq-question">Kann ich online teilnehmen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Ja, viele Bausteine — Personal Training, Mindset Coaching, Ernährungsberatung — sind auch vollständig digital möglich.</div></div></div>
@@ -1147,7 +1163,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <h4>Partner</h4>
       <ul>
         <li><a href="https://www.ayurveda-deutschland.org/" target="_blank" rel="noopener">ayurveda-deutschland.org</a></li>
-        <li><a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Ei-Weiss Hofladen</a></li>
+        <li><a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Sonntagsfreude Hofladen</a></li>
       </ul>
       <h4 style="margin-top:1.5rem;">Social Media</h4>
       <ul>
@@ -1274,5 +1290,22 @@ document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
   });
 });
 </script>
+ 
+<!-- FLOATING BUTTONS -->
+<div class="float-contact" aria-label="Lebensfreude Kontakt & Social Media">
+  <a class="fc-btn fc-fb" href="https://www.facebook.com/share/1Dco4Kyd8E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+    <svg viewBox="0 0 24 24"><path class="f" d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V13h2.7v8h3.1z"/></svg>
+    <span class="fc-label">Facebook</span>
+  </a>
+  <a class="fc-btn fc-ig" href="https://www.instagram.com/mara.move" target="_blank" rel="noopener" aria-label="Instagram @mara.move">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="f" cx="17.3" cy="6.7" r="1"/></svg>
+    <span class="fc-label">Instagram</span>
+  </a>
+  <a class="fc-btn fc-mail" href="mailto:maratumpach@gmail.com" aria-label="E-Mail schreiben">
+    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+    <span class="fc-label">Schreib mir</span>
+  </a>
+</div>
 </body>
 </html>
+ 
