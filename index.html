@@ -5,15 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 <meta name="theme-color" content="#1E392A" />
-<title>Lebensfreude by Mara Tumpach – Heilung von Grund auf</title>
-<meta name="description" content="Lebensfreude: das Ganzheitskonzept von Mara Tumpach. Für Menschen, die fit bleiben wollen – und für Menschen, die aus ihrer Basis heraus heilen möchten. Bewegungsfreude, Geistesfreude, Alltagsfreude." />
+<title>Lebensfreude by Mara Tumpach – Sport, Personal Training & Heilung</title>
+<meta name="description" content="Lebensfreude von Mara Tumpach: Weg 1 – Sport & Personal Training. Weg 2 – Heilung und Ayurveda-Therapie bei chronischen Beschwerden und Schmerzen. Bewegungsfreude, Geistesfreude, Alltagsfreude." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
  
 <style>
 :root {
-  /* ── Palette aus dem Hero-Foto (Tempel, Grün, Himmel, Stein) ── */
   --forest-950: #16281a;
   --forest-900: #2E5A27;
   --forest-800: #3b6e4c;
@@ -25,13 +24,11 @@
   --gold-light: #d3a86a;
   --gold-pale:  #e8d2ae;
  
-  /* Indigo & Stein als Sekundärakzente aus dem Foto */
   --indigo:     #1B365D;
   --indigo-light: #3a5885;
   --mint:       #C7E3C8;
   --stone:      #8C7A6B;
  
-  /* zurückgeholte, wärmere Töne */
   --terra:      #C28B47;
   --terra-deep: #a06f34;
   --terra-soft: #d3a86a;
@@ -96,8 +93,10 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .hero-eyebrow { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s var(--ease) forwards; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
 .hero h1 { font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 700; line-height: 1.1; color: var(--white); opacity: 0; animation: fadeUp 0.9s 0.4s var(--ease) forwards; text-shadow: 0 4px 24px rgba(0,0,0,0.45); }
 .hero h1 em { font-style: italic; color: var(--gold-light); font-weight: 500; }
-.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 400; color: rgba(255,255,255,0.94); margin-top: 1.5rem; max-width: 460px; line-height: 1.85; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; text-shadow: 0 2px 14px rgba(0,0,0,0.45); }
-.hero-cta { display: flex; gap: 1rem; margin-top: 2.6rem; opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease) forwards; flex-wrap: wrap; }
+.hero-sub { font-family: var(--sans); font-size: 1rem; font-weight: 400; color: rgba(255,255,255,0.94); margin-top: 1.5rem; max-width: 500px; line-height: 1.85; opacity: 0; animation: fadeUp 0.9s 0.6s var(--ease) forwards; text-shadow: 0 2px 14px rgba(0,0,0,0.45); }
+.hero-ways { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.4rem; opacity: 0; animation: fadeUp 0.9s 0.7s var(--ease) forwards; }
+.hero-way { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; color: var(--white); background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(6px); padding: 7px 16px; border-radius: 30px; }
+.hero-cta { display: flex; gap: 1rem; margin-top: 2.2rem; opacity: 0; animation: fadeUp 0.9s 0.8s var(--ease) forwards; flex-wrap: wrap; }
 .btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--terra); color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.3s; border: none; cursor: pointer; }
 .btn-primary:hover { background: var(--terra-deep); transform: translateY(-2px); }
 .btn-outline { display: inline-block; padding: 1rem 2.4rem; border: 1px solid rgba(245,247,243,0.45); color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: border-color 0.3s, color 0.3s, transform 0.3s; }
@@ -119,6 +118,13 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .on-dark .section-label { color: var(--gold-light); }
 .on-dark .section-title { color: var(--cream); }
  
+/* ── INFO-BUTTON (öffnet Info-Popup) ── */
+.info-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; font-family: var(--sans); font-size: 0.8rem; font-weight: 700; color: var(--forest-800); padding: 0; text-align: left; }
+.info-btn .i { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--gold); color: #fff; font-size: 0.72rem; font-weight: 800; font-style: italic; font-family: var(--serif); flex-shrink: 0; transition: transform 0.25s var(--ease); }
+.info-btn:hover .i { transform: scale(1.15); }
+.info-btn span.t { border-bottom: 1px dotted currentColor; }
+.on-dark-info .info-btn, .path2 .info-btn, .pricing-card.featured .info-btn { color: var(--gold-light); }
+ 
 /* ── PAIN ── */
 .pain { background: var(--cream); padding: 7rem 2rem; text-align: center; }
 .pain-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; max-width: 960px; margin: 4rem auto 0; border: 1px solid rgba(33,31,24,0.1); }
@@ -131,7 +137,7 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
  
 /* ── FORK ── */
 .fork { background: var(--cream-deep); padding: 7rem 2rem; }
-.fork-head { max-width: 680px; margin: 0 auto 4rem; text-align: center; }
+.fork-head { max-width: 700px; margin: 0 auto 4rem; text-align: center; }
 .fork-head p { font-family: var(--sans); font-weight: 300; color: var(--ink-soft); font-size: 1.02rem; margin-top: 1rem; line-height: 1.85; }
 .fork-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 1180px; margin: 0 auto; background: var(--sand-deep); }
 .fork-card { padding: 3.4rem 3rem; position: relative; text-decoration: none; transition: transform 0.35s var(--ease); display: flex; flex-direction: column; }
@@ -156,23 +162,29 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .fork-card.b .fork-more { color: var(--gold-light); }
 .fork-more .arrow { transition: transform 0.3s var(--ease); }
 .fork-card:hover .arrow { transform: translateX(5px); }
+.fork-sep { max-width: 1180px; margin: 1.8rem auto 0; display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; text-align: center; font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); }
  
-/* ── PATH 1: Fitness & Training ── */
+/* ── PATH 1: SPORT ── */
 .path1 { background: var(--cream); padding: 7rem 2rem; }
+.path1-intro { max-width: 640px; font-family: var(--sans); font-weight: 300; color: var(--ink-soft); font-size: 1rem; line-height: 1.85; margin-top: 1rem; }
 .path1-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px; max-width: 1180px; margin: 0 auto; background: rgba(33,31,24,0.07); }
 .svc-card { background: var(--white); padding: 2.8rem 2.2rem; transition: background 0.3s; }
 .svc-card:hover { background: var(--cream-deep); }
 .svc-icon { font-size: 1.7rem; margin-bottom: 1.1rem; display: block; }
 .svc-card h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--forest-900); margin-bottom: 0.6rem; }
 .svc-card p { font-family: var(--sans); font-size: 0.87rem; font-weight: 300; color: var(--ink-soft); line-height: 1.75; }
+.path1-note { max-width: 1180px; margin: 1.6rem auto 0; font-family: var(--sans); font-size: 0.82rem; font-weight: 300; color: var(--ink-soft); text-align: center; }
  
-/* ── HEALING HUMANS INTRO + PILLARS ── */
+/* ── PATH 2: HEILUNG ── */
 .path2 { background: var(--forest-950); padding: 7.5rem 2rem; position: relative; overflow: hidden; }
 .path2::before { content: ''; position: absolute; top: -100px; left: -100px; width: 340px; height: 340px; border-radius: 50%; background: var(--forest-800); opacity: 0.5; }
 .path2::after { content: ''; position: absolute; bottom: -90px; right: -70px; width: 260px; height: 260px; border-radius: 50%; background: var(--gold); opacity: 0.05; }
 .path2-inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
-.path2-lede { max-width: 720px; margin-bottom: 4.5rem; }
+.path2-lede { max-width: 760px; margin-bottom: 4.5rem; }
 .path2-lede p { font-family: var(--sans); font-weight: 300; color: rgba(248,243,232,0.72); font-size: 1.02rem; line-height: 1.9; margin-top: 1.2rem; }
+.heal-for { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
+.heal-for span { font-family: var(--sans); font-size: 0.78rem; padding: 6px 14px; border-radius: 30px; background: rgba(214,184,120,0.14); color: var(--gold-light); font-weight: 600; }
+.path2-lede .info-btn { margin-top: 1.4rem; }
 .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(248,243,232,0.08); border: 1px solid rgba(248,243,232,0.08); margin-bottom: 3rem; }
 .pillar { background: rgba(248,243,232,0.025); padding: 3rem 2.2rem; position: relative; }
 .pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--ease); }
@@ -344,10 +356,16 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 /* ── PRICING ── */
 .pricing { background: var(--sand); padding: 7.5rem 2rem; }
 .pricing-intro { max-width: 700px; margin: 0 auto 4rem; text-align: center; font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem; max-width: 1200px; margin: 0 auto; }
+.price-block { max-width: 1200px; margin: 0 auto 4rem; }
+.price-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.6rem; padding-bottom: 1rem; border-bottom: 2px solid var(--gold); }
+.price-block-head h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--forest-900); }
+.price-block-head h3 small { display: block; font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: var(--forest-600); margin-bottom: 0.2rem; }
+.price-block.heal .price-block-head h3 small { color: var(--terra-deep); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem; }
 .pricing-card { background: var(--white); padding: 2.5rem 2.1rem; border-radius: 2px; position: relative; border: 1px solid rgba(33,31,24,0.08); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
 .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(20,38,25,0.12); }
 .pricing-card.featured { background: var(--forest-900); color: var(--cream); border-color: transparent; }
+.pricing-card.wide { grid-column: span 2; }
 .pricing-card .p-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; color: var(--forest-600); margin-bottom: 1rem; display: block; }
 .pricing-card.featured .p-name { color: var(--gold-light); }
 .pricing-badge { position: absolute; top: -1px; right: 1.6rem; background: var(--gold); color: var(--forest-950); font-family: var(--sans); font-size: 0.6rem; font-weight: 700; padding: 5px 12px; border-radius: 0 0 4px 4px; }
@@ -361,6 +379,7 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .pricing-card ul { list-style: none; font-family: var(--sans); font-size: 0.83rem; font-weight: 300; color: var(--ink-soft); display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.4rem; flex: 1; }
 .pricing-card.featured ul { color: rgba(248,243,232,0.78); }
 .pricing-card ul li::before { content: '—'; margin-right: 0.5rem; color: var(--gold); }
+.pricing-card .p-info { margin-top: 0.2rem; }
 .pkg-toggle { display: flex; gap: 6px; margin-top: auto; flex-wrap: wrap; }
 .pkg-pill { flex: 1; min-width: 55px; padding: 8px 6px; text-align: center; background: rgba(33,31,24,0.05); border: 1px solid rgba(33,31,24,0.12); border-radius: 2px; cursor: pointer; transition: background 0.2s, border-color 0.2s; font-family: var(--sans); font-size: 0.68rem; font-weight: 600; color: var(--ink-soft); }
 .pkg-pill .pkg-save { display: block; font-size: 0.6rem; color: var(--forest-700); margin-top: 2px; font-weight: 400; }
@@ -369,6 +388,47 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .pricing-card.featured .pkg-pill { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: rgba(248,243,232,0.8); }
 .pricing-card.featured .pkg-pill.active { background: var(--gold); border-color: var(--gold); color: var(--forest-950); }
 .pricing-card.featured .pkg-pill .pkg-save { color: var(--gold-pale); }
+ 
+/* Ernährungs-Karte (lang) */
+.nutri-card { background: var(--white); border: 1px solid rgba(33,31,24,0.08); border-radius: 2px; padding: 2.8rem 2.6rem; grid-column: 1 / -1; }
+.nutri-top { display: grid; grid-template-columns: 1fr 1.15fr; gap: 3rem; }
+.nutri-card .p-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; color: var(--terra-deep); display: block; margin-bottom: 0.8rem; }
+.nutri-card h4 { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--forest-900); line-height: 1.2; margin-bottom: 0.9rem; }
+.nutri-card .lead { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.2rem; }
+.nutri-card .must { display: inline-block; font-family: var(--sans); font-size: 0.75rem; font-weight: 700; color: var(--forest-900); background: rgba(194,139,71,0.18); padding: 6px 14px; border-radius: 30px; margin-bottom: 1.2rem; }
+.nutri-card ul.inc { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-family: var(--sans); font-size: 0.87rem; font-weight: 400; color: var(--ink-soft); }
+.nutri-card ul.inc li::before { content: '🌿'; margin-right: 0.6rem; font-size: 0.85rem; }
+.nutri-card ul.inc li b { color: var(--forest-900); }
+.nutri-calc .pkg-pill { min-width: 62px; }
+.nutri-prep { background: var(--cream); border-left: 3px solid var(--gold); padding: 1.4rem 1.5rem; border-radius: 2px; margin-top: 1.6rem; }
+.nutri-prep h5 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--forest-900); margin-bottom: 0.4rem; }
+.nutri-prep p { font-family: var(--sans); font-size: 0.84rem; font-weight: 300; color: var(--ink-soft); line-height: 1.75; }
+.nutri-ladder { display: flex; flex-direction: column; gap: 0.7rem; }
+.nl-step { display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 1rem; padding: 1rem 1.2rem; background: var(--cream); border: 1px solid rgba(33,31,24,0.08); border-radius: 2px; }
+.nl-step.opt { border-style: dashed; background: transparent; }
+.nl-step .n { font-family: var(--serif); font-style: italic; font-size: 1.6rem; color: var(--gold); line-height: 1; }
+.nl-step .d b { display: block; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; color: var(--forest-900); }
+.nl-step .d span { font-family: var(--sans); font-size: 0.76rem; font-weight: 300; color: var(--ink-soft); }
+.nl-step .pr { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; color: var(--forest-900); text-align: right; }
+.nl-step .pr small { display: block; font-family: var(--sans); font-size: 0.65rem; font-weight: 400; color: var(--ink-soft); }
+.nutri-foot { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.8rem; padding-top: 1.6rem; border-top: 1px solid rgba(33,31,24,0.1); }
+ 
+/* Lebensfreude-Programm (lang) */
+.prog-card { grid-column: 1 / -1; background: var(--forest-900); color: var(--cream); border-radius: 2px; padding: 2.8rem 2.6rem; position: relative; overflow: hidden; }
+.prog-card::after { content: ''; position: absolute; right: -60px; bottom: -60px; width: 220px; height: 220px; border-radius: 50%; background: var(--gold); opacity: 0.07; }
+.prog-top { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; position: relative; z-index: 1; }
+.prog-card .p-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; color: var(--gold-light); display: block; margin-bottom: 0.8rem; }
+.prog-price { font-family: var(--serif); font-size: 3rem; font-weight: 500; line-height: 1; color: var(--cream); }
+.prog-price small { font-family: var(--sans); font-size: 0.8rem; font-weight: 400; color: var(--gold-pale); margin-right: 0.4rem; }
+.prog-price sup { font-size: 1.1rem; vertical-align: super; }
+.prog-sub { font-family: var(--sans); font-size: 0.8rem; font-weight: 300; color: rgba(248,243,232,0.65); margin-top: 0.6rem; line-height: 1.6; }
+.prog-card h4 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--cream); margin-bottom: 0.8rem; }
+.prog-card p { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: rgba(248,243,232,0.75); line-height: 1.85; margin-bottom: 1rem; }
+.prog-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-family: var(--sans); font-size: 0.86rem; font-weight: 300; color: rgba(248,243,232,0.8); margin-bottom: 1rem; }
+.prog-card ul li { padding-left: 1.2rem; position: relative; }
+.prog-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+.prog-goal { margin-top: 1.6rem; padding: 1.3rem 1.5rem; background: rgba(248,243,232,0.06); border: 1px solid rgba(248,243,232,0.12); border-radius: 2px; position: relative; z-index: 1; font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--gold-pale); line-height: 1.6; }
+.prog-foot { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.6rem; position: relative; z-index: 1; }
  
 /* ── TESTIMONIALS ── */
 .testimonials { background: var(--cream); padding: 7rem 2rem; }
@@ -425,31 +485,64 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .nl-success { text-align: center; padding: 1.5rem 0; }
 .nl-success h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--forest-900); margin-top: 0.5rem; }
  
-/* ── NEWSLETTER POPUP ── */
-.nl-popup-overlay { position: fixed; inset: 0; background: rgba(14,26,17,0.82); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s var(--ease); backdrop-filter: blur(6px); }
-.nl-popup-overlay.active { opacity: 1; pointer-events: all; }
-.nl-popup { background: var(--forest-900); border-radius: 4px; max-width: 460px; width: 90%; position: relative; overflow: hidden; transform: translateY(24px) scale(0.97); transition: transform 0.4s var(--ease); box-shadow: 0 32px 80px rgba(0,0,0,0.45); }
-.nl-popup-overlay.active .nl-popup { transform: translateY(0) scale(1); }
-.nl-popup-accent { height: 4px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%); }
-.nl-popup-deco { position: absolute; bottom: -50px; right: -50px; width: 180px; height: 180px; border-radius: 50%; background: var(--forest-700); opacity: 0.3; pointer-events: none; }
-.nl-popup-body { padding: 2.4rem 2.4rem 2rem; position: relative; z-index: 1; }
-.nl-popup-close { position: absolute; top: 1rem; right: 1.2rem; background: rgba(255,255,255,0.1); border: none; width: 28px; height: 28px; border-radius: 50%; font-size: 1rem; color: rgba(248,243,232,0.7); cursor: pointer; line-height: 1; z-index: 10; display: flex; align-items: center; justify-content: center; }
-.nl-popup-close:hover { background: var(--gold); color: var(--forest-950); }
-.nl-popup-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 0.8rem; }
-.nl-popup-portrait { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin-bottom: 1.1rem; }
-.nl-popup h3 { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; color: var(--cream); margin-bottom: 0.8rem; line-height: 1.15; }
-.nl-popup p.nl-popup-desc { font-family: var(--sans); font-size: 0.87rem; font-weight: 300; color: rgba(248,243,232,0.7); line-height: 1.8; margin-bottom: 1.4rem; }
-.nl-popup-perks { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; }
-.nl-popup-perks li { list-style: none; font-family: var(--sans); font-size: 0.8rem; font-weight: 300; color: rgba(248,243,232,0.65); display: flex; align-items: center; gap: 0.5rem; }
-.nl-popup-perks li::before { content: "✓"; color: var(--gold-light); font-size: 0.75rem; }
-.nl-popup-form { display: flex; flex-direction: column; gap: 0.7rem; }
-.nl-popup-form input { width: 100%; padding: 0.9rem 1.1rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(248,243,232,0.2); border-radius: 2px; font-family: var(--sans); font-size: 0.88rem; color: var(--cream); outline: none; }
-.nl-popup-form input::placeholder { color: rgba(248,243,232,0.3); }
-.nl-popup-form input:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
-.nl-popup-submitted { text-align: center; padding: 1.5rem 0; }
-.nl-popup-submitted p { font-family: var(--sans); font-size: 0.9rem; color: rgba(248,243,232,0.7); margin-top: 0.7rem; }
-.nl-popup-skip { display: block; width: 100%; background: none; border: none; font-family: var(--sans); font-size: 0.72rem; color: rgba(248,243,232,0.3); cursor: pointer; margin-top: 1rem; text-align: center; }
-.nl-popup-skip:hover { color: rgba(248,243,232,0.6); }
+/* ── POPUPS (Newsletter, Social, Mail, Info) ── */
+.nl-popup-overlay, .lf-modal-overlay { position: fixed; inset: 0; background: rgba(14,26,17,0.7); z-index: 999; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.35s var(--ease); backdrop-filter: blur(5px); }
+.nl-popup-overlay.active, .lf-modal-overlay.active { opacity: 1; pointer-events: all; }
+.lf-modal { background: var(--cream); border-radius: 18px; max-width: 400px; width: 100%; max-height: 92vh; overflow-y: auto; position: relative; transform: translateY(20px) scale(0.97); transition: transform 0.4s var(--ease); box-shadow: 0 28px 70px rgba(0,0,0,0.4); }
+.lf-modal-overlay.active .lf-modal, .nl-popup-overlay.active .lf-modal { transform: none; }
+.lf-modal.small { max-width: 340px; }
+.lf-modal-close { position: absolute; top: 0.8rem; right: 0.8rem; width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,0.9); color: var(--forest-900); font-size: 1.1rem; cursor: pointer; z-index: 5; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); line-height: 1; }
+.lf-modal-close:hover { background: var(--gold); color: #fff; }
+.lf-modal-banner { height: 112px; background: linear-gradient(135deg, var(--forest-800), var(--forest-950)); position: relative; display: flex; align-items: flex-end; justify-content: center; }
+.lf-modal-banner img.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.lf-modal-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,40,26,0.05), rgba(22,40,26,0.55)); }
+.lf-modal-ico { position: relative; z-index: 2; width: 62px; height: 62px; border-radius: 50%; background: var(--cream); border: 3px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; margin-bottom: -31px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); overflow: hidden; }
+.lf-modal-ico img { width: 100%; height: 100%; object-fit: cover; }
+.lf-modal-body { padding: 2.4rem 1.8rem 1.8rem; text-align: center; }
+.lf-eyebrow { display: block; font-family: var(--sans); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-deep); margin-bottom: 0.4rem; }
+.lf-modal h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; color: var(--forest-900); line-height: 1.2; margin-bottom: 0.6rem; }
+.lf-modal .lf-desc { font-family: var(--sans); font-size: 0.86rem; font-weight: 300; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+.lf-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; text-align: left; margin: 0 auto 1.4rem; max-width: 300px; }
+.lf-list li { font-family: var(--sans); font-size: 0.85rem; font-weight: 400; color: var(--forest-800); display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.5; }
+.lf-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 0.55em; flex-shrink: 0; }
+.lf-modal .btn-gold, .lf-modal .btn-primary { border-radius: 30px; width: 100%; text-align: center; padding: 0.9rem 1.5rem; }
+.lf-modal .lf-note { font-family: var(--sans); font-size: 0.72rem; color: var(--ink-soft); opacity: 0.65; margin-top: 0.9rem; }
+.lf-skip { display: block; width: 100%; background: none; border: none; font-family: var(--sans); font-size: 0.72rem; color: var(--ink-soft); opacity: 0.55; cursor: pointer; margin-top: 0.8rem; }
+.lf-skip:hover { opacity: 1; }
+.lf-input { width: 100%; padding: 0.85rem 1.1rem; background: var(--white); border: 1px solid rgba(33,31,24,0.14); border-radius: 30px; font-family: var(--sans); font-size: 0.88rem; color: var(--ink); outline: none; margin-bottom: 0.65rem; }
+.lf-input:focus { border-color: var(--gold); }
+textarea.lf-input { border-radius: 16px; resize: none; height: 78px; }
+.lf-form-ok { text-align: center; padding: 1.2rem 0; }
+.lf-form-ok .big { font-size: 2.4rem; display: block; margin-bottom: 0.4rem; }
+.lf-form-ok p { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); }
+ 
+/* Newsletter-Popup: klein & ansprechend */
+.nl-popup.lf-modal { max-width: 350px; }
+.nl-popup .lf-modal-banner { height: 84px; }
+.nl-popup .lf-modal-banner::after { display: none; }
+.nl-popup .lf-modal-ico { width: 92px; height: 92px; margin-bottom: -46px; }
+.nl-popup .lf-modal-body { padding-top: 3.4rem; }
+.nl-popup .lf-list { max-width: 260px; }
+ 
+/* Mail-Auswahl */
+.mail-choices { display: grid; gap: 0.5rem; margin-bottom: 1rem; text-align: left; }
+.mail-choice { position: relative; }
+.mail-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.mail-choice label { display: flex; align-items: center; gap: 0.7rem; padding: 0.7rem 1rem; background: var(--white); border: 1.5px solid rgba(33,31,24,0.12); border-radius: 14px; cursor: pointer; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; color: var(--forest-900); transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+.mail-choice label .e { font-size: 1.15rem; }
+.mail-choice label small { display: block; font-size: 0.7rem; font-weight: 300; color: var(--ink-soft); line-height: 1.3; }
+.mail-choice label:hover { border-color: var(--gold); transform: translateY(-1px); }
+.mail-choice input:checked + label { border-color: var(--forest-700); background: rgba(95,146,104,0.1); box-shadow: 0 0 0 1px var(--forest-700) inset; }
+.mail-choice input:focus-visible + label { outline: 2px solid var(--gold); }
+ 
+/* Info-Popup */
+.info-pop .lf-modal-body { text-align: left; padding: 2.2rem 1.8rem 1.8rem; }
+.info-pop h3 { text-align: center; }
+.info-pop .ib { display: flex; gap: 0.8rem; padding: 0.9rem 1rem; border-radius: 12px; margin-bottom: 0.7rem; font-family: var(--sans); font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--ink-soft); }
+.info-pop .ib b { display: block; font-weight: 700; font-size: 0.84rem; color: var(--forest-900); margin-bottom: 0.15rem; }
+.info-pop .ib.sport { background: rgba(95,146,104,0.12); }
+.info-pop .ib.heal { background: rgba(194,139,71,0.15); }
+.info-pop .ib .em { font-size: 1.3rem; }
  
 /* ── FOOTER ── */
 footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(248,243,232,0.55); }
@@ -480,6 +573,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .about, .cleanse-inner { grid-template-columns: 1fr; gap: 3rem; }
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .nutri-top, .prog-top { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 768px) {
   nav { padding: 0.9rem 1.2rem !important; }
@@ -496,6 +590,9 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   .mobile-gallery { display: block; }
   .pain-cards, .stats-row, .path1-grid, .eco-grid { grid-template-columns: 1fr 1fr; }
   .fork-grid, .anti-grid, .pillars, .testimonials-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card.wide { grid-column: auto; }
+  .nutri-card, .prog-card { padding: 2rem 1.3rem; }
+  .nl-step { grid-template-columns: 38px 1fr auto; gap: 0.7rem; padding: 0.8rem; }
   .nem-studies { grid-template-columns: 1fr; }
   .tw-step { grid-template-columns: 40px 1fr; gap: 1rem; }
   .tw-num { font-size: 1.6rem; }
@@ -506,7 +603,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   .why-table-row .challenge { border-right: none; border-bottom: 1px solid rgba(33,31,24,0.07); }
   .contact-inner, .newsletter-inner { grid-template-columns: 1fr; gap: 2.4rem; }
   .form-group { grid-template-columns: 1fr; }
-  .contact-form input, .contact-form select, .contact-form textarea, .nl-form input { font-size: 16px; }
+  .contact-form input, .contact-form select, .contact-form textarea, .nl-form input, .lf-input { font-size: 16px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .j-step { grid-template-columns: 55px 1fr; gap: 1.2rem; }
   .j-num { font-size: 1.8rem; }
@@ -516,9 +613,9 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   .footer-inner { grid-template-columns: 1fr; }
 }
  
-/* ── FLOATING CONTACT BUTTONS (Lebensfreude × Sonntagsfreude) ── */
+/* ── FLOATING CONTACT BUTTONS ── */
 .float-contact { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 90; display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-end; }
-.fc-btn { position: relative; width: 48px; height: 48px; border-radius: 50%; background: var(--forest-900, #2E5A27); color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(211,168,106,0.5); box-shadow: 0 8px 22px rgba(12,20,14,0.3); transition: transform 0.25s, background 0.25s, box-shadow 0.25s; }
+.fc-btn { position: relative; width: 48px; height: 48px; border-radius: 50%; background: var(--forest-900, #2E5A27); color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(211,168,106,0.5); box-shadow: 0 8px 22px rgba(12,20,14,0.3); transition: transform 0.25s, background 0.25s, box-shadow 0.25s; cursor: pointer; padding: 0; font: inherit; }
 .fc-btn svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .fc-btn svg .f { fill: currentColor; stroke: none; }
 .fc-btn:hover, .fc-btn:focus-visible { transform: translateY(-3px); background: var(--gold, #C28B47); box-shadow: 0 12px 28px rgba(12,20,14,0.38); outline: none; }
@@ -538,8 +635,8 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <a href="#" class="nav-logo">Lebens<em>freude</em></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">Über mich</a></li>
-    <li><a href="#fitness">Fit bleiben</a></li>
-    <li><a href="#therapieweg">Therapieweg</a></li>
+    <li><a href="#fitness">Sport &amp; Training</a></li>
+    <li><a href="#therapieweg">Heilung &amp; Therapie</a></li>
     <li><a href="#preise">Preise</a></li>
     <li><a href="reisen.html">Reisen</a></li>
     <li><a href="aktuelles.html">Aktuelles</a></li>
@@ -556,9 +653,13 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <img class="hero-bg" src="assets/gallery-1.jpg" alt="Lebensfreude – Yoga & Bewegung">
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <span class="hero-eyebrow">Ganzheitlich · Von Grund auf · Lebensfreude</span>
+    <span class="hero-eyebrow">Sport · Personal Training · Heilung · Lebensfreude</span>
     <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
-    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echte Lebensfreude, die von innen wächst — für alle, die einfach fit bleiben wollen, und für alle, die aus ihrer Basis heraus heilen möchten.</p>
+    <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echte Lebensfreude, die von innen wächst. Du möchtest fit, stark und beweglich bleiben – oder leidest du an chronischen Beschwerden und Schmerzen und möchtest wieder gesund werden? Ich begleite dich auf beiden Wegen.</p>
+    <div class="hero-ways">
+      <span class="hero-way">💪 Weg 1 · Sport &amp; Personal Training</span>
+      <span class="hero-way">🌿 Weg 2 · Heilung &amp; Therapie</span>
+    </div>
     <div class="hero-cta">
       <a href="#fork" class="btn-primary">Finde deinen Weg</a>
       <a href="#kontakt" class="btn-outline">Erstgespräch vereinbaren</a>
@@ -581,7 +682,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="pain-card"><div class="number">01</div><p>Du schläfst genug – und bist trotzdem ständig müde und energielos.</p></div>
     <div class="pain-card"><div class="number">02</div><p>Schon kleine Belastungen bringen dich außer Atem.</p></div>
     <div class="pain-card"><div class="number">03</div><p>Dein Körper verlangt ständig nach Zucker und schnellen Kalorien.</p></div>
-    <div class="pain-card"><div class="number">04</div><p>Du bist gestresst, schlapp und ohne echte Balance in deinem Alltag.</p></div>
+    <div class="pain-card"><div class="number">04</div><p>Du hast chronische Beschwerden oder Schmerzen, die einfach nicht weggehen.</p></div>
   </div>
   <div class="pain-cta reveal">Entscheide dich jetzt, deinem Körper und deiner Seele Gehör zu schenken</div>
 </section>
@@ -591,41 +692,47 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <div class="fork-head reveal">
     <span class="section-label">Zwei Wege, ein Ziel</span>
     <h2 class="section-title">Wo stehst du gerade?</h2>
-    <p>Es gibt keinen Weg, der für alle passt. Deshalb beginnt Lebensfreude mit einer ehrlichen Frage an dich.</p>
+    <p>Bei mir gibt es zwei klar getrennte Wege: <strong>Sport &amp; Personal Training</strong> für alle, die aktiv sein wollen, und <strong>Heilung &amp; Therapie</strong> für Menschen mit chronischen Erkrankungen, Beschwerden oder Schmerzen.</p>
   </div>
   <div class="fork-grid reveal">
     <a href="#fitness" class="fork-card a">
-      <span class="fork-kicker">WEG EINS</span>
-      <h3>Ich bin gesund und will es bleiben</h3>
-      <p>Du fühlst dich grundsätzlich gut, willst fit, beweglich und stark bleiben — mit Training, das zu deinem Leben passt.</p>
+      <span class="fork-kicker">WEG 1 · SPORT</span>
+      <h3>Ich möchte aktiv werden und fit bleiben</h3>
+      <p>Du fühlst dich grundsätzlich gesund und möchtest stärker, beweglicher und fitter werden – mit normalem Sport- und Personal Training, das zu deinem Leben passt.</p>
       <div class="fork-tags">
         <span class="fork-tag">Personal Training</span>
         <span class="fork-tag">Yoga</span>
         <span class="fork-tag">Funktionelles Training</span>
+        <span class="fork-tag">EMS</span>
         <span class="fork-tag">Outdoor</span>
       </div>
-      <span class="fork-more">Zu Fit bleiben <span class="arrow">→</span></span>
+      <span class="fork-more">Zu Sport &amp; Training <span class="arrow">→</span></span>
     </a>
     <a href="#therapieweg" class="fork-card b">
-      <span class="fork-kicker">WEG ZWEI</span>
-      <h3>Ich brauche mehr als Training</h3>
-      <p>Du bist erschöpft, aus der Balance oder trägst Themen mit dir, die reines Training nicht löst. Hier setzen wir an der Basis an — dort, wo Veränderung wirklich beginnt.</p>
+      <span class="fork-kicker">WEG 2 · HEILUNG</span>
+      <h3>Ich möchte gesund werden</h3>
+      <p>Du hast chronische Erkrankungen, Beschwerden oder Schmerzen? Hier setzen wir an der Basis an, mit Ayurveda, Ausleitung, Ernährung, Körper- und Sporttherapie. Das ist Therapie, kein Training.</p>
       <div class="fork-tags">
+        <span class="fork-tag">Ernährungsberatung &amp; Ausleitung</span>
         <span class="fork-tag">Sporttherapie</span>
         <span class="fork-tag">Emotionscode</span>
         <span class="fork-tag">Ayurveda</span>
-        <span class="fork-tag">Panchakarma / Fasten</span>
       </div>
-      <span class="fork-more">Zum Therapieweg <span class="arrow">→</span></span>
+      <span class="fork-more">Zu Heilung &amp; Therapie <span class="arrow">→</span></span>
     </a>
+  </div>
+  <div class="fork-sep reveal">
+    <span>Sport und Therapie sind bei mir klar getrennt.</span>
+    <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Was ist der Unterschied &amp; was kann abgerechnet werden?</span></button>
   </div>
 </section>
  
-<!-- PATH 1: FIT BLEIBEN -->
+<!-- PATH 1: SPORT -->
 <section class="path1" id="fitness">
   <div class="section-header reveal">
-    <span class="section-label">Weg eins · Für gesunde Menschen</span>
-    <h2 class="section-title">Fit &amp; beweglich im Alltag</h2>
+    <span class="section-label">Weg 1 · Sport &amp; Personal Training</span>
+    <h2 class="section-title">Stark, fit &amp; beweglich im Alltag</h2>
+    <p class="path1-intro">Ganz normales, gutes Training: Sport und Personal Training für alle, die in Bewegung kommen oder bleiben wollen. Individuell, sicher und mit Freude.</p>
   </div>
   <div class="path1-grid reveal">
     <div class="svc-card"><span class="svc-icon">🏋️‍♀️</span><h4>Personal Training</h4><p>Individuell abgestimmte Workouts — effektiv, sicher, mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.</p></div>
@@ -635,16 +742,24 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <div class="svc-card"><span class="svc-icon">⚡</span><h4>EMS Training</h4><p>Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Preis enthalten — du musst nichts kaufen.</p></div>
     <div class="svc-card"><span class="svc-icon">💻</span><h4>Online Coaching</h4><p>Flexibel von überall. Training und Beratung digital — für Menschen mit vollem Terminkalender.</p></div>
   </div>
+  <p class="path1-note reveal">Du hast Beschwerden oder Schmerzen? Dann ist <a href="#therapieweg" style="color:var(--forest-800);font-weight:700;">Weg 2 · Heilung &amp; Therapie</a> der passende Weg für dich.</p>
 </section>
  
-<!-- PATH 2: THERAPIEWEG -->
+<!-- PATH 2: HEILUNG -->
 <section class="path2" id="therapieweg">
   <div class="path2-inner">
     <div class="path2-lede reveal">
-      <span class="section-label" style="color:var(--gold-light)">Weg zwei · Therapieweg</span>
-      <h2 class="section-title" style="color:var(--cream)">Von Grund auf zur Lebensfreude</h2>
-      <p>Der Therapieweg arbeitet mit Körper, Ernährung, Psyche und gezielter Supplementierung — nie einzeln, sondern als ein System. Alles beginnt mit einer Analyse, nicht mit einem Schema.</p>
-      <details class="expand">
+      <span class="section-label" style="color:var(--gold-light)">Weg 2 · Heilung &amp; Therapie</span>
+      <h2 class="section-title" style="color:var(--cream)">Von Grund auf heilen</h2>
+      <p>Dieser Weg ist für Menschen mit chronischen Erkrankungen, Beschwerden oder Schmerzen. Er arbeitet mit Körper, Ernährung, Psyche und gezielter Supplementierung — nie einzeln, sondern als ein System. Alles beginnt mit einer Analyse, nicht mit einem Schema. Das ist Therapie, kein Sporttraining.</p>
+      <div class="heal-for">
+        <span>Chronische Erkrankungen</span>
+        <span>Beschwerden</span>
+        <span>Schmerzen</span>
+        <span>Erschöpfung &amp; Disbalance</span>
+      </div>
+      <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Gut zu wissen: Abrechnung über Heilpraktiker-Gebührenverzeichnis</span></button>
+      <details class="expand" style="margin-top:1.4rem">
         <summary><span class="more-label">Wie das genau funktioniert</span><span class="less-label">Weniger anzeigen</span></summary>
         <div class="expand-body">Fundiert durch mein Therapeutenstudium in Sporttherapie und ganzheitlicher Körperarbeit beginnt alles mit der Analyse deiner Bewegung und deiner ayurvedischen Konstitution. Darauf folgt eine individuelle Ausleitung, bevor wir über Ernährung, Körperarbeit und Psyche wieder aufbauen — mit Nahrungsergänzung dort, wo sie wirklich nötig ist.</div>
       </details>
@@ -967,7 +1082,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <!-- 6-STEP JOURNEY -->
 <section class="journey">
   <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
-    <span class="section-label">Therapieweg</span>
+    <span class="section-label">Weg 2 · Heilung &amp; Therapie</span>
     <h2 class="section-title">Das 6-Schritte-Therapieprogramm</h2>
   </div>
   <div class="journey-list reveal">
@@ -1028,51 +1143,142 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <span class="section-label">Transparenz</span>
     <h2 class="section-title">Investiere in dich</h2>
   </div>
-  <p class="pricing-intro reveal">Buche einzeln oder spare mit einer Karte: <strong>3er –5 %</strong>, <strong>5er –8 %</strong>, <strong>10er –10 %</strong> — je mehr Termine, desto günstiger pro Einheit.</p>
-  <div class="pricing-grid">
-    <div class="pricing-card reveal" data-base-price="49">
-      <span class="p-name">Personal Training</span>
-      <div class="price-val" data-price-display><sup>€</sup>49</div>
-      <p class="price-desc" data-price-desc>pro Einheit</p>
-      <hr>
-      <ul><li>Individueller Trainingsplan</li><li>Persönliche Begleitung</li><li>Übungskorrektur</li></ul>
-      <div class="pkg-toggle">
-        <button class="pkg-pill active" data-qty="1">1×</button>
-        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
-        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
-        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+  <p class="pricing-intro reveal">Sport und Therapie sind bei mir klar getrennt – deshalb findest du die Preise hier in zwei Bereichen. Bei den Einzelterminen sparst du mit Karten: <strong>3er –5 %</strong>, <strong>5er –8 %</strong>, <strong>10er –10 %</strong>.</p>
+ 
+  <!-- ======= WEG 1: SPORT ======= -->
+  <div class="price-block reveal">
+    <div class="price-block-head">
+      <h3><small>WEG 1</small>Sport &amp; Personal Training</h3>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card" data-base-price="49">
+        <span class="p-name">Personal Training</span>
+        <div class="price-val" data-price-display><sup>€</sup>49</div>
+        <p class="price-desc" data-price-desc>pro Einheit</p>
+        <hr>
+        <ul><li>Individueller Trainingsplan</li><li>Persönliche Begleitung</li><li>Übungskorrektur</li></ul>
+        <div class="pkg-toggle">
+          <button class="pkg-pill active" data-qty="1">1×</button>
+          <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
+          <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
+          <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+        </div>
+      </div>
+      <div class="pricing-card" data-base-price="89">
+        <span class="p-name">EMS Training</span>
+        <div class="price-val" data-price-display><sup>€</sup>89</div>
+        <p class="price-desc" data-price-desc>Gerät inklusive</p>
+        <hr>
+        <ul><li>Breuer EMS-Gürtel inklusive</li><li>Intensiv &amp; zeitsparend</li><li>Professionelle Anleitung</li></ul>
+        <div class="pkg-toggle">
+          <button class="pkg-pill active" data-qty="1">1×</button>
+          <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
+          <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
+          <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+        </div>
+      </div>
+      <div class="pricing-card"><span class="p-name">Wochenbegleitung</span><div class="price-val"><sup>€</sup>35</div><p class="price-desc">pro Woche</p><hr><ul><li>Regelmäßiger Check-in</li><li>Fortschritts-Tracking</li><li>Motivation &amp; Support</li></ul></div>
+    </div>
+  </div>
+ 
+  <!-- ======= WEG 2: HEILUNG ======= -->
+  <div class="price-block heal reveal">
+    <div class="price-block-head">
+      <h3><small>WEG 2</small>Heilung &amp; Therapie</h3>
+      <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Abrechnung über Heilpraktiker-Gebührenverzeichnis</span></button>
+    </div>
+    <div class="pricing-grid">
+ 
+      <!-- Ernährungsberatung (lang) -->
+      <div class="nutri-card">
+        <div class="nutri-top">
+          <div>
+            <span class="p-name">Alltagsfreude Ernährung · Therapie</span>
+            <h4>Ernährungsberatung mit Ausleitung</h4>
+            <p class="lead">Die Ernährungsberatung gehört zum Therapieweg, denn die Ausleitung ist fester Bestandteil. Deshalb starten wir immer mit zwei Terminen:</p>
+            <ul class="inc">
+              <li><b>1. Termin:</b> Wir erstellen deinen Ernährungsplan inkl. Dosha-Analyse. Die Ausleitung beginnt, je nach dir mit Fasten + Einlauf oder nur mit Fasten.</li>
+              <li><b>2. Termin:</b> Dein langfristiger Plan: Wie du danach weiter isst, damit die Veränderung bleibt.</li>
+            </ul>
+            <p class="lead" style="margin-top:1rem;margin-bottom:0">Gerne begleite ich dich auch länger. Weitere Termine sind sinnvoll, damit wir sehen können, wie dein Körper reagiert, und alles bei Bedarf anpassen können.</p>
+            <div class="nutri-prep">
+              <h5>📝 Vorgespräch &amp; Ernährungsanalyse</h5>
+              <p>Vor jedem Start gibt es ein Vorgespräch mit Ernährungsanalyse. Dafür schreibst du <b>3 Tage lang alles auf, was du isst und trinkst</b>, wirklich jedes Lebensmittel. So sehen wir genau, wo du stehst.</p>
+            </div>
+          </div>
+          <div>
+            <div class="pricing-card featured nutri-calc" id="nutriCalc" style="height:100%">
+              <span class="pricing-badge">Ausleitung inklusive</span>
+              <span class="p-name">Ersttermin inkl. Dosha-Analyse</span>
+              <div class="price-val" data-n-price><sup>€</sup>79</div>
+              <p class="price-desc" data-n-desc>1. Termin</p>
+              <hr>
+              <ul>
+                <li>1. Termin: 79 €</li>
+                <li>2. Termin: 59 €</li>
+                <li>3. Termin: 59 € (optional)</li>
+                <li>Ab dem 4. Termin immer 5 % Rabatt: 56,05 €</li>
+                <li>Ayurveda-Dosha-Analyse &amp; individueller Ernährungsplan</li>
+                <li>Ausleitung inklusive</li>
+              </ul>
+              <div class="pkg-toggle">
+                <button class="pkg-pill" data-n="2">2×<span class="pkg-save">Start</span></button>
+                <button class="pkg-pill" data-n="3">3×</button>
+                <button class="pkg-pill" data-n="4">4×<span class="pkg-save">–5% ab 4.</span></button>
+                <button class="pkg-pill" data-n="6">6×</button>
+                <button class="pkg-pill" data-n="8">8er-Karte<span class="pkg-save">–10%</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nutri-foot">
+          <button class="btn-gold" data-modal="mMail" data-topic="ernaehrung">Ernährungsberatung anfragen ❤️</button>
+          <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Zusatzversicherung? Das ist möglich</span></button>
+        </div>
+      </div>
+ 
+      <div class="pricing-card featured" data-base-price="99">
+        <span class="pricing-badge">Von Grund auf</span>
+        <span class="p-name">Therapieweg Einzelstunde</span>
+        <div class="price-val" data-price-display><sup>€</sup>99</div>
+        <p class="price-desc" data-price-desc>pro Termin</p>
+        <hr>
+        <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li><li>Fundiert durch mein Therapeutenstudium</li></ul>
+        <div class="pkg-toggle">
+          <button class="pkg-pill active" data-qty="1">1×</button>
+          <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
+          <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
+          <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+        </div>
+      </div>
+ 
+      <!-- Lebensfreude-Programm (lang) -->
+      <div class="prog-card">
+        <div class="prog-top">
+          <div>
+            <span class="p-name">Lebensfreude-Programm · Therapieweg</span>
+            <div class="prog-price"><small>ab</small><sup>€</sup>800</div>
+            <p class="prog-sub">mindestens 8 Sitzungen · Preis wird individuell an dich angepasst</p>
+          </div>
+          <div>
+            <h4>Alle 6 Schritte, ganz auf dich abgestimmt</h4>
+            <p>Wir arbeiten so lange, bis du schmerz- oder beschwerdefrei bist oder eine maßgebliche Verbesserung erreicht ist. Deshalb sind mindestens 8 Sitzungen nötig und der Preis richtet sich nach deinem individuellen Weg.</p>
+            <ul>
+              <li>Ausleitung: Panchakarma oder Fasten</li>
+              <li>Alle drei Säulen kombiniert: Alltagsfreude, Bewegungsfreude, Geistesfreude</li>
+              <li>Umstellung deiner Ernährung</li>
+              <li>Veränderung deiner Alltagsgewohnheiten</li>
+              <li>Langfristige Re-Evaluation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="prog-goal">🌱 Das Ziel: Du kannst wieder alle Bewegungen frei ausführen und fühlst dich in deinem Körper zu Hause.</div>
+        <div class="prog-foot">
+          <button class="btn-gold" data-modal="mMail" data-topic="kennenlern">Kennenlerngespräch vereinbaren ❤️</button>
+          <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Abrechnung &amp; Zusatzversicherung</span></button>
+        </div>
       </div>
     </div>
-    <div class="pricing-card featured reveal" data-base-price="99">
-      <span class="pricing-badge">Von Grund auf</span>
-      <span class="p-name">Therapieweg Einzelstunde</span>
-      <div class="price-val" data-price-display><sup>€</sup>99</div>
-      <p class="price-desc" data-price-desc>pro Termin</p>
-      <hr>
-      <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li><li>Fundiert durch mein Therapeutenstudium</li></ul>
-      <div class="pkg-toggle">
-        <button class="pkg-pill active" data-qty="1">1×</button>
-        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
-        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
-        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
-      </div>
-    </div>
-    <div class="pricing-card reveal"><span class="p-name">Alltagsfreude Ernährung</span><div class="price-val"><sup>€</sup>59</div><p class="price-desc">Ersttermin inkl. Dosha-Analyse</p><hr><ul><li>Ayurveda-Dosha-Analyse</li><li>Individueller Ernährungsplan</li><li>Ausleitung inkl.</li></ul></div>
-    <div class="pricing-card reveal"><span class="p-name">Wochenbegleitung</span><div class="price-val"><sup>€</sup>35</div><p class="price-desc">pro Woche</p><hr><ul><li>Regelmäßiger Check-in</li><li>Fortschritts-Tracking</li><li>Motivation &amp; Support</li></ul></div>
-    <div class="pricing-card reveal" data-base-price="89">
-      <span class="p-name">EMS Training</span>
-      <div class="price-val" data-price-display><sup>€</sup>89</div>
-      <p class="price-desc" data-price-desc>Gerät inklusive</p>
-      <hr>
-      <ul><li>Breuer EMS-Gürtel inklusive</li><li>Intensiv &amp; zeitsparend</li><li>Professionelle Anleitung</li></ul>
-      <div class="pkg-toggle">
-        <button class="pkg-pill active" data-qty="1">1×</button>
-        <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
-        <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
-        <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
-      </div>
-    </div>
-    <div class="pricing-card reveal"><span class="p-name">Lebensfreude-Programm</span><div class="price-val" style="font-size:1.8rem;">Auf Anfrage</div><p class="price-desc">Alle 6 Schritte, personalisiert</p><hr><ul><li>Ausleitung: Panchakarma oder Fasten</li><li>Alle drei Säulen kombiniert</li><li>Langfristige Re-Evaluation</li></ul></div>
   </div>
 </section>
  
@@ -1096,7 +1302,10 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <h2 class="section-title">Fragen &amp; Antworten</h2>
   </div>
   <div class="faq-list reveal">
-    <div class="faq-item"><button class="faq-question">Woher weiß ich, welcher Weg zu mir passt?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Das klären wir im kostenlosen Erstgespräch. Manchmal reicht Fit-bleiben völlig aus, manchmal zeigt sich schnell, dass der Therapieweg sinnvoller ist, um wirklich von Grund auf anzusetzen.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Woher weiß ich, welcher Weg zu mir passt?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weg 1 (Sport &amp; Personal Training) ist für dich, wenn du gesund bist und aktiv werden oder bleiben möchtest. Weg 2 (Heilung &amp; Therapie) ist für dich, wenn du chronische Erkrankungen, Beschwerden oder Schmerzen hast. Im kostenlosen Erstgespräch klären wir gemeinsam, welcher Weg zu dir passt.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Kann ich meine Behandlung über die Zusatzversicherung abrechnen?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Leistungen aus Weg 2 (Heilung &amp; Therapie) können nach dem Gebührenverzeichnis für Heilpraktiker (GebüH) abgerechnet werden. Wenn du eine Zusatzversicherung hast, kann diese die Kosten ganz oder teilweise erstatten. Sport- und Personal Training (Weg 1) ist davon nicht betroffen. Bitte kläre den Umfang vorab mit deiner Versicherung.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Warum braucht die Ernährungsberatung mindestens 2 Termine?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil die Ausleitung fester Bestandteil der Beratung ist. Im 1. Termin erstellen wir deinen Ernährungsplan, und die Ausleitung beginnt mit Fasten und Einlauf oder nur mit Fasten. Im 2. Termin besprechen wir deinen langfristigen Plan, wie du danach weiter isst. Mehr Termine sind sinnvoll, damit wir sehen, wie dein Körper reagiert, und anpassen können. Vorab führst du 3 Tage lang ein Ernährungsprotokoll.</div></div></div>
+    <div class="faq-item"><button class="faq-question">Warum kostet das Lebensfreude-Programm ab 800 €?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Das Programm umfasst mindestens 8 Sitzungen. Wir arbeiten, bis du schmerz- oder beschwerdefrei bist oder eine maßgebliche Verbesserung erreicht ist. Dabei stellen wir deine Ernährung und deine Alltagsgewohnheiten um, mit dem Ziel, dass du wieder alle Bewegungen ausführen kannst. Der Preis wird deshalb individuell an dich angepasst.</div></div></div>
     <div class="faq-item"><button class="faq-question">Muss ich immer mit einer Reinigung starten?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Nur im Therapieweg. Panchakarma oder Buchinger Fasten sind das Fundament, damit wir wirklich von Grund auf ansetzen können — immer individuell auf deine Konstitution abgestimmt.</div></div></div>
     <div class="faq-item"><button class="faq-question">Warum keine Proteinshakes oder Diätprodukte?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Weil du sie nicht brauchst. Ein vollwertiger Ernährungsplan auf Basis echter Lebensmittel liefert alles, was dein Körper braucht — unsere eigenen Sonntagsfreude Protein-Chips sind ein gutes Beispiel dafür.</div></div></div>
     <div class="faq-item"><button class="faq-question">Was ist der Emotionscode?<span class="faq-icon"></span></button><div class="faq-answer"><div class="faq-answer-inner">Eine Methode, um eingeschlossene emotionale Blockaden aufzuspüren und sanft zu lösen. Teil der Säule Geistesfreude, ergänzt durch Mindset Coaching.</div></div></div>
@@ -1128,10 +1337,10 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <select name="anliegen" required>
         <option value="">Wähle dein Anliegen</option>
         <option>Kostenloses Beratungsgespräch</option>
-        <option>Personal Training (Fit bleiben)</option>
-        <option>Therapieweg — von Grund auf heilen</option>
-        <option>Alltagsfreude — Ernährungsberatung</option>
-        <option>EMS Training</option>
+        <option>Weg 1 · Personal Training / Sport</option>
+        <option>Weg 1 · EMS Training</option>
+        <option>Weg 2 · Heilung &amp; Therapie (Therapieweg)</option>
+        <option>Weg 2 · Alltagsfreude Ernährungsberatung</option>
         <option>Online Coaching</option>
       </select>
       <input type="text" name="termin" placeholder="Wunschtermin (Datum &amp; Uhrzeit)">
@@ -1175,33 +1384,115 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   </div>
 </section>
  
-<!-- NEWSLETTER POPUP -->
+<!-- ============ POPUP: NEWSLETTER (klein & ansprechend) ============ -->
 <div class="nl-popup-overlay" id="nlPopup">
-  <div class="nl-popup">
-    <div class="nl-popup-accent"></div>
-    <div class="nl-popup-deco"></div>
-    <button class="nl-popup-close" onclick="closePopup()" aria-label="Schließen">×</button>
-    <div class="nl-popup-body">
-      <img src="assets/bild5.jpg" alt="Mara mit einem ihrer Hühner" class="nl-popup-portrait">
-      <span class="nl-popup-eyebrow">Kostenlos &amp; wertvoll</span>
-      <h3>Bevor du<br>weiterstöberst —</h3>
-      <p class="nl-popup-desc">Hol dir echtes Wissen direkt ins Postfach: zuckerfreie Rezepte, Ayurveda-Tipps und Bewegungsimpulse, die wirklich etwas bewegen.</p>
-      <ul class="nl-popup-perks">
-        <li>🌿 Neue zuckerfreie Rezepte</li>
-        <li>💡 Tipps &amp; Tricks rund um Ernährung &amp; Sport</li>
-        <li>🦠 Darmgesundheit verständlich erklärt</li>
+  <div class="lf-modal nl-popup">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="lf-modal-banner">
+      <div class="lf-modal-ico"><img src="assets/bild5.jpg" alt="Mara mit einem ihrer Hühner"></div>
+    </div>
+    <div class="lf-modal-body">
+      <span class="lf-eyebrow">Kostenlos &amp; von Herzen</span>
+      <h3>Bleib mit mir in Verbindung 🌿</h3>
+      <p class="lf-desc">Echtes Wissen direkt in dein Postfach, ganz ohne Spam:</p>
+      <ul class="lf-list">
+        <li>Neue zuckerfreie Rezepte</li>
+        <li>Tipps &amp; Tricks rund um Ernährung &amp; Sport</li>
+        <li>Darmgesundheit verständlich erklärt</li>
+        <li>Neuigkeiten &amp; Angebote als Erste:r erfahren</li>
       </ul>
-      <form class="nl-popup-form" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handlePopupSubmit(event, this)">
+      <form action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handlePopupSubmit(event, this)">
         <input type="hidden" name="_subject" value="Newsletter Popup – Lebensfreude">
         <input type="hidden" name="type" value="newsletter-popup">
-        <input type="email" name="email" placeholder="deine@email.de" required>
-        <button type="submit" class="btn-gold" style="width:100%">Ja, ich möchte dabei sein →</button>
+        <input class="lf-input" type="email" name="email" placeholder="deine@email.de" required>
+        <button type="submit" class="btn-gold">Ja, ich möchte dabei sein ❤️</button>
       </form>
-      <div class="nl-popup-submitted" style="display:none">
-        <span style="font-size:2.5rem;">🌿</span>
-        <p>Danke! Schau auch in deinen Spam-Ordner.</p>
-      </div>
-      <button class="nl-popup-skip" onclick="closePopup()">Nein danke, ich schau mich nur um</button>
+      <div class="lf-form-ok" style="display:none"><span class="big">🌿</span><p>Danke, schön dass du dabei bist!<br>Schau auch in deinen Spam-Ordner.</p></div>
+      <button class="lf-skip" data-close>Vielleicht später</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- ============ POPUP: INSTAGRAM ============ -->
+<div class="lf-modal-overlay" id="mInsta">
+  <div class="lf-modal small">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="lf-modal-banner"><div class="lf-modal-ico">📸</div></div>
+    <div class="lf-modal-body">
+      <span class="lf-eyebrow">@mara.move</span>
+      <h3>Folge mir auf Instagram ❤️</h3>
+      <p class="lf-desc">Folge mir und bleib informiert über:</p>
+      <ul class="lf-list">
+        <li>Alltagstaugliche Ayurveda-Tipps</li>
+        <li>Rezepte &amp; Ernährungsimpulse</li>
+        <li>Kleine Workouts für zwischendurch</li>
+        <li>Neuigkeiten &amp; Einblicke in meinen Alltag</li>
+      </ul>
+      <a class="btn-gold" href="https://www.instagram.com/mara.move" target="_blank" rel="noopener" style="display:block">Zu Instagram folgen ❤️</a>
+    </div>
+  </div>
+</div>
+ 
+<!-- ============ POPUP: FACEBOOK ============ -->
+<div class="lf-modal-overlay" id="mFb">
+  <div class="lf-modal small">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="lf-modal-banner"><div class="lf-modal-ico">👍</div></div>
+    <div class="lf-modal-body">
+      <span class="lf-eyebrow">Facebook</span>
+      <h3>Schön, dass du da bist ❤️</h3>
+      <p class="lf-desc">Folge mir auf Facebook und bleib informiert über:</p>
+      <ul class="lf-list">
+        <li>Neue Angebote, Termine &amp; Veranstaltungen</li>
+        <li>Neuigkeiten aus der Lebensfreude-Welt</li>
+        <li>Wissenswertes zu Gesundheit &amp; Ernährung</li>
+        <li>Einblicke von Hof &amp; Hühnern</li>
+      </ul>
+      <a class="btn-gold" href="https://www.facebook.com/share/1Dco4Kyd8E/?mibextid=wwXIfr" target="_blank" rel="noopener" style="display:block">Zu Facebook folgen ❤️</a>
+    </div>
+  </div>
+</div>
+ 
+<!-- ============ POPUP: MAIL MIT AUSWAHL ============ -->
+<div class="lf-modal-overlay" id="mMail">
+  <div class="lf-modal">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="lf-modal-banner"><div class="lf-modal-ico">✉️</div></div>
+    <div class="lf-modal-body">
+      <span class="lf-eyebrow">Schreib mir</span>
+      <h3>Ich freue mich auf dich ❤️</h3>
+      <p class="lf-desc">Worum geht es dir?</p>
+      <form id="mailForm" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handleMailSubmit(event, this)">
+        <input type="hidden" name="_subject" value="Anfrage über Website – Lebensfreude">
+        <div class="mail-choices">
+          <div class="mail-choice"><input type="radio" name="thema" id="t1" value="Kennenlerngespräch" checked><label for="t1"><span class="e">🌸</span><span>Kennenlerngespräch<small>Kostenlos &amp; unverbindlich</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t2" value="Weg 2 · Ernährungsberatung / Heilung"><label for="t2"><span class="e">🥣</span><span>Ernährung &amp; Heilung<small>Weg 2 · Ernährungsberatung &amp; Therapie</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t3" value="Weg 1 · Sport / Personal Training"><label for="t3"><span class="e">💪</span><span>Sport &amp; Personal Training<small>Weg 1 · Training &amp; Bewegung</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t4" value="Newsletter abonnieren"><label for="t4"><span class="e">💌</span><span>Newsletter abonnieren<small>Rezepte, Tipps &amp; Neuigkeiten</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t5" value="Etwas anderes"><label for="t5"><span class="e">💬</span><span>Etwas anderes<small>Schreib mir einfach</small></span></label></div>
+        </div>
+        <input class="lf-input" type="text" name="name" placeholder="Dein Name" required>
+        <input class="lf-input" type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
+        <textarea class="lf-input" name="nachricht" placeholder="Deine Nachricht (optional)"></textarea>
+        <button type="submit" class="btn-gold">Abschicken 💌</button>
+        <p class="lf-note">Oder direkt per Mail: <a href="mailto:maratumpach@gmail.com" style="color:var(--forest-800);font-weight:700;">maratumpach@gmail.com</a></p>
+      </form>
+      <div class="lf-form-ok" style="display:none"><span class="big">❤️</span><p>Danke dir! Ich melde mich bald bei dir.</p></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ============ POPUP: INFO SPORT vs. THERAPIE / ABRECHNUNG ============ -->
+<div class="lf-modal-overlay info-pop" id="mInfo">
+  <div class="lf-modal">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="lf-modal-banner"><div class="lf-modal-ico">💡</div></div>
+    <div class="lf-modal-body">
+      <span class="lf-eyebrow" style="text-align:center">Gut zu wissen</span>
+      <h3>Sport &amp; Therapie sind klar getrennt</h3>
+      <div class="ib sport"><span class="em">💪</span><div><b>Weg 1 · Sport &amp; Personal Training</b>Training für alle, die fit und aktiv sein möchten. Das ist Sport, keine Therapie, und wird nicht über das Heilpraktiker-Gebührenverzeichnis abgerechnet.</div></div>
+      <div class="ib heal"><span class="em">🌿</span><div><b>Weg 2 · Heilung &amp; Therapie</b>Für Menschen mit chronischen Erkrankungen, Beschwerden oder Schmerzen. Dazu gehören auch die Ernährungsberatung und die Ausleitung.</div></div>
+      <p class="lf-desc" style="text-align:left;margin-top:1rem;margin-bottom:0">Manche Leistungen aus Weg 2 können nach dem <b>Gebührenverzeichnis für Heilpraktiker (GebüH)</b> abgerechnet werden. Wenn du eine <b>Zusatzversicherung</b> hast, kann diese die Kosten ganz oder teilweise erstatten. Bitte kläre den Umfang vorab mit deiner Versicherung.</p>
     </div>
   </div>
 </div>
@@ -1210,13 +1501,13 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="logo">Lebens<em>freude</em></span>
-      <p>Ganzheitliches Personal Training, Yoga, Ayurveda-Ernährung, EMS und der Therapieweg — nähe München und online. Für Menschen, die sich wirklich wohl fühlen wollen.</p>
+      <p>Sport &amp; Personal Training sowie Heilung mit Ayurveda-Ernährung, Ausleitung und Therapieweg — nähe München und online. Für Menschen, die sich wirklich wohl fühlen wollen.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
       <ul>
-        <li><a href="#fitness">Fit bleiben</a></li>
-        <li><a href="#therapieweg">Therapieweg</a></li>
+        <li><a href="#fitness">Sport &amp; Training</a></li>
+        <li><a href="#therapieweg">Heilung &amp; Therapie</a></li>
         <li><a href="#about">Über mich</a></li>
         <li><a href="#preise">Preise</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
@@ -1314,15 +1605,41 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
  
-function closePopup() {
-  document.getElementById('nlPopup').classList.remove('active');
-  sessionStorage.setItem('lf_popup_seen', '1');
+/* ── Popups / Modals ── */
+function openModal(id) {
+  document.querySelectorAll('.lf-modal-overlay.active, .nl-popup-overlay.active').forEach(o => o.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
 }
+function closeAllModals() {
+  document.querySelectorAll('.lf-modal-overlay.active, .nl-popup-overlay.active').forEach(o => o.classList.remove('active'));
+  try { sessionStorage.setItem('lf_popup_seen', '1'); } catch (e) {}
+}
+function closePopup() { closeAllModals(); }
+document.querySelectorAll('[data-modal]').forEach(btn => btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const topic = btn.dataset.topic;
+  if (topic) {
+    const map = { ernaehrung: 't2', kennenlern: 't1', sport: 't3', newsletter: 't4' };
+    const r = document.getElementById(map[topic]); if (r) r.checked = true;
+  }
+  openModal(btn.dataset.modal);
+}));
+document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeAllModals));
+document.querySelectorAll('.lf-modal-overlay, .nl-popup-overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) closeAllModals(); }));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllModals(); });
+ 
 function handlePopupSubmit(e, form) {
   e.preventDefault();
   form.style.display = 'none';
-  form.nextElementSibling.style.display = 'block';
-  sessionStorage.setItem('lf_popup_seen', '1');
+  form.parentElement.querySelector('.lf-form-ok').style.display = 'block';
+  try { sessionStorage.setItem('lf_popup_seen', '1'); } catch (err) {}
+  fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+}
+function handleMailSubmit(e, form) {
+  e.preventDefault();
+  form.style.display = 'none';
+  form.parentElement.querySelector('.lf-form-ok').style.display = 'block';
   fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
 }
 function handleNLSubmit(e, form) {
@@ -1331,12 +1648,36 @@ function handleNLSubmit(e, form) {
   document.querySelector('.nl-success').style.display = 'block';
   fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
 }
-if (!sessionStorage.getItem('lf_popup_seen')) {
-  setTimeout(() => document.getElementById('nlPopup').classList.add('active'), 4000);
-}
-document.getElementById('nlPopup').addEventListener('click', e => {
-  if (e.target === document.getElementById('nlPopup')) closePopup();
-});
+let seen = null;
+try { seen = sessionStorage.getItem('lf_popup_seen'); } catch (e) {}
+if (!seen) { setTimeout(() => { if (!document.querySelector('.lf-modal-overlay.active')) document.getElementById('nlPopup').classList.add('active'); }, 5000); }
+ 
+/* Ernährungsberatung: 79 / 59 / 59 / ab 4. Termin 56,05 (–5 %), 8er-Karte zusätzlich –10 % */
+(function () {
+  const card = document.getElementById('nutriCalc');
+  if (!card) return;
+  const priceEl = card.querySelector('[data-n-price]');
+  const descEl = card.querySelector('[data-n-desc]');
+  const eur = c => (c / 100).toFixed(2).replace('.', ',').replace(',00', '');
+  const termin = i => i === 1 ? 7900 : i <= 3 ? 5900 : 5605;
+  function render(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) sum += termin(i);
+    let total = sum, txt = n + ' Termine · ' + eur(Math.round(sum / n)) + ' €/Termin im Schnitt';
+    if (n === 8) {
+      total = Math.round(sum * 0.9);
+      txt = '8er-Karte (–10 % auf alle 8 Termine) · ' + eur(Math.round(total / 8)) + ' €/Termin im Schnitt';
+    }
+    priceEl.innerHTML = '<sup>\u20ac</sup>' + eur(total);
+    descEl.textContent = txt;
+  }
+  card.querySelectorAll('.pkg-pill').forEach(p => p.addEventListener('click', () => {
+    card.querySelectorAll('.pkg-pill').forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    render(parseInt(p.dataset.n, 10));
+  }));
+  card.querySelector('.pkg-pill[data-n="2"]').click();
+})();
  
 const PKG_DISCOUNTS = { 1: 0, 3: 5, 5: 8, 10: 10 };
 document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
@@ -1368,20 +1709,20 @@ document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
 });
 </script>
  
-<!-- FLOATING BUTTONS -->
+<!-- FLOATING BUTTONS (öffnen liebevolle Popups) -->
 <div class="float-contact" aria-label="Lebensfreude Kontakt & Social Media">
-  <a class="fc-btn fc-fb" href="https://www.facebook.com/share/1Dco4Kyd8E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+  <button class="fc-btn fc-fb" data-modal="mFb" aria-label="Facebook">
     <svg viewBox="0 0 24 24"><path class="f" d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V13h2.7v8h3.1z"/></svg>
     <span class="fc-label">Facebook</span>
-  </a>
-  <a class="fc-btn fc-ig" href="https://www.instagram.com/mara.move" target="_blank" rel="noopener" aria-label="Instagram @mara.move">
+  </button>
+  <button class="fc-btn fc-ig" data-modal="mInsta" aria-label="Instagram @mara.move">
     <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="f" cx="17.3" cy="6.7" r="1"/></svg>
     <span class="fc-label">Instagram</span>
-  </a>
-  <a class="fc-btn fc-mail" href="mailto:maratumpach@gmail.com" aria-label="E-Mail schreiben">
+  </button>
+  <button class="fc-btn fc-mail" data-modal="mMail" aria-label="E-Mail schreiben">
     <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
     <span class="fc-label">Schreib mir</span>
-  </a>
+  </button>
 </div>
 </body>
 </html>
