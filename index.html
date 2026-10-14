@@ -166,12 +166,15 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
  
 /* ── PATH 1: SPORT ── */
 .path1 { background: var(--cream); padding: 7rem 2rem; }
-.path1-intro { max-width: 640px; font-family: var(--sans); font-weight: 300; color: var(--ink-soft); font-size: 1rem; line-height: 1.85; margin-top: 1rem; }
-.path1-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px; max-width: 1180px; margin: 0 auto; background: rgba(33,31,24,0.07); }
+.path1-intro { max-width: 680px; font-family: var(--sans); font-weight: 300; color: var(--ink-soft); font-size: 1rem; line-height: 1.85; margin-top: 1rem; }
+.path1-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1180px; margin: 0 auto; background: rgba(33,31,24,0.07); }
 .svc-card { background: var(--white); padding: 2.8rem 2.2rem; transition: background 0.3s; }
 .svc-card:hover { background: var(--cream-deep); }
 .svc-icon { font-size: 1.7rem; margin-bottom: 1.1rem; display: block; }
-.svc-card h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--forest-900); margin-bottom: 0.6rem; }
+.svc-card h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; line-height: 1.3; color: var(--forest-900); margin-bottom: 0.7rem; }
+.path1 .section-header { max-width: 1180px; margin: 0 auto 3rem; }
+.path1 .section-header .section-title { max-width: 760px; }
+.path1-grid .svc-card { display: flex; flex-direction: column; }
 .svc-card p { font-family: var(--sans); font-size: 0.87rem; font-weight: 300; color: var(--ink-soft); line-height: 1.75; }
 .path1-note { max-width: 1180px; margin: 1.6rem auto 0; font-family: var(--sans); font-size: 0.82rem; font-weight: 300; color: var(--ink-soft); text-align: center; }
  
@@ -1772,7 +1775,7 @@ document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
 });
 </script>
  
-<!-- FLOATING BUTTONS (öffnen liebevolle Popups) -->
+<!-- FLOATING BUTTONS v3 (Hover-Text mit Unterzeile, nur Desktop)  (öffnen liebevolle Popups) -->
 <div class="float-contact" aria-label="Lebensfreude Kontakt & Social Media">
   <button class="fc-btn fc-fb" data-modal="mFb" aria-label="Facebook">
     <svg viewBox="0 0 24 24"><path class="f" d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V13h2.7v8h3.1z"/></svg>
