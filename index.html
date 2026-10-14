@@ -397,7 +397,7 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 .nutri-card .lead { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.2rem; }
 .nutri-card .must { display: inline-block; font-family: var(--sans); font-size: 0.75rem; font-weight: 700; color: var(--forest-900); background: rgba(194,139,71,0.18); padding: 6px 14px; border-radius: 30px; margin-bottom: 1.2rem; }
 .nutri-card ul.inc { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-family: var(--sans); font-size: 0.87rem; font-weight: 400; color: var(--ink-soft); }
-.nutri-card ul.inc li::before { content: '🌿'; margin-right: 0.6rem; font-size: 0.85rem; }
+.nutri-card ul.inc li::before { content: ''; margin-right: 0.6rem; font-size: 0.85rem; }
 .nutri-card ul.inc li b { color: var(--forest-900); }
 .nutri-calc .pkg-pill { min-width: 62px; }
 .nutri-prep { background: var(--cream); border-left: 3px solid var(--gold); padding: 1.4rem 1.5rem; border-radius: 2px; margin-top: 1.6rem; }
@@ -488,17 +488,15 @@ nav.scrolled { background: rgba(20,38,25,0.95); backdrop-filter: blur(14px); pad
 /* ── POPUPS (Newsletter, Social, Mail, Info) ── */
 .nl-popup-overlay, .lf-modal-overlay { position: fixed; inset: 0; background: rgba(14,26,17,0.7); z-index: 999; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.35s var(--ease); backdrop-filter: blur(5px); }
 .nl-popup-overlay.active, .lf-modal-overlay.active { opacity: 1; pointer-events: all; }
-.lf-modal { background: var(--cream); border-radius: 18px; max-width: 400px; width: 100%; max-height: 92vh; overflow-y: auto; position: relative; transform: translateY(20px) scale(0.97); transition: transform 0.4s var(--ease); box-shadow: 0 28px 70px rgba(0,0,0,0.4); }
+.lf-modal { border-top: 3px solid var(--gold); background: var(--cream); border-radius: 18px; max-width: 400px; width: 100%; max-height: 92vh; overflow-y: auto; position: relative; transform: translateY(20px) scale(0.97); transition: transform 0.4s var(--ease); box-shadow: 0 28px 70px rgba(0,0,0,0.4); }
 .lf-modal-overlay.active .lf-modal, .nl-popup-overlay.active .lf-modal { transform: none; }
 .lf-modal.small { max-width: 340px; }
 .lf-modal-close { position: absolute; top: 0.8rem; right: 0.8rem; width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,0.9); color: var(--forest-900); font-size: 1.1rem; cursor: pointer; z-index: 5; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); line-height: 1; }
 .lf-modal-close:hover { background: var(--gold); color: #fff; }
-.lf-modal-banner { height: 112px; background: linear-gradient(135deg, var(--forest-800), var(--forest-950)); position: relative; display: flex; align-items: flex-end; justify-content: center; }
-.lf-modal-banner img.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.lf-modal-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,40,26,0.05), rgba(22,40,26,0.55)); }
-.lf-modal-ico { position: relative; z-index: 2; width: 62px; height: 62px; border-radius: 50%; background: var(--cream); border: 3px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; margin-bottom: -31px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); overflow: hidden; }
+.lf-modal-banner { display: flex; justify-content: center; padding-top: 2rem; position: relative; }
+.lf-modal-ico { width: 64px; height: 64px; border-radius: 50%; background: var(--forest-900); color: #fff; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .lf-modal-ico img { width: 100%; height: 100%; object-fit: cover; }
-.lf-modal-body { padding: 2.4rem 1.8rem 1.8rem; text-align: center; }
+.lf-modal-body { padding: 1.2rem 1.8rem 1.8rem; text-align: center; }
 .lf-eyebrow { display: block; font-family: var(--sans); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-deep); margin-bottom: 0.4rem; }
 .lf-modal h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; color: var(--forest-900); line-height: 1.2; margin-bottom: 0.6rem; }
 .lf-modal .lf-desc { font-family: var(--sans); font-size: 0.86rem; font-weight: 300; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
@@ -518,10 +516,7 @@ textarea.lf-input { border-radius: 16px; resize: none; height: 78px; }
  
 /* Newsletter-Popup: klein & ansprechend */
 .nl-popup.lf-modal { max-width: 350px; }
-.nl-popup .lf-modal-banner { height: 84px; }
-.nl-popup .lf-modal-banner::after { display: none; }
-.nl-popup .lf-modal-ico { width: 92px; height: 92px; margin-bottom: -46px; }
-.nl-popup .lf-modal-body { padding-top: 3.4rem; }
+.nl-popup .lf-modal-ico { width: 96px; height: 96px; border-width: 3px; }
 .nl-popup .lf-list { max-width: 260px; }
  
 /* Mail-Auswahl */
@@ -536,14 +531,34 @@ textarea.lf-input { border-radius: 16px; resize: none; height: 78px; }
 .mail-choice input:focus-visible + label { outline: 2px solid var(--gold); }
  
 /* Info-Popup */
-.info-pop .lf-modal-body { text-align: left; padding: 2.2rem 1.8rem 1.8rem; }
+.info-pop .lf-modal-body { text-align: left; padding: 1.2rem 1.8rem 1.8rem; }
 .info-pop h3 { text-align: center; }
 .info-pop .ib { display: flex; gap: 0.8rem; padding: 0.9rem 1rem; border-radius: 12px; margin-bottom: 0.7rem; font-family: var(--sans); font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--ink-soft); }
 .info-pop .ib b { display: block; font-weight: 700; font-size: 0.84rem; color: var(--forest-900); margin-bottom: 0.15rem; }
-.info-pop .ib.sport { background: rgba(95,146,104,0.12); }
-.info-pop .ib.heal { background: rgba(194,139,71,0.15); }
+.info-pop .ib.sport { background: var(--white); border: 1px solid rgba(33,31,24,0.12); }
+.info-pop .ib.heal { background: var(--white); border: 1px solid rgba(194,139,71,0.6); }
 .info-pop .ib .em { font-size: 1.3rem; }
  
+
+/* Große Preis-Popups */
+.lf-modal.big { max-width: 820px; }
+.lf-modal.big .lf-modal-body { text-align: left; padding: 2.4rem 2.2rem 2rem; }
+.lf-modal.big h3 { font-size: 1.8rem; }
+.big-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: start; margin-top: 0.4rem; }
+.big-steps { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; margin: 1.3rem 0; }
+.big-steps li { display: grid; grid-template-columns: 38px 1fr; gap: 0.8rem; }
+.big-steps .n { font-family: var(--serif); font-style: italic; font-size: 1.8rem; color: var(--gold); line-height: 1; }
+.big-steps b { display: block; font-family: var(--sans); font-size: 0.93rem; font-weight: 700; color: var(--forest-900); margin-bottom: 0.2rem; }
+.big-steps span:not(.n) { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); line-height: 1.7; }
+.lf-modal.big .pricing-card:hover { transform: none; box-shadow: none; }
+.big-foot { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid rgba(33,31,24,0.1); }
+.lf-modal.big .big-foot .btn-gold { width: auto; padding: 0.9rem 2rem; }
+.pricing-card > .btn-gold { margin-top: auto; width: 100%; text-align: center; }
+.price-val .ab { font-family: var(--sans); font-size: 0.9rem; font-weight: 400; color: var(--ink-soft); margin-right: 0.4rem; }
+.nl-benefits li { padding-left: 1rem; position: relative; }
+.nl-benefits li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+@media (max-width: 768px) { .big-grid { grid-template-columns: 1fr; } .lf-modal.big .lf-modal-body { padding: 2rem 1.3rem 1.5rem; } }
+
 /* ── FOOTER ── */
 footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(248,243,232,0.55); }
 .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; padding-bottom: 2.6rem; border-bottom: 1px solid rgba(248,243,232,0.1); }
@@ -657,8 +672,8 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <h1>Fühle dich wohl<br>in deiner <em>Haut</em></h1>
     <p class="hero-sub">Kein Proteinpulver. Kein Kalorienzählen. Echte Lebensfreude, die von innen wächst. Du möchtest fit, stark und beweglich bleiben – oder leidest du an chronischen Beschwerden und Schmerzen und möchtest wieder gesund werden? Ich begleite dich auf beiden Wegen.</p>
     <div class="hero-ways">
-      <span class="hero-way">💪 Weg 1 · Sport &amp; Personal Training</span>
-      <span class="hero-way">🌿 Weg 2 · Heilung &amp; Therapie</span>
+      <span class="hero-way">Weg 1 · Sport &amp; Personal Training</span>
+      <span class="hero-way">Weg 2 · Heilung &amp; Therapie</span>
     </div>
     <div class="hero-cta">
       <a href="#fork" class="btn-primary">Finde deinen Weg</a>
@@ -735,12 +750,12 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <p class="path1-intro">Ganz normales, gutes Training: Sport und Personal Training für alle, die in Bewegung kommen oder bleiben wollen. Individuell, sicher und mit Freude.</p>
   </div>
   <div class="path1-grid reveal">
-    <div class="svc-card"><span class="svc-icon">🏋️‍♀️</span><h4>Personal Training</h4><p>Individuell abgestimmte Workouts — effektiv, sicher, mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.</p></div>
-    <div class="svc-card"><span class="svc-icon">🧘‍♀️</span><h4>Yoga</h4><p>Mentale Stärke und körperliche Balance. Ein Werkzeug für Ruhe, Klarheit und innere Mitte — lizenziert nach BTV.</p></div>
-    <div class="svc-card"><span class="svc-icon">⚡</span><h4>Funktionelles Training</h4><p>Kraft und Beweglichkeit, die im echten Leben zählen — für Alltag, Sport und Beruf.</p></div>
-    <div class="svc-card"><span class="svc-icon">🌳</span><h4>Training an der frischen Luft</h4><p>Bewegung draußen, in der Natur rund um Oberottmarshausen — Kopf frei, Körper wach.</p></div>
-    <div class="svc-card"><span class="svc-icon">⚡</span><h4>EMS Training</h4><p>Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Preis enthalten — du musst nichts kaufen.</p></div>
-    <div class="svc-card"><span class="svc-icon">💻</span><h4>Online Coaching</h4><p>Flexibel von überall. Training und Beratung digital — für Menschen mit vollem Terminkalender.</p></div>
+    <div class="svc-card"><h4>Personal Training</h4><p>Individuell abgestimmte Workouts — effektiv, sicher, mit persönlicher Begleitung. Kein Überfordern, kein Schmerz.</p></div>
+    <div class="svc-card"><h4>Yoga</h4><p>Mentale Stärke und körperliche Balance. Ein Werkzeug für Ruhe, Klarheit und innere Mitte — lizenziert nach BTV.</p></div>
+    <div class="svc-card"><h4>Funktionelles Training</h4><p>Kraft und Beweglichkeit, die im echten Leben zählen — für Alltag, Sport und Beruf.</p></div>
+    <div class="svc-card"><h4>Training an der frischen Luft</h4><p>Bewegung draußen, in der Natur rund um Oberottmarshausen — Kopf frei, Körper wach.</p></div>
+    <div class="svc-card"><h4>EMS Training</h4><p>Intensiv und zeitsparend mit dem Breuer EMS-Gürtel. Das Gerät ist im Preis enthalten — du musst nichts kaufen.</p></div>
+    <div class="svc-card"><h4>Online Coaching</h4><p>Flexibel von überall. Training und Beratung digital — für Menschen mit vollem Terminkalender.</p></div>
   </div>
   <p class="path1-note reveal">Du hast Beschwerden oder Schmerzen? Dann ist <a href="#therapieweg" style="color:var(--forest-800);font-weight:700;">Weg 2 · Heilung &amp; Therapie</a> der passende Weg für dich.</p>
 </section>
@@ -781,7 +796,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
  
         <div class="dosha-grid">
           <div class="dosha-card">
-            <span class="dosha-icon">💨</span>
             <h4>Vata — Luft &amp; Äther</h4>
             <p class="dosha-traits">Leicht, schnell, ideenreich. Bewegt sich oft flatterhaft und schnell ermüdend. Neigt zu Kälte, Trockenheit, innerer Unruhe.</p>
             <details class="expand">
@@ -790,7 +804,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
             </details>
           </div>
           <div class="dosha-card">
-            <span class="dosha-icon">🔥</span>
             <h4>Pitta — Feuer &amp; Wasser</h4>
             <p class="dosha-traits">Zielstrebig, ehrgeizig, kraftvoll in Bewegung. Neigt zu Hitze, Ungeduld und Überlastung durch zu viel Antrieb.</p>
             <details class="expand">
@@ -799,7 +812,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
             </details>
           </div>
           <div class="dosha-card">
-            <span class="dosha-icon">🌱</span>
             <h4>Kapha — Erde &amp; Wasser</h4>
             <p class="dosha-traits">Ruhig, stabil, ausdauernd. Bewegt sich eher gemächlich, braucht oft einen Anschub, hält dann aber lange durch.</p>
             <details class="expand">
@@ -861,22 +873,22 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   </div>
   <div class="anti-grid reveal">
     <div class="anti-card myth">
-      <span class="anti-card-label">❌ Der Mythos</span>
+      <span class="anti-card-label">Der Mythos</span>
       <h3>„Mehr Protein = mehr Muskeln"</h3>
       <p>Die Supplement-Industrie lebt vom Proteinpulver-Hype. In Wahrheit braucht ein gesunder Erwachsener keine künstlichen Protein-Shakes — vollwertige Lebensmittel reichen aus.</p>
     </div>
     <div class="anti-card truth">
-      <span class="anti-card-label">✓ Die Wahrheit</span>
+      <span class="anti-card-label">Die Wahrheit</span>
       <h3>Echte Lebensmittel bauen echte Kraft</h3>
       <p>Eier, Hülsenfrüchte, Nüsse, Fisch — die Natur hat alles. Auch unsere eigenen <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:underline;">Sonntagsfreude Protein-Chips</a> zeigen: 2–5 echte Zutaten reichen für 12g Protein — ganz ohne Pulver.</p>
     </div>
     <div class="anti-card myth">
-      <span class="anti-card-label">❌ Der Mythos</span>
+      <span class="anti-card-label">Der Mythos</span>
       <h3>„Kalorienzählen macht schlank"</h3>
       <p>Kalorienzählen ignoriert, dass jedes Nahrungsmittel völlig unterschiedliche Stoffwechselprozesse auslöst — Insulin, Hormone, Entzündungen. Eine Kalorie ist keine Kalorie.</p>
     </div>
     <div class="anti-card truth">
-      <span class="anti-card-label">✓ Die Wahrheit</span>
+      <span class="anti-card-label">Die Wahrheit</span>
       <h3>Dein Körper versteht Qualität</h3>
       <p>Statt Zahlen zähle ich Wirkungen. Was stärkt den Darm? Was beruhigt Entzündungen? Was gibt echte Energie? Das ist Alltagsfreude in der Praxis.</p>
     </div>
@@ -900,18 +912,18 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     <h3>Zucker im Vergleich — täglich aufgenommene Menge</h3>
     <p class="sub">Was dein Körper wirklich verarbeiten kann vs. was wir tatsächlich konsumieren</p>
     <div class="sugar-bar-item">
-      <div class="sugar-bar-label"><span>🍬 Durchschnitt Deutschland (Gesamt-Zucker/Tag)</span><span>74g</span></div>
+      <div class="sugar-bar-label"><span>Durchschnitt Deutschland (Gesamt-Zucker/Tag)</span><span>74g</span></div>
       <div class="sugar-bar-track"><div class="sugar-bar-fill fill-gold" data-width="92%"></div></div>
     </div>
     <div class="sugar-bar-item">
-      <div class="sugar-bar-label"><span>⚠️ WHO-Empfehlung (freier Zucker/Tag)</span><span>25g</span></div>
+      <div class="sugar-bar-label"><span>WHO-Empfehlung (freier Zucker/Tag)</span><span>25g</span></div>
       <div class="sugar-bar-track"><div class="sugar-bar-fill fill-mid" data-width="31%"></div></div>
     </div>
     <div class="sugar-bar-item">
-      <div class="sugar-bar-label"><span>✅ Lebensfreude-Ziel (natürlicher Zucker aus Lebensmitteln)</span><span>15–20g</span></div>
+      <div class="sugar-bar-label"><span>Lebensfreude-Ziel (natürlicher Zucker aus Lebensmitteln)</span><span>15–20g</span></div>
       <div class="sugar-bar-track"><div class="sugar-bar-fill fill-green" data-width="22%"></div></div>
     </div>
-    <div class="sugar-cross">🥚 Unsere <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Sonntagsfreude Protein-Chips</a> enthalten 0g zugesetzten Zucker — ein Alltagsfreude-Snack, der zur Praxis passt.</div>
+    <div class="sugar-cross">Unsere <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener">Sonntagsfreude Protein-Chips</a> enthalten 0g zugesetzten Zucker — ein Alltagsfreude-Snack, der zur Praxis passt.</div>
     <p style="font-size:0.75rem; color: rgba(33,31,24,0.45); margin-top: 1.2rem; margin-bottom: 0;">Quellen: DGE, WHO Zuckerrichtlinien 2023 · Freier Zucker = zugesetzter Zucker und Fruchtsäfte</p>
   </div>
 </section>
@@ -962,7 +974,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
       <a href="#kontakt" class="btn-primary">Kostenlos kennenlernen</a>
-      <a href="zertifikate.html" class="btn-gold">🎓 Meine Zertifikate &amp; Ausbildung →</a>
+      <a href="zertifikate.html" class="btn-gold">Meine Zertifikate &amp; Ausbildung →</a>
     </div>
   </div>
 </section>
@@ -975,7 +987,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   </div>
   <div class="eco-grid reveal">
     <div class="eco-card">
-      <span class="eco-icon">☕</span>
       <h4>Sonntagsfreude Hofladen</h4>
       <p>Der niedrigschwellige Einstieg in die Lebensfreude-Welt.</p>
       <details class="expand">
@@ -985,7 +996,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <a href="https://maratumpach.github.io/Ei-Weiss/index.html#hofladen" target="_blank" rel="noopener" class="eco-link">Zum Hofladen →</a>
     </div>
     <div class="eco-card">
-      <span class="eco-icon">🧘</span>
       <h4>Sonntagscafé &amp; Yoga</h4>
       <p>Bewegung und Genuss an einem Vormittag.</p>
       <details class="expand">
@@ -996,7 +1006,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <div class="eco-card">
       <img src="assets/bild1.jpg" alt="Gerettetes Huhn auf dem Sonntagsfreude Hof" class="eco-photo">
-      <h4>🐔 Hühnerpatenschaft</h4>
+      <h4>Hühnerpatenschaft</h4>
       <p>Auch Gutes tun gehört zur Geistesfreude.</p>
       <details class="expand">
         <summary><span class="more-label">Mehr erfahren</span><span class="less-label">Weniger</span></summary>
@@ -1005,7 +1015,6 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <a href="https://maratumpach.github.io/Ei-Weiss/index.html#paten" target="_blank" rel="noopener" class="eco-link">Patin werden →</a>
     </div>
     <div class="eco-card">
-      <span class="eco-icon">🌿</span>
       <h4>Ayurveda-NEM-Linie</h4>
       <p>Gezielt statt Blindkauf.</p>
       <details class="expand">
@@ -1071,11 +1080,11 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   </div>
   <div class="why-table reveal">
     <div class="why-table-header"><div>Herausforderung</div><div>Lösung mit Lebensfreude</div></div>
-    <div class="why-table-row"><div class="challenge">🛋️ Motivation fehlt, Termine werden verschoben</div><div class="solution">Personal Training mit festen, verbindlichen Terminen</div></div>
-    <div class="why-table-row"><div class="challenge">🍫 Zuckersucht und unkontrolliertes Verlangen</div><div class="solution">Ausleitung + ayurvedische Ernährungsumstellung (Alltagsfreude)</div></div>
-    <div class="why-table-row"><div class="challenge">❓ Unsicherheit bei Übungen und Technik</div><div class="solution">Persönliche Begleitung und Korrektur bei jedem Training</div></div>
-    <div class="why-table-row"><div class="challenge">📉 Keine sichtbaren Erfolge trotz Aufwand</div><div class="solution">Ganzheitliche Analyse + gezielte Arbeit an der Basis</div></div>
-    <div class="why-table-row"><div class="challenge">😔 Emotionale Blockaden, die sich körperlich zeigen</div><div class="solution">Emotionscode &amp; Mindset Coaching (Geistesfreude)</div></div>
+    <div class="why-table-row"><div class="challenge">Motivation fehlt, Termine werden verschoben</div><div class="solution">Personal Training mit festen, verbindlichen Terminen</div></div>
+    <div class="why-table-row"><div class="challenge">Zuckersucht und unkontrolliertes Verlangen</div><div class="solution">Ausleitung + ayurvedische Ernährungsumstellung (Alltagsfreude)</div></div>
+    <div class="why-table-row"><div class="challenge">Unsicherheit bei Übungen und Technik</div><div class="solution">Persönliche Begleitung und Korrektur bei jedem Training</div></div>
+    <div class="why-table-row"><div class="challenge">Keine sichtbaren Erfolge trotz Aufwand</div><div class="solution">Ganzheitliche Analyse + gezielte Arbeit an der Basis</div></div>
+    <div class="why-table-row"><div class="challenge">Emotionale Blockaden, die sich körperlich zeigen</div><div class="solution">Emotionscode &amp; Mindset Coaching (Geistesfreude)</div></div>
   </div>
 </section>
  
@@ -1189,69 +1198,27 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <div class="pricing-grid">
  
-      <!-- Ernährungsberatung (lang) -->
-      <div class="nutri-card">
-        <div class="nutri-top">
-          <div>
-            <span class="p-name">Alltagsfreude Ernährung · Therapie</span>
-            <h4>Ernährungsberatung mit Ausleitung</h4>
-            <p class="lead">Die Ernährungsberatung gehört zum Therapieweg, denn die Ausleitung ist fester Bestandteil. Deshalb starten wir immer mit zwei Terminen:</p>
-            <ul class="inc">
-              <li><b>1. Termin:</b> Wir erstellen deinen Ernährungsplan inkl. Dosha-Analyse. Die Ausleitung beginnt, je nach dir mit Fasten + Einlauf oder nur mit Fasten.</li>
-              <li><b>2. Termin:</b> Dein langfristiger Plan: Wie du danach weiter isst, damit die Veränderung bleibt.</li>
-            </ul>
-            <p class="lead" style="margin-top:1rem;margin-bottom:0">Gerne begleite ich dich auch länger. Weitere Termine sind sinnvoll, damit wir sehen können, wie dein Körper reagiert, und alles bei Bedarf anpassen können.</p>
-            <div class="nutri-prep">
-              <h5>📝 Vorgespräch &amp; Ernährungsanalyse</h5>
-              <p>Vor jedem Start gibt es ein Vorgespräch mit Ernährungsanalyse. Dafür schreibst du <b>3 Tage lang alles auf, was du isst und trinkst</b>, wirklich jedes Lebensmittel. So sehen wir genau, wo du stehst.</p>
-            </div>
-          </div>
-          <div>
-            <div class="pricing-card featured nutri-calc" id="nutriCalc" style="height:100%">
-              <span class="pricing-badge">Ausleitung inklusive</span>
-              <span class="p-name">Ersttermin inkl. Dosha-Analyse</span>
-              <div class="price-val" data-n-price><sup>€</sup>79</div>
-              <p class="price-desc" data-n-desc>1. Termin</p>
-              <hr>
-              <ul>
-                <li>1. Termin: 79 €</li>
-                <li>2. Termin: 59 €</li>
-                <li>3. Termin: 59 € (optional)</li>
-                <li>Ab dem 4. Termin immer 5 % Rabatt: 56,05 €</li>
-                <li>Ayurveda-Dosha-Analyse &amp; individueller Ernährungsplan</li>
-                <li>Ausleitung inklusive</li>
-              </ul>
-              <div class="pkg-toggle">
-                <button class="pkg-pill" data-n="2">2×<span class="pkg-save">Start</span></button>
-                <button class="pkg-pill" data-n="3">3×</button>
-                <button class="pkg-pill" data-n="4">4×<span class="pkg-save">–5% ab 4.</span></button>
-                <button class="pkg-pill" data-n="6">6×</button>
-                <button class="pkg-pill" data-n="8">8er-Karte<span class="pkg-save">–10%</span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="nutri-foot">
-          <button class="btn-gold" data-modal="mMail" data-topic="ernaehrung">Ernährungsberatung anfragen ❤️</button>
-          <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Zusatzversicherung? Das ist möglich</span></button>
-        </div>
+      <!-- Ernährungsberatung (Teaser, Details im Popup) -->
+      <div class="pricing-card">
+        <span class="p-name">Alltagsfreude Ernährung · Therapie</span>
+        <div class="price-val"><span class="ab">ab</span><sup>€</sup>79</div>
+        <p class="price-desc">Ersttermin inkl. Dosha-Analyse</p>
+        <hr>
+        <ul><li>Individueller Ernährungsplan</li><li>Ausleitung inklusive</li><li>Wir starten immer mit 2 Terminen</li></ul>
+        <button class="btn-gold" data-modal="mNutri">Details &amp; Preise</button>
       </div>
- 
-      <div class="pricing-card featured" data-base-price="99">
+
+      <!-- Therapieweg Einzelstunde (Teaser, Details im Popup) -->
+      <div class="pricing-card featured">
         <span class="pricing-badge">Von Grund auf</span>
         <span class="p-name">Therapieweg Einzelstunde</span>
-        <div class="price-val" data-price-display><sup>€</sup>99</div>
-        <p class="price-desc" data-price-desc>pro Termin</p>
+        <div class="price-val"><sup>€</sup>99</div>
+        <p class="price-desc">pro Termin</p>
         <hr>
-        <ul><li>Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li><li>Fundiert durch mein Therapeutenstudium</li></ul>
-        <div class="pkg-toggle">
-          <button class="pkg-pill active" data-qty="1">1×</button>
-          <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
-          <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
-          <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
-        </div>
+        <ul><li>Analyse der 8 Grundbewegungen</li><li>Körpertherapie: Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li></ul>
+        <button class="btn-gold" data-modal="mTher">Details &amp; Preise</button>
       </div>
- 
+
       <!-- Lebensfreude-Programm (lang) -->
       <div class="prog-card">
         <div class="prog-top">
@@ -1272,7 +1239,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
             </ul>
           </div>
         </div>
-        <div class="prog-goal">🌱 Das Ziel: Du kannst wieder alle Bewegungen frei ausführen und fühlst dich in deinem Körper zu Hause.</div>
+        <div class="prog-goal">Das Ziel: Du kannst wieder alle Bewegungen frei ausführen und fühlst dich in deinem Körper zu Hause.</div>
         <div class="prog-foot">
           <button class="btn-gold" data-modal="mMail" data-topic="kennenlern">Kennenlerngespräch vereinbaren ❤️</button>
           <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Abrechnung &amp; Zusatzversicherung</span></button>
@@ -1359,9 +1326,9 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <h2>Rezepte, Tipps &amp; echtes Wissen — kostenlos.</h2>
       <p>Kurz &amp; herzlich, was mich gerade bewegt — Rezepte, Ayurveda-Tipps und ehrliche Einblicke direkt ins Postfach.</p>
       <ul class="nl-benefits">
-        <li>🌿 Neue zuckerfreie Rezepte</li>
-        <li>🦠 Darmgesundheit verständlich erklärt</li>
-        <li>🐔 Neuigkeiten von Hof &amp; Hühnern</li>
+        <li>Neue zuckerfreie Rezepte</li>
+        <li>Darmgesundheit verständlich erklärt</li>
+        <li>Neuigkeiten von Hof &amp; Hühnern</li>
       </ul>
     </div>
     <div class="newsletter-right reveal">
@@ -1376,7 +1343,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
         <p class="nl-fine">Kein Spam. Jederzeit abmeldbar. Deine Daten bleiben bei mir.</p>
       </form>
       <div class="nl-success" style="display:none">
-        <div style="font-size:2.5rem;">🌿</div>
+        <div style="font-size:2.5rem;">❤️</div>
         <h3>Willkommen an Bord!</h3>
         <p style="font-family:var(--sans); font-size:0.85rem; color:var(--ink-soft);">Schön, dass du dabei bist. Deine erste Mail kommt bald.</p>
       </div>
@@ -1393,7 +1360,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
     </div>
     <div class="lf-modal-body">
       <span class="lf-eyebrow">Kostenlos &amp; von Herzen</span>
-      <h3>Bleib mit mir in Verbindung 🌿</h3>
+      <h3>Bleib mit mir in Verbindung </h3>
       <p class="lf-desc">Echtes Wissen direkt in dein Postfach, ganz ohne Spam:</p>
       <ul class="lf-list">
         <li>Neue zuckerfreie Rezepte</li>
@@ -1407,7 +1374,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
         <input class="lf-input" type="email" name="email" placeholder="deine@email.de" required>
         <button type="submit" class="btn-gold">Ja, ich möchte dabei sein ❤️</button>
       </form>
-      <div class="lf-form-ok" style="display:none"><span class="big">🌿</span><p>Danke, schön dass du dabei bist!<br>Schau auch in deinen Spam-Ordner.</p></div>
+      <div class="lf-form-ok" style="display:none"><span class="big">❤️</span><p>Danke, schön dass du dabei bist!<br>Schau auch in deinen Spam-Ordner.</p></div>
       <button class="lf-skip" data-close>Vielleicht später</button>
     </div>
   </div>
@@ -1417,7 +1384,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <div class="lf-modal-overlay" id="mInsta">
   <div class="lf-modal small">
     <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
-    <div class="lf-modal-banner"><div class="lf-modal-ico">📸</div></div>
+    <div class="lf-modal-banner"><div class="lf-modal-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.8" fill="currentColor"/></svg></div></div>
     <div class="lf-modal-body">
       <span class="lf-eyebrow">@mara.move</span>
       <h3>Folge mir auf Instagram ❤️</h3>
@@ -1437,7 +1404,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <div class="lf-modal-overlay" id="mFb">
   <div class="lf-modal small">
     <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
-    <div class="lf-modal-banner"><div class="lf-modal-ico">👍</div></div>
+    <div class="lf-modal-banner"><div class="lf-modal-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></div></div>
     <div class="lf-modal-body">
       <span class="lf-eyebrow">Facebook</span>
       <h3>Schön, dass du da bist ❤️</h3>
@@ -1457,7 +1424,7 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <div class="lf-modal-overlay" id="mMail">
   <div class="lf-modal">
     <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
-    <div class="lf-modal-banner"><div class="lf-modal-ico">✉️</div></div>
+    <div class="lf-modal-banner"><div class="lf-modal-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></div></div>
     <div class="lf-modal-body">
       <span class="lf-eyebrow">Schreib mir</span>
       <h3>Ich freue mich auf dich ❤️</h3>
@@ -1465,16 +1432,16 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       <form id="mailForm" action="https://formspree.io/f/xnjldvwe" method="POST" onsubmit="handleMailSubmit(event, this)">
         <input type="hidden" name="_subject" value="Anfrage über Website – Lebensfreude">
         <div class="mail-choices">
-          <div class="mail-choice"><input type="radio" name="thema" id="t1" value="Kennenlerngespräch" checked><label for="t1"><span class="e">🌸</span><span>Kennenlerngespräch<small>Kostenlos &amp; unverbindlich</small></span></label></div>
-          <div class="mail-choice"><input type="radio" name="thema" id="t2" value="Weg 2 · Ernährungsberatung / Heilung"><label for="t2"><span class="e">🥣</span><span>Ernährung &amp; Heilung<small>Weg 2 · Ernährungsberatung &amp; Therapie</small></span></label></div>
-          <div class="mail-choice"><input type="radio" name="thema" id="t3" value="Weg 1 · Sport / Personal Training"><label for="t3"><span class="e">💪</span><span>Sport &amp; Personal Training<small>Weg 1 · Training &amp; Bewegung</small></span></label></div>
-          <div class="mail-choice"><input type="radio" name="thema" id="t4" value="Newsletter abonnieren"><label for="t4"><span class="e">💌</span><span>Newsletter abonnieren<small>Rezepte, Tipps &amp; Neuigkeiten</small></span></label></div>
-          <div class="mail-choice"><input type="radio" name="thema" id="t5" value="Etwas anderes"><label for="t5"><span class="e">💬</span><span>Etwas anderes<small>Schreib mir einfach</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t1" value="Kennenlerngespräch" checked><label for="t1"><span>Kennenlerngespräch<small>Kostenlos &amp; unverbindlich</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t2" value="Weg 2 · Ernährungsberatung / Heilung"><label for="t2"><span>Ernährung &amp; Heilung<small>Weg 2 · Ernährungsberatung &amp; Therapie</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t3" value="Weg 1 · Sport / Personal Training"><label for="t3"><span>Sport &amp; Personal Training<small>Weg 1 · Training &amp; Bewegung</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t4" value="Newsletter abonnieren"><label for="t4"><span>Newsletter abonnieren<small>Rezepte, Tipps &amp; Neuigkeiten</small></span></label></div>
+          <div class="mail-choice"><input type="radio" name="thema" id="t5" value="Etwas anderes"><label for="t5"><span>Etwas anderes<small>Schreib mir einfach</small></span></label></div>
         </div>
         <input class="lf-input" type="text" name="name" placeholder="Dein Name" required>
         <input class="lf-input" type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
         <textarea class="lf-input" name="nachricht" placeholder="Deine Nachricht (optional)"></textarea>
-        <button type="submit" class="btn-gold">Abschicken 💌</button>
+        <button type="submit" class="btn-gold">Abschicken </button>
         <p class="lf-note">Oder direkt per Mail: <a href="mailto:maratumpach@gmail.com" style="color:var(--forest-800);font-weight:700;">maratumpach@gmail.com</a></p>
       </form>
       <div class="lf-form-ok" style="display:none"><span class="big">❤️</span><p>Danke dir! Ich melde mich bald bei dir.</p></div>
@@ -1486,17 +1453,111 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
 <div class="lf-modal-overlay info-pop" id="mInfo">
   <div class="lf-modal">
     <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
-    <div class="lf-modal-banner"><div class="lf-modal-ico">💡</div></div>
+    <div class="lf-modal-banner"><div class="lf-modal-ico"><span style="font-family:var(--serif);font-style:italic;font-size:1.7rem;font-weight:600">i</span></div></div>
     <div class="lf-modal-body">
       <span class="lf-eyebrow" style="text-align:center">Gut zu wissen</span>
       <h3>Sport &amp; Therapie sind klar getrennt</h3>
-      <div class="ib sport"><span class="em">💪</span><div><b>Weg 1 · Sport &amp; Personal Training</b>Training für alle, die fit und aktiv sein möchten. Das ist Sport, keine Therapie, und wird nicht über das Heilpraktiker-Gebührenverzeichnis abgerechnet.</div></div>
-      <div class="ib heal"><span class="em">🌿</span><div><b>Weg 2 · Heilung &amp; Therapie</b>Für Menschen mit chronischen Erkrankungen, Beschwerden oder Schmerzen. Dazu gehören auch die Ernährungsberatung und die Ausleitung.</div></div>
+      <div class="ib sport"><div><b>Weg 1 · Sport &amp; Personal Training</b>Training für alle, die fit und aktiv sein möchten. Das ist Sport, keine Therapie, und wird nicht über das Heilpraktiker-Gebührenverzeichnis abgerechnet.</div></div>
+      <div class="ib heal"><div><b>Weg 2 · Heilung &amp; Therapie</b>Für Menschen mit chronischen Erkrankungen, Beschwerden oder Schmerzen. Dazu gehören auch die Ernährungsberatung und die Ausleitung.</div></div>
       <p class="lf-desc" style="text-align:left;margin-top:1rem;margin-bottom:0">Manche Leistungen aus Weg 2 können nach dem <b>Gebührenverzeichnis für Heilpraktiker (GebüH)</b> abgerechnet werden. Wenn du eine <b>Zusatzversicherung</b> hast, kann diese die Kosten ganz oder teilweise erstatten. Bitte kläre den Umfang vorab mit deiner Versicherung.</p>
     </div>
   </div>
 </div>
  
+
+<!-- ============ POPUP: PREISE ERNÄHRUNG (groß) ============ -->
+<div class="lf-modal-overlay" id="mNutri">
+  <div class="lf-modal big">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="lf-modal-body">
+      <span class="lf-eyebrow">Weg 2 · Heilung &amp; Therapie</span>
+      <h3>Alltagsfreude Ernährung</h3>
+      <p class="lf-desc">Die Ernährungsberatung gehört zur Therapie, denn die Ausleitung ist fester Bestandteil. Deshalb starten wir immer mit zwei Terminen.</p>
+      <div class="big-grid">
+        <div>
+          <div class="nutri-prep" style="margin-top:0">
+            <h5>Vorgespräch &amp; Ernährungsanalyse</h5>
+            <p>Vor dem ersten Termin schreibst du <b>3 Tage lang alles auf, was du isst und trinkst</b>, wirklich jedes Lebensmittel. So sehen wir genau, wo du stehst.</p>
+          </div>
+          <ul class="big-steps">
+            <li><span class="n">1</span><div><b>Dein Ernährungsplan &amp; der Start der Ausleitung</b><span>Wir führen deine Ayurveda-Dosha-Analyse durch und erstellen deinen individuellen Ernährungsplan. Je nach deiner Konstitution leiten wir durch Fasten in Kombination mit Einläufen aus oder allein durch Fasten.</span></div></li>
+            <li><span class="n">2</span><div><b>Dein langfristiger Plan</b><span>Wir besprechen, wie du danach weiter isst, damit die Veränderung bleibt.</span></div></li>
+            <li><span class="n">3</span><div><b>Weitere Termine</b><span>Gerne begleite ich dich länger. So sehen wir, wie dein Körper reagiert, und ich kann deinen Plan bei Bedarf anpassen.</span></div></li>
+          </ul>
+        </div>
+        <div>
+          <div class="pricing-card featured nutri-calc" id="nutriCalc">
+            <span class="p-name">Deine Termine</span>
+            <div class="price-val" data-n-price><sup>€</sup>138</div>
+            <p class="price-desc" data-n-desc>2 Termine</p>
+            <hr>
+            <ul>
+              <li>1. Termin inkl. Dosha-Analyse: 79 €</li>
+              <li>2. Termin: 59 €</li>
+              <li>3. Termin (optional): 59 €</li>
+              <li>Ab dem 4. Termin immer 5 % Rabatt: 56,05 €</li>
+              <li>8er-Karte: zusätzlich 10 % auf den Gesamtpreis</li>
+              <li>Ausleitung inklusive</li>
+            </ul>
+            <div class="pkg-toggle">
+              <button class="pkg-pill" data-n="2">2×</button>
+              <button class="pkg-pill" data-n="3">3×</button>
+              <button class="pkg-pill" data-n="4">4×<span class="pkg-save">–5% ab 4.</span></button>
+              <button class="pkg-pill" data-n="6">6×</button>
+              <button class="pkg-pill" data-n="8">8er-Karte<span class="pkg-save">–10%</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="big-foot">
+        <button class="btn-gold" data-modal="mMail" data-topic="ernaehrung">Ernährungsberatung anfragen ❤️</button>
+        <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Zusatzversicherung &amp; Abrechnung</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ POPUP: PREISE THERAPIEWEG EINZELSTUNDE (groß) ============ -->
+<div class="lf-modal-overlay" id="mTher">
+  <div class="lf-modal big">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="lf-modal-body">
+      <span class="lf-eyebrow">Weg 2 · Heilung &amp; Therapie</span>
+      <h3>Therapieweg Einzelstunde</h3>
+      <p class="lf-desc">Eine therapeutische Einzelstunde, die genau dort ansetzt, wo dein Körper es braucht.</p>
+      <div class="big-grid">
+        <div>
+          <ul class="big-steps">
+            <li><span class="n">1</span><div><b>Analyse der 8 Grundbewegungen</b><span>Squat, Hinge, Lunge, Rotation, Zug, Druck, Gehen und Balance. Daran erkenne ich, wie du dich bewegst, wo dein Körper kompensiert und wo deine Beschwerden ihren Ursprung haben.</span></div></li>
+            <li><span class="n">2</span><div><b>Körpertherapie</b><span>Darauf aufbauend arbeiten wir mit Biomechanik und Faszien-Arbeit. Das Ziel: Du kannst wieder alle Bewegungen frei und ohne Schmerzen ausführen.</span></div></li>
+            <li><span class="n">3</span><div><b>Emotionscode nach Bedarf</b><span>Zeigen sich Blockaden auch auf emotionaler Ebene, lösen wir sie sanft mit dem Emotionscode.</span></div></li>
+          </ul>
+          <p class="lf-desc" style="text-align:left;margin-bottom:0">Fundiert durch mein Therapeutenstudium in Sporttherapie. Das ist Therapie, kein Sporttraining.</p>
+        </div>
+        <div>
+          <div class="pricing-card featured" data-base-price="99">
+            <span class="p-name">Therapieweg Einzelstunde</span>
+            <div class="price-val" data-price-display><sup>€</sup>99</div>
+            <p class="price-desc" data-price-desc>pro Termin</p>
+            <hr>
+            <ul><li>Analyse der 8 Grundbewegungen</li><li>Biomechanik &amp; Faszien-Arbeit</li><li>Emotionscode nach Bedarf</li></ul>
+            <div class="pkg-toggle">
+              <button class="pkg-pill active" data-qty="1">1×</button>
+              <button class="pkg-pill" data-qty="3">3×<span class="pkg-save">–5%</span></button>
+              <button class="pkg-pill" data-qty="5">5×<span class="pkg-save">–8%</span></button>
+              <button class="pkg-pill" data-qty="10">10×<span class="pkg-save">–10%</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="big-foot">
+        <button class="btn-gold" data-modal="mMail" data-topic="kennenlern">Termin anfragen ❤️</button>
+        <button class="info-btn" data-modal="mInfo"><span class="i">i</span><span class="t">Zusatzversicherung &amp; Abrechnung</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -1535,8 +1596,8 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
       </ul>
       <h4 style="margin-top:1.5rem;">Social Media</h4>
       <ul>
-        <li><a href="https://www.instagram.com/mara.move" target="_blank" rel="noopener">📷 Instagram – @mara.move</a></li>
-        <li><a href="https://www.youtube.com/@Mara_Move" target="_blank" rel="noopener">▶ YouTube – @Mara_Move</a></li>
+        <li><a href="https://www.instagram.com/mara.move" target="_blank" rel="noopener">Instagram – @mara.move</a></li>
+        <li><a href="https://www.youtube.com/@Mara_Move" target="_blank" rel="noopener">YouTube – @Mara_Move</a></li>
       </ul>
     </div>
   </div>
@@ -1678,7 +1739,7 @@ if (!seen) { setTimeout(() => { if (!document.querySelector('.lf-modal-overlay.a
   }));
   card.querySelector('.pkg-pill[data-n="2"]').click();
 })();
- 
+
 const PKG_DISCOUNTS = { 1: 0, 3: 5, 5: 8, 10: 10 };
 document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
   const base = parseFloat(card.dataset.basePrice);
