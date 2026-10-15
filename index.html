@@ -562,6 +562,23 @@ textarea.lf-input { border-radius: 16px; resize: none; height: 78px; }
 .nl-benefits li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
 @media (max-width: 768px) { .big-grid { grid-template-columns: 1fr; } .lf-modal.big .lf-modal-body { padding: 2rem 1.3rem 1.5rem; } }
 
+
+/* Kursbewertungen */
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; max-width: 1100px; margin: 0 auto; align-items: start; }
+.review-card { position: relative; display: block; width: 100%; padding: 0; border: 1px solid rgba(33,31,24,0.1); background: var(--white); border-radius: 4px; cursor: zoom-in; overflow: hidden; box-shadow: 0 10px 30px rgba(20,38,25,0.08); transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease); min-height: 220px; }
+.review-card:hover, .review-card:focus-visible { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(20,38,25,0.16); outline: none; }
+.review-card canvas { display: block; width: 100%; height: auto; }
+.review-zoom { position: absolute; right: 0.8rem; bottom: 0.8rem; background: var(--forest-900); color: #fff; font-family: var(--sans); font-size: 0.72rem; font-weight: 700; padding: 6px 14px; border-radius: 20px; opacity: 0; transform: translateY(4px); transition: opacity 0.25s, transform 0.25s; }
+.review-card:hover .review-zoom, .review-card:focus-visible .review-zoom { opacity: 1; transform: none; }
+@media (hover: none) { .review-zoom { opacity: 1; transform: none; } }
+.review-hint { text-align: center; font-family: var(--sans); font-size: 0.8rem; font-weight: 300; color: var(--ink-soft); margin-top: 1.6rem; }
+.lf-modal.review-modal { max-width: 860px; padding: 0; }
+.review-pages { padding: 2.6rem 1.2rem 0.5rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+.review-pages canvas { width: 100%; height: auto; background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); }
+.review-pages .rv-load { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); padding: 3rem 0; }
+.review-open { display: block; text-align: center; padding: 0.8rem 1rem 1.4rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 700; color: var(--forest-800); }
+@media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; max-width: 420px; } }
+
 /* ── FOOTER ── */
 footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(248,243,232,0.55); }
 .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; padding-bottom: 2.6rem; border-bottom: 1px solid rgba(248,243,232,0.1); }
@@ -1254,19 +1271,29 @@ footer { background: var(--forest-950); padding: 4rem 2rem 2.4rem; color: rgba(2
   </div>
 </section>
  
-<!-- TESTIMONIALS -->
-<section class="testimonials">
+<!-- TESTIMONIALS (Kursbewertungen als PDF) -->
+<section class="testimonials" id="stimmen">
   <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
     <span class="section-label">Stimmen</span>
-    <h2 class="section-title">Was Frauen sagen</h2>
+    <h2 class="section-title">Was meine Kunden sagen</h2>
   </div>
-  <div class="testimonials-grid reveal">
-    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Ich passe seit Jahren wieder in mein altes Lieblingskleid. Mara hat mein Leben verändert."</p></div>
-    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Meine Food Noise ist endlich still. Ich esse bewusst und genieße es wirklich — ganz ohne Diät."</p></div>
-    <div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>„Ich fühle mich stark, schön und wohl — in meinem Körper und in meinem Leben."</p></div>
+  <div class="review-grid reveal">
+    <button class="review-card" data-pdf="assets/Urlaubsheld%20Kursbewertung.pdf" aria-label="Kursbewertung 1 in Großansicht öffnen"><canvas></canvas><span class="review-zoom">Vergrößern</span></button>
+    <button class="review-card" data-pdf="assets/Urlaubsheld%20Kursbewertung1.pdf" aria-label="Kursbewertung 2 in Großansicht öffnen"><canvas></canvas><span class="review-zoom">Vergrößern</span></button>
+    <button class="review-card" data-pdf="assets/Urlaubsheld%20Kursbewertung2.pdf" aria-label="Kursbewertung 3 in Großansicht öffnen"><canvas></canvas><span class="review-zoom">Vergrößern</span></button>
   </div>
+  <p class="review-hint reveal">Klicke auf eine Bewertung, um sie in Großansicht zu lesen.</p>
 </section>
- 
+
+<!-- GROSSANSICHT KURSBEWERTUNG -->
+<div class="lf-modal-overlay" id="mReview">
+  <div class="lf-modal review-modal">
+    <button class="lf-modal-close" data-close aria-label="Schließen">×</button>
+    <div class="review-pages" id="reviewPages"></div>
+    <a class="review-open" id="reviewOpen" href="#" target="_blank" rel="noopener">Als PDF öffnen</a>
+  </div>
+</div>
+
 <!-- FAQ -->
 <section class="faq">
   <div class="section-header center reveal" style="margin-left:auto;margin-right:auto;">
@@ -1773,6 +1800,67 @@ document.querySelectorAll('.pricing-card[data-base-price]').forEach(card => {
     });
   });
 });
+
+/* ── Kursbewertungen (PDF) als Vorschau + Großansicht ── */
+(function () {
+  const cards = document.querySelectorAll('.review-card[data-pdf]');
+  if (!cards.length) return;
+  const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+  const WORKER = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  let ready = null;
+  function load() {
+    if (ready) return ready;
+    ready = new Promise((res, rej) => {
+      if (window.pdfjsLib) return res(window.pdfjsLib);
+      const sc = document.createElement('script');
+      sc.src = PDFJS;
+      sc.onload = () => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = WORKER; res(window.pdfjsLib); };
+      sc.onerror = rej;
+      document.head.appendChild(sc);
+    });
+    return ready;
+  }
+  async function draw(pdf, n, canvas, width) {
+    const page = await pdf.getPage(n);
+    const base = page.getViewport({ scale: 1 });
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const vp = page.getViewport({ scale: (width / base.width) * dpr });
+    canvas.width = vp.width; canvas.height = vp.height;
+    await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+  }
+  const docs = {};
+  function getDoc(url) { return docs[url] || (docs[url] = load().then(l => l.getDocument(url).promise)); }
+
+  cards.forEach(card => {
+    const url = card.dataset.pdf;
+    // Vorschau (erste Seite) laden, sobald der Bereich sichtbar wird
+    const io = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return;
+      io.disconnect();
+      getDoc(url).then(pdf => draw(pdf, 1, card.querySelector('canvas'), 700))
+        .catch(() => { card.querySelector('canvas').replaceWith(Object.assign(document.createElement('span'), { textContent: 'Bewertung ansehen', style: 'display:block;padding:4rem 1rem;font-family:var(--sans);color:var(--forest-800);font-weight:700' })); });
+    }, { rootMargin: '300px' });
+    io.observe(card);
+
+    card.addEventListener('click', async () => {
+      const box = document.getElementById('reviewPages');
+      document.getElementById('reviewOpen').href = url;
+      box.innerHTML = '<div class="rv-load">Wird geladen …</div>';
+      openModal('mReview');
+      try {
+        const pdf = await getDoc(url);
+        box.innerHTML = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const c = document.createElement('canvas');
+          box.appendChild(c);
+          await draw(pdf, i, c, 1100);
+        }
+      } catch (e) {
+        box.innerHTML = '<div class="rv-load">Die Vorschau konnte nicht geladen werden. Bitte nutze „Als PDF öffnen“.</div>';
+      }
+    });
+  });
+})();
 </script>
  
 <!-- FLOATING BUTTONS v3 (Hover-Text mit Unterzeile, nur Desktop)  (öffnen liebevolle Popups) -->
